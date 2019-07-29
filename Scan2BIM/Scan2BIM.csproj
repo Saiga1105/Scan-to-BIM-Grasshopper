@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E18FEF53-BC2E-4AAD-B7DE-32AA43447807}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Scan2BIM</RootNamespace>
+    <AssemblyName>Scan2BIM</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Classification, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Classification\Matlab library\Classification\for_testing\Classification.dll</HintPath>
+    </Reference>
+    <Reference Include="ClassificationNative, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Classification\Matlab library\Classification\for_testing\ClassificationNative.dll</HintPath>
+    </Reference>
+    <Reference Include="Clustering">
+      <HintPath>..\..\Clustering\Matlab Library\Clustering\for_testing\Clustering.dll</HintPath>
+    </Reference>
+    <Reference Include="Crc32C.NET">
+      <HintPath>..\..\Segmentation\Volvox\Crc32C.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="E57LibCommon">
+      <HintPath>..\..\Segmentation\Volvox\E57LibCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="E57LibReader">
+      <HintPath>..\..\Segmentation\Volvox\E57LibReader.dll</HintPath>
+    </Reference>
+    <Reference Include="E57LibWriter">
+      <HintPath>..\..\Segmentation\Volvox\E57LibWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MWArray, Version=2.15.1.0, Culture=neutral, PublicKeyToken=e1d84a0da19db86f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\MATLAB\MATLAB Runtime\v94\toolbox\dotnetbuilder\bin\win64\v4.0\MWArray.dll</HintPath>
+    </Reference>
+    <Reference Include="Segmentation, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Segmentation\Matlab library\for_testing\Segmentation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="RhinoCommon">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Rhino 6\System\rhinocommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Grasshopper">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Rhino 6\Plug-ins\Grasshopper\Grasshopper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GH_IO">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Rhino 6\Plug-ins\Grasshopper\GH_IO.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Volvox_Cloud">
+      <HintPath>..\..\Segmentation\Volvox\Volvox_Cloud.dll</HintPath>
+    </Reference>
+    <Reference Include="Volvox_Instr">
+      <HintPath>..\..\Segmentation\Volvox\Volvox_Instr.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\Classification\01_DemoComponent.cs" />
+    <Compile Include="Components\12_Validate_Prediction.cs" />
+    <Compile Include="Components\11_Write_features1.cs" />
+    <Compile Include="Components\21_Region_Growing_Vertices_NormalsColors.cs" />
+    <Compile Include="Components\20_Region_Growing_Vertices_Normals.cs" />
+    <Compile Include="Components\0_Scan2BIMInfo.cs" />
+    <Compile Include="Components\22_Region_Growing_Mesh_Normals.cs" />
+    <Compile Include="Components\23_Region_Growing_Mesh_NormalsColors.cs" />
+    <Compile Include="Components\43_Mesh_Plane.cs" />
+    <Compile Include="Components\50_Region_Growing_Walls.cs" />
+    <Compile Include="Components\25_Restructure_Mesh.cs" />
+    <Compile Include="Components\26_Region_Growing_PCD1.cs" />
+    <Compile Include="Components\27_Restructure_PCD.cs" />
+    <Compile Include="Components\30_Resutructure_and_Colorize_PCD.cs" />
+    <Compile Include="Components\31_Resolution_PCD.cs" />
+    <Compile Include="Components\10_Predict_Bagged_Trees.cs" />
+    <Compile Include="Components\41_Name_Extraction.cs" />
+    <Compile Include="Components\42_Convert_MeshMaterials_to_Names.cs" />
+    <Compile Include="Components\51_CRF_walls_decode.cs" />
+    <Compile Include="Components\52_Cluster_Nodefeature_Wallthickness - Copy.cs" />
+    <Compile Include="convert.cs" />
+    <Compile Include="types\GH_pointcloud.cs" />
+    <Compile Include="Components\Ext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="parameters\param.pointcloud" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\Clustering\" />
+    <Folder Include="Components\Reconstruction\" />
+    <Folder Include="Components\Segmentation\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
+Erase "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <FallbackCulture>en-US</FallbackCulture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
+    <StartArguments>
+    </StartArguments>
+    <StartAction>Program</StartAction>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+</Project>
