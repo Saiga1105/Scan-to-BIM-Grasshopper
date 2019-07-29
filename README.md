@@ -34,6 +34,9 @@ If you use this software in a publication, please cite the work using the follow
 Bassier M., Vergauwen M. (2019) Clustering of Wall Geometry from Unstructured Point Clouds Using Conditional Random Fields. 
 Remote Sensing, 11(13), 1586; https://doi.org/10.3390/rs11131586
 
+Courtesy of the **KU Leuven research group in Geomatics**, TC BOUW, Department of Civil Engineering, KU Leuven, Belgium.
+ *	https://iiw.kuleuven.be/onderzoek/geomatics
+
 ### Dependencies
 M. Schmidt. UGM: A Matlab toolbox for probabilistic undirected graphical models. http://www.cs.ubc.ca/~schmidtm/Software/UGM.html, 2007.
 Verify that version 9.4 (R2018a) of the MATLAB Runtime is installed.
