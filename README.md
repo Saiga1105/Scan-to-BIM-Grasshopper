@@ -1,18 +1,24 @@
 # Scan-to-BIM Grasshopper toolbox
 
-This toolbox includes functions for reconstruction BIM geometry from meshes.
+This toolbox includes functions for the reconstruction of BIM geometry from meshes.
 It features a general modular pipeline with the following steps
 
+0. **Utility**: Some utility functions for mesh and point cloud mutation.
 1. **Segmentation**: segments meshes and point clouds
 2. **Classification**: labels the segments into walls, ceilings, floors, etc.
 3. **Clustering**: groups labelled segments into groups of walls
-4. **Reconstruction**: extracts information from grouped segments to feed BIM geometry e.g. Visual Arq Walls.
-5. **Linked Building Data**: Publish the reconstructed results as .sjon/.rdf
+4. **Reconstruction**: extracts information from grouped segments to feed BIM geometry e.g. https://www.visualarq.com/ walls.
+5. **Linked Building Data**: Publish the intermediate results as .sjon/.rdf
  
 The **Example** files contain example code for each step.
-The **samples** contains some meshes and point clouds for each step 
+The **Samples** contains some meshes and point clouds for each step 
 
-Most steps are based on Matlab code. To develop the native matlab functions, use the related toolboxes (see Related Toolboxes Section)
+Step 1-3 are based on Matlab code. To develop the native matlab functions, use the related toolboxes (see Related Toolboxes Section)
+
+### Install
+In Grasshopper, choose File > Special Folders > Components folder. Save all files from \bin there including **Scan2BIM.gha** and it's .dll's.
+Right-click the file > Properties > make sure there is no "blocked" text
+Restart Rhino and Grasshopper
 
 ### Contribute
 There are several large files in this repository (matlab .dll's and sample files)
@@ -38,14 +44,19 @@ Courtesy of the **KU Leuven research group in Geomatics**, TC BOUW, Department o
  *	https://iiw.kuleuven.be/onderzoek/geomatics
 
 ### Dependencies
-M. Schmidt. UGM: A Matlab toolbox for probabilistic undirected graphical models. http://www.cs.ubc.ca/~schmidtm/Software/UGM.html, 2007.
-Verify that version 9.4 (R2018a) of the MATLAB Runtime is installed.
-You can download it at http://www.mathworks.com/products/compiler/mcr/index.html
+* M. Schmidt. UGM: A Matlab toolbox for probabilistic undirected graphical models. http://www.cs.ubc.ca/~schmidtm/Software/UGM.html, 2007.
+* MATLAB Runtime version 9.4 (R2018a). You can download it at http://www.mathworks.com/products/compiler/mcr/index.html
+* Volvox https://www.food4rhino.com/app/volvox , DURAARK http://duraark.eu/ a European project
+* RhinoInside https://www.rhino3d.com/inside
+* Rhinocommon https://developer.rhino3d.com/api/RhinoCommon/html/R_Project_RhinoCommon.htm
+* .NET framework 4.6.1 https://dotnet.microsoft.com/download/dotnet-framework/net461
+
 
 ### Related Toolboxes
+The grashopper plug in consumes following Open Source Toolboxes from the same author.
+
 S2B-Segmentation
 S2B-Classification
 S2B-Clustering
-S2B-Grasshopper
 S2B-Reconstruction
 
