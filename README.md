@@ -10,14 +10,14 @@ It features a general modular pipeline with the following steps
 4. **Reconstruction**: extracts information from grouped segments to feed BIM geometry e.g. https://www.visualarq.com/ walls.
 5. **Linked Building Data**: Publish the intermediate results as .sjon/.rdf
  
-The **Example** files contain example code for each step.
-The **Samples** contains some meshes and point clouds for each step 
+The **Example** files contain example code for each step.  
+The **Samples** contains some meshes and point clouds for each step.
 
 Step 1-3 are based on Matlab code. To develop the native matlab functions, use the related toolboxes (see Related Toolboxes Section)
 
 ### Install
-In Grasshopper, choose File > Special Folders > Components folder. Save all files from \bin there including **Scan2BIM.gha** and it's .dll's.
-Right-click the file > Properties > make sure there is no "blocked" text
+In Grasshopper, choose File > Special Folders > Components folder. Save all files from \bin there including **Scan2BIM.gha** and it's .dll's.  
+Right-click the file > Properties > make sure there is no "blocked" text  
 Restart Rhino and Grasshopper
 
 ### Contribute
@@ -32,7 +32,6 @@ Use github's Large File System (lfs) to push changes to the origin.
 	* git lfs track '*.stl'
 	* git lfs track '*.json'
 	* git lfs track '*.rdf'
-
 	
 ### License 
 If you use this software in a publication, please cite the work using the following information:
@@ -40,8 +39,7 @@ If you use this software in a publication, please cite the work using the follow
 Bassier M., Vergauwen M. (2019) Clustering of Wall Geometry from Unstructured Point Clouds Using Conditional Random Fields. 
 Remote Sensing, 11(13), 1586; https://doi.org/10.3390/rs11131586
 
-Courtesy of the **KU Leuven research group in Geomatics**, TC BOUW, Department of Civil Engineering, KU Leuven, Belgium.
- *	https://iiw.kuleuven.be/onderzoek/geomatics
+Courtesy of the **KU Leuven research group in Geomatics**, TC BOUW, Department of Civil Engineering, KU Leuven, Belgium. https://iiw.kuleuven.be/onderzoek/geomatics
 
 ### Dependencies
 * M. Schmidt. UGM: A Matlab toolbox for probabilistic undirected graphical models. http://www.cs.ubc.ca/~schmidtm/Software/UGM.html, 2007.
@@ -55,8 +53,8 @@ Courtesy of the **KU Leuven research group in Geomatics**, TC BOUW, Department o
 ### Related Toolboxes
 The grashopper plug in consumes following Open Source Toolboxes from the same author.
 
-S2B-Segmentation
-S2B-Classification
-S2B-Clustering
-S2B-Reconstruction
+S2B-Segmentation  
+S2B-Classification  
+S2B-Clustering  
+S2B-Reconstruction  
 
