@@ -12,20 +12,20 @@ It features a general modular pipeline with the following steps
 The **Example** files contain example code for each step.
 The **samples** contains some meshes and point clouds for each step 
 
-Most steps are based on Matlab code. To develop the native matlab functins, use the related toolboxes (see Related Toolboxes Section)
+Most steps are based on Matlab code. To develop the native matlab functions, use the related toolboxes (see Related Toolboxes Section)
 
 ### Contribute
 There are several large files in this repository (matlab .dll's and sample files)
 Use github's Large File System (lfs) to push changes to the origin.
 
 * make sure the .dll files are tracked after commiting
-	*git lfs track '*.dll'
-	*git lfs track '*.mat'
-	*git lfs track '*.3dm'
-	*git lfs track '*.obj'
-	*git lfs track '*.stl'
-	*git lfs track '*.json'
-	*git lfs track '*.rdf'
+	* git lfs track '*.dll'
+	* git lfs track '*.mat'
+	* git lfs track '*.3dm'
+	* git lfs track '*.obj'
+	* git lfs track '*.stl'
+	* git lfs track '*.json'
+	* git lfs track '*.rdf'
 
 	
 ### License 
