@@ -97,37 +97,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\01_DemoComponent.cs" />
-    <Compile Include="Components\2.Classification\12_Validate_Prediction.cs" />
-    <Compile Include="Components\2.Classification\11_Write_features1.cs" />
-    <Compile Include="Components\1.Segmentation\21_Region_Growing_Vertices_NormalsColors.cs" />
-    <Compile Include="Components\1.Segmentation\20_Region_Growing_Vertices_Normals.cs" />
-    <Compile Include="0_Scan2BIMInfo.cs" />
-    <Compile Include="Components\1.Segmentation\22_Region_Growing_Mesh_Normals.cs" />
-    <Compile Include="Components\1.Segmentation\23_Region_Growing_Mesh_NormalsColors.cs" />
-    <Compile Include="Components\0.Utility\43_Mesh_Plane.cs" />
-    <Compile Include="Components\3.Clustering\50_Region_Growing_Walls.cs" />
-    <Compile Include="Components\1.Segmentation\25_Restructure_Mesh.cs" />
-    <Compile Include="Components\1.Segmentation\26_Region_Growing_PCD1.cs" />
-    <Compile Include="Components\1.Segmentation\27_Restructure_PCD.cs" />
-    <Compile Include="Components\0.Utility\30_Resutructure_and_Colorize_PCD.cs" />
-    <Compile Include="Components\0.Utility\31_Resolution_PCD.cs" />
-    <Compile Include="Components\2.Classification\10_Predict_Bagged_Trees.cs" />
-    <Compile Include="Components\0.Utility\41_Name_Extraction.cs" />
-    <Compile Include="Components\0.Utility\42_Convert_MeshMaterials_to_Names.cs" />
-    <Compile Include="Components\3.Clustering\51_CRF_walls_decode.cs" />
-    <Compile Include="Components\3.Clustering\52_Cluster_Nodefeature_Wallthickness - Copy.cs" />
-    <Compile Include="convert.cs" />
-    <Compile Include="types\GH_pointcloud.cs" />
-    <Compile Include="Components\Ext.cs" />
+    <Compile Include="0.Components\01_DemoComponent.cs" />
+    <Compile Include="0.Components\2.Classification\12_Validate_Prediction.cs" />
+    <Compile Include="0.Components\2.Classification\11_Write_features1.cs" />
+    <Compile Include="0.Components\1.Segmentation\21_Region_Growing_Vertices_NormalsColors.cs" />
+    <Compile Include="0.Components\1.Segmentation\20_Region_Growing_Vertices_Normals.cs" />
+    <Compile Include="3.Other\0_Scan2BIMInfo.cs" />
+    <Compile Include="0.Components\1.Segmentation\22_Region_Growing_Mesh_Normals.cs" />
+    <Compile Include="0.Components\1.Segmentation\23_Region_Growing_Mesh_NormalsColors.cs" />
+    <Compile Include="0.Components\0.Utility\43_Mesh_Plane.cs" />
+    <Compile Include="0.Components\3.Clustering\50_Region_Growing_Walls.cs" />
+    <Compile Include="0.Components\1.Segmentation\25_Restructure_Mesh.cs" />
+    <Compile Include="0.Components\1.Segmentation\26_Region_Growing_PCD1.cs" />
+    <Compile Include="0.Components\1.Segmentation\27_Restructure_PCD.cs" />
+    <Compile Include="0.Components\1.Segmentation\30_Resutructure_and_Colorize_PCD.cs" />
+    <Compile Include="0.Components\0.Utility\31_Resolution_PCD.cs" />
+    <Compile Include="0.Components\2.Classification\10_Predict_Bagged_Trees.cs" />
+    <Compile Include="0.Components\0.Utility\41_Name_Extraction.cs" />
+    <Compile Include="0.Components\0.Utility\42_Convert_MeshMaterials_to_Names.cs" />
+    <Compile Include="0.Components\3.Clustering\51_CRF_walls_decode.cs" />
+    <Compile Include="0.Components\3.Clustering\52_Cluster_Nodefeature_Wallthickness - Copy.cs" />
+    <Compile Include="3.Other\convert.cs" />
+    <Compile Include="2.Types\GH_pointcloud.cs" />
+    <Compile Include="0.Components\Ext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="parameters\param.pointcloud" />
+    <None Include="1.Parameters\param.pointcloud" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\4.Reconstruction\" />
-    <Folder Include="Components\5.Linked Data\" />
+    <Folder Include="0.Components\4.Reconstruction\" />
+    <Folder Include="0.Components\5.Linked Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
