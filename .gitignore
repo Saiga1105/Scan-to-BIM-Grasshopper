@@ -1,3 +1,4 @@
 ﻿.vs
 packages
-bin/
+Scan2BIM/bin
+Scan2BIM/obj
