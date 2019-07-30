@@ -83,3 +83,19 @@ D:\Scan-to-BIM repository\Scan-to-BIM Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.cs
 D:\Scan-to-BIM repository\Scan-to-BIM Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.csproj.CopyComplete
 D:\Scan-to-BIM repository\Scan-to-BIM Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.dll
 D:\Scan-to-BIM repository\Scan-to-BIM Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.pdb
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\Scan2BIM.dll
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\Scan2BIM.pdb
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\Google.Protobuf.dll
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\MWArray.dll
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\Classification.xml
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\ClassificationNative.xml
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\Clustering.xml
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\Crc32C.NET.xml
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\Google.Protobuf.xml
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\MWArray.xml
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\Segmentation.xml
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.csprojAssemblyReference.cache
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.csproj.CoreCompileInputs.cache
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.csproj.CopyComplete
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.dll
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.pdb

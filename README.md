@@ -24,7 +24,7 @@ Restart Rhino and Grasshopper
 There are several large files in this repository (matlab .dll's and sample files)
 Use github's Large File System (lfs) to push changes to the origin.
 
-* make sure the .dll files are tracked after commiting
+make sure the .dll files are tracked after commiting
 	* git lfs track '*.dll'
 	* git lfs track '*.mat'
 	* git lfs track '*.3dm'

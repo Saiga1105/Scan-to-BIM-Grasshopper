@@ -169,7 +169,7 @@ namespace Scan2BIM
 
                 writer.WriteValue(sw, element_collection);
                 json = sw.ToString();
-                json.Replace("333",":")
+                json.Replace("333", ":");
                 file.Write(json);
 
             }
