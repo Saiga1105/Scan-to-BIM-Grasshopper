@@ -16,6 +16,21 @@ The **Samples** contains some meshes and point clouds for each step.
 Step 1-3 are based on Matlab code. To develop the native matlab functions, use the related toolboxes (see Related Toolboxes Section)
 
 ### Install
+
+Install Vstudio
+Install 4.6.1
+Install LFS GIT
+Install GIT
+Clone all repositories
+Open solution
+Add reference paths (properties of C# project Scan2BIM)
+install Volvox
+add reference path C:\Users\maarten.vergauwen\AppData\Roaming\Grasshopper\Libraries
+install matlab runtime 9.4.1 (2018a)
+EleFront and MeshEdit (put it in C:\Users\maarten.vergauwen\AppData\Roaming\Grasshopper\Libraries)
+Restart Rhino
+GrassHopperDevelopersettings add folder (where you built the plugin)
+
 In Grasshopper, choose File > Special Folders > Components folder. Save all files from \bin there including **Scan2BIM.gha** and it's .dll's.  
 Right-click the file > Properties > make sure there is no "blocked" text  
 Restart Rhino and Grasshopper
@@ -24,7 +39,7 @@ Restart Rhino and Grasshopper
 There are several large files in this repository (matlab .dll's and sample files)
 Use github's Large File System (lfs) to push changes to the origin.
 
-make sure the .dll files are tracked after commiting
+* make sure the .dll files are tracked after commiting
 	* git lfs track '*.dll'
 	* git lfs track '*.mat'
 	* git lfs track '*.3dm'
@@ -42,13 +57,15 @@ Remote Sensing, 11(13), 1586; https://doi.org/10.3390/rs11131586
 Courtesy of the **KU Leuven research group in Geomatics**, TC BOUW, Department of Civil Engineering, KU Leuven, Belgium. https://iiw.kuleuven.be/onderzoek/geomatics
 
 ### Dependencies
+* GIT LFS https://git-lfs.github.com/
 * M. Schmidt. UGM: A Matlab toolbox for probabilistic undirected graphical models. http://www.cs.ubc.ca/~schmidtm/Software/UGM.html, 2007.
 * MATLAB Runtime version 9.4 (R2018a). You can download it at http://www.mathworks.com/products/compiler/mcr/index.html
 * Volvox https://www.food4rhino.com/app/volvox , DURAARK http://duraark.eu/ a European project
 * RhinoInside https://www.rhino3d.com/inside
 * Rhinocommon https://developer.rhino3d.com/api/RhinoCommon/html/R_Project_RhinoCommon.htm
 * .NET framework 4.6.1 https://dotnet.microsoft.com/download/dotnet-framework/net461
-
+* EleFront 
+* MeshEdit Components
 
 ### Related Toolboxes
 The grashopper plug in consumes following Open Source Toolboxes from the same author.
