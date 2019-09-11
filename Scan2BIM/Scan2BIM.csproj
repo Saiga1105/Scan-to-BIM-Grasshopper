@@ -63,6 +63,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\MATLAB\MATLAB Runtime\v94\toolbox\dotnetbuilder\bin\win64\v4.0\MWArray.dll</HintPath>
     </Reference>
+    <Reference Include="Reconstruction">
+      <HintPath>..\..\Reconstruction\bin\for_testing\Reconstruction.dll</HintPath>
+    </Reference>
+    <Reference Include="ReconstructionNative">
+      <HintPath>..\..\Reconstruction\bin\for_testing\ReconstructionNative.dll</HintPath>
+    </Reference>
     <Reference Include="Segmentation, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Segmentation\Matlab library\for_testing\Segmentation.dll</HintPath>
@@ -102,6 +108,7 @@
     <Compile Include="0.Components\2.Classification\11_Write_features1.cs" />
     <Compile Include="0.Components\1.Segmentation\21_Region_Growing_Vertices_NormalsColors.cs" />
     <Compile Include="0.Components\1.Segmentation\20_Region_Growing_Vertices_Normals.cs" />
+    <Compile Include="0.Components\4.Reconstruction\40_walllinefit.cs" />
     <Compile Include="3.Other\0_Scan2BIMInfo.cs" />
     <Compile Include="0.Components\1.Segmentation\22_Region_Growing_Mesh_Normals.cs" />
     <Compile Include="0.Components\1.Segmentation\23_Region_Growing_Mesh_NormalsColors.cs" />
@@ -126,7 +133,6 @@
     <None Include="1.Parameters\param.pointcloud" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="0.Components\4.Reconstruction\" />
     <Folder Include="0.Components\5.Linked Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

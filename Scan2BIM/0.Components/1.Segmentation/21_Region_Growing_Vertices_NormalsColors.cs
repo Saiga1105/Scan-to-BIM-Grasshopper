@@ -133,9 +133,6 @@ namespace Scan2BIM
         /// <summary>
         /// Gets the unique ID for this component. Do not change this ID after release.
         /// </summary>
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("8a568810-210d-41b7-b78e-19adb0485f7h"); }
-        }
+        public override Guid ComponentGuid => new Guid("37A8C46F-CB5B-49FD-A483-B03D1FE14A26");
     }
 }

@@ -99,3 +99,7 @@ D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.csproj.CoreCom
 D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.csproj.CopyComplete
 D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.dll
 D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.pdb
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\Reconstruction.dll
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\ReconstructionNative.dll
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\Reconstruction.xml
+D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\ReconstructionNative.xml
