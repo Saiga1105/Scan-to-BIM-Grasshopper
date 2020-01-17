@@ -42,7 +42,7 @@ namespace Scan2BIM
         {
             pManager.AddGeometryParameter("Hearth_line", "G", "Computed lines, arc and n-D polylines", GH_ParamAccess.item);
             pManager.AddNumberParameter("inlrNum", "inlrNum", "inlrNum", GH_ParamAccess.item);
-            pManager.AddNumberParameter("error", "error", "error", GH_ParamAccess.item);
+           // pManager.AddNumberParameter("error", "error", "error", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace Scan2BIM
 
             /// 7.
             DA.SetData(1, Rhino_inlrNum);
-            DA.SetData(2, Rhino_error);
+            //DA.SetData(2, Rhino_error);
 
         }
         //public interface Try_fitt_wall

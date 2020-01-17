@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Grasshopper.Kernel;
-using Rhino.Geometry;
 using Grasshopper;
+using Grasshopper.Kernel;
+using Grasshopper.Kernel.Data;
+using Grasshopper.Kernel.Types;
+//using GH_IO;
+using Rhino.Geometry;
 
-namespace Scan2BIM.Components.Classification
+namespace Scan2BIM.Components.Topology
 {
-    public class MyComponent1 : GH_Component
+    public class delete_branch_occurences : GH_Component
     {
         /// <summary>
         /// Initializes a new instance of the MyComponent1 class.
@@ -17,10 +20,10 @@ namespace Scan2BIM.Components.Classification
         /// Subcategory the panel. If you use non-existing tab or panel names, 
         /// new tabs/panels will automatically be created.
         /// </summary>
-        public MyComponent1()
-          : base("Demo_Component", "Nickname",
-              "Description",
-              "Saiga", "Demo")
+        public delete_branch_occurences()
+          : base("delete_branch_occurences", "branch occurences",
+              "Given a dataTree (point3D), only keep the first branch that contains unique members of the dataTree ",
+              "Saiga", "Topology")
         {
         }
 
@@ -35,8 +38,8 @@ namespace Scan2BIM.Components.Classification
             // to import lists or trees of values, modify the ParamAccess flag.
             /// </summary>
 
-             pManager.AddMeshParameter("Input1", "shortcut", "Description", GH_ParamAccess.list);
-             pManager.AddNumberParameter("Number", "x", "Descr. of Number", GH_ParamAccess.list);
+             pManager.AddPointParameter("dataTree", "Tree", "DataTree to operate on", GH_ParamAccess.tree);
+             //pManager.AddNumberParameter("Number", "x", "Descr. of Number", GH_ParamAccess.list);
         }
 
 
@@ -48,8 +51,8 @@ namespace Scan2BIM.Components.Classification
             /// Output parameters do not have default values, but they too must have the correct access type.
             /// </summary>
  
-            pManager.AddMeshParameter("Output1", "Shorcut", "Description", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Out", "O", "Descr. of Out", GH_ParamAccess.list);
+            pManager.AddPointParameter("uniquedataTree", "UTree", "Tree containing only branches ith unique elements", GH_ParamAccess.tree);
+            //pManager.AddNumberParameter("Out", "O", "Descr. of Out", GH_ParamAccess.list);
         }
 
              protected override void SolveInstance(IGH_DataAccess DA)
@@ -61,28 +64,48 @@ namespace Scan2BIM.Components.Classification
             /// First, we need to retrieve all data from the input parameters.
             /// We'll start by declaring variables and assigning them starting values.  
             /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
-            List<Mesh> Geometry = new List<Mesh>();
-            List<double> x = new List<double>();
-            List<double> y = new List<double>();
-            List<double> output = new List<double>();
+              
+            // datatree should be accessed through GH_structure (grasshopper.kernal.data namespace)
+            GH_Structure<GH_Point> winnerTree = new GH_Structure<GH_Point>();
+            GH_Structure<GH_Point> dataTree = new GH_Structure<GH_Point>(); ;
+
             // Then we need to access the input parameters individually. 
             // When data cannot be extracted from a parameter, we should abort this method.
-            if (!DA.GetDataList(0, Geometry)) return;
-            if (!DA.GetDataList(1, x)) return;
+            if (!DA.GetDataTree(0, out dataTree)) return;
+  
+            // body of code
 
-            // We should warn the user if invalid data is supplied.
-            //if (GHArea < 0.0)
-            //{
-            //    AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Area must be bigger than or equal to zero");
-            //    return;
-           
-                
+            while (dataTree.PathCount != 0)
+            {
+                var pointlist = dataTree.Branches[0].GetRange(0, dataTree.Branches[0].Count);
+                // copy data from first branch to winner
+                winnerTree.EnsurePath(dataTree.Paths[0]);
+                winnerTree.AppendRange(pointlist);
+                dataTree.RemovePath(dataTree.Paths[0]);
+                // test other branches for inliers with winner(0), if so delete them
+                for (int i = 0; i < pointlist.Count; i++)
+                {
+                    var pointtest = pointlist[i];
+                    for (int branchj = 0; branchj < dataTree.PathCount; branchj++)
+                    {
+                        for (int listj = 0; listj < dataTree.Branches[branchj].Count; listj++)
+                        {
+                            if (((pointtest.Value.X - dataTree.get_DataItem(dataTree.Paths[branchj], listj).Value.X) < 0.001) && ((pointtest.Value.Y - dataTree.get_DataItem(dataTree.Paths[branchj], listj).Value.Y) < 0.001) && ((pointtest.Value.Z - dataTree.get_DataItem(dataTree.Paths[branchj], listj).Value.Z) < 0.001))
+                            {
+                                dataTree.RemovePath(dataTree.Paths[branchj]);
+                            }
+
+                        }
+                    }
+
+                }
+            }
 
             /// run some function on the data
 
             //// Finally assign the output to the output parameter.
-            DA.SetDataList(0, Geometry);
-            DA.SetDataList(1, output);
+            DA.SetDataTree(0, winnerTree);
+            //DA.SetDataList(1, output);
 
         }
 
@@ -105,7 +128,7 @@ namespace Scan2BIM.Components.Classification
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("cc930c14-203f-418a-b2cb-7b73303dda18"); }
+            get { return new Guid("cc930c14-203f-418a-b2cb-7b73603dda18"); }
         }
     }
 }
