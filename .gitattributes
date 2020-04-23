@@ -7,3 +7,5 @@
 *.ifc filter=lfs diff=lfs merge=lfs -text
 *.sjon filter=lfs diff=lfs merge=lfs -text
 *.rdf filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.rcs filter=lfs diff=lfs merge=lfs -text
