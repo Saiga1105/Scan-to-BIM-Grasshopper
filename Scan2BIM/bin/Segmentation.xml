@@ -1,0 +1,948 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Segmentation</name>
+    </assembly>
+    <members>
+        <member name="T:Segmentation.segment">
+            <summary>
+            The segment class provides a CLS compliant, MWArray interface to the MATLAB
+            functions contained in the files:
+            <newpara></newpara>
+            D:\Google Drive\Research\Grasshopper Plugin
+            Scan-to-BIM\Segmentation\Matlab\G_mesh_segmentation_test1.m
+            <newpara></newpara>
+            D:\Google Drive\Research\Grasshopper Plugin
+            Scan-to-BIM\Segmentation\Matlab\G_RegionGrowingNC1.m
+            <newpara></newpara>
+            D:\Google Drive\Research\Grasshopper Plugin
+            Scan-to-BIM\Segmentation\Matlab\G_RegionGrowingNC2.m
+            <newpara></newpara>
+            D:\Google Drive\Research\Grasshopper Plugin
+            Scan-to-BIM\Segmentation\Matlab\G_Resolution_PCD.m
+            </summary>
+            <remarks>
+            @Version 4.0
+            </remarks>
+        </member>
+        <member name="M:Segmentation.segment.#cctor">
+            <summary internal= "true">
+            The static constructor instantiates and initializes the MATLAB Runtime instance.
+            </summary>
+        </member>
+        <member name="M:Segmentation.segment.#ctor">
+            <summary>
+            Constructs a new instance of the segment class.
+            </summary>
+        </member>
+        <member name="M:Segmentation.segment.Finalize">
+            <summary internal= "true">
+            Class destructor called by the CLR garbage collector.
+            </summary>
+        </member>
+        <member name="M:Segmentation.segment.Dispose">
+            <summary>
+            Frees the native resources associated with this object
+            </summary>
+        </member>
+        <member name="M:Segmentation.segment.Dispose(System.Boolean)">
+            <summary internal= "true">
+            Internal dispose function
+            </summary>
+        </member>
+        <member name="M:Segmentation.segment.G_mesh_segmentation_test1">
+             <summary>
+             Provides a single output, 0-input MWArrayinterface to the
+             G_mesh_segmentation_test1 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             F_MESH_SEGMENTATION1 Summary of this function goes here
+             Detailed explanation goes here
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_mesh_segmentation_test1(MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 1-input MWArrayinterface to the
+             G_mesh_segmentation_test1 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             F_MESH_SEGMENTATION1 Summary of this function goes here
+             Detailed explanation goes here
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_mesh_segmentation_test1(System.Int32)">
+             <summary>
+             Provides the standard 0-input MWArray interface to the G_mesh_segmentation_test1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             F_MESH_SEGMENTATION1 Summary of this function goes here
+             Detailed explanation goes here
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_mesh_segmentation_test1(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 1-input MWArray interface to the G_mesh_segmentation_test1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             F_MESH_SEGMENTATION1 Summary of this function goes here
+             Detailed explanation goes here
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_mesh_segmentation_test1(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+             <summary>
+             Provides an interface for the G_mesh_segmentation_test1 function in which the
+             input and output
+             arguments are specified as an array of MWArrays.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             F_MESH_SEGMENTATION1 Summary of this function goes here
+             Detailed explanation goes here
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of MWArray output arguments</param>
+             <param name= "argsIn">Array of MWArray input arguments</param>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1">
+             <summary>
+             Provides a single output, 0-input MWArrayinterface to the G_RegionGrowingNC1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 1-input MWArrayinterface to the G_RegionGrowingNC1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 2-input MWArrayinterface to the G_RegionGrowingNC1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 3-input MWArrayinterface to the G_RegionGrowingNC1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 4-input MWArrayinterface to the G_RegionGrowingNC1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <param name="MaxDist">Input argument #4</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 5-input MWArrayinterface to the G_RegionGrowingNC1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <param name="MaxDist">Input argument #4</param>
+             <param name="Minsize">Input argument #5</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 6-input MWArrayinterface to the G_RegionGrowingNC1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <param name="MaxDist">Input argument #4</param>
+             <param name="Minsize">Input argument #5</param>
+             <param name="Offset">Input argument #6</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(System.Int32)">
+             <summary>
+             Provides the standard 0-input MWArray interface to the G_RegionGrowingNC1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 1-input MWArray interface to the G_RegionGrowingNC1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 2-input MWArray interface to the G_RegionGrowingNC1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 3-input MWArray interface to the G_RegionGrowingNC1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 4-input MWArray interface to the G_RegionGrowingNC1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <param name="MaxDist">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 5-input MWArray interface to the G_RegionGrowingNC1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <param name="MaxDist">Input argument #4</param>
+             <param name="Minsize">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 6-input MWArray interface to the G_RegionGrowingNC1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <param name="MaxDist">Input argument #4</param>
+             <param name="Minsize">Input argument #5</param>
+             <param name="Offset">Input argument #6</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC1(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+             <summary>
+             Provides an interface for the G_RegionGrowingNC1 function in which the input and
+             output
+             arguments are specified as an array of MWArrays.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of MWArray output arguments</param>
+             <param name= "argsIn">Array of MWArray input arguments</param>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2">
+             <summary>
+             Provides a single output, 0-input MWArrayinterface to the G_RegionGrowingNC2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 1-input MWArrayinterface to the G_RegionGrowingNC2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 2-input MWArrayinterface to the G_RegionGrowingNC2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 3-input MWArrayinterface to the G_RegionGrowingNC2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 4-input MWArrayinterface to the G_RegionGrowingNC2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 5-input MWArrayinterface to the G_RegionGrowingNC2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 6-input MWArrayinterface to the G_RegionGrowingNC2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 7-input MWArrayinterface to the G_RegionGrowingNC2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <param name="Minsize">Input argument #7</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 8-input MWArrayinterface to the G_RegionGrowingNC2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <param name="Minsize">Input argument #7</param>
+             <param name="Offset">Input argument #8</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 9-input MWArrayinterface to the G_RegionGrowingNC2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <param name="Minsize">Input argument #7</param>
+             <param name="Offset">Input argument #8</param>
+             <param name="Tilesize">Input argument #9</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(System.Int32)">
+             <summary>
+             Provides the standard 0-input MWArray interface to the G_RegionGrowingNC2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 1-input MWArray interface to the G_RegionGrowingNC2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 2-input MWArray interface to the G_RegionGrowingNC2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 3-input MWArray interface to the G_RegionGrowingNC2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 4-input MWArray interface to the G_RegionGrowingNC2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 5-input MWArray interface to the G_RegionGrowingNC2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 6-input MWArray interface to the G_RegionGrowingNC2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 7-input MWArray interface to the G_RegionGrowingNC2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <param name="Minsize">Input argument #7</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 8-input MWArray interface to the G_RegionGrowingNC2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <param name="Minsize">Input argument #7</param>
+             <param name="Offset">Input argument #8</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 9-input MWArray interface to the G_RegionGrowingNC2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <param name="Minsize">Input argument #7</param>
+             <param name="Offset">Input argument #8</param>
+             <param name="Tilesize">Input argument #9</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_RegionGrowingNC2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+             <summary>
+             Provides an interface for the G_RegionGrowingNC2 function in which the input and
+             output
+             arguments are specified as an array of MWArrays.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of MWArray output arguments</param>
+             <param name= "argsIn">Array of MWArray input arguments</param>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Resolution_PCD">
+             <summary>
+             Provides a single output, 0-input MWArrayinterface to the G_Resolution_PCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Resolution_PCD(MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 1-input MWArrayinterface to the G_Resolution_PCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Resolution_PCD(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 2-input MWArrayinterface to the G_Resolution_PCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="samples">Input argument #2</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Resolution_PCD(System.Int32)">
+             <summary>
+             Provides the standard 0-input MWArray interface to the G_Resolution_PCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Resolution_PCD(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 1-input MWArray interface to the G_Resolution_PCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Resolution_PCD(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 2-input MWArray interface to the G_Resolution_PCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="samples">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Resolution_PCD(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+             <summary>
+             Provides an interface for the G_Resolution_PCD function in which the input and
+             output
+             arguments are specified as an array of MWArrays.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of MWArray output arguments</param>
+             <param name= "argsIn">Array of MWArray input arguments</param>
+            
+        </member>
+        <member name="M:Segmentation.segment.WaitForFiguresToDie">
+             <summary>
+             This method will cause a MATLAB figure window to behave as a modal dialog box.
+             The method will not return until all the figure windows associated with this
+             component have been closed.
+             </summary>
+             <remarks>
+             An application should only call this method when required to keep the
+             MATLAB figure window from disappearing.  Other techniques, such as calling
+             Console.ReadLine() from the application should be considered where
+             possible.</remarks>
+            
+        </member>
+    </members>
+</doc>
