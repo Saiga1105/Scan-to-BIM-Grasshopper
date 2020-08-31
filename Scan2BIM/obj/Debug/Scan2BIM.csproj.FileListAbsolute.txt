@@ -103,3 +103,27 @@ D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\Reconstruction.dll
 D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\ReconstructionNative.dll
 D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\Reconstruction.xml
 D:\Scan-to-BIM repository\Grasshopper\Scan2BIM\bin\ReconstructionNative.xml
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Scan2BIM.dll
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Scan2BIM.pdb
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Google.Protobuf.dll
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\MWArray.dll
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\RhinoCommon.dll
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Classification.xml
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\ClassificationNative.xml
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Clustering.xml
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Crc32C.NET.xml
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Google.Protobuf.xml
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\MWArray.xml
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Reconstruction.xml
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\ReconstructionNative.xml
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\RhinoCommon.xml
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Segmentation.xml
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.csprojAssemblyReference.cache
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.csproj.CopyComplete
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.dll
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.pdb
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\GH_IO.dll
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\GH_Util.dll
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Segmentation.dll
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\bin\GH_IO.xml
+D:\Git\Scan-to-BIM-Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.csproj.CoreCompileInputs.cache

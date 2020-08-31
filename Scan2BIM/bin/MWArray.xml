@@ -676,6 +676,21 @@
             </summary>
             <returns>Returns true if the MATLAB Runtime is launched with JVM</returns>
         </member>
+        <member name="M:MathWorks.MATLAB.NET.Utility.MWMCR.setupMacRunLoopAndRun(System.Func{System.Object,System.Int32},System.Object)">
+            <summary>
+            This function should be called in the client application's main function (main thread).
+            It sets up the CFRunLoop and then is blocked until mclCFRunLoopStop() is called.
+            It is for .NET Core MATLAB graph application running on macOS only.
+            The first parameter is a user-defined function with Object as input and int as output, and
+            should be the entry point for the client application that will use a m-function. 
+            </summary>
+        </member>
+        <member name="M:MathWorks.MATLAB.NET.Utility.MWMCR.userThreadFunction(System.Object)">
+            <summary>
+            This function is the thread entry point for running the user passed-in function that
+            makes use of a m-function with graph capability.
+            </summary>
+        </member>
         <member name="F:MathWorks.MATLAB.NET.Utility.MWMCR._OutDelegate">
             <summary internal="true">
             Called from native code to invoke writeToOut

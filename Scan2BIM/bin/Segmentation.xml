@@ -9,20 +9,26 @@
             The segment class provides a CLS compliant, MWArray interface to the MATLAB
             functions contained in the files:
             <newpara></newpara>
-            D:\Google Drive\Research\Grasshopper Plugin
-            Scan-to-BIM\Segmentation\Matlab\G_mesh_segmentation_test1.m
+            D:\Git\S2B-Segmentation\Source\G_ICP.m
             <newpara></newpara>
-            D:\Google Drive\Research\Grasshopper Plugin
-            Scan-to-BIM\Segmentation\Matlab\G_RegionGrowingNC1.m
+            D:\Git\S2B-Segmentation\Source\G_ICP2.m
             <newpara></newpara>
-            D:\Google Drive\Research\Grasshopper Plugin
-            Scan-to-BIM\Segmentation\Matlab\G_RegionGrowingNC2.m
+            D:\Git\S2B-Segmentation\Source\G_mesh_segmentation_test1.m
             <newpara></newpara>
-            D:\Google Drive\Research\Grasshopper Plugin
-            Scan-to-BIM\Segmentation\Matlab\G_Resolution_PCD.m
+            D:\Git\S2B-Segmentation\Source\G_Normals.m
+            <newpara></newpara>
+            D:\Git\S2B-Segmentation\Source\G_RegionGrowingNC1.m
+            <newpara></newpara>
+            D:\Git\S2B-Segmentation\Source\G_RegionGrowingNC2.m
+            <newpara></newpara>
+            D:\Git\S2B-Segmentation\Source\G_Resolution_PCD.m
+            <newpara></newpara>
+            D:\Git\S2B-Segmentation\Source\G_rotm2eul.m
+            <newpara></newpara>
+            D:\Git\S2B-Segmentation\Source\G_tformPCD.m
             </summary>
             <remarks>
-            @Version 4.0
+            @Version 1.0
             </remarks>
         </member>
         <member name="M:Segmentation.segment.#cctor">
@@ -49,6 +55,438 @@
             <summary internal= "true">
             Internal dispose function
             </summary>
+        </member>
+        <member name="M:Segmentation.segment.G_ICP">
+             <summary>
+             Provides a single output, 0-input MWArrayinterface to the G_ICP MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP(MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 1-input MWArrayinterface to the G_ICP MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="pc_moving">Input argument #1</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 2-input MWArrayinterface to the G_ICP MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 3-input MWArrayinterface to the G_ICP MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <param name="Metric">Input argument #3</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 4-input MWArrayinterface to the G_ICP MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <param name="Metric">Input argument #3</param>
+             <param name="InlierRatio">Input argument #4</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 5-input MWArrayinterface to the G_ICP MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <param name="Metric">Input argument #3</param>
+             <param name="InlierRatio">Input argument #4</param>
+             <param name="MaxIterations">Input argument #5</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP(System.Int32)">
+             <summary>
+             Provides the standard 0-input MWArray interface to the G_ICP MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 1-input MWArray interface to the G_ICP MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="pc_moving">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 2-input MWArray interface to the G_ICP MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 3-input MWArray interface to the G_ICP MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <param name="Metric">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 4-input MWArray interface to the G_ICP MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <param name="Metric">Input argument #3</param>
+             <param name="InlierRatio">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 5-input MWArray interface to the G_ICP MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <param name="Metric">Input argument #3</param>
+             <param name="InlierRatio">Input argument #4</param>
+             <param name="MaxIterations">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+             <summary>
+             Provides an interface for the G_ICP function in which the input and output
+             arguments are specified as an array of MWArrays.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of MWArray output arguments</param>
+             <param name= "argsIn">Array of MWArray input arguments</param>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2">
+             <summary>
+             Provides a single output, 0-input MWArrayinterface to the G_ICP2 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2(MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 1-input MWArrayinterface to the G_ICP2 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="pc_moving">Input argument #1</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 2-input MWArrayinterface to the G_ICP2 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 3-input MWArrayinterface to the G_ICP2 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <param name="Metric">Input argument #3</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 4-input MWArrayinterface to the G_ICP2 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <param name="Metric">Input argument #3</param>
+             <param name="InlierRatio">Input argument #4</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 5-input MWArrayinterface to the G_ICP2 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <param name="Metric">Input argument #3</param>
+             <param name="InlierRatio">Input argument #4</param>
+             <param name="MaxIterations">Input argument #5</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2(System.Int32)">
+             <summary>
+             Provides the standard 0-input MWArray interface to the G_ICP2 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 1-input MWArray interface to the G_ICP2 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="pc_moving">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 2-input MWArray interface to the G_ICP2 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 3-input MWArray interface to the G_ICP2 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <param name="Metric">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 4-input MWArray interface to the G_ICP2 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <param name="Metric">Input argument #3</param>
+             <param name="InlierRatio">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 5-input MWArray interface to the G_ICP2 MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="pc_moving">Input argument #1</param>
+             <param name="pc_fixed">Input argument #2</param>
+             <param name="Metric">Input argument #3</param>
+             <param name="InlierRatio">Input argument #4</param>
+             <param name="MaxIterations">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_ICP2(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+             <summary>
+             Provides an interface for the G_ICP2 function in which the input and output
+             arguments are specified as an array of MWArrays.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of MWArray output arguments</param>
+             <param name= "argsIn">Array of MWArray input arguments</param>
+            
         </member>
         <member name="M:Segmentation.segment.G_mesh_segmentation_test1">
              <summary>
@@ -130,6 +568,189 @@
              Detailed explanation goes here
              #function TreeBagger classificationEnsemble ClassificationECOC
              ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of MWArray output arguments</param>
+             <param name= "argsIn">Array of MWArray input arguments</param>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Normals">
+             <summary>
+             Provides a single output, 0-input MWArrayinterface to the G_Normals MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Normals(MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 1-input MWArrayinterface to the G_Normals MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="X">Input argument #1</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Normals(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 2-input MWArrayinterface to the G_Normals MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="X">Input argument #1</param>
+             <param name="Y">Input argument #2</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Normals(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 3-input MWArrayinterface to the G_Normals MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="X">Input argument #1</param>
+             <param name="Y">Input argument #2</param>
+             <param name="Z">Input argument #3</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Normals(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 4-input MWArrayinterface to the G_Normals MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="X">Input argument #1</param>
+             <param name="Y">Input argument #2</param>
+             <param name="Z">Input argument #3</param>
+             <param name="k">Input argument #4</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Normals(System.Int32)">
+             <summary>
+             Provides the standard 0-input MWArray interface to the G_Normals MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Normals(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 1-input MWArray interface to the G_Normals MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="X">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Normals(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 2-input MWArray interface to the G_Normals MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="X">Input argument #1</param>
+             <param name="Y">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Normals(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 3-input MWArray interface to the G_Normals MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="X">Input argument #1</param>
+             <param name="Y">Input argument #2</param>
+             <param name="Z">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Normals(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 4-input MWArray interface to the G_Normals MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="X">Input argument #1</param>
+             <param name="Y">Input argument #2</param>
+             <param name="Z">Input argument #3</param>
+             <param name="k">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_Normals(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+             <summary>
+             Provides an interface for the G_Normals function in which the input and output
+             arguments are specified as an array of MWArrays.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             G_ICP Compute 3D rigid transformation between 2 point clouds (pc_moving and
+             pc_fixed) 
+             #function pointCloud pcregrigid reshape 
              </remarks>
              <param name="numArgsOut">The number of output arguments to return</param>
              <param name= "argsOut">Array of MWArray output arguments</param>
@@ -925,6 +1546,217 @@
              Explenation
              this function takes as input any point cloud and returns teh average
              point spacing based on a number of samples
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of MWArray output arguments</param>
+             <param name= "argsIn">Array of MWArray input arguments</param>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_rotm2eul">
+             <summary>
+             Provides a single output, 0-input MWArrayinterface to the G_rotm2eul MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ROTM2EUL Convert [16,1] to Euler angles Rz,Ry,Rx
+             </remarks>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_rotm2eul(MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 1-input MWArrayinterface to the G_rotm2eul MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ROTM2EUL Convert [16,1] to Euler angles Rz,Ry,Rx
+             </remarks>
+             <param name="tform">Input argument #1</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_rotm2eul(System.Int32)">
+             <summary>
+             Provides the standard 0-input MWArray interface to the G_rotm2eul MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ROTM2EUL Convert [16,1] to Euler angles Rz,Ry,Rx
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_rotm2eul(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 1-input MWArray interface to the G_rotm2eul MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_ROTM2EUL Convert [16,1] to Euler angles Rz,Ry,Rx
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="tform">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_rotm2eul(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+             <summary>
+             Provides an interface for the G_rotm2eul function in which the input and output
+             arguments are specified as an array of MWArrays.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             G_ROTM2EUL Convert [16,1] to Euler angles Rz,Ry,Rx
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of MWArray output arguments</param>
+             <param name= "argsIn">Array of MWArray input arguments</param>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_tformPCD">
+             <summary>
+             Provides a single output, 0-input MWArrayinterface to the G_tformPCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_tformPCD applies a transformation on the points and normals of a point cloud 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_tformPCD(MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 1-input MWArrayinterface to the G_tformPCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_tformPCD applies a transformation on the points and normals of a point cloud 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="points0">Input argument #1</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_tformPCD(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 2-input MWArrayinterface to the G_tformPCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_tformPCD applies a transformation on the points and normals of a point cloud 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="points0">Input argument #1</param>
+             <param name="normals0">Input argument #2</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_tformPCD(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 3-input MWArrayinterface to the G_tformPCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_tformPCD applies a transformation on the points and normals of a point cloud 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="points0">Input argument #1</param>
+             <param name="normals0">Input argument #2</param>
+             <param name="param">Input argument #3</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_tformPCD(System.Int32)">
+             <summary>
+             Provides the standard 0-input MWArray interface to the G_tformPCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_tformPCD applies a transformation on the points and normals of a point cloud 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_tformPCD(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 1-input MWArray interface to the G_tformPCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_tformPCD applies a transformation on the points and normals of a point cloud 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points0">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_tformPCD(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 2-input MWArray interface to the G_tformPCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_tformPCD applies a transformation on the points and normals of a point cloud 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points0">Input argument #1</param>
+             <param name="normals0">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_tformPCD(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 3-input MWArray interface to the G_tformPCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             G_tformPCD applies a transformation on the points and normals of a point cloud 
+             #function pointCloud pcregrigid reshape 
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points0">Input argument #1</param>
+             <param name="normals0">Input argument #2</param>
+             <param name="param">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Segmentation.segment.G_tformPCD(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+             <summary>
+             Provides an interface for the G_tformPCD function in which the input and output
+             arguments are specified as an array of MWArrays.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             G_tformPCD applies a transformation on the points and normals of a point cloud 
+             #function pointCloud pcregrigid reshape 
              </remarks>
              <param name="numArgsOut">The number of output arguments to return</param>
              <param name= "argsOut">Array of MWArray output arguments</param>

@@ -45,7 +45,7 @@ namespace Scan2BIM
         {
             ///input parameters
             List<Point3d> Rhino_points = new List<Point3d>();
-            
+
 
             /// initialise parameters
             double T_N =0.0, D=0.0  ,M=0.0,O=0.0, T_s=0.0;

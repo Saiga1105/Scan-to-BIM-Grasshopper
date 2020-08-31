@@ -25,7 +25,7 @@ namespace Scan2BIM
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGeometryParameter("Point_Cloud", "PCD", "Point Cloud data", GH_ParamAccess.item); pManager[0].Optional = false;
+            pManager.AddGeometryParameter("Point Cloud", "PCD", "Point Cloud data", GH_ParamAccess.item); pManager[0].Optional = false;
             pManager.AddNumberParameter("k", "k", "number of neighbors to consult for the normal estimation", GH_ParamAccess.item,6); pManager[1].Optional = true;
 
         }
@@ -35,9 +35,13 @@ namespace Scan2BIM
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGeometryParameter("Point_Cloud_with_normals", "PCDn", "Point Cloud data with normals", GH_ParamAccess.item);
+            pManager.AddGeometryParameter("Point Cloud", "PCDn", "Point Cloud data with normals", GH_ParamAccess.item);
         }
+        public class Size_Exception : Exception
+        {
+            public Size_Exception(string message) : base(message) { }
 
+        }
         /// <summary>
         /// This is the method that actually does the work.
         /// </summary>
@@ -46,44 +50,72 @@ namespace Scan2BIM
         {
             ///define i/o parameters
             PointCloud Rhino_Cloud = new PointCloud();
+            Double k = 6; 
 
             /// read inputs
-            if (!DA.GetData("Point_Cloud", ref Rhino_Cloud)) return;
+            if (!DA.GetData(0, ref Rhino_Cloud)) return;
             if (!DA.GetData("k", ref k)) return;
 
+
+            if (Rhino_Cloud.Count <= k)
+            {
+                throw new Size_Exception(string.Format("Use point clouds with more than k points"));
+            }
+
             /// interal parameters 
-            var Rhino_xyz = Rhino_Cloud.GetPoints();
-            List<double> xyz = new List<double>();
+              List<Vector3d> normals = new List<Vector3d>();
 
             if (!Rhino_Cloud.ContainsNormals)
-
-                for (int i = 0; i < Rhino_Cloud.Count; i++)
-                {
-                xyz.Add(Rhino_xyz[i].X);
-                xyz.Add(Rhino_xyz[i].Y);
-                xyz.Add(Rhino_xyz[i].Z);
-                }
-
+            {
+                var X = Rhino_Cloud.Select(x => x.X).ToList();
+                var Y = Rhino_Cloud.Select(x => x.Y).ToList();
+                var Z = Rhino_Cloud.Select(x => x.Z).ToList();
+                
                 ///2.
-                var Matlab_xyz = new MWNumericArray(Rhino_Cloud.Count, 3, xyz.ToArray());
-            
-            
+                var Matlab_X = new MWNumericArray(Rhino_Cloud.Count, 1, X.ToArray());
+                var Matlab_Y = new MWNumericArray(Rhino_Cloud.Count, 1, Y.ToArray());
+                var Matlab_Z = new MWNumericArray(Rhino_Cloud.Count, 1, Z.ToArray());
 
                 /// 3.
                 Segmentation.segment segment_mesh = new Segmentation.segment();
 
-                MWArray array = new MWNumericArray();
-                array = pointcloudutilities.G_compute_normals(Matlab_xyz, k);
+                var mwca = (MWCellArray)segment_mesh.G_Normals(Matlab_X, Matlab_Y, Matlab_Z, k); 
 
                 /// 4.
-                MWNumericArray na = (MWNumericArray)array;
-                double[] dc = (double[])na.ToVector(0);
+                MWNumericArray na0 = (MWNumericArray)mwca[1];
+                double[] dc0 = (double[])na0.ToVector(0);
 
-            /// 5.%£%/:
-            Resolution = dc[0];
+                MWNumericArray na1 = (MWNumericArray)mwca[2];
+                double[] dc1 = (double[])na1.ToVector(0);
+
+                MWNumericArray na2 = (MWNumericArray)mwca[3];
+                double[] dc2 = (double[])na2.ToVector(0);
+
+
+                /// 5.
+                var Rhino_param0 = new List<double>(dc0);
+                var Rhino_param1 = new List<double>(dc1);
+                var Rhino_param2 = new List<double>(dc2);
+                Vector3d R = new Vector3d();
+                for (int i =0;i< Rhino_param0.Count;i++)
+                {
+                    R = new Vector3d(Rhino_param0[i], Rhino_param1[i], Rhino_param2[i]);
+                    normals.Add(R);
+                }
+
+            }
+
+            else
+            {
+                normals= Rhino_Cloud.GetNormals().ToList();
+            }
+
+            PointCloud Rhino_Cloud_out = new PointCloud();
+            Rhino_Cloud_out.AddRange(Rhino_Cloud.GetPoints(), normals);
+            GH_Cloud Rhino_Cloud_out2 = new GH_Cloud(Rhino_Cloud_out);
 
             /// 6.
-            DA.SetData(0, Resolution);
+            DA.SetData(0, Rhino_Cloud_out2);
         }
 
         /// <summary>

@@ -56,12 +56,22 @@
     <Reference Include="E57LibWriter">
       <HintPath>..\..\Segmentation\Volvox\E57LibWriter.dll</HintPath>
     </Reference>
+    <Reference Include="GH_IO">
+      <HintPath>C:\Program Files\Rhino 7 WIP\Plug-ins\Grasshopper\GH_IO.dll</HintPath>
+    </Reference>
+    <Reference Include="GH_Util">
+      <HintPath>C:\Program Files\Rhino 7 WIP\Plug-ins\Grasshopper\GH_Util.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="Grasshopper">
+      <HintPath>C:\Program Files\Rhino 7 WIP\Plug-ins\Grasshopper\Grasshopper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MWArray, Version=2.15.1.0, Culture=neutral, PublicKeyToken=e1d84a0da19db86f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\MATLAB\MATLAB Runtime\v94\toolbox\dotnetbuilder\bin\win64\v4.0\MWArray.dll</HintPath>
+      <HintPath>C:\Program Files\MATLAB\R2019b\toolbox\dotnetbuilder\bin\win64\v4.0\MWArray.dll</HintPath>
     </Reference>
     <Reference Include="Reconstruction, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -71,9 +81,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Reconstruction\bin\for_testing\ReconstructionNative.dll</HintPath>
     </Reference>
-    <Reference Include="Segmentation, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="RhinoCommon">
+      <HintPath>C:\Program Files\Rhino 7 WIP\System\RhinoCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="Segmentation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Segmentation\Matlab library\for_testing\Segmentation.dll</HintPath>
+      <HintPath>..\..\S2B-Segmentation\bin\for_testing\Segmentation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -82,21 +95,6 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="RhinoCommon">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Rhino 6\System\rhinocommon.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Grasshopper">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Rhino 6\Plug-ins\Grasshopper\Grasshopper.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="GH_IO">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Rhino 6\Plug-ins\Grasshopper\GH_IO.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Volvox_Cloud">
       <HintPath>..\..\Segmentation\Volvox\Volvox_Cloud.dll</HintPath>
     </Reference>
@@ -105,6 +103,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="0.Components\0.Utility\31_PCD_normals.cs" />
+    <Compile Include="0.Components\0.Utility\48_Create_transformation_matrix.cs" />
+    <Compile Include="0.Components\0.Utility\46_Decompose_transformation_matrix.cs" />
+    <Compile Include="0.Components\0.Utility\47_Distribute_vectors.cs" />
+    <Compile Include="0.Components\0.Utility\45_ICP_pointclouds2.cs" />
+    <Compile Include="0.Components\0.Utility\44_ICP_pointclouds.cs" />
     <Compile Include="0.Components\01_DemoComponent.cs" />
     <Compile Include="0.Components\2.Classification\12_Validate_Prediction.cs" />
     <Compile Include="0.Components\2.Classification\11_Write_features1.cs" />

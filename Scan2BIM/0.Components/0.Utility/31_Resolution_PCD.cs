@@ -57,6 +57,22 @@ namespace Scan2BIM
             /// interal parameters 
             var Rhino_xyz = Rhino_Cloud.GetPoints();
             List<double> xyz = new List<double>();
+            List<double> x = new List<double>();
+
+            //if (x.Count != 0)
+            //{
+            //    var temp = x.Max();
+            //    if (temp != 0)
+            //    {
+            //        var result = x.Select(k => k / temp).ToList(); ;
+            //    }
+            //    else
+            //    {
+            //        var result = x;
+            //    } 
+
+            //    A = result;
+            //}
 
             for (int i = 0; i < Rhino_Cloud.Count; i++)
             {
