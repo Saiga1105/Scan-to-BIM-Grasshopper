@@ -1,6 +1,6 @@
 # Scan-to-BIM Grasshopper toolbox
 
-![Overview](/Pics/Overview.png)
+![Overview](https://github.com/Saiga1105/Scan-to-BIM-Grasshopper/blob/master/Pics/Overview.PNG)
 
 This toolbox includes functions for the reconstruction of BIM geometry from meshes.
 It features a general modular pipeline with the following steps
