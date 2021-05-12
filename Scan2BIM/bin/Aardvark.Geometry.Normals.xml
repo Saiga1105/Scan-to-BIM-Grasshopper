@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aardvark.Geometry.Normals</name>
+    </assembly>
+    <members>
+        <member name="T:Aardvark.Geometry.KdTreeExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.KdTreeExtensions.ToKdTree(Aardvark.Base.V3f[],Aardvark.Geometry.PointRkdTreeFData)">
+            <summary>
+            Constructs rkd-tree from points and kd-tree data.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.KdTreeExtensions.ToKdTree(System.Collections.Generic.IList{Aardvark.Base.V3f},Aardvark.Geometry.PointRkdTreeFData)">
+            <summary>
+            Constructs rkd-tree from points and kd-tree data.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.KdTreeExtensions.ToKdTree(Aardvark.Base.V3d[],Aardvark.Geometry.PointRkdTreeDData)">
+            <summary>
+            Constructs rkd-tree from points and kd-tree data.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.KdTreeExtensions.ToKdTree(System.Collections.Generic.IList{Aardvark.Base.V3d},Aardvark.Geometry.PointRkdTreeDData)">
+            <summary>
+            Constructs rkd-tree from points and kd-tree data.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.KdTreeExtensions.BuildKdTree(Aardvark.Base.V3f[],System.Single)">
+            <summary>
+            Computes rkd-tree from given points.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.KdTreeExtensions.BuildKdTree(System.Collections.Generic.IList{Aardvark.Base.V3f},System.Single)">
+            <summary>
+            Computes rkd-tree from given points.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.KdTreeExtensions.BuildKdTree(Aardvark.Base.V3d[],System.Double)">
+            <summary>
+            Computes rkd-tree from given points.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.KdTreeExtensions.BuildKdTree(System.Collections.Generic.IList{Aardvark.Base.V3d},System.Double)">
+            <summary>
+            Computes rkd-tree from given points.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.KdTreeExtensions.BuildKdTreeAsync(Aardvark.Base.V3f[],System.Single)">
+            <summary>
+            Computes rkd-tree from given points.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.KdTreeExtensions.BuildKdTreeAsync(System.Collections.Generic.IList{Aardvark.Base.V3f},System.Single)">
+            <summary>
+            Computes rkd-tree from given points.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.KdTreeExtensions.BuildKdTreeAsync(Aardvark.Base.V3d[],System.Double)">
+            <summary>
+            Computes rkd-tree from given points.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.KdTreeExtensions.BuildKdTreeAsync(System.Collections.Generic.IList{Aardvark.Base.V3d},System.Single)">
+            <summary>
+            Computes rkd-tree from given points.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Normals">
+            <summary>
+            Normals estimation.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormals(Aardvark.Base.V3f[],System.Int32,Aardvark.Geometry.PointRkdTreeF{Aardvark.Base.V3f[],Aardvark.Base.V3f})">
+            <summary>
+            Estimates normals from k-nearest neighbours. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormals(System.Collections.Generic.IList{Aardvark.Base.V3f},System.Int32,Aardvark.Geometry.PointRkdTreeF{Aardvark.Base.V3f[],Aardvark.Base.V3f})">
+            <summary>
+            Estimates normals from k-nearest neighbours. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormals(Aardvark.Base.V3d[],System.Int32,Aardvark.Geometry.PointRkdTreeD{Aardvark.Base.V3d[],Aardvark.Base.V3d})">
+            <summary>
+            Estimates normals from k-nearest neighbours. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormals(System.Collections.Generic.IList{Aardvark.Base.V3d},System.Int32,Aardvark.Geometry.PointRkdTreeD{Aardvark.Base.V3d[],Aardvark.Base.V3d})">
+            <summary>
+            Estimates normals from k-nearest neighbours. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAsync(Aardvark.Base.V3f[],System.Int32,Aardvark.Geometry.PointRkdTreeF{Aardvark.Base.V3f[],Aardvark.Base.V3f})">
+            <summary>
+            Estimates normals from k-nearest neighbours. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAsync(Aardvark.Base.V3d[],System.Int32,Aardvark.Geometry.PointRkdTreeD{Aardvark.Base.V3d[],Aardvark.Base.V3d})">
+            <summary>
+            Estimates normals from k-nearest neighbours. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormals(Aardvark.Base.V3f[],System.Int32)">
+            <summary>
+            Estimates normals from k-nearest neighbours.
+            Computes temporary kd-tree! If you already have a kd-tree for given points, use overload which takes a kd-tree instead.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormals(System.Collections.Generic.IList{Aardvark.Base.V3f},System.Int32)">
+            <summary>
+            Estimates normals from k-nearest neighbours.
+            Computes temporary kd-tree! If you already have a kd-tree for given points, use overload which takes a kd-tree instead.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormals(Aardvark.Base.V3d[],System.Int32)">
+            <summary>
+            Estimates normals from k-nearest neighbours.
+            Computes temporary kd-tree! If you already have a kd-tree for given points, use overload which takes a kd-tree instead.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormals(System.Collections.Generic.IList{Aardvark.Base.V3d},System.Int32)">
+            <summary>
+            Estimates normals from k-nearest neighbours.
+            Computes temporary kd-tree! If you already have a kd-tree for given points, use overload which takes a kd-tree instead.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAsync(Aardvark.Base.V3f[],System.Int32)">
+            <summary>
+            Estimates normals from k-nearest neighbours.
+            Computes temporary kd-tree! If you already have a kd-tree for given points, use overload which takes a kd-tree instead.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAsync(System.Collections.Generic.IList{Aardvark.Base.V3f},System.Int32)">
+            <summary>
+            Estimates normals from k-nearest neighbours.
+            Computes temporary kd-tree! If you already have a kd-tree for given points, use overload which takes a kd-tree instead.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAsync(Aardvark.Base.V3d[],System.Int32)">
+            <summary>
+            Estimates normals from k-nearest neighbours.
+            Computes temporary kd-tree! If you already have a kd-tree for given points, use overload which takes a kd-tree instead.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAsync(System.Collections.Generic.IList{Aardvark.Base.V3d},System.Int32)">
+            <summary>
+            Estimates normals from k-nearest neighbours.
+            Computes temporary kd-tree! If you already have a kd-tree for given points, use overload which takes a kd-tree instead.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAndLocalDensity(Aardvark.Base.V3f[],System.Int32,Aardvark.Geometry.PointRkdTreeF{Aardvark.Base.V3f[],Aardvark.Base.V3f})">
+            <summary>
+            Estimates normals from k-nearest neighbours and local density as average squared distance of k-nearest points to their centroid. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAndLocalDensity(Aardvark.Base.V3d[],System.Int32,Aardvark.Geometry.PointRkdTreeD{Aardvark.Base.V3d[],Aardvark.Base.V3d})">
+            <summary>
+            Estimates normals from k-nearest neighbours and local density as average squared distance of k-nearest points to their centroid. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAndLocalDensityAsync(Aardvark.Base.V3f[],System.Int32,Aardvark.Geometry.PointRkdTreeF{Aardvark.Base.V3f[],Aardvark.Base.V3f})">
+            <summary>
+            Estimates normals from k-nearest neighbours and local density as average squared distance of k-nearest points to their centroid.  
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAndLocalDensityAsync(Aardvark.Base.V3d[],System.Int32,Aardvark.Geometry.PointRkdTreeD{Aardvark.Base.V3d[],Aardvark.Base.V3d})">
+            <summary>
+            Estimates normals from k-nearest neighbours and local density as average squared distance of k-nearest points to their centroid.  
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAndLocalDensity(Aardvark.Base.V3f[],System.Int32)">
+            <summary>
+            Estimates normals from k-nearest neighbours and local density as average squared distance of k-nearest points to their centroid.  
+            Computes temporary kd-tree! If you already have a kd-tree for given points, use overload which takes a kd-tree instead.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAndLocalDensity(Aardvark.Base.V3d[],System.Int32)">
+            <summary>
+            Estimates normals from k-nearest neighbours and local density as average squared distance of k-nearest points to their centroid.  
+            Computes temporary kd-tree! If you already have a kd-tree for given points, use overload which takes a kd-tree instead.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAndLocalDensityAsync(Aardvark.Base.V3f[],System.Int32)">
+            <summary>
+            Estimates normals from k-nearest neighbours and local density as average squared distance of k-nearest points to their centroid.
+            Computes temporary kd-tree! If you already have a kd-tree for given points, use overload which takes a kd-tree instead.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Normals.EstimateNormalsAndLocalDensityAsync(Aardvark.Base.V3d[],System.Int32)">
+            <summary>
+            Estimates normals from k-nearest neighbours and local density as average squared distance of k-nearest points to their centroid.
+            Computes temporary kd-tree! If you already have a kd-tree for given points, use overload which takes a kd-tree instead.
+            </summary>
+        </member>
+    </members>
+</doc>

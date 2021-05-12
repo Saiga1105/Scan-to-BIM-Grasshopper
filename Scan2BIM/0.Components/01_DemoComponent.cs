@@ -95,8 +95,8 @@ namespace Scan2BIM.Components.Classification
             get
             {
                 //You can add image files to your project resources and access them like this:
+                return Properties.Resources.Icon_Saiga;
                 // return Resources.IconForThisComponent;
-                return null;
             }
         }
 

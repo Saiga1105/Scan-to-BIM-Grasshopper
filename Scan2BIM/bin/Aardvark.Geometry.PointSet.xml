@@ -1,0 +1,3667 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aardvark.Geometry.PointSet</name>
+    </assembly>
+    <members>
+        <member name="T:Aardvark.Geometry.Points.IMask2d">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IMask2d.ComputeTriangulation">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IMask2d.And(Aardvark.Geometry.Points.IMask2d)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IMask2d.Or(Aardvark.Geometry.Points.IMask2d)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IMask2d.Xor(Aardvark.Geometry.Points.IMask2d)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IMask2d.Subtract(Aardvark.Geometry.Points.IMask2d)">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IMask2d.IsEmpty">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IMask2d.ToJson">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.Mask3d">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Mask3d.#ctor(Aardvark.Base.V3d,Aardvark.Geometry.Points.IMask2d,Aardvark.Base.Trafo3d)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Mask3d.And(Aardvark.Geometry.Points.Mask3d)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Mask3d.Or(Aardvark.Geometry.Points.Mask3d)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Mask3d.Xor(Aardvark.Geometry.Points.Mask3d)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Mask3d.Subtract(Aardvark.Geometry.Points.Mask3d)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Mask3d.Contains(Aardvark.Base.V3d)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Mask3d.Contains(Aardvark.Base.Box3d,System.Func{Aardvark.Base.V2d[],Aardvark.Geometry.Points.IMask2d})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Mask3d.Intersects(Aardvark.Base.Box3d,System.Func{Aardvark.Base.V2d[],Aardvark.Geometry.Points.IMask2d})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Mask3d.ToJson">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Mask3d.Parse(Newtonsoft.Json.Linq.JObject,System.Func{Newtonsoft.Json.Linq.JToken,Aardvark.Geometry.Points.IMask2d})">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.PointCloud">
+            <summary>
+            Importers for various formats.
+            </summary>
+            <summary>
+            Importers for various formats.
+            </summary>
+            <summary>
+            Importers for various formats.
+            </summary>
+            <summary>
+            Importers for various formats.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Chunks(Aardvark.Data.Points.Chunk,Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Imports single chunk.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Import(Aardvark.Data.Points.Chunk,Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Imports single chunk.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Chunks(System.Collections.Generic.IEnumerable{Aardvark.Data.Points.Chunk},Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Imports sequence of chunks.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Import(System.Collections.Generic.IEnumerable{Aardvark.Data.Points.Chunk},Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Imports sequence of chunks.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.ParseFileInfo(System.String,Aardvark.Data.Points.ParseConfig)">
+            <summary>
+            Gets general info for given point cloud file.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Parse(System.String,Aardvark.Data.Points.ParseConfig)">
+            <summary>
+            Parses file.
+            Format is guessed based on file extension.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Import(System.String,Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Imports file.
+            Format is guessed based on file extension.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Import(System.String,System.String,Aardvark.Base.LruDictionary{System.String,System.Object})">
+            <summary>
+            Imports file into out-of-core store.
+            Format is guessed based on file extension.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Chunks(Aardvark.Data.Points.GenericChunk,Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Imports single chunk.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Import(Aardvark.Data.Points.GenericChunk,Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Imports single chunk.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Chunks(System.Collections.Generic.IEnumerable{Aardvark.Data.Points.GenericChunk},Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Imports sequence of chunks.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Import(System.Collections.Generic.IEnumerable{Aardvark.Data.Points.GenericChunk},Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Imports sequence of chunks.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.StoreInfo(System.String,System.String)">
+            <summary>
+            Gets general info for store dataset.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Load(System.String,System.String,Aardvark.Base.LruDictionary{System.String,System.Object})">
+            <summary>
+            Loads point cloud from store.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.Load(System.String,Aardvark.Data.Points.Storage)">
+            <summary>
+            Loads point cloud from store.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.OpenStore(System.String,Aardvark.Base.LruDictionary{System.String,System.Object},System.Action{System.String[]})">
+            <summary>
+            Opens or creates a store at the specified location.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloud.CreateInMemoryStore(Aardvark.Base.LruDictionary{System.String,System.Object})">
+            <summary>
+            Creates an in-memory store.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.ImportExtensions">
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ImportExtensions.MapReduce(System.Collections.Generic.IEnumerable{Aardvark.Data.Points.Chunk},Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Maps a sequence of point chunks to point sets, which are then reduced to one single point set.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ImportExtensions.MapReduce(System.Collections.Generic.IEnumerable{Aardvark.Data.Points.GenericChunk},Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Maps a sequence of point chunks to point sets, which are then reduced to one single point set.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.DeleteExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.DeleteExtensions.Delete(Aardvark.Geometry.Points.PointSet,System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Base.V3d,System.Boolean},Aardvark.Data.Points.Storage,System.Threading.CancellationToken)">
+            <summary>
+            Returns new pointset with all points deleted which are inside.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.DeleteExtensions.Delete(Aardvark.Geometry.Points.IPointCloudNode,System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Base.V3d,System.Boolean},Aardvark.Data.Points.Storage,System.Threading.CancellationToken,System.Int32)">
+            <summary>
+            Returns new tree with all points deleted which are inside.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.ExportExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.ExportExtensions.ExportPointSetInfo">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ExportExtensions.ExportPointSetInfo.PointCountTree">
+            <summary>
+            Number of points in exported tree (sum of leaf points).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ExportExtensions.ExportPointSetInfo.ProcessedLeafPointCount">
+            <summary>
+            Number of leaf points already processed.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.ExportExtensions.ExportPointSetInfo.Progress">
+            <summary>
+            Progress [0,1].
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ExportExtensions.ExportPointSetInfo.AddProcessedLeafPoints(System.Int64)">
+            <summary>
+            Returns new ExportPointSetInfo with ProcessedLeafPointCount incremented by x. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ExportExtensions.ExportPointSet(Aardvark.Data.Points.Storage,System.String,Aardvark.Data.Points.Storage,System.Action{Aardvark.Geometry.Points.ExportExtensions.ExportPointSetInfo},System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Exports complete pointset (metadata, nodes, referenced blobs) to another store.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ExportExtensions.ExportPointSet(Aardvark.Data.Points.Storage,Aardvark.Geometry.Points.PointSet,Aardvark.Data.Points.Storage,System.Action{Aardvark.Geometry.Points.ExportExtensions.ExportPointSetInfo},System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Exports complete pointset (metadata, nodes, referenced blobs) to another store.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.InlineConfig.Collapse">
+            <summary>
+            Collapse child nodes making each node appr. 8 times as big.
+            E.g. for an octree with split limit 8192, this would result in an octree with split limit 65536.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.InlineConfig.GZipped">
+            <summary>
+            GZip inlined node.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.InlineConfig.PositionsRoundedToNumberOfDigits">
+            <summary>
+            Optionally round positions to given number of digits.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.InlineConfig.Progress">
+            <summary>
+            Progress callback [0,1].
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.InlineConfig.#ctor(System.Boolean,System.Boolean,System.Nullable{System.Int32},System.Action{System.Double})">
+            <summary></summary>
+            <param name="collapse">Collapse child nodes making each node appr. 8 times as big.</param>
+            <param name="gzipped">GZip inlined node.</param>
+            <param name="positionsRoundedToNumberOfDigits">Optionally round positions to given number of digits.</param>
+            <param name="progress">Progress callback [0,1].</param>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.InlineConfig.#ctor(System.Boolean,System.Boolean,System.Action{System.Double})">
+            <summary></summary>
+            <param name="collapse">Collapse child nodes making each node appr. 8 times as big.</param>
+            <param name="gzipped">GZip inlined node.</param>
+            <param name="progress">Progress callback [0,1].</param>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.InlineConfig.#ctor(System.Boolean,System.Boolean)">
+            <summary></summary>
+            <param name="collapse">Collapse child nodes making each node appr. 8 times as big.</param>
+            <param name="gzipped">GZip inlined node.</param>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.InlinedNode">
+            <summary>
+            Compact representation of an octree node, without references to external data (except subnodes).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.InlinedNode.Encode(System.Boolean)">
+            <summary>
+            Binary encodes (and optionally gzips) this InlinedNode as a Durable.Octree.Node.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.InlinedNodes">
+            <summary>
+            Set of inlined nodes and related metadata.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.InlineExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.InlineExtensions.EnumerateOctreeInlined(Aardvark.Data.Points.Storage,System.String,Aardvark.Geometry.Points.InlineConfig)">
+            <summary>
+            Enumerate inlined (self-contained, no external data is referenced) octree nodes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.InlineExtensions.EnumerateOctreeInlined(Aardvark.Data.Points.Storage,System.Guid,Aardvark.Geometry.Points.InlineConfig)">
+            <summary>
+            Enumerate inlined (self-contained, no external data is referenced) octree nodes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.InlineExtensions.EnumerateOctreeInlined(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Geometry.Points.InlineConfig)">
+            <summary>
+            Enumerate inlined (self-contained, no external data is referenced) octree nodes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.InlineExtensions.ExportInlinedPointCloud(Aardvark.Data.Points.Storage,System.String,Aardvark.Data.Points.Storage,Aardvark.Geometry.Points.InlineConfig)">
+            <summary>
+            Inlines and exports point cloud to another store.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.InlineExtensions.ExportInlinedPointCloud(Aardvark.Data.Points.Storage,System.Guid,Aardvark.Data.Points.Storage,Aardvark.Geometry.Points.InlineConfig)">
+            <summary>
+            Inlines and exports pointset to another store.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.InlineExtensions.ExportInlinedPointCloud(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Data.Points.Storage,Aardvark.Geometry.Points.InlineConfig)">
+            <summary>
+            Inlines and exports pointset to another store.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.InMemoryPointSet.StoreAsReference">
+            <summary>
+            The following attribute arrays will be stored stand-alone and referenced via id.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.InMemoryPointSet.#ctor(System.Collections.Immutable.ImmutableDictionary{Aardvark.Data.Durable.Def,System.Object},Aardvark.Base.Cell,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.IPointCloudNode">
+            <summary>
+            An immutable point cloud octree node.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.Storage">
+            <summary>
+            Backing store.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.IsMaterialized">
+            <summary>
+            True, if this node is in store.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNode.Materialize">
+            <summary>
+            Returns materialized version of this node.
+            E.g. a non-materialized filtered node is converted into a PointSetNode (which is stored in Storage).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNode.WriteToStore">
+            <summary>
+            Writes this node to store.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.Id">
+            <summary>
+            Key.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.IsTemporaryImportNode">
+            <summary>
+            Returns true if this a temporary import node (without computed properties like kd-tree).
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.Cell">
+            <summary>
+            This node's index/bounds.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.Center">
+            <summary>
+            Center of this node's cell.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.PointCountCell">
+            <summary>
+            Octree. Number of points in this cell.
+            Durable definition 172e1f20-0ffc-4d9c-9b3d-903fca41abe3.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.PointCountTree">
+            <summary>
+            Number of points in this tree (sum of leaf points).
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.Subnodes">
+            <summary>
+            Subnodes (8), or null if leaf.
+            Entries are null if there is no subnode.
+            There is at least 1 non-null entry.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNode.WithSubNodes(Aardvark.Geometry.Points.IPointCloudNode[])">
+            <summary>
+            Returns new node with replaced subnodes.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.IsLeaf">
+            <summary>
+            Node has no subnodes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNode.Has(Aardvark.Data.Durable.Def)">
+            <summary>
+            Returns true if node has given property.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNode.TryGetValue(Aardvark.Data.Durable.Def,System.Object@)">
+            <summary>
+            Gets given property, or returns false if node has no such property.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.Properties">
+            <summary>
+            Gets all properties.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNode.With(System.Collections.Generic.IReadOnlyDictionary{Aardvark.Data.Durable.Def,System.Object})">
+            <summary>
+            Returns new node (with new id) with added/replaced data.
+            Node is NOT written to store.
+            Call WriteToStore on the result if you want this.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasPositions">
+            <summary>
+            Octree.PositionsLocal3f.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.Positions">
+            <summary>
+            Octree.PositionsLocal3f.
+            Octree. Per-point positions in local cell space (as offsets from cell's center).
+            Durable definition 05eb38fa-1b6a-4576-820b-780163199db9.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.PositionsAbsolute">
+            <summary>
+            Octree. Per-point positions in global space.
+            Durable definition 61ef7c1e-6aeb-45cd-85ed-ad0ed2584553.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasBoundingBoxExactLocal">
+            <summary>
+            Durable definition aadbb622-1cf6-42e0-86df-be79d28d6757.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.BoundingBoxExactLocal">
+            <summary>
+            Octree. Exact bounding box of this node's positions. Local space. Box3f.
+            Durable definition aadbb622-1cf6-42e0-86df-be79d28d6757.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasBoundingBoxExactGlobal">
+            <summary>
+            Durable definition 7912c862-74b4-4f44-a8cd-d11ea1da9304.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.BoundingBoxExactGlobal">
+            <summary>
+            Octree. Exact bounding box of this tree's positions. Global space. Box3d.
+            Durable definition 7912c862-74b4-4f44-a8cd-d11ea1da9304.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasKdTree">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.KdTree">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasColors">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.Colors">
+            <summary>
+            Octree. Per-point colors C4b.
+            Durable definition c91dfea3-243d-4272-9dba-b572931dba23.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasNormals">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.Normals">
+            <summary>
+            Octree. Per-point V3f normals.
+            Durable definition 712d0a0c-a8d0-42d1-bfc7-77eac2e4a755.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasIntensities">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.Intensities">
+            <summary>
+            Octree. Per-point int32 intensities..
+            Durable definition 361027fd-ac58-4de8-89ee-98695f8c5520.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasClassifications">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.Classifications">
+            <summary>
+            Octree. Per-point uint8 classifications.
+            Durable definition d25cff0e-ea80-445b-ab72-d0a5a1013818.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasVelocities">
+            <summary>
+            Deprecated. Always returns false. Use custom attributes instead.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.Velocities">
+            <summary>
+            Deprecated. Always returns null. Use custom attributes instead.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasCentroidLocal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.CentroidLocal">
+            <summary>
+            Octree. Centroid of positions (local space).
+            Durable definition bd6cc4ab-6a41-49b3-aca2-ca4f21510609.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasCentroidLocalStdDev">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.CentroidLocalStdDev">
+            <summary>
+            Octree. Standard deviation of average point distance to centroid (local space).
+            Durable definition c927d42b-02d8-480e-be93-0660eefd62a5.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasMinTreeDepth">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.MinTreeDepth">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasMaxTreeDepth">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.MaxTreeDepth">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasPointDistanceAverage">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.PointDistanceAverage">
+            <summary>
+            Average distance of points in this cell.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.HasPointDistanceStandardDeviation">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.IPointCloudNode.PointDistanceStandardDeviation">
+            <summary>
+            Standard deviation of distance of points in this cell.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.IPointCloudNodeExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.EnumerateNodes(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>
+            Enumerates all nodes depth-first.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.ForEachNode(Aardvark.Geometry.Points.IPointCloudNode,System.Boolean,System.Action{Aardvark.Geometry.Points.IPointCloudNode})">
+            <summary>
+            Calls action for each node in this tree.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.ForEachNode(Aardvark.Geometry.Points.IPointCloudNode,System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.ForEachIntersectingNode(Aardvark.Geometry.Points.IPointCloudNode,System.Boolean,Aardvark.Base.Hull3d,System.Boolean,System.Action{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+            Calls action for each (node, fullyInside) in this pointset, that is intersecting the given hull.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.ForEachNodeIntersecting(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Hull3d,System.Boolean,System.Int32)">
+            <summary>
+            Calls action for each (node, fullyInside) in this tree that is intersecting the given hull.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.GetSubIndex(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.V3d@)">
+            <summary>
+            Index of subnode for given point.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.Intersects(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d,System.Double)">
+            <summary>
+            Returns true if this node intersects the space within a given distance to a plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.IntersectsPositiveHalfSpace(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d@)">
+            <summary>
+            Returns true if this node intersects the positive halfspace defined by given plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.IntersectsNegativeHalfSpace(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d@)">
+            <summary>
+            Returns true if this node intersects the negative halfspace defined by given plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.InsidePositiveHalfSpace(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d@)">
+            <summary>
+            Returns true if this node is fully inside the positive halfspace defined by given plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.InsideNegativeHalfSpace(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d@)">
+            <summary>
+            Returns true if this node is fully inside the negative halfspace defined by given plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.CountPoints(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>
+            Eagerly counts all points in octree (without using PointCountTree property).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.GetMinimumNodePointCount(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>
+            Gets minimum point count of all tree nodes (eager).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.GetMaximumNodePointCount(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>
+            Gets maximum point count of all tree nodes (eager).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.GetAverageNodePointCount(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>
+            Gets average point count of all tree nodes (eager).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.CountNodes(Aardvark.Geometry.Points.IPointCloudNode,System.Boolean)">
+            <summary>
+            Total number of nodes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.CountLeafNodes(Aardvark.Geometry.Points.IPointCloudNode,System.Boolean)">
+            <summary>
+            Number of leaf nodes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.GetMinimumLeafPointCount(Aardvark.Geometry.Points.IPointCloudNode,System.Boolean)">
+            <summary>
+            Gets minimum point count of leaf nodes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.GetMaximumLeafPointCount(Aardvark.Geometry.Points.IPointCloudNode,System.Boolean)">
+            <summary>
+            Gets maximum point count of leaf nodes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.GetAverageLeafPointCount(Aardvark.Geometry.Points.IPointCloudNode,System.Boolean)">
+            <summary>
+            Gets average point count of leaf nodes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.GetMinimumTreeDepth(Aardvark.Geometry.Points.IPointCloudNode,System.Boolean)">
+            <summary>
+            Depth of tree (minimum).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.GetMaximiumTreeDepth(Aardvark.Geometry.Points.IPointCloudNode,System.Boolean)">
+            <summary>
+            Depth of tree (maximum).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.GetAverageTreeDepth(Aardvark.Geometry.Points.IPointCloudNode,System.Boolean)">
+            <summary>
+            Depth of tree (average).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.TryGetColors4b(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>Returns null if node has no colors.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.TryGetNormals3f(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>Returns null if node has no normals.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.TryGetIntensities(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>Returns null if node has no intensities.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.TryGetClassifications(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>Returns null if node has no classifications.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.Collect(Aardvark.Geometry.Points.IPointCloudNode,System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean})">
+            <summary>
+            Collects all points from nodes for which predicate is true.
+            Subnodes of nodes for which predicate is true are not traversed.  
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.Collect(Aardvark.Geometry.Points.IPointCloudNode,System.Int32)">
+            <summary>
+            Collects all points from nodes at given relative depth.
+            E.g. 0 returns points from self, 1 gets points from children, aso.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.CollectColumnXY(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Cell2d,System.Int32)">
+            <summary>
+            Returns points in cells column along z-axis at given xy-position.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.IsLeaf(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.IsNotLeaf(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.CheckDerivedAttributes(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>
+            Throws if node misses any standard derived attributes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.ToChunk(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>
+            Converts node to Chunk.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IPointCloudNodeExtensions.ToChunk(Aardvark.Geometry.Points.IPointCloudNode,System.Int32)">
+            <summary>
+            Converts node to Chunks (by collecting subnodes from given relative depth).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.LodExtensions.GenerateLod(Aardvark.Geometry.Points.PointSet,Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Returns new octree with LOD data created.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.MergeExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.MergeExtensions.ForceSplitLeaf(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            If cell is a leaf, it will be split once (non-recursive, without taking into account any split limit).
+            If cell is not a leaf, this is an invalid operation.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.MergeExtensions.Merge(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Geometry.Points.IPointCloudNode,System.Action{System.Int64},Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            Returns union of trees as new tree (immutable operation).
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.MultiNodeIndex.Id">
+            <summary>
+            Blob key of this MultiNodeIndex.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.MultiNodeIndex.RootNodeId">
+            <summary>
+            Key of tree root node.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.MultiNodeIndex.TreeBlobId">
+            <summary>
+            Blob key containing tree nodes this index applies to. 
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.MultiNode.HasVelocities">
+            <summary>
+            Deprecated. Always returns false. Use custom attributes instead.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.MultiNode.Velocities">
+            <summary>
+            Deprecated. Always returns null. Use custom attributes instead.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.MultiNode.Encode">
+            <summary>
+            MultiNode does not support Encode.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.MultiNode.WithSubNodes(Aardvark.Geometry.Points.IPointCloudNode[])">
+            <summary>
+            MultiNode does not support WithSubNodes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.MultiNode.WriteToStore">
+            <summary>
+            MultiNode does not support WriteToStore.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.MultiNode.With(System.Collections.Generic.IReadOnlyDictionary{Aardvark.Data.Durable.Def,System.Object})">
+            <summary>
+            MultiNode does not support With.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.ObsoleteNodeParser">
+            <summary>
+            Backwards compatibility.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.ObsoletePositions">
+            <summary>
+            Octree. Obsolete per-point positions. Raw V3f[].
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.Positions">
+            <summary>
+            V3f[] relative to Center.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.Colors">
+            <summary>
+            C4b[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.Normals">
+            <summary>
+            V3f[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.Intensities">
+            <summary>
+            int[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.KdTree">
+            <summary>
+            PointRkdTreeD&lt;V3f[], V3f&gt;.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.LodPositions">
+            <summary>
+            V3f[] relative to Center.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.LodColors">
+            <summary>
+            C4b[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.LodNormals">
+            <summary>
+            V3f[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.LodIntensities">
+            <summary>
+            int[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.LodKdTree">
+            <summary>
+            PointRkdTreeD&lt;V3f[], V3f&gt;.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.Classifications">
+            <summary>
+            byte[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.LodClassifications">
+            <summary>
+            byte[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.ObsoleteNodeParser.PointSetAttributes.HasCellAttributes">
+            <summary>
+            Cell attributes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Write``1(System.Byte[],System.Int32@,``0[])">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Read``1(System.Byte[],System.Int32@)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.SizeOf(System.Object)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Write(System.Object,System.Byte[],System.Int32@)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Read(System.Byte[],System.Int32@)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.ArrayToBuffer``1(``0[],System.Int32,System.Action{System.IO.BinaryWriter,``0})">
+            <summary>V3f[] -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.ArrayToBuffer``1(System.Collections.Generic.IList{``0},System.Int32,System.Action{System.IO.BinaryWriter,``0})">
+            <summary>IList&lt;V3f&gt; -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.BufferToArray``1(System.Byte[],System.Int32,System.Func{System.IO.BinaryReader,``0})">
+            <summary>byte[] -> T[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.IntArrayToBuffer(System.Int32[])">
+            <summary>int[] -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.BufferToIntArray(System.Byte[])">
+            <summary>byte[] -> int[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.V3fArrayToBuffer(Aardvark.Base.V3f[])">
+            <summary>V3f[] -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.V3fArrayToBuffer(System.Collections.Generic.IList{Aardvark.Base.V3f})">
+            <summary>IList&lt;V3f[]&gt; -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.BufferToV3fArray(System.Byte[])">
+            <summary>byte[] -> V3f[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.V3dArrayToBuffer(Aardvark.Base.V3d[])">
+            <summary>V3d[] -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.BufferToV3dArray(System.Byte[])">
+            <summary>byte[] -> V3d[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.C4bArrayToBuffer(Aardvark.Base.C4b[])">
+            <summary>C4b[] -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.BufferToC4bArray(System.Byte[])">
+            <summary>byte[] -> C4b[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.PointRkdTreeDDataToBuffer(Aardvark.Geometry.PointRkdTreeDData)">
+            <summary>PointRkdTreeDData -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.Codec.BufferToPointRkdTreeDData(System.Byte[])">
+            <summary>byte[] -> PointRkdTreeDData</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.GetByteArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.TryGetByteArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.GetIntArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.TryGetIntArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.GetC4bArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.TryGetC4bArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.GetPointRkdTreeDData(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.TryGetPointRkdTreeDData(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ObsoleteNodeParser.GetKdTree(Aardvark.Data.Points.Storage,System.String,Aardvark.Base.V3f[])">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.PointSet">
+            <summary>
+            An immutable set of points.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.PointSet.Empty">
+            <summary>
+            The empty pointset.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSet.Create(Aardvark.Data.Points.Storage,System.String,System.Collections.Generic.IList{Aardvark.Base.V3d},System.Collections.Generic.IList{Aardvark.Base.C4b},System.Collections.Generic.IList{Aardvark.Base.V3f},System.Collections.Generic.IList{System.Int32},System.Collections.Generic.IList{System.Byte},System.Int32,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Creates PointSet from given points and colors.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSet.#ctor(Aardvark.Data.Points.Storage,System.String,System.Nullable{System.Guid},System.Int32)">
+            <summary>
+            Creates pointset from given root cell.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSet.#ctor(Aardvark.Data.Points.Storage,System.String,Aardvark.Geometry.Points.IPointCloudNode,System.Int32)">
+            <summary>
+            Creates pointset from given root cell.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSet.#ctor(Aardvark.Data.Points.Storage,System.String)">
+            <summary>
+            Creates empty pointset.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.Id">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.SplitLimit">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.Root">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSet.ToJson">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSet.Parse(Newtonsoft.Json.Linq.JObject,Aardvark.Data.Points.Storage)">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.PointSet.Storage">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.IsEmpty">
+            <summary>
+            Returns true if pointset is empty.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.PointCount">
+            <summary>
+            Gets total number of points in dataset.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.Bounds">
+            <summary>
+            Gets bounds of dataset root cell.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.BoundingBox">
+            <summary>
+            Gets exact bounding box of all points in pointcloud.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.HasColors">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.HasIntensities">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.HasClassifications">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.HasKdTree">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.HasNormals">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSet.HasPositions">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSet.Merge(Aardvark.Geometry.Points.PointSet,System.Action{System.Int64},Aardvark.Data.Points.ImportConfig)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.PointSetNode">
+            <summary>
+            An immutable point cloud node.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.PointSetNode.TemporaryImportNode">
+            <summary>
+            This node has been stored during out-of-core import, without derived properties, like kd-trees, etc.
+            The value of this attribute has no meaning.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.#ctor(Aardvark.Data.Points.Storage,System.Boolean,System.ValueTuple{Aardvark.Data.Durable.Def,System.Object}[])">
+            <summary>
+            Creates node.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.#ctor(System.Collections.Immutable.ImmutableDictionary{Aardvark.Data.Durable.Def,System.Object},Aardvark.Data.Points.Storage,System.Boolean)">
+            <summary>
+            Creates node.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.WriteToStore">
+            <summary>
+            Writes this node to store.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.Data">
+            <summary>
+            Durable properties.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.PointSetNode.Storage">
+            <summary>
+            Runtime.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.PersistentRefs">
+            <summary>
+            Runtime.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.Id">
+            <summary>
+            This node's unique id (16 bytes).
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.IsTemporaryImportNode">
+            <summary>
+            Returns true if this a temporary import node (without computed properties like kd-tree).
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.Cell">
+            <summary>
+            This node's index/bounds.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.PointCountCell">
+            <summary>
+            Octree. Number of points in this cell.
+            Durable definition 172e1f20-0ffc-4d9c-9b3d-903fca41abe3.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.PointCountTree">
+            <summary>
+            Number of points in this tree (sum of leaves).
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.SubnodeIds">
+            <summary>
+            Subnodes (8), or null if leaf.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasPositions">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.PositionsId">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.Positions">
+            <summary>
+            Point positions relative to cell's center, or null if no positions.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.PositionsAbsolute">
+            <summary>
+            Point positions (absolute), or null if no positions.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasBoundingBoxExactLocal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.BoundingBoxExactLocal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasBoundingBoxExactGlobal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.BoundingBoxExactGlobal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasColors">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.ColorsId">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.Colors">
+            <summary>
+            Point colors, or null if no points.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasNormals">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.NormalsId">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.Normals">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasIntensities">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.IntensitiesId">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.Intensities">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasClassifications">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.ClassificationsId">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.Classifications">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasVelocities">
+            <summary>
+            Deprecated. Always returns false. Use custom attributes instead.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.Velocities">
+            <summary>
+            Deprecated. Always returns null. Use custom attributes instead.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasKdTree">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.KdTreeId">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.KdTree">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasCentroidLocal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.CentroidLocal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasCentroidLocalStdDev">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.CentroidLocalStdDev">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasMinTreeDepth">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.MinTreeDepth">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasMaxTreeDepth">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.MaxTreeDepth">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasPointDistanceAverage">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.PointDistanceAverage">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.HasPointDistanceStandardDeviation">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.PointDistanceStandardDeviation">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.PointSetNode.Subnodes">
+            <summary>
+            Subnodes (8), or null if leaf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.PointSetNode.Center">
+            <summary>
+            Center of this node's cell.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.PointSetNode.Corners">
+            <summary>
+            Corners of this node's cell.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.IsLeaf">
+            <summary>
+            Node has no subnodes.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.IsNotLeaf">
+            <summary>
+            Node has subnodes.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.IsCenteredAtOrigin">
+            <summary>
+            Gets whether this node is centered at the origin.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.SubnodeCount">
+            <summary>
+            Gets number of subnodes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.WithSubNodes(Aardvark.Geometry.Points.IPointCloudNode[])">
+            <summary>
+            Returns new node with replaced subnodes.
+            Attention:
+            All node properties (except Cell, BoundingBoxExactGlobal, and PointCountTreeLeafs) are removed, because they would no longer be valid for new subnode data.
+            Use LodExtensions.GenerateLod to recompute these properties.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.With(System.Collections.Generic.IReadOnlyDictionary{Aardvark.Data.Durable.Def,System.Object})">
+            <summary>
+            Returns new node (with new id) with added/replaced data.
+            Node is NOT written to store.
+            Call WriteToStore on the result if you want this.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.Without(Aardvark.Data.Durable.Def[])">
+            <summary>
+            Returns new node with removed data.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.WithComputedKdTree">
+            <summary>
+            Adds kd-tree to temporary import node.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.ComputeAndStoreKdTree(Aardvark.Data.Points.Storage,Aardvark.Base.V3f[])">
+            <summary>
+            Computes and stores kd-tree from given points.
+            Returns id of stored kd-tree.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.Encode">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.Decode(Aardvark.Data.Points.Storage,System.Byte[])">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.Has(Aardvark.Data.Durable.Def)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.TryGetValue(Aardvark.Data.Durable.Def,System.Object@)">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.Properties">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointSetNode.IsMaterialized">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointSetNode.Materialize">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.CellQueryResult">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.CellQueryResult.Empty">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.CellQueryResult.Cell">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.CellQueryResult.IsFullyInside">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.CellQueryResult.IsEmpty">
+            <summary>
+            Cell == null.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.CellQueryResult.#ctor(Aardvark.Geometry.Points.IPointCloudNode,System.Boolean)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.PointsNearObject`1">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.PointsNearObject`1.Empty">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointsNearObject`1.Object">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointsNearObject`1.MaxDistance">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointsNearObject`1.Positions">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointsNearObject`1.Colors">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointsNearObject`1.Normals">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointsNearObject`1.Intensities">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointsNearObject`1.Classifications">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointsNearObject`1.Distances">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointsNearObject`1.#ctor(`0,System.Double,Aardvark.Base.V3d[],Aardvark.Base.C4b[],Aardvark.Base.V3f[],System.Int32[],System.Byte[],System.Double[])">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointsNearObject`1.Count">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PointsNearObject`1.IsEmpty">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointsNearObject`1.Merge(Aardvark.Geometry.Points.PointsNearObject{`0},System.Int32)">
+            <summary>
+            Returns this PointsNearObject merged with other PointsNearObject.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointsNearObject`1.OrderedByDistanceAscending">
+            <summary>
+            Returns PointsNearObject ordered by ascending distance.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointsNearObject`1.OrderedByDistanceDescending">
+            <summary>
+            Returns PointsNearObject ordered by descending distance.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointsNearObject`1.Reordered(System.Int32[])">
+            <summary>
+            Returns PointsNearObject ordered by descending distance.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointsNearObject`1.Take(System.Int32)">
+            <summary>
+            Takes first 'count' items. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointsNearObject`1.WithObject``1(``0)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.Queries">
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryAllPoints(Aardvark.Geometry.Points.PointSet)">
+            <summary>
+            Enumerates (chunked) all points in pointset.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryAllPoints(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>
+            Enumerates (chunked) all points in tree.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryAllPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Int32)">
+            <summary>
+            Enumerates (chunked) all points in tree.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsInsideBoxXY(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            All points p.XY inside axis-aligned box (including boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsInsideBoxXY(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            All points p.XY inside axis-aligned box (including boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryContainsPointsInsideBoxXY(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            All points p.XY inside axis-aligned box (including boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsOutsideBoxXY(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            All points p.XY outside axis-aligned box (excluding boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsOutsideBoxXY(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            All points p.Y outside axis-aligned box (excluding boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsInsideBoxXY(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            Counts points p.XY inside axis-aligned box.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsInsideBoxXY(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            Counts points p.XY inside axis-aligned box.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsOutsideBoxXY(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            Counts points p.XY outside axis-aligned box.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsOutsideBoxXY(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            Counts points p.XY outside axis-aligned box.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyInsideBoxXY(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            Counts points p.XY approximately inside axis-aligned box (cell granularity).
+            Result is always equal or greater than exact number.
+            Faster than CountPointsInsideBoxXY.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyInsideBoxXY(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            Counts points p.XY approximately inside axis-aligned box (cell granularity).
+            Result is always equal or greater than exact number.
+            Faster than CountPointsInsideBoxXY.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyOutsideBoxXY(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            Counts points p.XY approximately outside axis-aligned box (cell granularity).
+            Result is always equal or greater than exact number.
+            Faster than CountPointsOutsideBoxXY.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyOutsideBoxXY(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box2d,System.Int32)">
+            <summary>
+            Counts points p.XY approximately outside axis-aligned box (cell granularity).
+            Result is always equal or greater than exact number.
+            Faster than CountPointsOutsideBoxXY.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsInsideBox(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Box3d,System.Int32)">
+            <summary>
+            All points inside axis-aligned box (including boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsInsideBox(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box3d,System.Int32)">
+            <summary>
+            All points inside axis-aligned box (including boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsOutsideBox(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Box3d,System.Int32)">
+            <summary>
+            All points outside axis-aligned box (excluding boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsOutsideBox(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box3d,System.Int32)">
+            <summary>
+            All points outside axis-aligned box (excluding boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsInsideBox(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Box3d,System.Int32)">
+            <summary>
+            Counts points inside axis-aligned box.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsInsideBox(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box3d,System.Int32)">
+            <summary>
+            Counts points inside axis-aligned box.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsOutsideBox(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Box3d,System.Int32)">
+            <summary>
+            Counts points outside axis-aligned box.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsOutsideBox(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box3d,System.Int32)">
+            <summary>
+            Counts points outside axis-aligned box.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyInsideBox(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Box3d,System.Int32)">
+            <summary>
+            Counts points approximately inside axis-aligned box (cell granularity).
+            Result is always equal or greater than exact number.
+            Faster than CountPointsInsideBox.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyInsideBox(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box3d,System.Int32)">
+            <summary>
+            Counts points approximately inside axis-aligned box (cell granularity).
+            Result is always equal or greater than exact number.
+            Faster than CountPointsInsideBox.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyOutsideBox(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Box3d,System.Int32)">
+            <summary>
+            Counts points approximately outside axis-aligned box (cell granularity).
+            Result is always equal or greater than exact number.
+            Faster than CountPointsOutsideBox.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyOutsideBox(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Box3d,System.Int32)">
+            <summary>
+            Counts points approximately outside axis-aligned box (cell granularity).
+            Result is always equal or greater than exact number.
+            Faster than CountPointsOutsideBox.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.Queries.CellQueryResult">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.Queries.CellQueryResult.Root">
+            <summary>
+            Query root node.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.Queries.CellQueryResult.Cell">
+            <summary>
+            Result cell.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult.GetPoints(System.Int32)">
+            <summary>
+            Returns points inside cell from LoD at given relative depth,
+            where 0 means points in cell itself, 1 means points from subcells, aso.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult.GetPoints(System.Int32,Aardvark.Base.Box3i)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult.GetPoints(System.Int32,Aardvark.Base.Box3i,System.Boolean)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult.GetPoints(System.Int32,Aardvark.Base.Box3i,Aardvark.Base.Box3i)">
+            <summary>
+            Inner cells are excluded.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult.GetPoints(System.Int32,Aardvark.Base.Box3i,Aardvark.Base.Box3i,System.Boolean)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult.#ctor(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Cell,Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>
+            Represents a cell 'resultCell' inside an octree ('root'),
+            where 'resultNode' is root's smallest subnode (incl. root) containing 'resultCell'.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.Queries.CellQueryResult.m_result">
+            <summary>
+            Result node corresponding to result cell (same cell, or parent if octree is not deep enough).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryCell(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Cell)">
+            <summary>
+            Returns points in given cell,
+            or null if octree does not cover given cell.
+            Result chunk contains 0 points, if cell is covered by octree, but no points are inside given cell.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryCell(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Cell)">
+            <summary>
+            Returns points in given cell,
+            or null if octree does not cover given cell.
+            Result chunk contains 0 points, if cell is covered by octree, but no points are inside given cell.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.EnumerateCells(Aardvark.Geometry.Points.PointSet,System.Int32)">
+            <summary>
+            Enumerates all points in chunks of a given cell size (given by cellExponent).
+            Cell size is 2^cellExponent, e.g. -2 gives 0.25, -1 gives 0.50, 0 gives 1.00, 1 gives 2.00, and so on.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.EnumerateCells(Aardvark.Geometry.Points.IPointCloudNode,System.Int32)">
+            <summary>
+            Enumerates all points in chunks of a given cell size (given by cellExponent).
+            Cell size is 2^cellExponent, e.g. -2 gives 0.25, -1 gives 0.50, 0 gives 1.00, 1 gives 2.00, and so on.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.EnumerateCells(Aardvark.Geometry.Points.PointSet,System.Int32,Aardvark.Base.V3i)">
+            <summary>
+            Enumerates all points in chunks of a given cell size (given by cellExponent).
+            Cell size is 2^cellExponent, e.g. -2 gives 0.25, -1 gives 0.50, 0 gives 1.00, 1 gives 2.00, and so on.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.EnumerateCells(Aardvark.Geometry.Points.IPointCloudNode,System.Int32,Aardvark.Base.V3i)">
+            <summary>
+            Enumerates all points in chunks of a given cell size (given by cellExponent).
+            Cell size is 2^cellExponent, e.g. -2 gives 0.25, -1 gives 0.50, 0 gives 1.00, 1 gives 2.00, and so on.
+            Stride is step size (default is V3i.III), which must be greater 0 for each coordinate axis.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.Queries.CellQueryResult2d">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.Queries.CellQueryResult2d.Root">
+            <summary>
+            Query root node.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.Queries.CellQueryResult2d.Cell">
+            <summary>
+            Result (central) column.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.Queries.CellQueryResult2d.ColZ">
+            <summary>
+            Result (central) column.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult2d.CollectPoints(System.Int32)">
+            <summary>
+            Collects points inside column from LoD at given relative depth,
+            where 0 means points in cell column itself, 1 means points from subcells, aso.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult2d.CollectPoints(System.Int32,Aardvark.Base.Box2i)">
+            <summary>
+            Collects points from columns relative to center column.
+            E.g. if outer is Box2i(-2,-2,+2,+2) then 5x5 results (at most) are returned.
+            Results with no points are not returned.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult2d.CollectPoints(System.Int32,Aardvark.Base.Box2i,System.Boolean)">
+            <summary>
+            Collects points from columns relative to center column. The center column (inner cell) is excluded.
+            E.g. if outer is Box2i(-2,-2,+2,+2) then 5x5-1 results (at most) are returned.
+            Results with no points are not returned.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult2d.CollectPoints(System.Int32,Aardvark.Base.Box2i,Aardvark.Base.Box2i)">
+            <summary>
+            Collects points from columns relative to center column. 
+            Inner cells are excluded.
+            E.g. if outer is Box2i(-2,-2,+2,+2) and inner is Box2i(-1,-1,+1,+1) then 5x5-3x3=16 results (at most) are returned.
+            Results with no points are not returned.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult2d.CollectPoints(System.Int32,Aardvark.Base.Box2i,Aardvark.Base.Box2i,System.Boolean)">
+            <summary>
+            Collects points from columns relative to center column. 
+            Inner cells are excluded if excludeInnerCells is true.
+            E.g. if outer is Box2i(-2,-2,+2,+2) and inner is Box2i(-1,-1,+1,+1) then 5x5-3x3=16 results (at most) are returned.
+            Results with no points are not returned.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.Queries.CellQueryResult2d.ColumnPointsXY">
+            <summary>
+            Points in a column with given footprint.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.Queries.CellQueryResult2d.ColumnPointsXY.Footprint">
+            <summary>
+            Footprint of column.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.Queries.CellQueryResult2d.ColumnPointsXY.Points">
+            <summary>
+            All points in the column with given footprint.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult2d.#ctor(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Cell2d,Aardvark.Geometry.Points.Queries.ColZ,Aardvark.Geometry.Points.Queries.CellQueryResult2dCache)">
+            <summary>
+            Represents a cell 'resultCell' inside an octree ('root').
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult2d.GetPoints(System.Int32)">
+            <summary>
+            Deprecated. Use CollectPoints instead.
+            This method will be removed in future version.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult2d.GetPoints(System.Int32,Aardvark.Base.Box2i)">
+            <summary>
+            Deprecated. Use CollectPoints instead.
+            This method will be removed in future version.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult2d.GetPoints(System.Int32,Aardvark.Base.Box2i,System.Boolean)">
+            <summary>
+            Deprecated. Use CollectPoints instead.
+            This method will be removed in future version.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult2d.GetPoints(System.Int32,Aardvark.Base.Box2i,Aardvark.Base.Box2i)">
+            <summary>
+            Deprecated. Use CollectPoints instead.
+            This method will be removed in future version.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CellQueryResult2d.GetPoints(System.Int32,Aardvark.Base.Box2i,Aardvark.Base.Box2i,System.Boolean)">
+            <summary>
+            Deprecated. Use CollectPoints instead.
+            This method will be removed in future version.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.EnumerateCellColumns(Aardvark.Geometry.Points.PointSet,System.Int32)">
+            <summary>
+            Enumerates all columns of a given cell size (given by cellExponent).
+            Cell size is 2^cellExponent, e.g. -2 gives 0.25, -1 gives 0.50, 0 gives 1.00, 1 gives 2.00, and so on.
+            Stride is step size (default is V3i.III), which must be greater 0 for each coordinate axis.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.EnumerateCellColumns(Aardvark.Geometry.Points.IPointCloudNode,System.Int32)">
+            <summary>
+            Enumerates all columns of a given cell size (given by cellExponent).
+            Cell size is 2^cellExponent, e.g. -2 gives 0.25, -1 gives 0.50, 0 gives 1.00, 1 gives 2.00, and so on.
+            Stride is step size (default is V3i.III), which must be greater 0 for each coordinate axis.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.EnumerateCellColumns(Aardvark.Geometry.Points.PointSet,System.Int32,Aardvark.Base.V2i)">
+            <summary>
+            Enumerates all columns of a given cell size (given by cellExponent).
+            Cell size is 2^cellExponent, e.g. -2 gives 0.25, -1 gives 0.50, 0 gives 1.00, 1 gives 2.00, and so on.
+            Stride is step size (default is V3i.III), which must be greater 0 for each coordinate axis.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.EnumerateCellColumns(Aardvark.Geometry.Points.IPointCloudNode,System.Int32,Aardvark.Base.V2i)">
+            <summary>
+            Enumerates all columns of a given cell size (given by cellExponent).
+            Cell size is 2^cellExponent, e.g. -2 gives 0.25, -1 gives 0.50, 0 gives 1.00, 1 gives 2.00, and so on.
+            Stride is step size (default is V3i.III), which must be greater 0 for each coordinate axis.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.Queries.ColZ.Count">
+            <summary>
+            Number of points in column at current level.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.Queries.ColZ.CountTotal">
+            <summary>
+            Number of points in column at most detailed level.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.ColZ.GetPoints(System.Int32)">
+            <summary>
+            Returns points inside cell column from LoD at given relative depth,
+            where 0 means points in cell column itself, 1 means points from subcells, aso.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPoints(Aardvark.Geometry.Points.PointSet,System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Base.V3d,System.Boolean},System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Base.V3d,System.Boolean},System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Int32)">
+            <summary>
+            Enumerates cells/front at given cell exponent (or higher if given depth is not reached).
+            E.g. with minCellExponent = 0 all cells of size 1 (or larger) are numerated.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPoints(Aardvark.Geometry.Points.PointSet,System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Base.V3d,System.Boolean},System.Int32)">
+            <summary>
+            Exact count.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Base.V3d,System.Boolean},System.Int32)">
+            <summary>
+            Exact count.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximately(Aardvark.Geometry.Points.PointSet,System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Int32)">
+            <summary>
+            Approximate count (cell granularity).
+            Result is always equal or greater than exact number.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximately(Aardvark.Geometry.Points.IPointCloudNode,System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Int32)">
+            <summary>
+            Approximate count (cell granularity).
+            Result is always equal or greater than exact number.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryContainsPoints(Aardvark.Geometry.Points.PointSet,System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Base.V3d,System.Boolean},System.Int32)">
+            <summary>
+            Exact count.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryContainsPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Geometry.Points.IPointCloudNode,System.Boolean},System.Func{Aardvark.Base.V3d,System.Boolean},System.Int32)">
+            <summary>
+            Exact count.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.EnumerateGridCellsXY(Aardvark.Geometry.Points.PointSet,System.Int32)">
+            <summary>
+            Enumerate over point cloud in a grid of cells of size gridCellExponent. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.EnumerateGridCellsXY(Aardvark.Geometry.Points.IPointCloudNode,System.Int32)">
+            <summary>
+            Enumerate over point cloud in a grid of cells of size gridCellExponent.
+            Empty grid cells are skipped.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.GridQueryXY.CollectPoints(System.Int32)">
+            <summary>
+            Get all points in this grid cell.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.GridQueryXY.EnumerateGridCellsXY(System.Int32)">
+            <summary>
+            Enumerate over this grid cell in a grid of subcells of size subgridCellExponent. 
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.Queries.GridQueryBox2dResult.Footprint">
+            <summary>Grid cell bounding box.</summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.Queries.GridQueryBox2dResult.Points">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryGridXY(Aardvark.Geometry.Points.PointSet,Aardvark.Base.V2d,System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryGridXY(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.V2d,System.Int32,System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsInsideConvexHull(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Hull3d,System.Int32)">
+            <summary>
+            All points inside convex hull (including boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsInsideConvexHull(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Hull3d,System.Int32)">
+            <summary>
+            All points inside convex hull (including boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsOutsideConvexHull(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Hull3d,System.Int32)">
+            <summary>
+            All points outside convex hull (excluding boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsOutsideConvexHull(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Hull3d,System.Int32)">
+            <summary>
+            All points outside convex hull (excluding boundary).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsInsideConvexHull(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Hull3d,System.Int32)">
+            <summary>
+            Counts points inside convex hull.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsInsideConvexHull(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Hull3d,System.Int32)">
+            <summary>
+            Counts points inside convex hull.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsOutsideConvexHull(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Hull3d,System.Int32)">
+            <summary>
+            Counts points outside convex hull.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsOutsideConvexHull(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Hull3d,System.Int32)">
+            <summary>
+            Counts points outside convex hull.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyInsideConvexHull(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Hull3d,System.Int32)">
+            <summary>
+            Counts points inside convex hull (approximately).
+            Result is always equal or greater than exact number.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyInsideConvexHull(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Hull3d,System.Int32)">
+            <summary>
+            Counts points inside convex hull (approximately).
+            Result is always equal or greater than exact number.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyOutsideConvexHull(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Hull3d,System.Int32)">
+            <summary>
+            Counts points outside convex hull (approximately).
+            Result is always equal or greater than exact number.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyOutsideConvexHull(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Hull3d,System.Int32)">
+            <summary>
+            Counts points outside convex hull (approximately).
+            Result is always equal or greater than exact number.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountOctreeLevels(Aardvark.Geometry.Points.PointSet)">
+            <summary>
+            Max tree depth.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountOctreeLevels(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary>
+            Max tree depth.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.GetMaxOctreeLevelWithLessThanGivenPointCount(Aardvark.Geometry.Points.PointSet,System.Int64)">
+            <summary>
+            Finds deepest octree level which still contains less than given number of points. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.GetMaxOctreeLevelWithLessThanGivenPointCount(Aardvark.Geometry.Points.IPointCloudNode,System.Int64)">
+            <summary>
+            Finds deepest octree level which still contains less than given number of points. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.GetMaxOctreeLevelWithLessThanGivenPointCount(Aardvark.Geometry.Points.PointSet,System.Int64,Aardvark.Base.Box3d)">
+            <summary>
+            Finds deepest octree level which still contains less than given number of points within given bounds. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.GetMaxOctreeLevelWithLessThanGivenPointCount(Aardvark.Geometry.Points.IPointCloudNode,System.Int64,Aardvark.Base.Box3d)">
+            <summary>
+            Finds deepest octree level which still contains less than given number of points within given bounds. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsInOctreeLevel(Aardvark.Geometry.Points.PointSet,System.Int32)">
+            <summary>
+            Gets total number of points in all cells at given octree level.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsInOctreeLevel(Aardvark.Geometry.Points.IPointCloudNode,System.Int32)">
+            <summary>
+            Gets total number of lod-points in all cells at given octree level.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsInOctreeLevel(Aardvark.Geometry.Points.PointSet,System.Int32,Aardvark.Base.Box3d)">
+            <summary>
+            Gets approximate number of points at given octree level within given bounds.
+            For cells that only partially overlap the specified bounds all points are counted anyway.
+            For performance reasons, in order to avoid per-point bounds checks.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsInOctreeLevel(Aardvark.Geometry.Points.IPointCloudNode,System.Int32,Aardvark.Base.Box3d)">
+            <summary>
+            Gets approximate number of points at given octree level within given bounds.
+            For cells that only partially overlap the specified bounds all points are counted anyway.
+            For performance reasons, in order to avoid per-point bounds checks.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsInOctreeLevel(Aardvark.Geometry.Points.PointSet,System.Int32)">
+            <summary>
+            Returns points in given octree level, where level 0 is the root node.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsInOctreeLevel(Aardvark.Geometry.Points.IPointCloudNode,System.Int32)">
+            <summary>
+            Returns lod points for given octree depth/front, where level 0 is the root node.
+            Front will include leafs higher up than given level.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsInOctreeLevel(Aardvark.Geometry.Points.PointSet,System.Int32,Aardvark.Base.Box3d)">
+            <summary>
+            Returns lod points for given octree depth/front of cells intersecting given bounds, where level 0 is the root node.
+            Front will include leafs higher up than given level.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsInOctreeLevel(Aardvark.Geometry.Points.IPointCloudNode,System.Int32,Aardvark.Base.Box3d)">
+            <summary>
+            Returns lod points for given octree depth/front of cells intersecting given bounds, where level 0 is the root node.
+            Front will include leafs higher up than given level.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearPlane(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Plane3d,System.Double,System.Int32)">
+            <summary>
+            All points within maxDistance of given plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearPlane(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d,System.Double,System.Int32)">
+            <summary>
+            All points within maxDistance of given plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearPlanes(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Plane3d[],System.Double,System.Int32)">
+            <summary>
+            All points within maxDistance of ANY of the given planes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearPlanes(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d[],System.Double,System.Int32)">
+            <summary>
+            All points within maxDistance of ANY of the given planes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNotNearPlane(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Plane3d,System.Double,System.Int32)">
+            <summary>
+            All points NOT within maxDistance of given plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNotNearPlane(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d,System.Double,System.Int32)">
+            <summary>
+            All points NOT within maxDistance of given plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNotNearPlanes(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Plane3d[],System.Double,System.Int32)">
+            <summary>
+            All points NOT within maxDistance of ALL the given planes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNotNearPlanes(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d[],System.Double,System.Int32)">
+            <summary>
+            All points NOT within maxDistance of ALL the given planes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNearPlane(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Plane3d,System.Double,System.Int32)">
+            <summary>
+            Count points within maxDistance of given plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNearPlane(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d,System.Double,System.Int32)">
+            <summary>
+            Count points within maxDistance of given plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNearPlanes(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Plane3d[],System.Double,System.Int32)">
+            <summary>
+            Count points within maxDistance of ANY of the given planes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNearPlanes(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d[],System.Double,System.Int32)">
+            <summary>
+            Count points within maxDistance of ANY of the given planes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNotNearPlane(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Plane3d,System.Double,System.Int32)">
+            <summary>
+            Count points NOT within maxDistance of given plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNotNearPlane(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d,System.Double,System.Int32)">
+            <summary>
+            Count points NOT within maxDistance of given plane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNotNearPlanes(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Plane3d[],System.Double,System.Int32)">
+            <summary>
+            Count points NOT within maxDistance of ALL the given planes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNotNearPlanes(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d[],System.Double,System.Int32)">
+            <summary>
+            Count points NOT within maxDistance of ALL the given planes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNearPlane(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Plane3d,System.Double,System.Int32)">
+            <summary>
+            Count points approximately within maxDistance of given plane.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNearPlane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNearPlane(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d,System.Double,System.Int32)">
+            <summary>
+            Count points approximately within maxDistance of given plane.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNearPlane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNearPlanes(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Plane3d[],System.Double,System.Int32)">
+            <summary>
+            Count points approximately within maxDistance of ANY of the given planes.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNearPlanes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNearPlanes(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d[],System.Double,System.Int32)">
+            <summary>
+            Count points approximately within maxDistance of ANY of the given planes.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNearPlanes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNotNearPlane(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Plane3d,System.Double,System.Int32)">
+            <summary>
+            Count points approximately NOT within maxDistance of given plane.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNotNearPlane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNotNearPlane(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d,System.Double,System.Int32)">
+            <summary>
+            Count points approximately NOT within maxDistance of given plane.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNotNearPlane.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNotNearPlanes(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Plane3d[],System.Double,System.Int32)">
+            <summary>
+            Count points approximately NOT within maxDistance of ALL the given planes.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNotNearPlanes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNotNearPlanes(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Plane3d[],System.Double,System.Int32)">
+            <summary>
+            Count points approximately NOT within maxDistance of ALL the given planes.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNotNearPlanes.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearPolygon(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Polygon3d,System.Double,System.Int32)">
+            <summary>
+            All points within maxDistance of given polygon.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearPolygon(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Polygon3d,System.Double,System.Int32)">
+            <summary>
+            All points within maxDistance of given polygon.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearPolygons(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Polygon3d[],System.Double,System.Int32)">
+            <summary>
+            All points within maxDistance of ANY of the given polygons.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearPolygons(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Polygon3d[],System.Double,System.Int32)">
+            <summary>
+            All points within maxDistance of ANY of the given polygons.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNotNearPolygon(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Polygon3d,System.Double,System.Int32)">
+            <summary>
+            All points NOT within maxDistance of given polygon.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNotNearPolygon(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Polygon3d,System.Double,System.Int32)">
+            <summary>
+            All points NOT within maxDistance of given polygon.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNotNearPolygons(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Polygon3d[],System.Double,System.Int32)">
+            <summary>
+            All points NOT within maxDistance of ALL the given polygons.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNotNearPolygons(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Polygon3d[],System.Double,System.Int32)">
+            <summary>
+            All points NOT within maxDistance of ALL the given polygons.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNearPolygon(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Polygon3d,System.Double,System.Int32)">
+            <summary>
+            Count points within maxDistance of given polygon.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNearPolygon(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Polygon3d,System.Double,System.Int32)">
+            <summary>
+            Count points within maxDistance of given polygon.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNearPolygons(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Polygon3d[],System.Double,System.Int32)">
+            <summary>
+            Count points within maxDistance of ANY of the given polygons.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNearPolygons(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Polygon3d[],System.Double,System.Int32)">
+            <summary>
+            Count points within maxDistance of ANY of the given polygons.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNotNearPolygon(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Polygon3d,System.Double,System.Int32)">
+            <summary>
+            Count points NOT within maxDistance of given polygon.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNotNearPolygon(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Polygon3d,System.Double,System.Int32)">
+            <summary>
+            Count points NOT within maxDistance of given polygon.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNotNearPolygons(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Polygon3d[],System.Double,System.Int32)">
+            <summary>
+            Count points NOT within maxDistance of ALL the given polygons.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsNotNearPolygons(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Polygon3d[],System.Double,System.Int32)">
+            <summary>
+            Count points NOT within maxDistance of ALL the given polygons.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNearPolygon(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Polygon3d,System.Double,System.Int32)">
+            <summary>
+            Count points approximately within maxDistance of given polygon.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNearPolygon.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNearPolygon(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Polygon3d,System.Double,System.Int32)">
+            <summary>
+            Count points approximately within maxDistance of given polygon.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNearPolygon.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNearPolygons(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Polygon3d[],System.Double,System.Int32)">
+            <summary>
+            Count points approximately within maxDistance of ANY of the given polygons.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNearPolygons.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNearPolygons(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Polygon3d[],System.Double,System.Int32)">
+            <summary>
+            Count points approximately within maxDistance of ANY of the given polygons.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNearPolygons.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNotNearPolygon(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Polygon3d,System.Double,System.Int32)">
+            <summary>
+            Count points approximately NOT within maxDistance of given polygon.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNotNearPolygon.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNotNearPolygon(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Polygon3d,System.Double,System.Int32)">
+            <summary>
+            Count points approximately NOT within maxDistance of given polygon.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNotNearPolygon.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNotNearPolygons(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Polygon3d[],System.Double,System.Int32)">
+            <summary>
+            Count points approximately NOT within maxDistance of ALL the given polygons.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNotNearPolygons.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.CountPointsApproximatelyNotNearPolygons(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Polygon3d[],System.Double,System.Int32)">
+            <summary>
+            Count points approximately NOT within maxDistance of ALL the given polygons.
+            Result is always equal or greater than exact number.
+            Faster than CountPointsNotNearPolygons.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearRay(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Ray3d,System.Double,System.Int32)">
+            <summary>
+            Points within given distance of a ray.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearRayCustom(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Ray3d,System.Double,Aardvark.Data.Durable.Def[])">
+            <summary>
+            Points within given distance of a ray.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearRayCustom(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Ray3d,System.Double,System.Int32,Aardvark.Data.Durable.Def[])">
+            <summary>
+            Points within given distance of a ray.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearLineSegment(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Line3d,System.Double,System.Int32)">
+            <summary>
+            Points within given distance of a line segment (at most 1000).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearLineSegmentCustom(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Line3d,System.Double,Aardvark.Data.Durable.Def[])">
+            <summary>
+            Points within given distance of a line segment (at most 1000).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearLineSegmentCustom(Aardvark.Geometry.Points.PointSet,Aardvark.Base.Line3d,System.Double,System.Int32,Aardvark.Data.Durable.Def[])">
+            <summary>
+            Points within given distance of a line segment (at most 1000).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearLineSegment(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Line3d,System.Double,System.Int32)">
+            <summary>
+            Points within given distance of a line segment (at most 1000).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearLineSegmentCustom(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Line3d,System.Double,Aardvark.Data.Durable.Def[])">
+            <summary>
+            Points within given distance of a line segment (at most 1000).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearLineSegmentCustom(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.Line3d,System.Double,System.Int32,Aardvark.Data.Durable.Def[])">
+            <summary>
+            Points within given distance of a line segment (at most 1000).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.Clip(Aardvark.Base.Box3d,Aardvark.Base.Ray3d)">
+            <summary>
+            Clips given ray on box, or returns null if ray does not intersect box.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearPoint(Aardvark.Geometry.Points.PointSet,Aardvark.Base.V3d,System.Double,System.Int32)">
+            <summary>
+            Points within given distance to a query point.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsNearPoint(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Base.V3d,System.Double,System.Int32)">
+            <summary>
+            Points within given distance to a query point.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Queries.QueryPointsInViewFrustum(Aardvark.Geometry.Points.PointSet,Aardvark.Base.M44d,Aardvark.Base.Box3d)">
+            <summary>
+            Returns points inside view frustum (defined by viewProjection and canonicalViewVolume).
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.BaseExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.BaseExtensions.GetOutlineProjected(Aardvark.Base.Box3d,Aardvark.Base.V3d,Aardvark.Base.M44d)">
+            <summary>
+            Projects outline of a box from given position to a plane.
+            Returns null if position is inside the box.
+            </summary>
+            <param name="box">Box to project.</param>
+            <param name="fromPosition">Project from.</param>
+            <param name="box2plane">Transformation from world/box-space to plane z=0</param>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.BaseExtensions.Contains(Aardvark.Base.Plane3d,Aardvark.Base.Box3d,System.Double)">
+            <summary>
+            Returns true if the plane with a supplied epsilon tolerance fully contains the box.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.BaseExtensions.IntersectsOrContains(Aardvark.Base.Plane3d,Aardvark.Base.Box3d,System.Double)">
+            <summary>
+            Returns true if the plane with a supplied epsilon tolerance intersects or fully contains the box.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.BaseExtensions.BoundingBox3d(Aardvark.Base.Polygon3d,System.Double)">
+            <summary>
+            Bounding box of polygon with additional epsilon tolerance with respect to polygon normal.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.BaseExtensions.Contains(Aardvark.Base.Hull3d,Aardvark.Base.Box3d)">
+            <summary>
+            Returns true if the Hull3d completely contains the box.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.EnumerableExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.EnumerableExtensions.ComputeAvgAndStdDev(System.Single[])">
+            <summary>
+            Returns average and standard deviation of given values.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.EnumerableExtensions.MapReduceParallel``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,System.Threading.CancellationToken,``0},System.Int32,System.Action{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.FileHelpers">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FileHelpers.ComputeMd5Hash(System.String,System.Boolean)">
+            <summary>
+            Computes MD5 hash of file content.
+            If fast is set to true, then only the first 1 MiB of data is used for hash.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.HashExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V2f)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V2d)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V2l)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V2i)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V2f[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V2d[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V2l[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V2i[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.V2f})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.V2d})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.V2l})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.V2i})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V3f)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V3d)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V3l)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V3i)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V3f[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V3d[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V3l[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V3i[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.V3f})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.V3d})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.V3l})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.V3i})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V4f)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V4d)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V4l)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V4i)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V4f[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V4d[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V4l[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.V4i[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.V4f})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.V4d})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.V4l})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.V4i})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.C3b)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.C3f)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.C4b)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.C4f)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.C3b[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.C3f[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.C4b[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.C4f[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.C3b})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.C3f})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.C4b})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.C4f})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.Plane3d)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.Plane3d[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.Plane3d})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.Hull3d)">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(Aardvark.Base.Hull3d[])">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.HashExtensions.ComputeMd5Hash(System.Collections.Generic.IEnumerable{Aardvark.Base.Hull3d})">
+            <summary>Computes MD5 hash of given data.</summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.PersistentRef`1">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PersistentRef`1.#ctor(System.Guid,System.Func{System.String,`0},System.Func{System.String,System.ValueTuple{System.Boolean,`0}})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PersistentRef`1.#ctor(System.String,System.Func{System.String,`0},System.Func{System.String,System.ValueTuple{System.Boolean,`0}})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PersistentRef`1.Cast``1">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PersistentRef`1.FromValue(`0)">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PersistentRef`1.Id">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PersistentRef`1.TryGetValue(`0@)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PersistentRef`1.TryGetValue">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.PersistentRef`1.Value">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.PointCloudFormatExtensions">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.PointCloudFormatExtensions.ImportFile(Aardvark.Data.Points.PointCloudFileFormat,System.String,Aardvark.Data.Points.ImportConfig)">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.Codec">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.ArrayToBuffer``1(``0[],System.Int32,System.Action{System.IO.BinaryWriter,``0})">
+            <summary>V3f[] -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.ArrayToBuffer``1(System.Collections.Generic.IList{``0},System.Int32,System.Action{System.IO.BinaryWriter,``0})">
+            <summary>IList&lt;V3f&gt; -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.BufferToArray``1(System.Byte[],System.Int32,System.Func{System.IO.BinaryReader,``0})">
+            <summary>byte[] -> T[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.IntArrayToBuffer(System.Int32[])">
+            <summary>int[] -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.BufferToIntArray(System.Byte[])">
+            <summary>byte[] -> int[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.V2fArrayToBuffer(Aardvark.Base.V2f[])">
+            <summary>V2f[] -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.V2fArrayToBuffer(System.Collections.Generic.IList{Aardvark.Base.V2f})">
+            <summary>IList&lt;V2f[]&gt; -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.BufferToV2fArray(System.Byte[])">
+            <summary>byte[] -> V2f[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.V2dArrayToBuffer(Aardvark.Base.V2d[])">
+            <summary>V2d[] -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.V2dArrayToBuffer(System.Collections.Generic.IList{Aardvark.Base.V2d})">
+            <summary>IList&lt;V2d[]&gt; -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.BufferToV2dArray(System.Byte[])">
+            <summary>byte[] -> V2d[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.V3fArrayToBuffer(Aardvark.Base.V3f[])">
+            <summary>V3f[] -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.V3fArrayToBuffer(System.Collections.Generic.IList{Aardvark.Base.V3f})">
+            <summary>IList&lt;V3f[]&gt; -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.BufferToV3fArray(System.Byte[])">
+            <summary>byte[] -> V3f[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.V3dArrayToBuffer(Aardvark.Base.V3d[])">
+            <summary>V3d[] -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.BufferToV3dArray(System.Byte[])">
+            <summary>byte[] -> V3d[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.C4bArrayToBuffer(Aardvark.Base.C4b[])">
+            <summary>C4b[] -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.BufferToC4bArray(System.Byte[])">
+            <summary>byte[] -> C4b[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.PointRkdTreeDDataToBuffer(Aardvark.Geometry.PointRkdTreeDData)">
+            <summary>PointRkdTreeDData -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.BufferToPointRkdTreeDData(System.Byte[])">
+            <summary>byte[] -> PointRkdTreeDData</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.PointRkdTreeFDataToBuffer(Aardvark.Geometry.PointRkdTreeFData)">
+            <summary>PointRkdTreeDData -> byte[]</summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Codec.BufferToPointRkdTreeFData(System.Byte[])">
+            <summary>byte[] -> PointRkdTreeDData</summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.StorageExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.WithInMemoryStore(Aardvark.Data.Points.ImportConfig)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.ToPointCloudStore(Uncodium.SimpleStore.ISimpleStore,Aardvark.Base.LruDictionary{System.String,System.Object})">
+            <summary>
+            Wraps Uncodium.ISimpleStore into Storage.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.ToPointCloudStore(Uncodium.SimpleStore.ISimpleStore)">
+            <summary>
+            Wraps Uncodium.ISimpleStore into Storage with default 1GB cache.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Exists(Aardvark.Data.Points.Storage,System.Guid)">
+            <summary>
+            Returns if given key exists in store.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Exists(Aardvark.Data.Points.Storage,System.String)">
+            <summary>
+            Returns if given key exists in store.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.Guid,System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.String,System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.GetByteArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.GetByteArray(Aardvark.Data.Points.Storage,System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.TryGetByteArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.Guid,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.String,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.Guid,Newtonsoft.Json.Linq.JObject)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.String,Newtonsoft.Json.Linq.JObject)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.Guid,Aardvark.Base.V3f[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.Guid,System.Collections.Generic.IList{Aardvark.Base.V3f})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.String,Aardvark.Base.V3f[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.String,System.Collections.Generic.IList{Aardvark.Base.V3f})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.GetV3fArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.TryGetV3fArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.Guid,System.Int32[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.String,System.Int32[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.GetIntArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.TryGetIntArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.Guid,Aardvark.Base.C4b[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.String,Aardvark.Base.C4b[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.GetC4bArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.TryGetC4bArray(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.GetPointRkdTreeDData(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.TryGetPointRkdTreeDData(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.GetKdTree(Aardvark.Data.Points.Storage,System.String,Aardvark.Base.V3f[])">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.Guid,Aardvark.Geometry.PointRkdTreeFData)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.String,Aardvark.Geometry.PointRkdTreeFData)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.GetPointRkdTreeFData(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.GetPointRkdTreeFDataFromD(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.TryGetPointRkdTreeFData(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.TryGetPointRkdTreeFDataFromD(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.String,Aardvark.Geometry.Points.PointSet)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.Guid,Aardvark.Geometry.Points.PointSet)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.GetPointSet(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.String,Aardvark.Geometry.Points.PointSetNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.Add(Aardvark.Data.Points.Storage,System.String,Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.GetPointCloudNode(Aardvark.Data.Points.Storage,System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.GetPointCloudNode(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.TryGetPointCloudNode(Aardvark.Data.Points.Storage,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.TryGetOctree(Aardvark.Data.Points.Storage,System.String,Aardvark.Geometry.Points.IPointCloudNode@)">
+            <summary>
+            Try to load PointSet or PointCloudNode with given key.
+            Returns octree root node when found.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.StorageExtensions.DurableEncode(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Aardvark.Data.Durable.Def,System.Object}},Aardvark.Data.Durable.Def,System.Boolean)">
+            <summary>
+            Binary encodes (and optionally gzips) a durable map with given definition from a sequence of key/value pairs.
+            Entries are encoded in the same order as given by the data sequence.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.FilteredNode">
+            <summary>
+            A filtered view onto a point cloud.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.Create(System.Guid,Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Geometry.Points.IFilter)">
+            <summary>
+            Creates a permanent FilteredNode, which is written to the store.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.Create(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Geometry.Points.IFilter)">
+            <summary>
+            Creates a permanent FilteredNode, which is written to the store.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.CreateTransient(System.Guid,Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Geometry.Points.IFilter)">
+            <summary>
+            Creates an in-memory FilteredNode, which is not written to the store. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.CreateTransient(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Geometry.Points.IFilter)">
+            <summary>
+            Creates an in-memory FilteredNode, which is not written to the store. 
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.#ctor(System.Guid,System.Boolean,Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Geometry.Points.IFilter)">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Id">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.IsTemporaryImportNode">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Node">
+            <summary> </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Filter">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Storage">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.IsMaterialized">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.Materialize">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Cell">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Center">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.PointCountTree">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.Has(Aardvark.Data.Durable.Def)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.TryGetValue(Aardvark.Data.Durable.Def,System.Object@)">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Properties">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Subnodes">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.PointCountCell">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.IsLeaf">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasPositions">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Positions">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.PositionsAbsolute">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasBoundingBoxExactLocal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.BoundingBoxExactLocal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasBoundingBoxExactGlobal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.BoundingBoxExactGlobal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasKdTree">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.KdTree">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasColors">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Colors">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasNormals">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Normals">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasIntensities">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Intensities">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasClassifications">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Classifications">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasVelocities">
+            <summary>
+            Deprecated. Always returns false. Use custom attributes instead.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.Velocities">
+            <summary>
+            Deprecated. Always returns null. Use custom attributes instead.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasCentroidLocal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.CentroidLocal">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasCentroidLocalStdDev">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.CentroidLocalStdDev">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasMinTreeDepth">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.MinTreeDepth">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasMaxTreeDepth">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.MaxTreeDepth">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasPointDistanceAverage">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.PointDistanceAverage">
+            <summary>
+            Average distance of points in this cell.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.HasPointDistanceStandardDeviation">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilteredNode.PointDistanceStandardDeviation">
+            <summary>
+            Standard deviation of distance of points in this cell.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.With(System.Collections.Generic.IReadOnlyDictionary{Aardvark.Data.Durable.Def,System.Object})">
+            <summary>
+            FilteredNode does not support With.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.WithSubNodes(Aardvark.Geometry.Points.IPointCloudNode[])">
+            <summary>
+            FilteredNode does not support WithSubNodes.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.FilteredNode.Defs">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.FilteredNode.Defs.FilteredNode">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.FilteredNode.Defs.FilteredNodeRootId">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.FilteredNode.Defs.FilteredNodeFilter">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.WriteToStore">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.Encode">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilteredNode.Decode(Aardvark.Data.Points.Storage,System.Byte[])">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.Filter">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Filter.Deserialize(System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Filter.Deserialize(Newtonsoft.Json.Linq.JToken)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.Filter.Deserialize(Newtonsoft.Json.Linq.JObject)">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.FilterOr">
+            <summary>
+            NOT IMPLEMENTED
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.FilterOr.Type">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilterOr.Left">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilterOr.Right">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOr.#ctor(Aardvark.Geometry.Points.IFilter,Aardvark.Geometry.Points.IFilter)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOr.IsFullyInside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOr.IsFullyOutside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOr.FilterPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Collections.Generic.HashSet{System.Int32})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOr.Serialize">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOr.Deserialize(Newtonsoft.Json.Linq.JObject)">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.FilterAnd">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.FilterAnd.Type">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilterAnd.Left">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilterAnd.Right">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterAnd.#ctor(Aardvark.Geometry.Points.IFilter,Aardvark.Geometry.Points.IFilter)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterAnd.IsFullyInside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterAnd.IsFullyOutside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterAnd.FilterPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Collections.Generic.HashSet{System.Int32})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterAnd.Serialize">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterAnd.Deserialize(Newtonsoft.Json.Linq.JObject)">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.FilterInsideBox3d">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.FilterInsideBox3d.Type">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilterInsideBox3d.Box">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideBox3d.#ctor(Aardvark.Base.Box3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideBox3d.IsFullyInside(Aardvark.Base.Box3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideBox3d.IsFullyOutside(Aardvark.Base.Box3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideBox3d.IsFullyInside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideBox3d.IsFullyOutside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideBox3d.FilterPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Collections.Generic.HashSet{System.Int32})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideBox3d.Serialize">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideBox3d.Deserialize(Newtonsoft.Json.Linq.JObject)">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.FilterOutsideBox3d">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.FilterOutsideBox3d.Type">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilterOutsideBox3d.Box">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOutsideBox3d.#ctor(Aardvark.Base.Box3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOutsideBox3d.IsFullyInside(Aardvark.Base.Box3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOutsideBox3d.IsFullyOutside(Aardvark.Base.Box3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOutsideBox3d.IsFullyInside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOutsideBox3d.IsFullyOutside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOutsideBox3d.FilterPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Collections.Generic.HashSet{System.Int32})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOutsideBox3d.Serialize">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterOutsideBox3d.Deserialize(Newtonsoft.Json.Linq.JObject)">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.FilterClassification">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.FilterClassification.Type">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilterClassification.Filter">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterClassification.AllExcept(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterClassification.AllExcept(Aardvark.Base.Range1b[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterClassification.#ctor(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterClassification.#ctor(System.Collections.Generic.HashSet{System.Byte})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterClassification.IsFullyInside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterClassification.IsFullyOutside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterClassification.FilterPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Collections.Generic.HashSet{System.Int32})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterClassification.Serialize">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterClassification.Deserialize(Newtonsoft.Json.Linq.JObject)">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.FilterInsideConvexHull3d">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.FilterInsideConvexHull3d.Type">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilterInsideConvexHull3d.Hull">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideConvexHull3d.#ctor(Aardvark.Base.Hull3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideConvexHull3d.IsFullyInside(Aardvark.Base.Box3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideConvexHull3d.IsFullyOutside(Aardvark.Base.Box3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideConvexHull3d.IsFullyInside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideConvexHull3d.IsFullyOutside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideConvexHull3d.FilterPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Collections.Generic.HashSet{System.Int32})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideConvexHull3d.Serialize">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.FilterIntensity">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.FilterIntensity.Type">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilterIntensity.Range">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterIntensity.#ctor(Aardvark.Base.Range1i)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterIntensity.IsFullyInside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterIntensity.IsFullyOutside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterIntensity.FilterPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Collections.Generic.HashSet{System.Int32})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterIntensity.Serialize">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterIntensity.Deserialize(Newtonsoft.Json.Linq.JObject)">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.FilterNormalDirection">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.FilterNormalDirection.Type">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilterNormalDirection.Direction">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Geometry.Points.FilterNormalDirection.EpsInDegrees">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterNormalDirection.#ctor(Aardvark.Base.V3f,System.Single)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterNormalDirection.IsFullyInside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterNormalDirection.IsFullyOutside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterNormalDirection.FilterPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Collections.Generic.HashSet{System.Int32})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterNormalDirection.Serialize">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterNormalDirection.Deserialize(Newtonsoft.Json.Linq.JObject)">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.FilterInsideSphere3d">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Geometry.Points.FilterInsideSphere3d.Type">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideSphere3d.#ctor(Aardvark.Base.Sphere3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideSphere3d.FilterPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Collections.Generic.HashSet{System.Int32})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideSphere3d.IsFullyInside(Aardvark.Base.Box3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideSphere3d.IsFullyInside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideSphere3d.IsFullyOutside(Aardvark.Base.Box3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideSphere3d.IsFullyOutside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.FilterInsideSphere3d.Serialize">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Geometry.Points.IFilter">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IFilter.IsFullyInside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IFilter.IsFullyOutside(Aardvark.Geometry.Points.IPointCloudNode)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IFilter.FilterPoints(Aardvark.Geometry.Points.IPointCloudNode,System.Collections.Generic.HashSet{System.Int32})">
+            <summary>
+            Computes indices of selected/visible points, starting from already selected points.
+            If 'selected' is null, then ALL points are selected to begin with.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.IFilter.Serialize">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ISpatialFilter.IsFullyInside(Aardvark.Base.Box3d)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Geometry.Points.ISpatialFilter.IsFullyOutside(Aardvark.Base.Box3d)">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Data.Points.ImportConfig">
+            <summary>
+            General info for a point cloud data file.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Points.ImportConfig.Default">
+            <summary>
+            Default configuration.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.ParseConfig">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.Key">
+            <summary>
+            Store imported pointcloud with this key.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.CancellationToken">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.MaxDegreeOfParallelism">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.MinDist">
+            <summary>
+            Remove points on import with less than this distance to previous point.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.ReadBufferSizeInBytes">
+            <summary>
+            Large files should be read in chunks with this maximum size.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.NormalizePointDensityGlobal">
+            <summary>Normalizes point density globally using MinDist distance.</summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.OctreeSplitLimit">
+            <summary>
+            Max number of points in octree cell.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.ProgressCallback">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.Reproject">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.Storage">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.Verbose">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Data.Points.ImportConfig.MaxChunkPointCount">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.#ctor(Aardvark.Data.Points.ImportConfig)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithCancellationToken(System.Threading.CancellationToken)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithKey(System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithKey(System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithRandomKey">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithMaxDegreeOfParallelism(System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithMinDist(System.Double)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithNormalizePointDensityGlobal(System.Boolean)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithOctreeSplitLimit(System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithProgressCallback(System.Action{System.Double})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithReadBufferSizeInBytes(System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithMaxChunkPointCount(System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithReproject(System.Func{System.Collections.Generic.IList{Aardvark.Base.V3d},System.Collections.Generic.IList{Aardvark.Base.V3d}})">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithVerbose(System.Boolean)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.ImportConfig.WithStorage(Aardvark.Data.Points.Storage)">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Data.Codec">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Codec.EncodeC3b">
+            <summary>
+            Wrong implemention (should be serialized as BGR, not RGB) according to Durable definition.
+            For backwards compatibility, this should be fixed with magic, by obsoleting Aardvark.C3b durable definition used by this implemention and creating new Aardvark.C3b durable def.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Codec.EncodeC3bArray">
+            <summary>
+            This should be correctly serialized, since the array is serialzed in memory layout, which is BGR. See EncodeC3b.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Codec.EncodeC4b">
+            <summary>
+            Correct implemention, serialized as BGRA (because it was added later after the problem was known).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Codec.DecodeC3b">
+            <summary>
+            Wrong implemention (should be serialized as BGR, not RGB) according to Durable definition.
+            For backwards compatibility, this should be fixed with magic, by obsoleting Aardvark.C3b durable definition used by this implemention and creating new Aardvark.C3b durable def.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Codec.DecodeC3bArray">
+            <summary>
+            This should be correctly deserialized, since the array is serialized in memory layout, which is BGR. See EncodeC3b.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Codec.DecodeC4b">
+            <summary>
+            Correct implemention, serialized as BGRA (because it was added later after the problem was known).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Codec.Serialize``1(Aardvark.Data.Durable.Def,``0)">
+            <summary>
+            Serializes value x to byte array. 
+            Can be deserialized with Deserialize.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Codec.Serialize``1(System.IO.BinaryWriter,Aardvark.Data.Durable.Def,``0)">
+            <summary>
+            Serializes value x to stream. 
+            Can be deserialized with Deserialize.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Codec.Serialize``1(System.IO.Stream,Aardvark.Data.Durable.Def,``0)">
+            <summary>
+            Serializes value x to stream. 
+            Can be deserialized with Deserialize.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Codec.Deserialize(System.IO.BinaryReader)">
+            <summary>
+            Deserializes value from stream.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Codec.Deserialize(System.IO.Stream)">
+            <summary>
+            Deserializes value from stream.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Codec.Deserialize(System.Byte[])">
+            <summary>
+            Deserializes value from byte array.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Codec.Deserialize(System.String)">
+            <summary>
+            Deserializes value from file.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Codec.DeserializeAs``1(System.IO.BinaryReader)">
+            <summary>
+            Deserializes value from stream.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Codec.DeserializeAs``1(System.IO.Stream)">
+            <summary>
+            Deserializes value from stream.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Codec.DeserializeAs``1(System.Byte[])">
+            <summary>
+            Deserializes value from byte array.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Codec.DeserializeAs``1(System.String)">
+            <summary>
+            Deserializes value from file.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Aardvark.Base.FSharp</name></assembly>
+<members>
+<member name="P:Aardvark.Base.Traceable`2.tcollapse">
+<summary>
+ determines whether or not a history should be pruned although it is still referntiable.
+ the first argument is the base-state for that history and the second argument is the number
+ of ops that would need to be applied.
+ when returning true the history implementation will discard the history and reproduce it on demand using
+ the above compute function.
+</summary>
+</member>
+<member name="P:Aardvark.Base.Traceable`2.tcompute">
+<summary>
+ differentiates two states and returns the needed ops
+</summary>
+</member>
+<member name="P:Aardvark.Base.Traceable`2.tapply">
+<summary>
+ applies the given operations to the state and 
+ returns the new state accompanied by (possibly) reduced ops (removing useless ops)
+</summary>
+</member>
+<member name="P:Aardvark.Base.Traceable`2.tempty">
+<summary>
+ the empty state
+</summary>
+</member>
+<member name="P:Aardvark.Base.Traceable`2.tops">
+<summary>
+ the monoid instance for &apos;ops
+</summary>
+</member>
+<member name="P:Aardvark.Base.Monoid`1.mappend">
+<summary>
+ appends to values
+</summary>
+</member>
+<member name="P:Aardvark.Base.Monoid`1.mempty">
+<summary>
+ the empty element
+</summary>
+</member>
+<member name="P:Aardvark.Base.Monoid`1.misEmpty">
+<summary>
+ determines whether the given value is empty
+</summary>
+</member>
+<member name="P:Aardvark.Base.AverageWindow.Value">
+<summary>
+ Returns the average of the last N inserted values.
+</summary>
+</member>
+<member name="P:Aardvark.Base.AverageWindow.Count">
+<summary>
+ The number of currently inserted values.
+</summary>
+</member>
+<member name="M:Aardvark.Base.AverageWindow.Reset">
+<summary>
+ Resets the average window.
+</summary>
+</member>
+<member name="M:Aardvark.Base.AverageWindow.Insert(System.Double)">
+<summary>
+ Insert a new value to the sequence and returns the average of the last N values.
+</summary>
+</member>
+<member name="T:Aardvark.Base.AverageWindow">
+<summary>
+ Represents a moving average window of a sequence.
+ It builds the average of the last N inserted values.
+</summary>
+</member>
+<member name="F:Aardvark.Base.Time.Count">
+<summary>
+ The total number of times currently in the time-list
+ NOTE that Count is only valid for the representant-node
+</summary>
+</member>
+<member name="F:Aardvark.Base.Time.Representant">
+<summary>
+ The representant-time for this tims
+</summary>
+</member>
+<member name="P:Aardvark.Base.Time.Time">
+<summary>
+ gets the comparable key for the time (as uint64)
+</summary>
+</member>
+<member name="P:Aardvark.Base.Time.Prev">
+<summary>
+ gets the direct predecessor for the time
+</summary>
+</member>
+<member name="P:Aardvark.Base.Time.Next">
+<summary>
+ gets the direct successor for the time
+</summary>
+</member>
+<member name="P:Aardvark.Base.Time.Height">
+<summary>
+ gets the height of the skip-node
+</summary>
+</member>
+<member name="M:Aardvark.Base.Time.TryAt(System.Int32)">
+<summary>
+ gets the n-th time after this one
+ NOTE that this only works on representant-nodes
+</summary>
+</member>
+<member name="T:Aardvark.Base.Time">
+<summary>
+ Time represents a order-maintenance structure
+ providing operations &quot;after&quot; and &quot;delete&quot;
+ maintaining O(1) comparisons between times
+</summary>
+</member>
+<member name="P:Aardvark.Base.ReferenceCountingSet`1.Count">
+ <summary>
+ returns the number of (distinct) elements contained in
+ the set.
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.UnionWith(System.Collections.Generic.IEnumerable{`0})">
+ <summary>
+ Take the union of this set with other. Modifies this set.
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.SymmetricExceptWith(System.Collections.Generic.IEnumerable{`0})">
+ <summary>
+ Takes symmetric difference (XOR) with other and this set. Modifies this set.
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.SetEquals(System.Collections.Generic.IEnumerable{`0})">
+ <summary>
+ determines if the set is equal (set) to the given sequence
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.Remove(`0)">
+ <summary>
+ removes an element from the ReferenceCountingSet and returns
+ true if the element is no longer contained after the operation.
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.Overlaps(System.Collections.Generic.IEnumerable{`0})">
+ <summary>
+ determines if the set and the given sequence overlap
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.IsSupersetOf(System.Collections.Generic.IEnumerable{`0})">
+ <summary>
+ determines if the set is a superset of the given sequence
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.IsSubsetOf(System.Collections.Generic.IEnumerable{`0})">
+ <summary>
+ determines if the set is a subset of the given sequence
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.IsProperSupersetOf(System.Collections.Generic.IEnumerable{`0})">
+ <summary>
+ determines if the set is a proper superset of the given sequence
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.IsProperSubsetOf(System.Collections.Generic.IEnumerable{`0})">
+ <summary>
+ determines if the set is a proper subset of the given sequence
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.IntersectWith(System.Collections.Generic.IEnumerable{`0})">
+ <summary>
+ Takes the intersection of this set with other. Modifies this set.
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.GetReferenceCount``1(``0)">
+ <summary>
+ gets the current reference count for the given element
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.ExceptWith(System.Collections.Generic.IEnumerable{`0})">
+ <summary>
+ Remove items in other from this set. Modifies this set.
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.Contains(`0)">
+ <summary>
+ checks if the set contains a specific element
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.Clear">
+ <summary>
+ clears the entire set
+ </summary>
+</member>
+<member name="M:Aardvark.Base.ReferenceCountingSet`1.Add(`0)">
+ <summary>
+ adds an element to the ReferenceCountingSet and returns
+ true if the element was not contained in the set before
+ this operation.
+ </summary>
+</member>
+<member name="T:Aardvark.Base.ReferenceCountingSet`1">
+ <summary>
+ represents a set of elements having a reference count.
+ this means that an element is contained when it has been
+ added at least once more than removed.
+ </summary>
+</member>
+<member name="T:Aardvark.Base.Measure`2">
+<summary>
+ Measure represents a monoidal measure for the given type &apos;a 
+ where &apos;m has to fulfill monoid laws:
+     1) identity element:    a &lt;*&gt; mempty = mempty &lt;*&gt; a = a
+     2) associativity:       (a &lt;*&gt; b) &lt;&gt; c = a &lt;*&gt; (b &lt;*&gt; c)
+</summary>
+</member>
+<member name="M:Aardvark.Base.InheritanceTypeExtensions.TopologicalSort(System.Collections.Generic.IEnumerable{System.Type})">
+<summary>
+ topologically sorts the given types (from most specific to obj)
+</summary>
+</member>
+<member name="M:Aardvark.Base.InheritanceTypeExtensions.SubstituteParameters(System.Type,Microsoft.FSharp.Core.FSharpFunc{System.Type,System.Type})">
+<summary>
+ Replaces all generic parameters using the given mapping.
+</summary>
+</member>
+<member name="M:Aardvark.Base.InheritanceTypeExtensions.Substitute(System.Type,System.Type,System.Type)">
+<summary>
+ Replaces all occurences of p in x with v
+</summary>
+</member>
+<member name="M:Aardvark.Base.InheritanceTypeExtensions.GetBaseTypesAndSelf(System.Type)">
+<summary>
+ Gets the type&apos;s base-types (including interfaces) in topological order (from most specific to obj)
+</summary>
+</member>
+<member name="M:Aardvark.Base.InheritanceTypeExtensions.GetBaseTypes(System.Type)">
+<summary>
+ Gets the type&apos;s base-types (including interfaces) in topological order (from most specific to obj)
+</summary>
+</member>
+<member name="T:Aardvark.Base.NativeUtilities.LibC">
+ <summary>
+ LibC wraps memory-functions provided by libc on linux systems.
+ </summary>
+</member>
+<member name="T:Aardvark.Base.NativeUtilities.MSVCRT">
+ <summary>
+ MSVCRT wraps memory-functions provided by msvcrt.dll on windows systems.
+ </summary>
+</member>
+<member name="T:Aardvark.Base.Threading.MVar`1">
+<summary>
+ Please note that Aardvark.Base.FSharp&apos;s MVar implementation is different from Haskell&apos;s MVar introduced in
+  &quot;Concurrent Haskell&quot; by Simon Peyton Jones, Andrew Gordon and Sigbjorn Finne. 
+ see also: http://hackage.haskell.org/package/base-4.11.1.0/docs/Control-Concurrent-MVar.html
+ In our &apos;wrong&apos; implementation put does not block but overrides the old value.
+ We use it typically for synchronized sampling use cases.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.isFinite``1(``0)">
+<summary>
+ Returns whether x is finite (i.e. not NaN and not infinity).
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.isNegativeInfinity``1(``0)">
+<summary>
+ Returns whether x is negative infinity.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.isPositiveInfinity``1(``0)">
+<summary>
+ Returns whether x is positive infinity.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.isInfinity``1(``0)">
+<summary>
+ Returns whether x is infinity (positive or negative).
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.isNaN``1(``0)">
+<summary>
+ Returns whether x is NaN.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.madd``3(``0,``1,``0)">
+<summary>
+ Returns (x * y) + z
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.radians``1(``0)">
+<summary>
+ Converts an angle given in degrees to radians.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.degrees``1(``0)">
+<summary>
+ Converts an angle given in radians to degrees.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.copysign``3(``0,``1)">
+<summary>
+ Returns a value with the magnitude of x and the sign of y.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.smoothstep``2(``0,``0,``1)">
+<summary>
+ Performs Hermite interpolation between a and b.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.invLerp``2(``0,``0,``0)">
+<summary>
+ Inverse linear interpolation. Computes t of y = a * (1 - t) + b * t.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.lerp``2(``0,``0,``1)">
+<summary>
+ Linearly interpolates between x and y.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.saturate``1(``0)">
+<summary>
+ Clamps x to the interval [0, 1].
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.clamp``5(``0,``2,``1)">
+<summary>
+ Clamps x to the interval [a, b].
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.max``3(``0,``1)">
+<summary>
+ Returns the larger of x and y.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.min``3(``0,``1)">
+<summary>
+ Returns the smaller of x and y.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.cbrt``1(``0)">
+<summary>
+ Returns the cubic root of x.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.sqr``2(``0)">
+<summary>
+ Returns x^2
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.atanh``1(``0)">
+<summary>
+ Returns the inverse hyperbolic tangent of x.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.acosh``1(``0)">
+<summary>
+ Returns the inverse hyperbolic cosine of x.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.asinh``1(``0)">
+<summary>
+ Returns the inverse hyperbolic sine of x.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.log2``1(``0)">
+<summary>
+ Returns the base 2 logarithm of x.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.pown``3(``0,``1)">
+<summary>
+ Returns x raised by the integer power of y (must not be negative).
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.op_Exponentiation``3(``0,``1)">
+<summary>
+ Returns x raised by the power of y.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.pow``3(``0,``1)">
+<summary>
+ Returns x raised by the power of y (must be float or double).
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.signumi``2(``0)">
+<summary>
+ Returns -1 if x is less than zero, 0 if x is equal to zero, and 1 if
+ x is greater than zero.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.signum``1(``0)">
+<summary>
+ Returns -1 if x is less than zero, 0 if x is equal to zero, and 1 if
+ x is greater than zero. The result has the same type as the input.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.one``1">
+<summary>
+ Resolves to the one value for any scalar or vector type.
+</summary>
+</member>
+<member name="M:Aardvark.Base.FSharpMath.zero``1">
+<summary>
+ Resolves to the zero value for any scalar or vector type.
+</summary>
+</member>
+<member name="T:Aardvark.Base.FSharpMath">
+<summary>
+ Provides generic math functions that work for both scalars and vectors (element-wise).
+ Functions already provided by the F# core library are only redefined if necessary
+ (e.g. different signature)
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.allGreaterOrEqual``2(``0,``1)">
+<summary>
+ Returns if a &gt;= b for all components. One or both of a and b have to be a vector.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.allSmallerOrEqual``2(``0,``1)">
+<summary>
+ Returns if a &lt;= b for all components. One or both of a and b have to be a vector.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.anyGreaterOrEqual``2(``0,``1)">
+<summary>
+ Returns if a &gt;= b for any component. One or both of a and b have to be a vector.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.anySmallerOrEqual``2(``0,``1)">
+<summary>
+ Returns if a &lt;= b for any component. One or both of a and b have to be a vector.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.allGreater``2(``0,``1)">
+<summary>
+ Returns if a &gt; b for all components. One or both of a and b have to be a vector.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.allSmaller``2(``0,``1)">
+<summary>
+ Returns if a &lt; b for all components. One or both of a and b have to be a vector.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.anyGreater``2(``0,``1)">
+<summary>
+ Returns if a &gt; b for any component. One or both of a and b have to be a vector.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.anySmaller``2(``0,``1)">
+<summary>
+ Returns if a &lt; b for any component. One or both of a and b have to be a vector.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.yzw``2(``0)">
+<summary>
+ Returns the yzw-components of the vector v.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.xyz``2(``0)">
+<summary>
+ Returns the xyz-components of the vector v.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.zw``2(``0)">
+<summary>
+ Returns the zw-components of the vector v.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.yz``2(``0)">
+<summary>
+ Returns the yz-components of the vector v.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.xy``2(``0)">
+<summary>
+ Returns the xy-components of the vector v.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.z``2(``0)">
+<summary>
+ Returns the z-component of the vector v.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.y``2(``0)">
+<summary>
+ Returns the y-component of the vector v.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.x``2(``0)">
+<summary>
+ Returns the x-component of the vector v.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.refract``2(``0,``1,``1)">
+<summary>
+ Returns the refraction direction of v for the normal n and ratio of refraction indices eta.
+ v and n should be normalized.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.reflect``1(``0,``0)">
+<summary>
+ Returns the reflection direction of v for the normal n (should be normalized).
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.normalize``2(``0)">
+<summary>
+ Returns the vector v with unit length.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.lengthSquared``2(``0)">
+<summary>
+ Computes the squared length of the vector v.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.length``2(``0)">
+<summary>
+ Computes the length of the vector v.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.distanceSquared``2(``0,``0)">
+<summary>
+ Computes the squared distance between a and b
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.distance``2(``0,``0)">
+<summary>
+ Computes the distance between a and b
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.cross``1(``0,``0)">
+<summary>
+ Computes the cross product of two 3D vectors a and b.
+</summary>
+</member>
+<member name="M:Aardvark.Base.VecModule.dot``2(``0,``0)">
+<summary>
+ Computes the dot product of two vectors a and b.
+</summary>
+</member>
+<member name="M:Aardvark.Base.TrafoModule.backward``2(``0)">
+<summary>
+ Returns the backward matrix of a transformation.
+</summary>
+</member>
+<member name="M:Aardvark.Base.TrafoModule.forward``2(``0)">
+<summary>
+ Returns the forward matrix of a transformation.
+</summary>
+</member>
+<member name="M:Aardvark.Base.TrafoModule.inverse``1(``0)">
+<summary>
+ Returns the inverse of a transformation.
+</summary>
+</member>
+<member name="M:Aardvark.Base.MatModule.transformPosProj``2(``0,``1)">
+<summary>
+ Transforms a point vector by a matrix (the last element of the vector is presumed 1).
+ Projective transform is performed. Perspective Division is performed.
+</summary>
+</member>
+<member name="M:Aardvark.Base.MatModule.transformDir``2(``0,``1)">
+<summary>
+ Transforms a direction vector by a matrix (the last element of the vector is presumed 0)
+</summary>
+</member>
+<member name="M:Aardvark.Base.MatModule.transformPos``2(``0,``1)">
+<summary>
+ Transforms a point vector by a matrix (the last element of the vector is presumed 1)
+</summary>
+</member>
+<member name="M:Aardvark.Base.MatModule.transform``3(``0,``1)">
+<summary>
+ Transforms a vector by a matrix.
+</summary>
+</member>
+<member name="M:Aardvark.Base.MatModule.inverse``1(``0)">
+<summary>
+ Returns the inverse of a matrix.
+</summary>
+</member>
+<member name="M:Aardvark.Base.MatModule.det``2(``0)">
+<summary>
+ Returns the determinant of a matrix.
+</summary>
+</member>
+<member name="M:Aardvark.Base.MatModule.transpose``2(``0)">
+<summary>
+ Returns the transpose of a matrix.
+</summary>
+</member>
+<member name="M:Aardvark.Base.StringsModule.contains(System.String,System.String)">
+<summary>
+ checks whether pattern is contained in str
+</summary>
+</member>
+<member name="M:Aardvark.Base.TimeModule.nth(System.Int32,Aardvark.Base.Time)">
+<summary>
+ gets the nth element after the given time in O(log N) runtime.
+ NOTE that the given time must be a representant-node
+</summary>
+</member>
+<member name="M:Aardvark.Base.TimeModule.deleteAll(Aardvark.Base.Time)">
+<summary>
+ deletes all times associated with the given one
+ in O(1) runtime.
+ NOTE that the given time must be a representant-node
+</summary>
+</member>
+<member name="M:Aardvark.Base.TimeModule.delete(Aardvark.Base.Time)">
+<summary>
+ deletes a time in O(log N) runtime.
+</summary>
+</member>
+<member name="M:Aardvark.Base.TimeModule.before(Aardvark.Base.Time)">
+<summary>
+ creates a new time directly before the given one
+ in runtime O(log N) time.
+</summary>
+</member>
+<member name="M:Aardvark.Base.TimeModule.after(Aardvark.Base.Time)">
+<summary>
+ creates a new time directly after the given one
+ in runtime O(log N) time.
+</summary>
+</member>
+<member name="M:Aardvark.Base.TimeModule.distance(Aardvark.Base.Time,Aardvark.Base.Time)">
+<summary>
+ computes the (unsigned) distance between two times.
+ NOTE that &quot;distance a a&quot; is UInt64.MaxValue
+</summary>
+</member>
+<member name="M:Aardvark.Base.TimeModule.newRoot">
+<summary>
+ creates a new root-time
+</summary>
+</member>
+<member name="M:Aardvark.Base.DerivedOrder.Order`1.TryAt(System.Int32)">
+<summary>
+ gets the n-th time after this one
+ NOTE that this only works on representant-nodes
+</summary>
+</member>
+<member name="M:Aardvark.Base.SkipOrder.Order.TryAt(System.Int32)">
+<summary>
+ gets the n-th time after this one
+ NOTE that this only works on representant-nodes
+</summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.runTests">
+ <summary>
+ runs a randomized series of additions / removals on a tree and 
+ validates its correctness, completeness, order and internal cache-values.
+ </summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.print``1(Aardvark.Base.AVLModule.Tree{``0})">
+ <summary>
+ prints the tree to the console for debugging purposes.
+ </summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.find``1(Microsoft.FSharp.Core.FSharpFunc{``0,System.Int32},Aardvark.Base.AVLModule.Tree{``0})">
+ <summary>
+ finds a value using a partially applied comparison function.
+ the given function must perform comparison like: compare(myValue, treeValue).
+ returns the (optional) value found
+ Runtime: O(log(N))
+ </summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.extractMaximalWhere``1(Microsoft.FSharp.Core.FSharpFunc{``0,System.Boolean},Aardvark.Base.AVLModule.Tree{``0})">
+ <summary>
+ finds and removes the maximum value from the tree for which the given condition holds. 
+ it is assumed that this condition is transitive with respect to the given comparison function.
+ returns the (optional) value found in the tree.
+ Example: extractMaximalWhere (fun v -> v > 10) gives the maximal value in the tree being greater than 10.
+ Runtime: O(log(N))
+</summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.extractMinimalWhere``1(Microsoft.FSharp.Core.FSharpFunc{``0,System.Boolean},Aardvark.Base.AVLModule.Tree{``0})">
+ <summary>
+ finds and removes the minimal value from the tree for which the given condition holds. 
+ it is assumed that this condition is transitive with respect to the given comparison function.
+ returns the (optional) value found in the tree.
+ Example: extractMinimalWhere (fun v -> v > 10) gives the minimal value in the tree being greater than 10.
+ Runtime: O(log(N))
+</summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.toList``1(Aardvark.Base.AVLModule.Tree{``0})">
+ <summary>
+ creates a list containing all the elements in the tree.
+ the list is ascendingly sorted with respect to the given comparison function.
+ Runtime: O(N)
+ </summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.toSeq``1(Aardvark.Base.AVLModule.Tree{``0})">
+ <summary>
+ creates a sequence containing all the elements in the tree.
+ the sequence is ascendingly sorted with respect to the given comparison function.
+ Runtime: O(1) [Note that traversing the entire sequence is of course in O(N)]
+ </summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.removeCmp``1(Aardvark.Base.AVLModule.Tree{``0},Microsoft.FSharp.Core.FSharpFunc{``0,System.Int32})">
+ <summary>
+ removes a value using a partially applied comparison function.
+ the given function must perform comparison like: compare(myValue, treeValue).
+ returns true if the element was found and false otherwise
+ Runtime: O(log(N))
+ </summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.remove'``1(Aardvark.Base.AVLModule.Tree{``0},``0)">
+ <summary>
+ removes a value from the tree if present.
+ Runtime: O(log(N))
+ </summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.remove``1(Aardvark.Base.AVLModule.Tree{``0},``0)">
+ <summary>
+ removes a value from the tree and returns true if the value was found.
+ Runtime: O(log(N))
+ </summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.insert'``1(Aardvark.Base.AVLModule.Tree{``0},``0)">
+ <summary>
+ inserts a new value into the tree if not already present.
+ Runtime: O(log(N))
+ </summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.insert``1(Aardvark.Base.AVLModule.Tree{``0},``0)">
+ <summary>
+ inserts a new value into the tree and returns true if the value was
+ not already present in the tree. 
+ Runtime: O(log(N))
+ </summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.empty``1">
+ <summary>
+ creates a new empty AVL-Tree using the default comparison function
+ </summary>
+</member>
+<member name="M:Aardvark.Base.AVLModule.custom``1(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``0,System.Int32}})">
+ <summary>
+ creates a new empty AVL-Tree using the given comparison function
+ note that the given function must define a total order and may only 
+ return {-1,0,1}. Futhermore cmp(a,b) = 0 must be equivalent to a = b.
+ </summary>
+</member>
+<member name="P:Aardvark.Base.MapExtImplementation.MapTreeModule.MapIterator`2.started">
+<summary>
+ true when MoveNext has been called   
+</summary>
+</member>
+<member name="P:Aardvark.Base.MapExtImplementation.MapTreeModule.MapIterator`2.stack">
+<summary>
+ invariant: always collapseLHS result 
+</summary>
+</member>
+<member name="T:Aardvark.Base.MapExtImplementation.MapTreeModule.MapIterator`2">
+<summary>
+ Imperative left-to-right iterators.
+</summary>
+</member>
+<member name="T:Aardvark.Base.TypeInfo">
+ <summary>
+ TypeInfo contains metadata associated with types and provides active patterns
+ deconstructing vector/matrix types etc.
+ </summary>
+</member>
+<member name="M:Aardvark.Base.QuotationReflectionHelpers.getMethodInfo(Microsoft.FSharp.Quotations.FSharpExpr)">
+ <summary>
+ extracts the top-most method-call from an expression.
+ When no method-call is found the method will raise an exception
+ </summary>
+ <param name="e"></param>
+</member>
+<member name="T:Aardvark.Base.FunctionReflection">
+ <summary>
+ FunctionReflection provides functions wrapping MethodInfos as F# functions efficiently.
+ It also allows to create n-ary functions using an untyped implementation.
+ </summary>
+</member>
+<member name="P:Aardvark.Base.Printf.FormatString.NotSpecifiedValue">
+<summary>
+ Used for width and precision to denote that corresponding value was omitted in format string
+</summary>
+</member>
+<member name="P:Aardvark.Base.Printf.FormatString.StarValue">
+<summary>
+ Used for width and precision to denote that user has specified &apos;*&apos; flag
+</summary>
+</member>
+<member name="T:Aardvark.Base.UnmanagedFunctions">
+ <summary>
+ UnmanagedFunctions allows to wrap function pointers as F# functions efficiently.
+ Since MethodInfo.Invoke is extremely slow it uses compiled Linq-Expressions here.
+ </summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.unboxAny(System.Type)">
+<summary>
+ unboxes the top-most value to the given type
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.unbox(System.Type)">
+<summary>
+ unboxes the top-most value (with the given type) to its unboxed representation
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.stobj(System.Type)">
+<summary>
+ stores the top-most value (with the given type) in a ptr on the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.stloc(Aardvark.Base.IL.Local)">
+<summary>
+ stores the top-most value in the local variable
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.stind(Aardvark.Base.IL.ValueType)">
+<summary>
+ stores the top-most value in a ref on the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.stfld(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ stores the top-most value in the field
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.stfld(System.Reflection.FieldInfo)">
+<summary>
+ stores the top-most value in the field
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.stelem(System.Type)">
+<summary>
+ stores the element (with the given type) to the array on the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.starg(System.Int32)">
+<summary>
+ stores the top-most value in the argument with the given index
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.println(System.String,System.Object[])">
+<summary>
+ prints a log-line using the given local values
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.printfn``1(Microsoft.FSharp.Core.PrintfFormat{``0,Microsoft.FSharp.Core.Unit,Aardvark.Base.StringFormat,Microsoft.FSharp.Core.FSharpFunc{Aardvark.Base.IL.Frontend.CodeGenState,System.Tuple{Aardvark.Base.IL.Frontend.CodeGenState,Microsoft.FSharp.Core.Unit}}})">
+<summary>
+ prints a log-line using the given local values
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.newobj(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ creates a new object by calling the given Constructor
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.newobj(System.Reflection.ConstructorInfo)">
+<summary>
+ creates a new object by calling the given Constructor
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.newarr(System.Type)">
+<summary>
+ creates a new array using the given element-type and the length on the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.mark(Aardvark.Base.IL.Label)">
+<summary>
+ marks the current location using the given label
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldtoken(System.Type)">
+<summary>
+ load the given type-token onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldtoken(System.Object)">
+<summary>
+ load the given object as token onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldobj(System.Type)">
+<summary>
+ loads the object (with the given type) from the pointer currently on the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldloca(Aardvark.Base.IL.Local)">
+<summary>
+ load the address of the local variable onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldloc(Aardvark.Base.IL.Local)">
+<summary>
+ loads the local variable onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldind(Aardvark.Base.IL.ValueType)">
+<summary>
+ loads the value from a ref on the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldflda(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ loads the address of the field onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldflda(System.Reflection.FieldInfo)">
+<summary>
+ loads the address of the field onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldfld(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ loads the value of the field onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldfld(System.Reflection.FieldInfo)">
+<summary>
+ loads the value of the field onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldelem(System.Type)">
+<summary>
+ loads an element (with the given type) from the array on the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.String)">
+<summary>
+ loads the given string constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.Double)">
+<summary>
+ loads the given double constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.Single)">
+<summary>
+ loads the given float constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.UIntPtr)">
+<summary>
+ loads the given unativeint constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.IntPtr)">
+<summary>
+ loads the given nativeint constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.UInt64)">
+<summary>
+ loads the given uint64 constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.Int64)">
+<summary>
+ loads the given int64 constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.UInt32)">
+<summary>
+ loads the given uint32 constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.Int32)">
+<summary>
+ loads the given int constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.UInt16)">
+<summary>
+ loads the given uint16 constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.Int16)">
+<summary>
+ loads the given int16 constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.Byte)">
+<summary>
+ loads the given uint8 constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(System.SByte)">
+<summary>
+ loads the given int8 constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldconst(Aardvark.Base.IL.Constant)">
+<summary>
+ loads the given Constant onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldarga(System.Int32)">
+<summary>
+ loads the address of the argument with the given index onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.ldarg(System.Int32)">
+<summary>
+ loads the argument with the given index onto the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.jmp(Aardvark.Base.IL.Label)">
+<summary>
+ jumps to a label
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.jmp(Aardvark.Base.IL.JumpCondition)">
+<summary>
+ conditionally jumps to a label
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.isinst(System.Type)">
+<summary>
+ checks if the top-most value is an instance of the given type
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.initobj(System.Type)">
+<summary>
+ creates a new uninitialized object
+</summary>
+</member>
+<member name="P:Aardvark.Base.IL.Frontend.IL.tail">
+<summary>
+ tells the JITer that the following call is a tail-call
+</summary>
+</member>
+<member name="P:Aardvark.Base.IL.Frontend.IL.ret">
+<summary>
+ returns from the current function
+</summary>
+</member>
+<member name="P:Aardvark.Base.IL.Frontend.IL.pop">
+<summary>
+ pops the top-most value from the stack
+</summary>
+</member>
+<member name="P:Aardvark.Base.IL.Frontend.IL.nop">
+<summary>
+ nop
+</summary>
+</member>
+<member name="P:Aardvark.Base.IL.Frontend.IL.ldnull">
+<summary>
+ loads null onto the stack
+</summary>
+</member>
+<member name="P:Aardvark.Base.IL.Frontend.IL.ldlen">
+<summary>
+ loads the length of the array currently on the stack
+</summary>
+</member>
+<member name="P:Aardvark.Base.IL.Frontend.IL.dup">
+<summary>
+ duplicates the top-most value on the stack
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.cpobj(System.Type)">
+<summary>
+ TODO
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.convChecked(Aardvark.Base.IL.ValueType)">
+<summary>
+ converts the top-most value to the given type (checked)
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.conv(Aardvark.Base.IL.ValueType)">
+<summary>
+ converts the top-most value to the given type
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.castclass(System.Type)">
+<summary>
+ casts the top-most value to the given class
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.call(System.Reflection.MethodBase)">
+<summary>
+ calls the given MethodInfo
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.call(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ calls the given MethodInfo
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.IL.box(System.Type)">
+<summary>
+ boxes the top-most value (with the given type) to an object
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.ILLogModule.stop">
+<summary>
+ prints a log-line using the given local values
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.ILLogModule.startTimed``1(Microsoft.FSharp.Core.PrintfFormat{``0,Microsoft.FSharp.Core.Unit,Aardvark.Base.StringFormat,Microsoft.FSharp.Core.FSharpFunc{Aardvark.Base.IL.Frontend.CodeGenState,System.Tuple{Aardvark.Base.IL.Frontend.CodeGenState,Microsoft.FSharp.Core.Unit}}})">
+<summary>
+ prints a log-line using the given local values
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.ILLogModule.start``1(Microsoft.FSharp.Core.PrintfFormat{``0,Microsoft.FSharp.Core.Unit,Aardvark.Base.StringFormat,Microsoft.FSharp.Core.FSharpFunc{Aardvark.Base.IL.Frontend.CodeGenState,System.Tuple{Aardvark.Base.IL.Frontend.CodeGenState,Microsoft.FSharp.Core.Unit}}})">
+<summary>
+ prints a log-line using the given local values
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.ILLogModule.line``1(Microsoft.FSharp.Core.PrintfFormat{``0,Microsoft.FSharp.Core.Unit,Aardvark.Base.StringFormat,Microsoft.FSharp.Core.FSharpFunc{Aardvark.Base.IL.Frontend.CodeGenState,System.Tuple{Aardvark.Base.IL.Frontend.CodeGenState,Microsoft.FSharp.Core.Unit}}})">
+<summary>
+ prints a log-line using the given local values
+</summary>
+</member>
+<member name="M:Aardvark.Base.IL.Frontend.ILLogModule.print(System.Reflection.MethodInfo,System.String,System.Object[])">
+<summary>
+ prints a log-line using the given local values
+</summary>
+</member>
+<member name="T:Aardvark.Base.DynamicLinker">
+ <summary>
+ DynamicLinker provides platform independent functions for loading libraries and
+ resolving function-pointers within those libraries.
+ Note that MacOSX is currently not supported
+ </summary>
+</member>
+<member name="T:Aardvark.Base.DynamicLinkerTypes">
+ <summary>
+ Declares the basic interface for a dynamic linker provided by the OS.
+ </summary>
+</member>
+<member name="T:Aardvark.Base.ReflectionPatterns">
+ <summary>
+ Defines a number of active patterns for matching expressions. Includes some
+ functionality missing in F#.
+ </summary>
+</member>
+<member name="P:Aardvark.Base.Ag.Scope.Root">
+<summary>
+ the root scope
+</summary>
+</member>
+<member name="M:Aardvark.Base.Ag.Scope.SetGlobalValue``1(``0,System.String,System.Object)">
+<summary>
+ attach a global inherited value to a node (overrides any other inheritance mechanisms).
+</summary>
+</member>
+<member name="M:Aardvark.Base.Ag.Scope.GetChildScope``1(``0)">
+<summary>
+ get a (possibly cached) child scope for the given node
+</summary>
+</member>
+</members>
+</doc>

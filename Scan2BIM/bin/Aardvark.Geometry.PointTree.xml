@@ -1,0 +1,554 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aardvark.Geometry.PointTree</name>
+    </assembly>
+    <members>
+        <member name="T:Aardvark.Geometry.IndexDist`1">
+            <summary>
+            A small structure holding an index and a distance that is used in
+            the list that is returned by queries to the PointKdTree.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointRkdTreeD`2">
+            <summary>
+            A k-d tree of k-dimensional points on top of three generic type
+            parameters: TArray an arbitrary array type for which the element
+            getter needs to be specified, TPoint, an arbitrary point type
+            for which the accessor to the components must be specified, and
+            T the compoent type of the point.
+            The k-d tree does not reorder the elements of the array, it just
+            generates an internal index array that stores the references to
+            the array elements in heap order.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointRkdTreeD`2.ClosestToLineQuery">
+            <summary>
+            A query object to handle multiple (possibly accumulated) closest
+            to line queries.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeD`2.CreateClosestToLineQuery(System.Double,System.Int32)">
+            <summary>
+            Create a closest to line query object for a sequence of line
+            queries that contribute to a single result. The parameters
+            max distance and max count work the same way as in the
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeD`2.GetClosest(Aardvark.Geometry.PointRkdTreeD{`0,`1}.ClosestToLineQuery,`1,`1)">
+            <summary>
+            Add the query result from the supplied line to the closest to
+            line query object. The accumulated result is returned, or can
+            be retrieved as the List property of the query object.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeD`2.GetClosest(System.Collections.Generic.IEnumerable{System.ValueTuple{`1,`1}},System.Double,System.Int32)">
+            <summary>
+            Return points closest to a sequence of lines.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeD`2.GetClosestToLine(`1,`1,System.Double,System.Int32)">
+            <summary>
+            Get the points in the rkd-tree that are closest to the supplied
+            line segment p0...p1. It is possible to specify the maximal 
+            distance up to which points are searched, or the maximal number
+            of points that should be retrieved. At least one of these two
+            constraints needs to be specified. If you want the distance
+            constraint only, set maxCount to 0, if you want the number
+            constraint only, set maxDistance to double.MaxValue. 
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointRkdTreeD`2.ClosestToPointQuery">
+            <summary>
+            A query object to handle multiple (possibly accumulated) closest
+            to point queries.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeD`2.CreateClosestToPointQuery(System.Double,System.Int32)">
+            <summary>
+            Create a closest to point query object for multiple point
+            queries with the same maximum distance and maximum count
+            values.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeD`2.GetClosest(Aardvark.Geometry.PointRkdTreeD{`0,`1}.ClosestToPointQuery,`1)">
+            <summary>
+            Add the query result with the supplied point to the closest to
+            point query object. The accumulated result is returned, or can
+            be retrieved as the List property of the query object.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeD`2.GetClosest(`1,System.Double,System.Int32)">
+            <summary>
+            Query for at most maxCount points within maxDistance around
+            the supplied query point. Note that at least one of the two
+            criteria must be set, otherwise all points in the k-d-tree
+            will be retrieved. The resulting points are returned in a
+            list of index/distance structs. If a fixed maximum count is
+            supplied, the list will be in heap order with the point with
+            the largest distance from the query point on top.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeD`2.GetClosest(`1)">
+            <summary>
+            Get the single closest point from the set.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointRkdTreeF`2">
+            <summary>
+            A k-d tree of k-dimensional points on top of three generic type
+            parameters: TArray an arbitrary array type for which the element
+            getter needs to be specified, TPoint, an arbitrary point type
+            for which the accessor to the components must be specified, and
+            T the compoent type of the point.
+            The k-d tree does not reorder the elements of the array, it just
+            generates an internal index array that stores the references to
+            the array elements in heap order.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointRkdTreeF`2.ClosestToLineQuery">
+            <summary>
+            A query object to handle multiple (possibly accumulated) closest
+            to line queries.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeF`2.CreateClosestToLineQuery(System.Single,System.Int32)">
+            <summary>
+            Create a closest to line query object for a sequence of line
+            queries that contribute to a single result. The parameters
+            max distance and max count work the same way as in the
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeF`2.GetClosest(Aardvark.Geometry.PointRkdTreeF{`0,`1}.ClosestToLineQuery,`1,`1)">
+            <summary>
+            Add the query result from the supplied line to the closest to
+            line query object. The accumulated result is returned, or can
+            be retrieved as the List property of the query object.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeF`2.GetClosest(System.Collections.Generic.IEnumerable{System.ValueTuple{`1,`1}},System.Single,System.Int32)">
+            <summary>
+            Return points closest to a sequence of lines.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeF`2.GetClosestToLine(`1,`1,System.Single,System.Int32)">
+            <summary>
+            Get the points in the rkd-tree that are closest to the supplied
+            line segment p0...p1. It is possible to specify the maximal 
+            distance up to which points are searched, or the maximal number
+            of points that should be retrieved. At least one of these two
+            constraints needs to be specified. If you want the distance
+            constraint only, set maxCount to 0, if you want the number
+            constraint only, set maxDistance to double.MaxValue. 
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointRkdTreeF`2.ClosestToPointQuery">
+            <summary>
+            A query object to handle multiple (possibly accumulated) closest
+            to point queries.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeF`2.CreateClosestToPointQuery(System.Single,System.Int32)">
+            <summary>
+            Create a closest to point query object for multiple point
+            queries with the same maximum distance and maximum count
+            values.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeF`2.GetClosest(Aardvark.Geometry.PointRkdTreeF{`0,`1}.ClosestToPointQuery,`1)">
+            <summary>
+            Add the query result with the supplied point to the closest to
+            point query object. The accumulated result is returned, or can
+            be retrieved as the List property of the query object.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeF`2.GetClosest(`1,System.Single,System.Int32)">
+            <summary>
+            Query for at most maxCount points within maxDistance around
+            the supplied query point. Note that at least one of the two
+            criteria must be set, otherwise all points in the k-d-tree
+            will be retrieved. The resulting points are returned in a
+            list of index/distance structs. If a fixed maximum count is
+            supplied, the list will be in heap order with the point with
+            the largest distance from the query point on top.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeF`2.GetClosest(`1)">
+            <summary>
+            Get the single closest point from the set.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.IEnumerableIndexDistExtensions.ComputeCovarianceMatrix``1(Aardvark.Base.V3f[],System.Collections.Generic.List{Aardvark.Geometry.IndexDist{``0}})">
+            <summary>
+            Computes covariance matrix for points given by indices into points array.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.IEnumerableIndexDistExtensions.ComputeCovarianceMatrix``1(Aardvark.Base.V3d[],System.Collections.Generic.List{Aardvark.Geometry.IndexDist{``0}})">
+            <summary>
+            Computes covariance matrix for points given by indices into points array.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.IEnumerableIndexDistExtensions.ComputeCovarianceMatrix``1(Aardvark.Base.V3f[],System.Collections.Generic.List{Aardvark.Geometry.IndexDist{``0}},Aardvark.Base.V3f)">
+            <summary>
+            Computes covariance matrix for points given by indices into points array, relative to given center.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.IEnumerableIndexDistExtensions.ComputeCovarianceMatrix``1(Aardvark.Base.V3d[],System.Collections.Generic.List{Aardvark.Geometry.IndexDist{``0}},Aardvark.Base.V3d)">
+            <summary>
+            Computes covariance matrix for points given by indices into points array, relative to given center.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.IEnumerableIndexDistExtensions.ComputeCentroid``1(Aardvark.Base.V2f[],System.Collections.Generic.List{Aardvark.Geometry.IndexDist{``0}})">
+            <summary>
+            Calculates the centroid for a given set of points.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.IEnumerableIndexDistExtensions.ComputeCentroid``1(Aardvark.Base.V2d[],System.Collections.Generic.List{Aardvark.Geometry.IndexDist{``0}})">
+            <summary>
+            Calculates the centroid for a given set of points.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.IEnumerableIndexDistExtensions.ComputeCentroid``1(Aardvark.Base.V3f[],System.Collections.Generic.List{Aardvark.Geometry.IndexDist{``0}})">
+            <summary>
+            Calculates the centroid for a given set of points.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.IEnumerableIndexDistExtensions.ComputeCentroid``1(Aardvark.Base.V3d[],System.Collections.Generic.List{Aardvark.Geometry.IndexDist{``0}})">
+            <summary>
+            Calculates the centroid for a given set of points.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.IEnumerableIndexDistExtensions.ComputeCentroid``1(Aardvark.Base.V4f[],System.Collections.Generic.List{Aardvark.Geometry.IndexDist{``0}})">
+            <summary>
+            Calculates the centroid for a given set of points.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.IEnumerableIndexDistExtensions.ComputeCentroid``1(Aardvark.Base.V4d[],System.Collections.Generic.List{Aardvark.Geometry.IndexDist{``0}})">
+            <summary>
+            Calculates the centroid for a given set of points.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointRkdTreeFSelector`2">
+            <summary>
+            A k-d tree of k-dimensional points on top of three generic type
+            parameters: TArray an arbitrary array type for which the element
+            getter needs to be specified, TPoint, an arbitrary point type
+            for which the accessor to the components must be specified, and
+            T the compoent type of the point.
+            The k-d tree does not reorder the elements of the array, it just
+            generates an internal index array that stores the references to
+            the array elements in heap order.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointRkdTreeFSelector`2.ClosestToPointQuery">
+            <summary>
+            A query object to handle multiple (possibly accumulated) closest
+            to point queries.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeFSelector`2.CreateClosestToPointQuery(System.Single,System.Int32)">
+            <summary>
+            Create a closest to point query object for multiple point
+            queries with the same maximum distance and maximum count
+            values.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeFSelector`2.GetClosest(Aardvark.Geometry.PointRkdTreeFSelector{`0,`1}.ClosestToPointQuery,`1)">
+            <summary>
+            Add the query result with the supplied point to the closest to
+            point query object. The accumulated result is returned, or can
+            be retrieved as the List property of the query object.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeFSelector`2.GetClosest(`1,System.Single,System.Int32)">
+            <summary>
+            Query for at most maxCount points within maxDistance around
+            the supplied query point. Note that at least one of the two
+            criteria must be set, otherwise all points in the k-d-tree
+            will be retrieved. The resulting points are returned in a
+            list of index/distance structs. If a fixed maximum count is
+            supplied, the list will be in heap order with the point with
+            the largest distance from the query point on top.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeFSelector`2.GetClosest(`1)">
+            <summary>
+            Get the single closest point from the set.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointKdTreeF`2">
+            <summary>
+            A k-d tree of k-dimensional points on top of three generic type
+            parameters: TArray an arbitrary array type for which the element
+            getter needs to be specified, TPoint, an arbitrary point type
+            for which the accessor to the components must be specified, and
+            T the compoent type of the point.
+            The k-d tree does not reorder the elements of the array, it just
+            generates an internal index array that stores the references to
+            the array elements in heap order.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointKdTreeF`2.ClosestToPointQuery">
+            <summary>
+            A query object to handle multiple (possibly accumulated) closest
+            to point queries.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointKdTreeF`2.CreateClosestToPointQuery(System.Single,System.Int32)">
+            <summary>
+            Create a closest to point query object for multiple point
+            queries with the same maximum distance and maximum count
+            values.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointKdTreeF`2.GetClosest(Aardvark.Geometry.PointKdTreeF{`0,`1}.ClosestToPointQuery,`1)">
+            <summary>
+            Add the query result with the supplied point to the closest to
+            point query object. The accumulated result is returned, or can
+            be retrieved as the List property of the query object.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointKdTreeF`2.CreateList(System.Int32)">
+            <summary>
+            Create a list to use in multiple GetClosest queries.
+            </summary>
+            <param name="maxCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aardvark.Geometry.PointKdTreeF`2.GetClosest(`1,System.Single,System.Int32,System.Collections.Generic.List{Aardvark.Geometry.IndexDist{System.Single}})">
+            <summary>
+            Query for at most maxCount points within maxDistance around
+            the supplied query point. Note that at least one of the two
+            criteria must be set, otherwise all points in the k-d-tree
+            will be retrieved. The resulting points are inserted into
+            the supplied list of index/distance structs, which is first
+            cleared. If a fixed maximum count is supplied, the list will
+            be in heap order with the point with the largest distance from
+            the query point on top.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointKdTreeF`2.GetClosest(`1,System.Single,System.Int32)">
+            <summary>
+            Query for at most maxCount points within maxDistance around
+            the supplied query point. Note that at least one of the two
+            criteria must be set, otherwise all points in the k-d-tree
+            will be retrieved. The resulting points are returned in a
+            list of index/distance structs. If a fixed maximum count is
+            supplied, the list will be in heap order with the point with
+            the largest distance from the query point on top.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointKdTreeF`2.GetClosest(`1)">
+            <summary>
+            Get the single closest point from the set.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointVpTreeF`2">
+            <summary>
+            A vp tree of k-dimensional points on top of three generic type
+            parameters: TArray an arbitrary array type for which the element
+            getter needs to be specified, TPoint, and an arbitrary point type
+            for which the accessor to the components must be specified.
+            The vp tree does not reorder the elements of the array, it just
+            generates an internal index array that stores the references to
+            the array elements in heap order.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointVpTreeF`2.CreateList(System.Int32)">
+            <summary>
+            Create a heap to use in multiple GetClosest queries.
+            </summary>
+            <param name="maxCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aardvark.Geometry.PointVpTreeF`2.GetClosest(`1,System.Single,System.Int32,System.Collections.Generic.List{Aardvark.Geometry.IndexDist{System.Single}})">
+            <summary>
+            Query for at most maxCount points within maxDistance around
+            the supplied query point. Note that at least one of the two
+            criteria must be set, otherwise all points in the vp-tree
+            will be retrieved.The resulting points are inserted into
+            the supplied list of index/distance structs, which is first
+            cleared. If a fixed maximum count is supplied, the list will
+            be in heap order with the point with the largest distance from
+            the query point on top.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointVpTreeF`2.GetClosest(`1,System.Single,System.Int32)">
+            <summary>
+            Query for at most maxCount points within maxDistance around
+            the supplied query point. Note that at least one of the two
+            criteria must be set, otherwise all points in the vp-tree
+            will be retrieved.The resulting points are returned in a
+            list of index/distance structs. If a fixed maximum count is
+            supplied, the list will be in heap order with the point with
+            the largest distance from the query point on top.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointVpTreeF`2.GetClosest(`1)">
+            <summary>
+            Get the single closest point from the set.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointRkdTreeDSelector`2">
+            <summary>
+            A k-d tree of k-dimensional points on top of three generic type
+            parameters: TArray an arbitrary array type for which the element
+            getter needs to be specified, TPoint, an arbitrary point type
+            for which the accessor to the components must be specified, and
+            T the compoent type of the point.
+            The k-d tree does not reorder the elements of the array, it just
+            generates an internal index array that stores the references to
+            the array elements in heap order.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointRkdTreeDSelector`2.ClosestToPointQuery">
+            <summary>
+            A query object to handle multiple (possibly accumulated) closest
+            to point queries.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeDSelector`2.CreateClosestToPointQuery(System.Double,System.Int32)">
+            <summary>
+            Create a closest to point query object for multiple point
+            queries with the same maximum distance and maximum count
+            values.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeDSelector`2.GetClosest(Aardvark.Geometry.PointRkdTreeDSelector{`0,`1}.ClosestToPointQuery,`1)">
+            <summary>
+            Add the query result with the supplied point to the closest to
+            point query object. The accumulated result is returned, or can
+            be retrieved as the List property of the query object.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeDSelector`2.GetClosest(`1,System.Double,System.Int32)">
+            <summary>
+            Query for at most maxCount points within maxDistance around
+            the supplied query point. Note that at least one of the two
+            criteria must be set, otherwise all points in the k-d-tree
+            will be retrieved. The resulting points are returned in a
+            list of index/distance structs. If a fixed maximum count is
+            supplied, the list will be in heap order with the point with
+            the largest distance from the query point on top.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointRkdTreeDSelector`2.GetClosest(`1)">
+            <summary>
+            Get the single closest point from the set.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointKdTreeD`2">
+            <summary>
+            A k-d tree of k-dimensional points on top of three generic type
+            parameters: TArray an arbitrary array type for which the element
+            getter needs to be specified, TPoint, an arbitrary point type
+            for which the accessor to the components must be specified, and
+            T the compoent type of the point.
+            The k-d tree does not reorder the elements of the array, it just
+            generates an internal index array that stores the references to
+            the array elements in heap order.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointKdTreeD`2.ClosestToPointQuery">
+            <summary>
+            A query object to handle multiple (possibly accumulated) closest
+            to point queries.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointKdTreeD`2.CreateClosestToPointQuery(System.Double,System.Int32)">
+            <summary>
+            Create a closest to point query object for multiple point
+            queries with the same maximum distance and maximum count
+            values.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointKdTreeD`2.GetClosest(Aardvark.Geometry.PointKdTreeD{`0,`1}.ClosestToPointQuery,`1)">
+            <summary>
+            Add the query result with the supplied point to the closest to
+            point query object. The accumulated result is returned, or can
+            be retrieved as the List property of the query object.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointKdTreeD`2.CreateList(System.Int32)">
+            <summary>
+            Create a list to use in multiple GetClosest queries.
+            </summary>
+            <param name="maxCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aardvark.Geometry.PointKdTreeD`2.GetClosest(`1,System.Double,System.Int32,System.Collections.Generic.List{Aardvark.Geometry.IndexDist{System.Double}})">
+            <summary>
+            Query for at most maxCount points within maxDistance around
+            the supplied query point. Note that at least one of the two
+            criteria must be set, otherwise all points in the k-d-tree
+            will be retrieved. The resulting points are inserted into
+            the supplied list of index/distance structs, which is first
+            cleared. If a fixed maximum count is supplied, the list will
+            be in heap order with the point with the largest distance from
+            the query point on top.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointKdTreeD`2.GetClosest(`1,System.Double,System.Int32)">
+            <summary>
+            Query for at most maxCount points within maxDistance around
+            the supplied query point. Note that at least one of the two
+            criteria must be set, otherwise all points in the k-d-tree
+            will be retrieved. The resulting points are returned in a
+            list of index/distance structs. If a fixed maximum count is
+            supplied, the list will be in heap order with the point with
+            the largest distance from the query point on top.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointKdTreeD`2.GetClosest(`1)">
+            <summary>
+            Get the single closest point from the set.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Geometry.PointVpTreeD`2">
+            <summary>
+            A vp tree of k-dimensional points on top of three generic type
+            parameters: TArray an arbitrary array type for which the element
+            getter needs to be specified, TPoint, and an arbitrary point type
+            for which the accessor to the components must be specified.
+            The vp tree does not reorder the elements of the array, it just
+            generates an internal index array that stores the references to
+            the array elements in heap order.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointVpTreeD`2.CreateList(System.Int32)">
+            <summary>
+            Create a heap to use in multiple GetClosest queries.
+            </summary>
+            <param name="maxCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aardvark.Geometry.PointVpTreeD`2.GetClosest(`1,System.Double,System.Int32,System.Collections.Generic.List{Aardvark.Geometry.IndexDist{System.Double}})">
+            <summary>
+            Query for at most maxCount points within maxDistance around
+            the supplied query point. Note that at least one of the two
+            criteria must be set, otherwise all points in the vp-tree
+            will be retrieved.The resulting points are inserted into
+            the supplied list of index/distance structs, which is first
+            cleared. If a fixed maximum count is supplied, the list will
+            be in heap order with the point with the largest distance from
+            the query point on top.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointVpTreeD`2.GetClosest(`1,System.Double,System.Int32)">
+            <summary>
+            Query for at most maxCount points within maxDistance around
+            the supplied query point. Note that at least one of the two
+            criteria must be set, otherwise all points in the vp-tree
+            will be retrieved.The resulting points are returned in a
+            list of index/distance structs. If a fixed maximum count is
+            supplied, the list will be in heap order with the point with
+            the largest distance from the query point on top.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Geometry.PointVpTreeD`2.GetClosest(`1)">
+            <summary>
+            Get the single closest point from the set.
+            </summary>
+        </member>
+    </members>
+</doc>

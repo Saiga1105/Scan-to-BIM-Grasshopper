@@ -1,0 +1,1170 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aardvark.Base.IO</name>
+    </assembly>
+    <members>
+        <member name="T:Aardvark.Base.Coder.BaseCoder">
+            <summary>
+            Root class for all coders, currently handles only debug mode.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.BaseReadingCoder">
+            <summary>
+            This class handles type information for reading coders.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.BaseWritingCoder">
+            <summary>
+            This class handles type information for writing coders.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.BinaryReadingCoder">
+            <summary>
+            A class for reading binary files in an Aardvark specific format.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.BinaryReadingCoder.CodeCountLong``1(``0@,System.Func{System.Int64,``0})">
+            <summary>
+            Backward compatible extension for coding collections with 64-bit lengths.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.BinaryReadingCoder.CodeCountArray``1(``0@,System.Func{System.Int64[],``0})">
+            <summary>
+            Backward compatible extension for coding collections with 64-bit lengths.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.BinaryWritingCoder">
+            <summary>
+            A class for writing binary files in an Aardvark specific format.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.BinaryWritingCoder.CodeCountLong``1(``0@,System.Func{``0,System.Int64})">
+            <summary>
+            Backward compatible extension for coding collections with 64-bit lengths.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.BinaryWritingCoder.CodeCountArray``1(``0@,System.Func{``0,System.Int64[]})">
+            <summary>
+            Backward compatible extension for coding collections with 64-bit lengths.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.FromDescriptor(System.String)">
+            <summary>
+            Creates a convertible given its description (a matching creator must be registered).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.FromFile(System.String)">
+            <summary>
+            Creates a file convertible given a file name (a matching creator must be registered).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.FromFile(System.String,Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Creates a file convertible given a file name and a preferrable target used to 
+            determine the shortest possible path (a matching creator must be registered).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.FromFile(System.String,System.String)">
+            <summary>
+            Creates a file convertible given a file name and a preferrable target used to the
+            determine the shortest possible path (a matching creator must be registered).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.FindMatchingRaw(Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Creates a matching raw convertible from a given convertible (a matching raw convertible
+            creator must be registered).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.FindMatchingRaw(Aardvark.Base.Coder.Convertible,Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Creates a matching raw convertible from a given convertible and a preferrable target 
+            used to the determine the shortest possible path (a matching raw convertible creator 
+            must be registered).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.FindMatchingRaw(Aardvark.Base.Coder.Convertible,System.String)">
+            <summary>
+            Creates a matching raw convertible from a given convertible and a preferrable target 
+            used to the determine the shortest possible path (a matching raw convertible creator 
+            must be registered).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.SetTo(Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Sets (i.e., replaces) the convertible.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.ChangeInto(Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Transmogrifies the convertible into the target convertible without
+            changing the target. Returns this.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.ConvertInto(Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Converts the convertible into the target, that is modified.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.ConvertedTo(Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Returns the convertible converted to the target convertible without
+            changing the target.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.IsDirectConvertibleTo(Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Returns whether a convertible is directly convertible into the target.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Convertible.IsConvertibleTo(Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Returns whether a convertible is convertible into the target.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.Convertible.HasData">
+            <summary>
+            Returns whether a convertible has data assigned.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Converter.Global">
+            <summary>
+            The one global converter.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.Init">
+            <summary>
+            Builds the initial routing table.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.#ctor">
+            <summary>
+            Creates a new converter with an empty routing table and no registered conversions.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.#ctor(Aardvark.Base.Coder.Converter)">
+            <summary>
+            Creates a new converter by copying an existing one.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.Clone">
+            <summary>
+            Clones this converter and returns the new one.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.Clone``1(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{``0}})">
+            <summary>
+            Internal method for cloning a dictionary which contains a list.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.Convert(Aardvark.Base.Coder.Convertible,Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Converts the source convertible into the target convertible.
+            There are 3 possibilities here:
+                1) There is a direct conversion possible, this works no matter if the conversion requires user-set parameters.
+                2) No direct conversion available. The conversion can be done indirectly in two cases:
+                        - there is no conversion with user parameters needed.
+                        - the only conversion with user parameters is the last one.
+                        ... in all other cases the conversion is not possible.
+                3) The conversion would need more than two conversion with user parameters, which can not be done.
+            </summary>
+            <param name="source">The source convertible</param>
+            <param name="target">The target convertible (result will be stored in target.Data)</param>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.Convert(Aardvark.Base.Coder.Convertible,Aardvark.Base.Coder.Convertible,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,Aardvark.Base.Coder.Converter.RoutingEntry}},System.Collections.Generic.List{Aardvark.Base.Coder.Convertible})">
+            <summary>
+            Private helper for public Convert method above.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.DirectConvert(Aardvark.Base.Coder.Convertible,Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Direct conversion between two convertibles.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.IsDirectConversionPossible(Aardvark.Base.Coder.Convertible,Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Returns whether a direct conversion between two convertibles is possible.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.IsDirectConversionPossible(System.String,System.String)">
+            <summary>
+            Returns whether a direct conversion between two convertibles is possible.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.IsConversionPossible(Aardvark.Base.Coder.Convertible,Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Returns whether a conversion will work or not.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.IsConversionPossible(System.String,System.String)">
+            <summary>
+            Returns whether a conversion will work or not.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.Register(System.String,System.String,System.Action{Aardvark.Base.Coder.Convertible,Aardvark.Base.Coder.Convertible})">
+            <summary>
+            Registers a parameterless conversion from a
+            source convertible to a target convertible.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.Register(System.String,System.String,System.Action{Aardvark.Base.Coder.Convertible,Aardvark.Base.Coder.Convertible},System.Collections.Generic.IEnumerable{Aardvark.Base.Coder.Annotation})">
+            <summary>
+            Registers a parameterless conversion from a
+            source convertible to a target convertible,
+            and a list of annotations for this action.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.Register(System.String,System.String,System.Action{Aardvark.Base.Coder.Convertible,Aardvark.Base.Coder.Convertible},System.Boolean)">
+            <summary>
+            This registers a conversion from a source convertible described
+            by a descriptor to a target convertible.
+            </summary>
+            <param name="sourceDescriptor">The source descriptor</param>
+            <param name="targetDescriptor">The target descriptor</param>
+            <param name="procedure">The conversion method converting source to target (result is stored in target.Data)</param>
+            <param name="parameterRequired">
+            Whether a user-set parameter is required for the conversion. This is important for conversion chaining. If no direct
+            conversion is possible, the chaining of conversion only works if there is no parameter required or the only conversion
+            with a parameter is the last one in the chain.
+            </param>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.RegisterCreator(System.String,System.Func{Aardvark.Base.Coder.Convertible})">
+            <summary>
+            Register a creator function for a given convertible, which allows convertibles
+            to be created using only their descriptor.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.RegisterRaw(System.String,System.Func{Aardvark.Base.Coder.Convertible})">
+            <summary>
+            Registers a raw convertible for a given convertible descriptor.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.RegisterExtension(System.String,System.Func{System.String,Aardvark.Base.Coder.Convertible})">
+            <summary>
+            Registers a file convertible for a given file extension.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.RegisterResource(System.String,System.String)">
+            <summary>
+            Registers a resource for a descriptor.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.RegisterResource(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Registers a resource for a list of descriptors.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.Register(System.String,System.String,System.Collections.Generic.IEnumerable{Aardvark.Base.Coder.Annotation})">
+            <summary>
+            Registers annotations for the conversion from given source to target.
+            Throws NullArgumentException if source- or target-descriptor is null.
+            Does nothing if annotations is null.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.BuildRoutingTables">
+            <summary>
+            Builds the static routing table and stores the shortest distances.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.CloneRoutingTable">
+            <summary>
+            Clones the current routing table. This is usually done before a conversion is started
+            because the routing may be altered by a different thread (e.g. by setting invalid
+            convertibles).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.UpdateRoutingTable(System.ValueTuple{System.String,System.String})">
+            <summary>
+            Updates the routing table with a conversion. If the conversion results
+            into a shorter path, the updates are propagated.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.FromDescriptor(System.String)">
+            <summary>
+            Creates a convertible from a descriptor. Only works if a creator function was
+            registered (see RegisterCreator).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.FindMatchingRaw(Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Returns a matching raw convertible for a convertible. Only works if a raw convertible
+            was registered (see RegisterRaw).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.FindMatchingRaw(Aardvark.Base.Coder.Convertible,Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Returns a matching raw convertible by also taking a preferred target into account.
+            Only works if a raw convertible was registered (see RegisterRaw).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.FindMatchingRaw(Aardvark.Base.Coder.Convertible,System.String)">
+            <summary>
+            Returns a matching raw convertible by also taking a preferred target into account.
+            Only works if a raw convertible was registered (see RegisterRaw).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.FindConvertibleByFileName(System.String)">
+            <summary>
+            Returns a matching file convertible given a file name.
+            Only works if a convertible was registered for the file extension (see RegisterExtension).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.FindConvertibleByFileName(System.String,Aardvark.Base.Coder.Convertible)">
+            <summary>
+            Returns a matching file convertible given a file name, taking a preferred target into account.
+            Only works if a convertible was registered for the file extension (see RegisterExtension).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.FindConvertibleByFileName(System.String,System.String)">
+            <summary>
+            Returns a matching file convertible given a file name, taking a preferred target into account.
+            Only works if a convertible was registered for the file extension (see RegisterExtension).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.SetResourceAvailability(System.String,System.Boolean)">
+            <summary>
+            Sets whether a resource is available or not. By default, resources are
+            not available. If this is done after the routing table has been 
+            initialized once, the routing table will be rebuilt (therefore, use
+            SetResourceAvailability(List{string} resources, bool available) if you need
+            to set the availability of multiple resources).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.SetResourceAvailability(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Sets whether resources are available or not. By default, resources are
+            not available. If this is done after the routing table has been 
+            initialized once, the routing table will be rebuilt.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.InternalSetAvailability(System.String,System.Boolean)">
+            <summary>
+            Sets the availability of a resource.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.RequiredResources(System.String)">
+            <summary>
+            Returns the required resources or null if none required.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.AreAllResourcesAvailable(System.String)">
+            <summary>
+            Returns whether a convertible can be used (i.e., all needed resources
+            are available).
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.Converter.Conversions">
+            <summary>
+            Enumerates all conversions.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.GetConversion(System.String,System.String)">
+            <summary>
+            Gets conversion for given source- and target description.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.GetConversionChain(System.String,System.String)">
+            <summary>
+            Enumerates all conversions in the specified conversion chain,
+            or returns null if no conversion exists.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.GetAnnotations(System.String,System.String)">
+            <summary>
+            Enumerates annotations for given conversion.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.EnumerateChain(System.String,System.String)">
+            <summary>
+            Helper method for GetChain.
+            Requires that the conversion chain exists.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Converter.FindLastDistance(System.String,System.String)">
+            <summary>
+            Returns the "last" distance of a conversion chain.
+            Requires that the conversion chain exists.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.FastObjectFactory.ObjectFactory(System.Type)">
+            <summary>
+            Returns an object factory that can be used to create instances
+            of the specified type T.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.GzipUtils.UnGzipFile(System.String)">
+            <summary>
+            Uncompress gzipped file.
+            </summary>
+            <param name="fileName">Path without .gz at end of file name.</param>
+        </member>
+        <member name="T:Aardvark.Base.Coder.IAwakeable">
+            <summary>
+            Implement this to awake an object from decoding after all fields of
+            the object have already been decoded. This is normally used to
+            initialize member variables that serve as caches.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.IAwakeable.Awake(System.Int32)">
+            <summary>
+            This method is called directly after an object has been
+            deserialized. It get the version of the coded object as a
+            parameter.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.ICoder">
+            <summary>
+            An ICoder can either read or write objects. It declares its purpose
+            with the methods <see cref="P:Aardvark.Base.Coder.ICoder.IsReading"/> and <see cref="P:Aardvark.Base.Coder.ICoder.IsWriting"/>
+            one of which must return true the other one false. Depending on its
+            declared purpose all its <see cref="o:Code"/> methods either read or
+            write objects via the supplied reference.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.ICoder.MemoryVersion">
+            <summary>
+            The version of the current object in memory.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.ICoder.StreamVersion">
+            <summary>
+            For writing coders this is the same as the memory version, for
+            reading coders, an object of the stream version has to be
+            converted to the memory version.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.ICoder.IsReading">
+            <summary>
+            If true all the <see cref="o:Code"/> methods read objects.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.ICoder.IsWriting">
+            <summary>
+            If true all the <see cref="o:Code"/> methods write objects.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.ICoder.CodeGuidSymbol(Aardvark.Base.Symbol@)">
+            <summary>
+            Code a symbol that is known to be a Guid.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.ICoder.CodePositiveSymbol(Aardvark.Base.Symbol@)">
+            <summary>
+            Code a Symbol that is known to be positive.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.IReadingCoder">
+            <summary>
+            This interface supplies additional functionality that is provided
+            by reading coders.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.IWritingCoder">
+            <summary>
+            This interface supplies additional functionality that is provided
+            by writing coders.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.FieldCoder">
+            <summary>
+            A field coder defines the name of a field and an associated coding
+            function which is used for both reading and writing the field.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.FieldCoder.#ctor(System.Int32,System.String,System.Int32,System.Int32,System.Action{Aardvark.Base.Coder.ICoder,System.Object})">
+            <summary>
+            Defines a FieldCoder that is only used for objects with version
+            numbers inside the inclusive interval
+            [minVersionInclusive, maxVersionInclusive].
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.IFieldCodeable">
+            <summary>
+            A field-codeable needs to supply an array of <see cref="T:Aardvark.Base.Coder.FieldCoder"/>s.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.IFieldCodeable.GetFieldCoders(System.Int32)">
+            <summary>
+            Supply a <see cref="T:Aardvark.Base.Coder.FieldCoder"/>s for each field that needs to
+            be coded. Note that this function is normally only called once
+            for each type, when the first instance of this type is encountered.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.IEnumerableOfFieldCoderExtensions.Base(System.Collections.Generic.IEnumerable{Aardvark.Base.Coder.FieldCoder})">
+            <summary>
+            This extension is necessary to renumber the relative order
+            values of the base class, if a derived class adds additional
+            field coders. The standard usages is:
+            <code>
+            base.GetFieldCoders().Base().Concat(additionalFieldCoders)
+            </code>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.ITypedMap.FieldTypes">
+            <summary>
+            Returns the types of all fields of the ITypedMap. Note that it is
+            possible that this method does not report all fields of the
+            concrete object it was called for. It just returns fields that are
+            known in all instances of this class. Also, not all of the fields
+            for which types are known, are present in all instances of this
+            class.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.ITypedMap.FieldCount">
+            <summary>
+            Returns the number of actual fields of the concrete object.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.ITypedMap.FieldNames">
+            <summary>
+            Returns the names of all fields of the concrete object. Note that
+            this can return names of fields that are not reported in
+            <see cref="P:Aardvark.Base.Coder.ITypedMap.FieldTypes"/>
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.ITypedMap.Item(System.String)">
+            <summary>
+            This provides access to all the fields by their name.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Aardvark.Base.Coder.NetworkOrderBinaryReader">
+            <summary>
+            Wrapper for class BinaryReader.
+            The following methods are overriden in order to
+            return values stored in network byte order (big-endian)
+            in host byte order:
+            
+            short ReadInt16()
+            ushort ReadUInt16()
+            int ReadInt32()
+            uint ReadUInt32()
+            long ReadInt64()
+            ulong ReadUInt64()
+            float ReadSingle()
+            double ReadDouble()
+            
+            Additional methods have been added to read
+            vector and color values, e.g. V3f, C4f, etc.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.NetworkOrderBinaryWriter">
+            <summary>
+            Wrapper for class BinaryWriter.
+            The following methods are overriden in order to
+            write values in network byte order (big-endian):
+            
+            void Write(short)
+            void Write(ushort)
+            void Write(int)
+            void Write(uint)
+            void Write(long)
+            void Write(ulong)
+            void Write(float)
+            void Write(double)
+            
+            Additional methods added:
+            
+            void Write(V2f)
+            void Write(V2d)
+            void Write(V3f)
+            void Write(V3d)
+            void Write(C3f)
+            void Write(C4f)
+            
+            Use Encoding.BigEndianUnicode to output strings
+            and characters in UTF16 using big-endian byte order.
+            
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.RegisterTypeInfoAttribute">
+            <summary>
+            Mark all classes that should be serializable with this attribute.
+            The class has to inherit from Map or Instance,
+            or implement the IFieldCodeable interface.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.StreamWriter2">
+            <summary>
+            Due to a bug, it is not possible to set the FormatProvider in StreamWriter constructor.
+            This is a workaround.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.SymMap.#ctor(Aardvark.Base.Coder.SymMap,Aardvark.Base.SymbolDict{System.Object})">
+            <summary>
+            Creates a shallow copy of the supplied map, but uses entries
+            in the supplied override dictionary instead of map entries
+            where they exist.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.SymMap.GuidSymbol">
+            <summary>
+            A unique identifier for each SymMap that can be conveniently used
+            as key in a dictionary.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.SymMap.s_lastMapCodedVersionMap">
+            <summary>
+            Note that all types that are in this set need to implement IAwakeable
+            and call CreateNewGuidSymbol in the Awake method.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.TypeReaderAndWriter">
+            <summary>
+            This associates a type with a reading function and a writing
+            action for the type.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.TypeCoder">
+            <summary>
+            This class provides coding of primitive types. Reading and Witing of
+            additional primitive types can be registered via the static
+            <see cref="M:Aardvark.Base.Coder.TypeCoder.Add(System.Collections.Generic.IEnumerable{Aardvark.Base.Coder.TypeReaderAndWriter})"/> methods.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.TypeCoder.Write(Aardvark.Base.Coder.IWritingCoder,System.Type,System.Object@)">
+            <summary>
+            Write an object based on the supplied type.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.TypeCoder.ReadPrimitive(Aardvark.Base.Coder.IReadingCoder,System.Type,System.Object@)">
+            <summary>
+            Read an object based on the supplied type.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.TypeCoder.Read(Aardvark.Base.Coder.IReadingCoder,System.Type,System.Object@)">
+            <summary>
+            Read an object based on the supplied type.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.TypeCoder.Add(System.Collections.Generic.IEnumerable{Aardvark.Base.Coder.TypeReaderAndWriter})">
+            <summary>
+            Register an array of additional read functions and write
+            procedures for the data types.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.TypeCoder.Null">
+            <summary>
+            Marker class signifying coding of null pointers.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.TypeCoder.Reference">
+            <summary>
+            Marker class signifying coding of references.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.TypeCoder.Default.Null">
+            <summary>
+            The default way of encoding null pointers.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.TypeCoder.Default.Basic">
+            <summary>
+            The default way of encoding various basic types.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.TypeInfo">
+            <summary>
+            This represents the association between a type, its short name,
+            and its XML-name. Options can be specified for more control of
+            these associations.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.TypeInfo.#ctor(System.Type,System.Type,System.Func{System.Object},System.Func{Aardvark.Base.Coder.IFieldCodeable,System.Object},System.Func{System.Object,Aardvark.Base.Coder.IFieldCodeable})">
+            <summary>
+            Creates a type info for a type that uses the IFieldCodeable
+            implementation of a proxy type for coding.
+            </summary>
+            <param name="type">the that needs to be coded</param>
+            <param name="proxyType">the type of the proxy object</param>
+            <param name="proxyCreator">creates a proxy object for reading</param>
+            <param name="proxyToObjectFun">converts the proxy object that was used for reading
+            into the actual object</param>
+            <param name="objectToProxyFun">converts the actual object into a proxy object that
+            is used for writing</param>
+        </member>
+        <member name="T:Aardvark.Base.Coder.UberStream">
+            <summary>
+            To bundle multiple streams to one or create a sub-stream for an existing stream.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.UberStream.#ctor(System.IO.Stream,System.Int64,System.Int64)">
+            <summary>
+            Create Sub-stream.
+            </summary>
+            <param name="stream"></param>
+            <param name="startPos"></param>
+            <param name="numOfBytes"></param>
+        </member>
+        <member name="M:Aardvark.Base.Coder.UberStream.#ctor(System.IO.Stream[],System.Int64,System.Int64)">
+            <summary>
+            Bundle streams to one in given order.
+            Stream-1 (startPos->End) ... Stream-n (Begin->End) ... Stream-last (Begin->endPos)
+            endPos = Stream-last.length - (AllStreams.length - startPos - numOfBytes)
+            </summary>
+            <param name="streams"></param>
+            <param name="startPos">Position in first stream, where bundle should begin.</param>
+            <param name="numOfBytes">Number of bytes the uber-stream covers.</param>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Dir.RelativeDir(System.String,System.String)">
+            <summary>
+            Converts the absolute directory path into a relative one, relative
+            to the provided relativeTo directory path. Returns null if not possible
+            (e.g. paths are on different drives).
+            </summary>
+            <param name="absoluteDir">The directory where the result should point at.</param>
+            <param name="relativeToDir">The directory from where the result should start from.</param>
+            <returns>The relative path from <paramref name="relativeToDir"/> to <paramref name="absoluteDir"/> 
+            or null if no relative path can be found.</returns>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Dir.RelativeDir(System.IO.DirectoryInfo,System.IO.DirectoryInfo)">
+            <summary>
+            Converts the absolute directory path into a relative one, relative
+            to the provided relativeTo directory path. Returns null if not possible
+            (e.g. paths are on different drives).
+            </summary>
+            <param name="absoluteDir">The directory where the result should point at.</param>
+            <param name="relativeToDir">The directory from where the result should start from.</param>
+            <returns>The relative path from <paramref name="relativeToDir"/> to <paramref name="absoluteDir"/> 
+            or null if no relative path can be found.</returns>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Dir.RelativeFile(System.IO.FileInfo,System.IO.DirectoryInfo)">
+            <summary>
+            Converts the absolute file path into a relative one, relative
+            to the provided relativeTo directory path. Returns null if not possible
+            (e.g. paths are on different drives).
+            </summary>
+            <param name="absoluteFile">The file where the result should point at.</param>
+            <param name="relativeTo">The directory from where the result should start from.</param>
+            <returns>The relative path from <paramref name="relativeTo"/> to <paramref name="absoluteFile"/> 
+            or null if no relative path can be found.</returns>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Dir.RelativeFile(System.String,System.String)">
+            <summary>
+            Converts the absolute file path into a relative one, relative
+            to the provided relativeTo directory path. Returns null if not possible
+            (e.g. paths are on different drives).
+            </summary>
+            <param name="absoluteFile">The file where the result should point at.</param>
+            <param name="relativeTo">The directory from where the result should start from.</param>
+            <returns>The relative path from <paramref name="relativeTo"/> to <paramref name="absoluteFile"/> 
+            or null if no relative path can be found.</returns>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Dir.TryGetRelativeDir(System.String,System.String,System.Boolean)">
+            <summary>
+            Returns the relative directory path if possible, if not it returns the absolute path if
+            UseAbsolutePathsIfNecessary is set to true (default behaviour) else returns String.Empty.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Dir.TryGetRelativeFileName(System.String,System.String,System.Boolean)">
+            <summary>
+            Returns the relative file path if possible, if not it returns the absolute path if
+            UseAbsolutePathsIfNecessary is set to true (default behaviour) else returns String.Empty.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.WorkDir.FindRelativePath(System.String)">
+            <summary>
+            Converts the absolute path into a path relative to the 
+            AARDVARK_WORKDIR or Null if not possible.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.XmlWritingCoder.WriteRefNumbers">
+            <summary>
+            By setting this debugging option to true all objects are written
+            to the Xml file with their reference numbers as additional
+            Xml attribute.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Coder.Legacy.ZipFile">
+            <summary>
+            Important: .NET 4.5 contains full zip support.
+            Read-Only access to ZipFiles.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.Legacy.ZipFile.ZipFileNames">
+            <summary>
+            Returns the Name of the Container Parts.
+            if different parts: e.g. OPC.z01, OPC.z02, ..., OPC.zip
+            if single part: e.g. OPC.zip
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.Legacy.ZipFile.FileNames">
+            <summary>
+            Names of files inside of the ZipFile.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Coder.Legacy.ZipFile.DirectoryNames">
+            <summary>
+            Naems of directories inside of the ZipFile.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.ZipFile.#ctor(System.String)">
+            <summary>
+            Initializes container.
+            </summary>
+            <param name="containerPath"></param>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.ZipFile.#ctor(System.Boolean)">
+            <summary>
+            </summary>
+            <param name="contentCaseSensitive">Load and handle content case sensitive.</param>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.ZipFile.Init(System.String)">
+            <summary>
+            Reads Zip file central directory for later access.
+            </summary>
+            <param name="containerPath">Path to main zip container (e.g. MyZip.zip).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.ZipFile.FileExists(System.String)">
+            <summary>
+            Tests if a requested file, indexed by fileName, exists in the ContainerFile.
+            </summary>
+            <param name="fileName">Name of the requested file.</param>
+            <returns>Indication wheter the file exists or not.</returns>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.ZipFile.DirectoryExists(System.String)">
+            <summary>
+            Tests if a requested directory, indexed by its path, exists in the ContainerFile.
+            </summary>
+            <param name="path">Path of the requested directory.</param>
+            <returns>Indication wheter the directory exists or not.</returns>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.ZipFile.GetDirectories(System.String)">
+            <summary>
+            Get directories of local path in ZipFile.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.ZipFile.GetFiles(System.String)">
+            <summary>
+            Get files of local path in ZipFile.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.ZipFile.ReadZipCentralDirectoryFileHeaders(System.IO.FileStream[],System.Int32,System.Int64,System.Int32)">
+            <summary>
+            Reads directory of ZipFiles.
+            </summary>
+            <param name="streams">FileStreams of zip container.</param>
+            <param name="cd_diskId">Id of central directory in streams.</param>
+            <param name="cd_offset">Offset of central directory in stream.</param>
+            <param name="numberOfEntries">Number of entries in central directory.</param>
+        </member>
+        <member name="T:Aardvark.Base.Coder.Legacy.TZipLocalFileHeader">
+            <summary>
+            Important: .NET 4.5 contains full zip support.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipLocalFileHeader.verNeeded">
+            <summary>
+            version needed to extract
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipLocalFileHeader.flag">
+            <summary>
+            general purpose bit flag
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipLocalFileHeader.compression">
+            <summary>
+            compression method
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipLocalFileHeader.modTime">
+            <summary>
+            last mod file time
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipLocalFileHeader.modDate">
+            <summary>
+            last mod file date
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipLocalFileHeader.crc32">
+            <summary>
+            crc-32
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipLocalFileHeader.sizeComp">
+            <summary>
+            compressed size
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipLocalFileHeader.sizeUncomp">
+            <summary>
+            uncompressed size
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipLocalFileHeader.lengthFileName">
+            <summary>
+            file name length
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipLocalFileHeader.lengthExtra">
+            <summary>
+            extra field length
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.TZipLocalFileHeader.Load(System.IO.Stream)">
+            <summary>
+            Loads header from the stream at the current position.
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader">
+            <summary>
+            Important: .NET 4.5 contains full zip support.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.verMade">
+            <summary>
+            version made by
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.verNeeded">
+            <summary>
+            version needed to extract
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.flag">
+            <summary>
+            general purpose bit flag
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.compression">
+            <summary>
+            compression method
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.modTime">
+            <summary>
+            last mod file time
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.modDate">
+            <summary>
+            last mod file date
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.crc32">
+            <summary>
+            crc-32
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.sizeComp">
+            <summary>
+            compressed size
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.sizeUncomp">
+            <summary>
+            uncompressed size
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.lengthFileName">
+            <summary>
+            file name length
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.lengthExtra">
+            <summary>
+            extra field length
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.lengthComment">
+            <summary>
+            file comment length
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.diskStart">
+            <summary>
+            disk number start
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.attrInt">
+            <summary>
+            internal file attributes
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.attrExt">
+            <summary>
+            external file attributes
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.hdrRelOffset">
+            <summary>
+            relative offset of local header
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.filename">
+            <summary>
+            file name (variable size)
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.TZipCentralDirectoryFileHeader.Load(System.IO.Stream)">
+            <summary>
+            Loads header from the stream at the current position.
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryRecord">
+            <summary>
+            Important: .NET 4.5 contains full zip support.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryRecord.recordSize">
+            <summary>
+            size of zip64 end of central directory record (without leading 12bits)
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryRecord.verMade">
+            <summary>
+            version made by
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryRecord.verNeeded">
+            <summary>
+            version needed to extract
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryRecord.diskId">
+            <summary>
+            number of this disk
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryRecord.cd_diskId">
+            <summary>
+            number of the disk with the start of the central directory
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryRecord.cd_totalDirEntriesOnDisk">
+            <summary>
+            total number of entries in the central directory on this disk
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryRecord.cd_totalEntries">
+            <summary>
+            total number of entries in the central directory
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryRecord.cd_size">
+            <summary>
+            size of the central directory
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryRecord.cd_offset">
+            <summary>
+            offset of start of central directory with respect to the starting disk number
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryRecord.Load(System.IO.Stream,System.Int64)">
+            <summary>
+            Loads record from stream at current position.
+            </summary>
+            <param name="stream"></param>
+            <param name="position">Position of record in given stream.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryLocator">
+            <summary>
+            Important: .NET 4.5 contains full zip support.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryLocator.IsValid">
+            <summary>
+            True if Locator exists.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryLocator.ecd64_diskId">
+            <summary>
+            number of the disk with the start of the zip64 end of central directory
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryLocator.ecd64_relOffset">
+            <summary>
+            relative offset of the zip64 end of central directory record
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryLocator.totalDisks">
+            <summary>
+            total number of disks
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.TZip64EndOfCentralDirectoryLocator.Load(System.IO.Stream,System.Int64)">
+            <summary>
+            Loads Locator from the stream.
+            </summary>
+            <param name="stream"></param>
+            <param name="ecd_position">Position of the 'End of Central Directory Record'</param>
+            <returns></returns>
+        </member>
+        <member name="T:Aardvark.Base.Coder.Legacy.TZipEndOfCentralDirectoryRecord">
+            <summary>
+            Important: .NET 4.5 contains full zip support.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipEndOfCentralDirectoryRecord.diskId">
+            <summary>
+            Number of this disk
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipEndOfCentralDirectoryRecord.cd_diskId">
+            <summary>
+            number of the disk with the start of the central directory
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipEndOfCentralDirectoryRecord.cd_totalDirEntriesOnDisk">
+            <summary>
+            total number of entries in the central directory on this disk
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipEndOfCentralDirectoryRecord.cd_totalEntries">
+            <summary>
+            total number of entries in the central directory
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipEndOfCentralDirectoryRecord.cd_size">
+            <summary>
+            size of the central directory
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipEndOfCentralDirectoryRecord.cd_offset">
+            <summary>
+            offset of start of central directory with respect to the starting disk number
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Coder.Legacy.TZipEndOfCentralDirectoryRecord.cmntLen">
+            <summary>
+            .ZIP file comment length
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Coder.Legacy.TZipEndOfCentralDirectoryRecord.Load(System.IO.Stream)">
+            <summary>
+            Finds position of record and loads it.
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Aardvark.Base.XmlParser.TextState">
+            <summary>
+            A parser state is initialized with an array of cases which
+            represent the state transitions. A state transition is chosen if
+            its specified regular expression is the first one (closest to the
+            current position) that matches. The specified function is
+            performed when the transition is chosen, and the function needs
+            to return the next state. If the 'null' state is returned, or the
+            whole input is consumed, the parsing function that performs all
+            transitions terminates. Since recursive descent also calls this
+            parsing function, returning the 'null' state also signals return
+            from recursive descent.
+            </summary>
+        </member>
+    </members>
+</doc>

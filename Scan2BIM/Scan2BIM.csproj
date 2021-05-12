@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\OpenCvSharp4.runtime.win.4.5.2.20210404\build\net\OpenCvSharp4.runtime.win.props" Condition="Exists('..\packages\OpenCvSharp4.runtime.win.4.5.2.20210404\build\net\OpenCvSharp4.runtime.win.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,10 +11,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Scan2BIM</RootNamespace>
     <AssemblyName>Scan2BIM</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -33,6 +36,45 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aardvark.Base, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Base.5.1.9\lib\netstandard2.0\Aardvark.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Base.FSharp, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Base.FSharp.5.1.9\lib\netstandard2.0\Aardvark.Base.FSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Base.IO, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Base.IO.5.1.9\lib\netstandard2.0\Aardvark.Base.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Base.Telemetry, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Base.Telemetry.5.1.9\lib\netstandard2.0\Aardvark.Base.Telemetry.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Base.Tensors, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Base.Tensors.5.1.9\lib\netstandard2.0\Aardvark.Base.Tensors.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Base.Tensors.CSharp, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Base.Tensors.5.1.9\lib\netstandard2.0\Aardvark.Base.Tensors.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Base.TypeProviders, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Base.TypeProviders.4.5.15\lib\net45\Aardvark.Base.TypeProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Data.Durable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Data.Durable.0.2.19\lib\netstandard2.0\Aardvark.Data.Durable.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Data.Durable.Codec, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Data.Durable.Codec.0.2.19\lib\net472\Aardvark.Data.Durable.Codec.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Data.Points.Base, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Data.Points.Base.5.1.11\lib\netstandard2.0\Aardvark.Data.Points.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Geometry.Normals, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Geometry.Normals.5.1.11\lib\netstandard2.0\Aardvark.Geometry.Normals.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Geometry.PointSet, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Geometry.PointSet.5.1.11\lib\netstandard2.0\Aardvark.Geometry.PointSet.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Geometry.PointTree, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Geometry.PointTree.5.1.11\lib\netstandard2.0\Aardvark.Geometry.PointTree.dll</HintPath>
+    </Reference>
     <Reference Include="Classification, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Classification\Matlab library\Classification\for_testing\Classification.dll</HintPath>
@@ -47,6 +89,9 @@
     <Reference Include="Crc32C.NET">
       <HintPath>..\..\Segmentation\Volvox\Crc32C.NET.dll</HintPath>
     </Reference>
+    <Reference Include="DevILSharp, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevILSharp.0.2.9\lib\netstandard2.0\DevILSharp.dll</HintPath>
+    </Reference>
     <Reference Include="E57LibCommon">
       <HintPath>..\..\Segmentation\Volvox\E57LibCommon.dll</HintPath>
     </Reference>
@@ -56,22 +101,40 @@
     <Reference Include="E57LibWriter">
       <HintPath>..\..\Segmentation\Volvox\E57LibWriter.dll</HintPath>
     </Reference>
-    <Reference Include="GH_IO">
-      <HintPath>C:\Program Files\Rhino 7 WIP\Plug-ins\Grasshopper\GH_IO.dll</HintPath>
+    <Reference Include="Eto, Version=2.5.0.0, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.7.5.21100.3001\lib\net48\Eto.dll</HintPath>
     </Reference>
-    <Reference Include="GH_Util">
-      <HintPath>C:\Program Files\Rhino 7 WIP\Plug-ins\Grasshopper\GH_Util.dll</HintPath>
+    <Reference Include="FSharp.Core, Version=4.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FSharp.Core.4.7.0\lib\net45\FSharp.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    <Reference Include="FSharp.Data.Adaptive, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FSharp.Data.Adaptive.1.2.0\lib\netstandard2.0\FSharp.Data.Adaptive.dll</HintPath>
     </Reference>
-    <Reference Include="Grasshopper">
-      <HintPath>C:\Program Files\Rhino 7 WIP\Plug-ins\Grasshopper\Grasshopper.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="FsPickler, Version=5.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FsPickler.5.3.2\lib\net45\FsPickler.dll</HintPath>
+    </Reference>
+    <Reference Include="GH_IO, Version=7.5.21100.3000, Culture=neutral, PublicKeyToken=6a29997d2e6b4f97, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grasshopper.7.5.21100.3001\lib\net48\GH_IO.dll</HintPath>
+    </Reference>
+    <Reference Include="GH_Util, Version=7.0.20238.17095, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Rhino WIP\Plug-ins\Grasshopper\GH_Util.dll</HintPath>
+    </Reference>
+    <Reference Include="Grasshopper, Version=7.5.21100.3000, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grasshopper.7.5.21100.3001\lib\net48\Grasshopper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="MWArray, Version=2.15.1.0, Culture=neutral, PublicKeyToken=e1d84a0da19db86f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\MATLAB\R2019b\toolbox\dotnetbuilder\bin\win64\v4.0\MWArray.dll</HintPath>
+      <HintPath>bin\MWArray.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Rhino, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b9a188c8922137c6, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.7.5.21100.3001\lib\net48\Newtonsoft.Json.Rhino.dll</HintPath>
     </Reference>
     <Reference Include="Reconstruction, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -81,20 +144,63 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Reconstruction\bin\for_testing\ReconstructionNative.dll</HintPath>
     </Reference>
-    <Reference Include="RhinoCommon">
-      <HintPath>C:\Program Files\Rhino 7 WIP\System\RhinoCommon.dll</HintPath>
+    <Reference Include="Rhino.UI, Version=7.5.21100.3000, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.7.5.21100.3001\lib\net48\Rhino.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="RhinoCommon, Version=7.5.21100.3000, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.7.5.21100.3001\lib\net48\RhinoCommon.dll</HintPath>
     </Reference>
     <Reference Include="Segmentation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\S2B-Segmentation\bin\for_testing\Segmentation.dll</HintPath>
     </Reference>
+    <Reference Include="SixLabors.ImageSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.ImageSharp.1.0.2\lib\net472\SixLabors.ImageSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=1.4.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.8.0\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.7.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.7.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="Uncodium.Eigensystems, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Uncodium.Eigensystems.1.1.2\lib\netstandard2.0\Uncodium.Eigensystems.dll</HintPath>
+    </Reference>
+    <Reference Include="Uncodium.SimpleStore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Uncodium.SimpleStore.3.0.0\lib\netstandard2.0\Uncodium.SimpleStore.dll</HintPath>
+    </Reference>
     <Reference Include="Volvox_Cloud">
       <HintPath>..\..\Segmentation\Volvox\Volvox_Cloud.dll</HintPath>
     </Reference>
@@ -135,12 +241,382 @@
     <Compile Include="2.Types\GH_pointcloud.cs" />
     <Compile Include="0.Components\Ext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="1.Parameters\param.pointcloud" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="0.Components\5.Linked Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Pillar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Pillar3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Points1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_QA1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Quality1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Quality2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Quality3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Quality4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Quality5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Reconstruction1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Reconstruction2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Reconstruction3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Reconstruction4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Refraction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Region1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Region2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Region3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_RegionGrowing1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_RegionGrowing2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Registration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Remesh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Resolution.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Saiga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Sample1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Sample2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Sample3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Sample4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Sample5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Site1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Site2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Site3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_SplitStorey1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Statistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Stone1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_StoreySegmentation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Train.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Train2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wall1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wall2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wall3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wall4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wall5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wall6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wall7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wall8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wall9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wallfit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wallfit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wallfit3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wallfit4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wallfit5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wallfit6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wallfit7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wallfit8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Wallfit9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_WallSegmentation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_BIM1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_BIM2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_BIM3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_BIM4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_BIM5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_BIM6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_BIM7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_BIM8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_BIM9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_BIM10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Classify1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Classify2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Classify3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Classify4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Classify5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Classify6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Classify7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Classify8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Classify9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Classify10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Classify11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Crack1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Crack2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Crack3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Crack4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Crack5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_CRF1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_CRF2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_CRF3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_CSG1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Deviation1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Features1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Features2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Hull1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Hull2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Hull3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Hull4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Hull5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Intensity1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Intensity2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Intensity3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Intensity4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Intensity5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_LD1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_LD2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_LD3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_LD4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_LD5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_LD6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_LD7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_LD8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_LD9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_LD10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_LOA1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_LOA2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_MatExtraction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_MeshSplit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_NameExtraction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Normals.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Octree1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Ortho1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_PCD1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Pillar1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -164,4 +640,14 @@ Erase "$(TargetPath)"</PostBuildEvent>
     <StartAction>Program</StartAction>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
+  <Import Project="..\packages\RhinoCommon.7.5.21100.3001\build\RhinoCommon.targets" Condition="Exists('..\packages\RhinoCommon.7.5.21100.3001\build\RhinoCommon.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\RhinoCommon.7.5.21100.3001\build\RhinoCommon.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\RhinoCommon.7.5.21100.3001\build\RhinoCommon.targets'))" />
+    <Error Condition="!Exists('..\packages\Grasshopper.7.5.21100.3001\build\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grasshopper.7.5.21100.3001\build\Grasshopper.targets'))" />
+    <Error Condition="!Exists('..\packages\OpenCvSharp4.runtime.win.4.5.2.20210404\build\net\OpenCvSharp4.runtime.win.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCvSharp4.runtime.win.4.5.2.20210404\build\net\OpenCvSharp4.runtime.win.props'))" />
+  </Target>
+  <Import Project="..\packages\Grasshopper.7.5.21100.3001\build\Grasshopper.targets" Condition="Exists('..\packages\Grasshopper.7.5.21100.3001\build\Grasshopper.targets')" />
 </Project>

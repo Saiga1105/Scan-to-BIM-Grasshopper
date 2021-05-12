@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Uncodium.Eigensystems</name>
+    </assembly>
+    <members>
+        <member name="T:Uncodium.Eigensystems">
+            <summary>
+            Numerical diagonalization of 3x3 matrices.
+            See original work at https://www.mpi-hd.mpg.de/personalhomes/globes/3x3/.
+            
+            A common scientific problem is the numerical calculation of the
+            eigensystem of symmetric or hermitian 3x3 matrices. If this
+            calculation has to be performed many times, standard packages
+            like LAPACK, the GNU Scientific Library, and the Numerical Recipes
+            Library may not be the optimal choice because they are optimized
+            mainly for large matrices.
+            
+            This is a C# port of the C implementations of several algorithms
+            which were specifically optimized for 3x3 problems.
+            All algorithms are discussed in detail in the following paper:
+            
+            Joachim Kopp
+            Efficient numerical diagonalization of hermitian 3x3 matrices
+            Int.J.Mod.Phys.C 19 (2008) 523-548
+            arXiv.org: http://arxiv.org/abs/physics/0610206
+            </summary>
+        </member>
+        <member name="M:Uncodium.Eigensystems.Dsyev2(Aardvark.Base.M22d@,Aardvark.Base.M22d@,Aardvark.Base.V2d@)">
+            <summary>
+            Calculates the eigensystem of a real symmetric 2x2 matrix
+              [ A  B ]
+              [ B  C ]
+            in the form
+              [ A  B ]  =  [ cs  -sn ] [ rt1   0  ] [  cs  sn ]
+              [ B  C ]     [ sn   cs ] [  0   rt2 ] [ -sn  cs ]
+            where rt1 >= rt2. Note that this convention is different from the one used
+            in the LAPACK routine DLAEV2, where |rt1| >= |rt2|.
+            </summary>
+        </member>
+        <member name="M:Uncodium.Eigensystems.Dsyevc3(Aardvark.Base.M33d@,Aardvark.Base.V3d@)">
+            <summary>
+            Calculates the eigenvalues of a symmetric 3x3 matrix A using Cardano's
+            analytical algorithm. Only the diagonal and upper triangular parts of A
+            are accessed. The access is read-only.
+            </summary>
+            <param name="A">The symmetric input matrix.</param>
+            <param name="w">Eigenvalues.</param>
+            <returns>Eigenvalues of matrix A.</returns>
+        </member>
+        <member name="M:Uncodium.Eigensystems.Dsyevd3(Aardvark.Base.M33d@,Aardvark.Base.M33d@,Aardvark.Base.V3d@)">
+            <summary>
+            Calculates the eigenvalues and normalized eigenvectors of a symmetric 3x3
+            matrix A using Cuppen's Divide and Conquer algorithm.
+            The function accesses only the diagonal and upper triangular parts of A.
+            The access is read-only.
+            </summary>
+            <param name="A">The symmetric input matrix.</param>
+            <param name="Q">Eigenvectors.</param>
+            <param name="w">Eigenvalues.</param>
+        </member>
+        <member name="M:Uncodium.Eigensystems.Dsyevh3(Aardvark.Base.M33d@,Aardvark.Base.M33d@,Aardvark.Base.V3d@)">
+            <summary>
+            Calculates the eigenvalues and normalized eigenvectors of a symmetric 3x3
+            matrix A using Cardano's method for the eigenvalues and an analytical
+            method based on vector cross products for the eigenvectors. However,
+            if conditions are such that a large error in the results is to be
+            expected, the routine falls back to using the slower, but more
+            accurate QL algorithm. Only the diagonal and upper triangular parts of A need
+            to contain meaningful values. Access to A is read-only.
+            </summary>
+            <param name="A">The symmetric input matrix.</param>
+            <param name="Q">Eigenvectors.</param>
+            <param name="w">Eigenvalues.</param>
+            <returns>True (success), false (no convergence).</returns>
+        </member>
+        <member name="M:Uncodium.Eigensystems.Dsyevh3asc(Aardvark.Base.M33d@,Aardvark.Base.M33d@,Aardvark.Base.V3d@,System.Int32[]@)">
+            <summary>
+            Same as Dsyevh3, but additional order of Eigenvalues (ascending).
+            </summary>
+        </member>
+        <member name="M:Uncodium.Eigensystems.Dsyevh3desc(Aardvark.Base.M33d@,Aardvark.Base.M33d@,Aardvark.Base.V3d@,System.Int32[]@)">
+            <summary>
+            Same as Dsyevh3, but additional order of Eigenvalues (descending).
+            </summary>
+        </member>
+        <member name="M:Uncodium.Eigensystems.Dsyevj3(Aardvark.Base.M33d@,Aardvark.Base.M33d@,Aardvark.Base.V3d@)">
+            <summary>
+            Calculates the eigenvalues and normalized eigenvectors of a symmetric 3x3
+            matrix A using the Jacobi algorithm.
+            The upper triangular part of A is destroyed during the calculation,
+            the diagonal elements are read but not destroyed, and the lower
+            triangular elements are not referenced at all.
+            </summary>
+            <param name="A">The symmetric input matrix.</param>
+            <param name="Q">Eigenvectors.</param>
+            <param name="w">Eigenvalues.</param>
+            <returns>True (success), false (no convergence).</returns>
+        </member>
+        <member name="M:Uncodium.Eigensystems.Dsyevq3(Aardvark.Base.M33d@,Aardvark.Base.M33d@,Aardvark.Base.V3d@)">
+            <summary>
+            Calculates the eigenvalues and normalized eigenvectors of a symmetric 3x3
+            matrix A using the QL algorithm with implicit shifts, preceded by a
+            Householder reduction to tridiagonal form.
+            The function accesses only the diagonal and upper triangular parts of A.
+            The access is read-only.
+            </summary>
+            <param name="A">The symmetric input matrix.</param>
+            <param name="Q">Eigenvectors.</param>
+            <param name="w">Eigenvalues.</param>
+            <returns>True (success), false (no convergence).</returns>
+        </member>
+        <member name="M:Uncodium.Eigensystems.Dsyevv3(Aardvark.Base.M33d@,Aardvark.Base.M33d@,Aardvark.Base.V3d@)">
+            <summary>
+            Calculates the eigenvalues and normalized eigenvectors of a symmetric 3x3
+            matrix A using Cardano's method for the eigenvalues and an analytical
+            method based on vector cross products for the eigenvectors.
+            Only the diagonal and upper triangular parts of A need to contain meaningful
+            values. However, all of A may be used as temporary storage and may hence be
+            destroyed.
+            </summary>
+            <param name="A">The symmetric 3x3 input matrix.</param>
+            <param name="Q">Eigenvectors.</param>
+            <param name="w">Eigenvalues.</param>
+        </member>
+        <member name="M:Uncodium.Eigensystems.Dsytrd3(Aardvark.Base.M33d@,Aardvark.Base.M33d@,Aardvark.Base.V3d@,Aardvark.Base.V2d@)">
+            <summary>
+            Reduces a symmetric 3x3 matrix to tridiagonal form by applying
+            (unitary) Householder transformations:
+                      [ d[0]  e[0]       ]
+              A = Q . [ e[0]  d[1]  e[1] ] . Q^T
+                      [       e[1]  d[2] ]
+            The function accesses only the diagonal and upper triangular
+            parts of A. The access is read-only.
+            </summary>
+        </member>
+        <member name="M:Uncodium.Eigensystems.Slvsec3(Aardvark.Base.V3d@,Aardvark.Base.V3d@,Aardvark.Base.V3d@,Aardvark.Base.M33d@,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Finds the three roots w_j of the secular equation
+              f(w_j) = 1 + Sum[ z_i / (d_i - w_j) ]  ==  0.
+            It is assumed that d_0 leq d_1 leq d_2, and that all z_i have the same sign.
+            The arrays P_i will contain the information required for the calculation
+            of the eigenvectors:
+              P_ij = d_i - w_j.
+            These differences can be obtained with better accuracy from intermediate results.
+            </summary>
+        </member>
+    </members>
+</doc>

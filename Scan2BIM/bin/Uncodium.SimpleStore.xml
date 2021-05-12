@@ -1,0 +1,487 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Uncodium.SimpleStore</name>
+    </assembly>
+    <members>
+        <member name="T:Uncodium.SimpleStore.Extensions">
+            <summary>
+            Store extensions. 
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.ToMd5Hash(System.String)">
+            <summary>
+            Get MD5 hash of string as Guid.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.Add(Uncodium.SimpleStore.ISimpleStore,System.String,System.String)">
+            <summary>
+            Store with flags.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.FailRandomly(Uncodium.SimpleStore.ISimpleStore,System.Double)">
+            <summary>
+            Each store operation fails with given probability.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.FailRandomly(Uncodium.SimpleStore.ISimpleStore,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Each store operation fails with given probability.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.DelayRandomly(Uncodium.SimpleStore.ISimpleStore,System.Double)">
+            <summary>
+            Each store operation is delayed between 0 and given duration in seconds.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.DelayRandomly(Uncodium.SimpleStore.ISimpleStore,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Each store operation is delayed between 0 and given duration in seconds.
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.Global">
+            <summary>
+            Global constants.
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Global.Version">
+            <summary>
+            Current version.
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.ISimpleStore">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.Add(System.String,System.Byte[])">
+            <summary>
+            Add data from buffer.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.AddStream(System.String,System.IO.Stream,System.Action{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Add data from stream.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.Contains(System.String)">
+            <summary>
+            True if key exists in store.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.GetSize(System.String)">
+            <summary>
+            Get size of value in bytes,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.Get(System.String)">
+            <summary>
+            Get value as buffer,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.GetSlice(System.String,System.Int64,System.Int32)">
+            <summary>
+            Get value slice as buffer,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.GetStream(System.String,System.Int64)">
+            <summary>
+            Get value as read stream,
+            or null if key does not exist.
+            This is not thread-safe with respect to overwriting or removing existing values.
+            </summary>
+            <param name="key">Retrieve data for this key.</param>
+            <param name="offset">Optional. Start stream at given position.</param>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.List">
+            <summary>
+            Enumerate all entries as (key, size) tuples.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.Remove(System.String)">
+            <summary>
+            Remove entry.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.Flush">
+            <summary>
+            Commit any pending changes to backing storage.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.GetUsedBytes">
+            <summary>
+            Total bytes used for data.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.GetReservedBytes">
+            <summary>
+            Total bytes reserved for data.
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.ISimpleStore.Version">
+            <summary>
+            Current version.
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.ISimpleStore.Stats">
+            <summary>
+            Various runtime counts and other statistics.
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.SimpleDiskStore">
+            <summary>
+            A memory-mapped key/value store on disk.
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.SimpleDiskStore.MaxKeyLength">
+            <summary>
+            The maximum number of characters in a key string.
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.SimpleDiskStore.StoreLayout.None">
+            <summary>
+            There is no folder or file at the given location.
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.SimpleDiskStore.StoreLayout.FolderWithStandaloneDataAndIndexFiles">
+            <summary>
+            Deprecated. Original layout consisting of a folder containing files 'data.bin' and 'index.bin'.
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.SimpleDiskStore.StoreLayout.FolderWithMergedDataAndIndexFile">
+            <summary>
+            A folder containing a single 'data.bin' file with integrated index.
+            This is the result of converting an original (deprecated) store into the current single file format.
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.SimpleDiskStore.StoreLayout.SingleFile">
+            <summary>
+            The current format. A single file containing data and index.
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.SimpleDiskStore.StoreLayout.UnknownFileHeader">
+            <summary>
+            There is a file, but in an unknown format.
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.SimpleDiskStore.StoreLayout.UnknownFolder">
+            <summary>
+            There is a folder, but no well-known file inside it ('data.bin').
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.SimpleDiskStore.ChunkedInMemoryIndex">
+            <summary>
+            Custom in-memory index to circumvent memory problem in .NET Framework.
+            (in .NET framework array size in bytes is limited to 2GB, which limits
+            previous Dictionary-based implementation to less than 100k entries,
+            due to Dictionary's internal backing array goes out of memory).
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.#ctor(System.String,System.Boolean,System.Action{System.String[]})">
+            <summary>
+            Creates store in given file.
+            Optionally opens current state read-only.
+            Optionally a logger can be supplied which replaces the default logger to log.txt.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates store in given file.
+            Optionally opens current state read-only.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.#ctor(System.String)">
+            <summary>
+            Creates store in given file.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.#ctor(System.String,System.Action{System.String[]})">
+            <summary>
+            Creates store in given file.
+            Optionally a logger can be supplied which replaces the default logger to log.txt.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.OpenReadOnlySnapshot(System.String)">
+            <summary>
+            Opens store in given file in read-only snapshot mode.
+            This means that no store entries that are added after the call to OpenReadOnlySnapshot will be(come) visible.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.EnsureMemoryMappedFileIsOpen">
+            <summary>
+            If mmf is closed because a previous resize failed due to insufficient disk space,
+            this will retry to open the mmf (maybe there is more disk space now).
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.Add(System.String,System.Byte[])">
+            <summary>
+            Add data from buffer.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.AddStream(System.String,System.IO.Stream,System.Action{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Add data from stream.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.Contains(System.String)">
+            <summary>
+            True if key exists in store.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.GetSize(System.String)">
+            <summary>
+            Get size of value in bytes,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.Get(System.String)">
+            <summary>
+            Get value as buffer,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.GetSlice(System.String,System.Int64,System.Int32)">
+            <summary>
+            Get value slice as buffer,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.GetStream(System.String,System.Int64)">
+            <summary>
+            Get value as read stream,
+            or null if key does not exist.
+            This is not thread-safe with respect to overwriting or removing existing values.
+            </summary>
+            <param name="key">Retrieve data for this key.</param>
+            <param name="offset">Optional. Start stream at given position.</param>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.List">
+            <summary>
+            Enumerate all entries as (key, size) tuples.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.Remove(System.String)">
+            <summary>
+            Remove entry.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.Flush">
+            <summary>
+            Commit any pending changes to backing storage.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.GetUsedBytes">
+            <summary>
+            Total bytes used for data.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.GetReservedBytes">
+            <summary>
+            Total bytes reserved for data.
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.SimpleDiskStore.Version">
+            <summary>
+            Current version.
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.SimpleDiskStore.Stats">
+            <summary>
+            Various runtime counts and other statistics.
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.SimpleFolderStore">
+            <summary>
+            Simple folder store with one file per entry.
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.SimpleFolderStore.Folder">
+            <summary>
+            The store folder.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.#ctor(System.String)">
+            <summary>
+            Creates a store in the given folder.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.Add(System.String,System.Byte[])">
+            <summary>
+            Add data from buffer.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.AddStream(System.String,System.IO.Stream,System.Action{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Add data from stream.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.Contains(System.String)">
+            <summary>
+            True if key exists in store.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.GetSize(System.String)">
+            <summary>
+            Get size of value in bytes,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.Get(System.String)">
+            <summary>
+            Get value as buffer,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.GetSlice(System.String,System.Int64,System.Int32)">
+            <summary>
+            Get value slice as buffer,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.GetStream(System.String,System.Int64)">
+            <summary>
+            Get value as read stream,
+            or null if key does not exist.
+            This is not thread-safe with respect to overwriting or removing existing values.
+            </summary>
+            <param name="key">Retrieve data for this key.</param>
+            <param name="offset">Optional. Start stream at given position.</param>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.List">
+            <summary>
+            Enumerate all entries as (key, size) tuples.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.Remove(System.String)">
+            <summary>
+            Remove entry.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.Flush">
+            <summary>
+            Commit any pending changes to backing storage.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.GetUsedBytes">
+            <summary>
+            Total bytes used for data.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleFolderStore.GetReservedBytes">
+            <summary>
+            Total bytes reserved for data.
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.SimpleFolderStore.Version">
+            <summary>
+            Current version.
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.SimpleFolderStore.Stats">
+            <summary>
+            Various runtime counts and other statistics.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.Add(System.String,System.Byte[])">
+            <summary>
+            Add data from buffer.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.AddStream(System.String,System.IO.Stream,System.Action{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Add data from stream.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.Contains(System.String)">
+            <summary>
+            True if key exists in store.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.GetSize(System.String)">
+            <summary>
+            Get size of value in bytes,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.Get(System.String)">
+            <summary>
+            Get value as buffer,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.GetSlice(System.String,System.Int64,System.Int32)">
+            <summary>
+            Get value slice as buffer,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.GetStream(System.String,System.Int64)">
+            <summary>
+            Get value as read stream,
+            or null if key does not exist.
+            This is not thread-safe with respect to overwriting or removing existing values.
+            </summary>
+            <param name="key">Retrieve data for this key.</param>
+            <param name="offset">Optional. Start stream at given position.</param>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.List">
+            <summary>
+            Enumerate all entries as (key, size) tuples.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.Remove(System.String)">
+            <summary>
+            Remove entry.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.Flush">
+            <summary>
+            Commit any pending changes to backing storage.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.GetUsedBytes">
+            <summary>
+            Total bytes used for data.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.GetReservedBytes">
+            <summary>
+            Total bytes reserved for data.
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.SimpleMemoryStore.Version">
+            <summary>
+            Current version.
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.SimpleMemoryStore.Stats">
+            <summary>
+            Various runtime counts and other statistics.
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Stats.LatestKeyAdded">
+            <summary>
+            Latest key added to the store.
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Stats.LatestKeyFlushed">
+            <summary>
+            Latest key flushed to backing storage.
+            In SimpleDiskStore and SimpleFolderStore this is a file on disk.
+            In SimpleMemoryStore this is memory, so LatestKeyFlushed is always identical to LatestKeyAdded.
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.WrapperRandomDelay">
+            <summary>
+            Each operation will be delayed. 
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.WrapperRandomFail">
+            <summary>
+            Each operation may fail with a given probability. 
+            </summary>
+        </member>
+    </members>
+</doc>

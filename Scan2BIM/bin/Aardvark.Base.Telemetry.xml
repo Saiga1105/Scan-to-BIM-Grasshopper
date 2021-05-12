@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aardvark.Base.Telemetry</name>
+    </assembly>
+    <members>
+        <member name="F:Aardvark.Base.Telemetry.Debug.CpuTimers">
+            <summary>
+            e.g.: using (Telemetry.Debug.CpuTimers.YourTimerNameHere) { /* stuff to time */ }
+            </summary>
+        </member>
+        <member name="F:Aardvark.Base.Telemetry.Debug.Counters">
+            <summary>
+            e.g.: Telemetry.Debug.Counters.YourCounterNameHere.Increment();
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Telemetry.Debug.AddCustomRegistrationAction(System.Action{System.String,Aardvark.Base.Telemetry.IProbe})">
+            <summary>
+            Use this to register a custom action that will be called each time
+            someone creates a dynamic CpuTimer (with Telemetry.Debug.CpuTimers.YourTimerNameHere).
+            The parameters are the user-provided name (e.g. "YourTimerNameHere" in the
+            above example and the created CpuTimer. E.g. the kernel registers an action
+            that for each timer automatically creates a derived probe showing the values
+            per cycle.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Telemetry.IProbe.ValueDouble">
+            <summary>
+            Current value of probe.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Telemetry.IProbe`1.Value">
+            <summary>
+            Current typed value of probe.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Telemetry.ResetTelemetrySystem">
+            <summary>
+            Global reset of all telemetry probes to zero (or the equivalent).
+            This is mainly used for benchmarking, e.g. to cleanly restart telemetry
+            after a warm up phase or before a new benchmark iteration.
+            Custom IProbe implementations must handle the Telemetry.OnReset event.
+            </summary>
+        </member>
+        <member name="E:Aardvark.Base.Telemetry.OnReset">
+            <summary>
+            Signals that ResetTelemetrySystem has been called.
+            Custom IProbe implementations must handle the Telemetry.OnReset event.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Telemetry.StopWatchTime">
+            <summary>
+            Uses a StopWatch to time the code block.
+            Measurement also includes times when the thread is blocked.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Telemetry.WallClockTime">
+            <summary>
+            Overlapping timings from multiple threads will not be accumulated.
+            For example, if 4 threads simultanously time a code block at 1 second
+            using the same WallClockTime object, then recorded time will show 1 second.
+            This is in contrast to CpuTime where it would show 4 seconds.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Telemetry.CpuTime">
+            <summary>
+            Measures the amount of time that the thread has spent using
+            the processor (application code + operating system code).
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Telemetry.CpuTime.UserTime">
+            <summary>
+            Gets the time that was spent in application code.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Telemetry.CpuTime.PrivilegedTime">
+            <summary>
+            Gets the time that was spent in operating system code.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Telemetry.CpuTimeUser">
+            <summary>
+            Measures the amount of time that the thread has spent using
+            the processor inside the application.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Telemetry.CpuTimePrivileged">
+            <summary>
+            Measures the amount of time that the thread has spent using
+            the processor inside the operating system core.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Telemetry.SnapshotProbeLong">
+            <summary>
+            Reports difference to current value of probe.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Telemetry.SnapshotProbeLong.#ctor(Aardvark.Base.Telemetry.IProbe{System.Int64})">
+            <summary>
+            Reports difference to current value of probe.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Telemetry.SnapshotProbeDouble">
+            <summary>
+            Reports difference to current value of probe.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Telemetry.SnapshotProbeDouble.#ctor(Aardvark.Base.Telemetry.IProbe{System.Double})">
+            <summary>
+            Reports difference to current value of probe.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.Telemetry.SnapshotProbeTimeSpan">
+            <summary>
+            Reports difference to current value of probe.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.Telemetry.SnapshotProbeTimeSpan.#ctor(Aardvark.Base.Telemetry.IProbe{System.TimeSpan})">
+            <summary>
+            Reports difference to current value of probe.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Telemetry.RatePerSecondView.Value">
+            <summary>
+            Rate per second.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Telemetry.RatioView.Value">
+            <summary>
+            Ratio.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Telemetry.SumView.Value">
+            <summary>
+            Ratio.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Telemetry.SubtractView.Value">
+            <summary>
+            Ratio.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Telemetry.MultiplyView.Value">
+            <summary>
+            Ratio.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Telemetry.MinView.Value">
+            <summary>
+            Ratio.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Telemetry.MaxView.Value">
+            <summary>
+            Ratio.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Base.Telemetry.AvgView.Value">
+            <summary>
+            Ratio.
+            </summary>
+        </member>
+    </members>
+</doc>

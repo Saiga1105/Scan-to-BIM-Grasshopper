@@ -1,0 +1,2018 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aardvark.Data.Durable</name>
+    </assembly>
+    <members>
+        <member name="T:Aardvark.Data.Durable">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Data.Durable.Def">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Def.Id">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Def.Name">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Def.Description">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Def.Type">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Def.IsArray">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Durable.Def.#ctor(System.Guid,System.String,System.String,System.Guid,System.Boolean)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Durable.Def.ToString">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Durable.Def.GetHashCode">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Durable.Def.Equals(System.Object)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Durable.Def.Equals(Aardvark.Data.Durable.Def)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Durable.Def.CompareTo(System.Object)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Durable.Def.CompareTo(Aardvark.Data.Durable.Def)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Durable.Get(System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Data.Durable.TryGet(System.Guid,Aardvark.Data.Durable.Def@)">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Data.Durable.Primitives">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Unit">
+            <summary>
+            Unit (nothing, none, null, ...).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DurableDefinition">
+            <summary>
+            A durable definition stored inline. [Id:Guid][Name:StringUTF8][Description:StringUTF8][Type:StringUTF8].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DurableMap">
+            <summary>
+            A map of key/value pairs, where keys are durable IDs with values of corresponding types.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DurableMapAligned8">
+            <summary>
+            A map of key/value pairs, where keys are durable IDs with values of corresponding types. Entries are 8-byte aligned.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DurableMapAligned16">
+            <summary>
+            A map of key/value pairs, where keys are durable IDs with values of corresponding types. Entries are 16-byte aligned.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DurableNamedMap">
+            <summary>
+            A map of name/key/value entries, where names are strings, keys are durable IDs (Guid) with values of corresponding types. All names, keys, and values are 4-byte aligned.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.GZipped">
+            <summary>
+            A gzipped element.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.GuidDef">
+            <summary>
+            Globally unique identifier (GUID, 16 bytes). https://tools.ietf.org/html/rfc4122.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.GuidArray">
+            <summary>
+            Array of globally unique identifiers (GUID, 16 bytes). https://tools.ietf.org/html/rfc4122.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int8">
+            <summary>
+            Signed 8-bit integer. 2-complement.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int8Array">
+            <summary>
+            Array of signed 8-bit integers. 2-complement.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt8">
+            <summary>
+            Unsigned 8-bit integer.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt8Array">
+            <summary>
+            Array of unsigned 8-bit integers.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int16">
+            <summary>
+            Signed 16-bit integer. 2-complement.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int16Array">
+            <summary>
+            Array of signed 16-bit integers. 2-complement.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt16">
+            <summary>
+            Unsigned 16-bit integer.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt16Array">
+            <summary>
+            Array of unsigned 16-bit integers.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int32">
+            <summary>
+            Signed 32-bit integer. 2-complement.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int32Array">
+            <summary>
+            Array of signed 32-bit integers. 2-complement.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt32">
+            <summary>
+            Unsigned 32-bit integer.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt32Array">
+            <summary>
+            Array of unsigned 32-bit integers.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int64">
+            <summary>
+            Signed 64-bit integer. 2-complement.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int64Array">
+            <summary>
+            Array of signed 64-bit integers. 2-complement.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt64">
+            <summary>
+            Unsigned 64-bit integer.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt64Array">
+            <summary>
+            Array of unsigned 64-bit integers.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Float16">
+            <summary>
+            Floating point value (IEEE 754, half precision, 16-bit). https://en.wikipedia.org/wiki/IEEE_754.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Float16Array">
+            <summary>
+            Array of floating point values (IEEE 754, half precision, 16-bit). https://en.wikipedia.org/wiki/IEEE_754.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Float32">
+            <summary>
+            Floating point value (IEEE 754, single precision, 32-bit). https://en.wikipedia.org/wiki/IEEE_754.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Float32Array">
+            <summary>
+            Array of floating point values (IEEE 754, single precision, 32-bit). https://en.wikipedia.org/wiki/IEEE_754.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Float64">
+            <summary>
+            Floating point value (IEEE 754, double precision, 64-bit). https://en.wikipedia.org/wiki/IEEE_754.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Float64Array">
+            <summary>
+            Array of floating point values (IEEE 754, double precision, 64-bit). https://en.wikipedia.org/wiki/IEEE_754.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Float128">
+            <summary>
+            Floating point value (IEEE 754, quadruple precision, 128-bit). https://en.wikipedia.org/wiki/IEEE_754.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Float128Array">
+            <summary>
+            Array of floating point values (IEEE 754, quadruple precision, 128-bit). https://en.wikipedia.org/wiki/IEEE_754.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Float256">
+            <summary>
+            Floating point value (IEEE 754, octuple precision, 256-bit). https://en.wikipedia.org/wiki/IEEE_754.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Float256Array">
+            <summary>
+            Array of floating point values (IEEE 754, octuple precision, 256-bit). https://en.wikipedia.org/wiki/IEEE_754.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalBID32">
+            <summary>
+            Decimal floating point value (IEEE 754, 32-bit) encoded as binary integer decimal (BID). https://en.wikipedia.org/wiki/Decimal32_floating-point_format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalBID32Array">
+            <summary>
+            Array of decimal floating point values (IEEE 754, 32-bit) encoded as binary integer decimal (BID). https://en.wikipedia.org/wiki/Decimal32_floating-point_format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalDPD32">
+            <summary>
+            Decimal floating point value (IEEE 754, 32-bit) encoded as densely packed decimal (DPD). https://en.wikipedia.org/wiki/Decimal32_floating-point_format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalDPD32Array">
+            <summary>
+            Array of decimal floating point values (IEEE 754, 32-bit) encoded as densely packed decimal (DPD). https://en.wikipedia.org/wiki/Decimal32_floating-point_format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalBID64">
+            <summary>
+            Decimal floating point value (IEEE 754, 64-bit) encoded as binary integer decimal (BID). https://en.wikipedia.org/wiki/Decimal64_floating-point_format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalBID64Array">
+            <summary>
+            Array of decimal floating point values (6IEEE 754, 4-bit) encoded as binary integer decimal (BID). https://en.wikipedia.org/wiki/Decimal64_floating-point_format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalDPD64">
+            <summary>
+            Decimal floating point value (IEEE 754, 64-bit) encoded as densely packed decimal (DPD). https://en.wikipedia.org/wiki/Decimal64_floating-point_format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalDPD64Array">
+            <summary>
+            Array of decimal floating point values (IEEE 754, 64-bit) encoded as densely packed decimal (DPD). https://en.wikipedia.org/wiki/Decimal64_floating-point_format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalBID128">
+            <summary>
+            Decimal floating point value (IEEE 754, 128-bit) encoded as binary integer decimal (BID). https://en.wikipedia.org/wiki/Decimal128_floating-point_format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalBID128Array">
+            <summary>
+            Array of decimal floating point values (IEEE 754, 128-bit) encoded as binary integer decimal (BID). https://en.wikipedia.org/wiki/Decimal128_floating-point_format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalDPD128">
+            <summary>
+            Decimal floating point value (IEEE 754, 128-bit) encoded as densely packed decimal (DPD). https://en.wikipedia.org/wiki/Decimal128_floating-point_format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalDPD128Array">
+            <summary>
+            Array of decimal floating point values (IEEE 754, 128-bit) encoded as densely packed decimal (DPD). https://en.wikipedia.org/wiki/Decimal128_floating-point_format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalDotnet">
+            <summary>
+            A .NET decimal value (System.Decimal, 128-bit). https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/types#the-decimal-type.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.DecimalDotnetArray">
+            <summary>
+            Array of .NET decimal values (System.Decimal, 128-bit). https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/types#the-decimal-type.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.StringUTF8">
+            <summary>
+            String. UTF8 encoding. Serialized as UInt32 length followed by length number of bytes (UInt8).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.StringUTF8Array">
+            <summary>
+            Array of strings. UTF8 encoding.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Float32ArrayWithFloat64Offset">
+            <summary>
+            Float64[] data stored as Int32[] plus Float64 offset.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int32ArrayWithInt64Offset">
+            <summary>
+            Int64[] data stored as Int32[] plus Int64 offset.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int16ArrayWithInt64Offset">
+            <summary>
+            Int64[] data stored as Int16[] plus Int64 offset.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int8ArrayWithInt64Offset">
+            <summary>
+            Int64[] data stored as Int8[] plus Int64 offset.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int16ArrayWithInt32Offset">
+            <summary>
+            Int32[] data stored as Int16[] plus Int32 offset.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int8ArrayWithInt32Offset">
+            <summary>
+            Int32[] data stored as Int8[] plus Int32 offset.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.Int8ArrayWithInt16Offset">
+            <summary>
+            Int16[] data stored as Int8[] plus Int16 offset.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt32ArrayWithUInt64Offset">
+            <summary>
+            UInt64[] data stored as UInt32[] plus UInt64 offset.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt16ArrayWithUInt64Offset">
+            <summary>
+            UInt64[] data stored as UInt16[] plus UInt64 offset.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt8ArrayWithUInt64Offset">
+            <summary>
+            UInt64[] data stored as UInt8[] plus UInt64 offset.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt16ArrayWithUInt32Offset">
+            <summary>
+            UInt32[] data stored as UInt16[] plus UInt32 offset.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt8ArrayWithUInt32Offset">
+            <summary>
+            UInt32[] data stored as UInt8[] plus UInt32 offset.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Primitives.UInt8ArrayWithUInt16Offset">
+            <summary>
+            UInt16[] data stored as UInt8[] plus UInt16 offset.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.Durable.Aardvark">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V2i">
+            <summary>
+            A 2-dim vector of 32-bit integers.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V2iArray">
+            <summary>
+            Array of V2i.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V2l">
+            <summary>
+            A 2-dim vector of 64-bit integers.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V2lArray">
+            <summary>
+            Array of V2l.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V2f">
+            <summary>
+            A 2-dim vector of 32-bit floats.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V2fArray">
+            <summary>
+            Array of V2f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V2d">
+            <summary>
+            A 2-dim vector of 64-bit floats.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V2dArray">
+            <summary>
+            Array of V2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V3i">
+            <summary>
+            A 3-dim vector of 32-bit integers.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V3iArray">
+            <summary>
+            Array of V3i.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V3l">
+            <summary>
+            A 3-dim vector of 64-bit integers.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V3lArray">
+            <summary>
+            Array of V3l.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V3f">
+            <summary>
+            A 3-dim vector of 32-bit floats.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V3fArray">
+            <summary>
+            Array of V3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V3d">
+            <summary>
+            A 3-dim vector of 64-bit floats.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V3dArray">
+            <summary>
+            Array of V3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V4i">
+            <summary>
+            A 4-dim vector of 32-bit integers.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V4iArray">
+            <summary>
+            Array of V4i.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V4l">
+            <summary>
+            A 4-dim vector of 64-bit integers.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V4lArray">
+            <summary>
+            Array of V4l.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V4f">
+            <summary>
+            A 4-dim vector of 32-bit float.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V4fArray">
+            <summary>
+            Array of V4f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V4d">
+            <summary>
+            A 4-dim vector of 64-bit float.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.V4dArray">
+            <summary>
+            Array of V4d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.M22f">
+            <summary>
+            A 2x2 matrix of Float32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.M22fArray">
+            <summary>
+            Array of M22f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.M22d">
+            <summary>
+            A 2x2 matrix of Float64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.M22dArray">
+            <summary>
+            Array of M22d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.M33f">
+            <summary>
+            A 3x3 matrix of Float32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.M33fArray">
+            <summary>
+            Array of M33f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.M33d">
+            <summary>
+            A 3x3 matrix of Float64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.M33dArray">
+            <summary>
+            Array of M33d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.M44f">
+            <summary>
+            A 4x4 matrix of Float32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.M44fArray">
+            <summary>
+            Array of M44f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.M44d">
+            <summary>
+            A 4x4 matrix of Float64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.M44dArray">
+            <summary>
+            Array of M44d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Affine2f">
+            <summary>
+            Struct to represent an affine transformation in 2-dimensional space. It consists of a linear tranformation (invertible 2x2 matrix) and a translational component (2d vector).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Affine2fArray">
+            <summary>
+            Array of Affine2f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Affine2d">
+            <summary>
+            Struct to represent an affine transformation in 2-dimensional space. It consists of a linear tranformation (invertible 2x2 matrix) and a translational component (2d vector).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Affine2dArray">
+            <summary>
+            Array of Affine2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Affine3f">
+            <summary>
+            Struct to represent an affine transformation in 3-dimensional space. It consists of a linear tranformation (invertible 3x3 matrix) and a translational component (3d vector).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Affine3fArray">
+            <summary>
+            Array of Affine3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Affine3d">
+            <summary>
+            Struct to represent an affine transformation in 3-dimensional space. It consists of a linear tranformation (invertible 3x3 matrix) and a translational component (3d vector).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Affine3dArray">
+            <summary>
+            Array of Affine3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Rot2f">
+            <summary>
+            Represents a 2D rotation counterclockwise around the origin.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Rot2fArray">
+            <summary>
+            Array of Rot2f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Rot2d">
+            <summary>
+            Represents a 2D rotation counterclockwise around the origin.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Rot2dArray">
+            <summary>
+            Array of Rot2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Rot3f">
+            <summary>
+            Represents a rotation in three dimensions using a unit quaternion (W,X,Y,Z).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Rot3fArray">
+            <summary>
+            Array of Rot3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Rot3d">
+            <summary>
+            Represents a rotation in three dimensions using a unit quaternion (W,X,Y,Z).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Rot3dArray">
+            <summary>
+            Array of Rot3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Euclidean2f">
+            <summary>
+            Represents a Rigid Transformation (or Rigid Body Transformation) in 2D that is composed of a 2D rotation Rot and a subsequent translation by a 2D vector Trans. This is also called an Euclidean Transformation and is a length preserving Transformation.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Euclidean2fArray">
+            <summary>
+            Array of Euclidean2f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Euclidean2d">
+            <summary>
+            Represents a Rigid Transformation (or Rigid Body Transformation) in 2D that is composed of a 2D rotation Rot and a subsequent translation by a 2D vector Trans. This is also called an Euclidean Transformation and is a length preserving Transformation.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Euclidean2dArray">
+            <summary>
+            Array of Euclidean2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Euclidean3f">
+            <summary>
+            Represents a Rigid Transformation (or Rigid Body Transformation) in 2D that is composed of a 2D rotation Rot and a subsequent translation by a 2D vector Trans. This is also called an Euclidean Transformation and is a length preserving Transformation.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Euclidean3fArray">
+            <summary>
+            Array of Euclidean3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Euclidean3d">
+            <summary>
+            Represents a Rigid Transformation (or Rigid Body Transformation) in 2D that is composed of a 2D rotation Rot and a subsequent translation by a 2D vector Trans. This is also called an Euclidean Transformation and is a length preserving Transformation.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Euclidean3dArray">
+            <summary>
+            Array of Euclidean3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Scale2f">
+            <summary>
+            A 2-dimensional scaling transform with different scaling values in each dimension.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Scale2fArray">
+            <summary>
+            Array of Scale2f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Scale2d">
+            <summary>
+            A 2-dimensional scaling transform with different scaling values in each dimension.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Scale2dArray">
+            <summary>
+            Array of Scale2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Scale3f">
+            <summary>
+            A 3-dimensional scaling transform with different scaling values in each dimension.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Scale3fArray">
+            <summary>
+            Array of Scale3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Scale3d">
+            <summary>
+            A 3-dimensional scaling transform with different scaling values in each dimension.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Scale3dArray">
+            <summary>
+            Array of Scale3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Shift2f">
+            <summary>
+            A 2-dimensional translational transform with different translation values in each dimension.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Shift2fArray">
+            <summary>
+            Array of Shift2f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Shift2d">
+            <summary>
+            A 2-dimensional translational transform with different translation values in each dimension.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Shift2dArray">
+            <summary>
+            Array of Shift2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Shift3f">
+            <summary>
+            A 2-dimensional translational transform with different translation values in each dimension.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Shift3fArray">
+            <summary>
+            Array of Shift3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Shift3d">
+            <summary>
+            A 2-dimensional translational transform with different translation values in each dimension.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Shift3dArray">
+            <summary>
+            Array of Shift3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Similarity2f">
+            <summary>
+            Represents a Similarity Transformation in 2D that is composed of a Uniform Scale and a subsequent Euclidean transformation (2D rotation Rot and a subsequent translation by a 2D vector Trans). This is an angle preserving Transformation.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Similarity2fArray">
+            <summary>
+            Array of Similarity2f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Similarity2d">
+            <summary>
+            Represents a Similarity Transformation in 2D that is composed of a Uniform Scale and a subsequent Euclidean transformation (2D rotation Rot and a subsequent translation by a 2D vector Trans). This is an angle preserving Transformation.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Similarity2dArray">
+            <summary>
+            Array of Similarity2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Similarity3f">
+            <summary>
+            Represents a Similarity Transformation in 3D that is composed of a Uniform Scale and a subsequent Euclidean transformation (3D rotation Rot and a subsequent translation by a 3D vector Trans). This is an angle preserving Transformation.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Similarity3fArray">
+            <summary>
+            Array of Similarity3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Similarity3d">
+            <summary>
+            Represents a Similarity Transformation in 3D that is composed of a Uniform Scale and a subsequent Euclidean transformation (3D rotation Rot and a subsequent translation by a 3D vector Trans). This is an angle preserving Transformation.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Similarity3dArray">
+            <summary>
+            Array of Similarity3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Trafo2f">
+            <summary>
+            A trafo is a container for a forward and a backward matrix.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Trafo2fArray">
+            <summary>
+            Array of Trafo2f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Trafo2d">
+            <summary>
+            A trafo is a container for a forward and a backward matrix.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Trafo2dArray">
+            <summary>
+            Array of Trafo2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Trafo3f">
+            <summary>
+            A trafo is a container for a forward and a backward matrix.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Trafo3fArray">
+            <summary>
+            Array of Trafo3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Trafo3d">
+            <summary>
+            A trafo is a container for a forward and a backward matrix.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Trafo3dArray">
+            <summary>
+            Array of Trafo3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1b">
+            <summary>
+            A 1-dim range with limits [Min, Max] of UInt8.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1bArray">
+            <summary>
+            Array of Range1b.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1sb">
+            <summary>
+            A 1-dim range with limits [Min, Max] of Int8.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1sbArray">
+            <summary>
+            Array of Range1sb.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1s">
+            <summary>
+            A 1-dim range with limits [Min, Max] of Int16.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1sArray">
+            <summary>
+            Array of Range1s.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1us">
+            <summary>
+            A 1-dim range with limits [Min, Max] of UInt16.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1usArray">
+            <summary>
+            Array of Range1us.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1i">
+            <summary>
+            A 1-dim range with limits [Min, Max] of Int32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1iArray">
+            <summary>
+            Array of Range1i.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1ui">
+            <summary>
+            A 1-dim range with limits [Min, Max] of UInt32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1uiArray">
+            <summary>
+            Array of Range1ui.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1l">
+            <summary>
+            A 1-dim range with limits [Min, Max] of Int64
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1lArray">
+            <summary>
+            Array of Range1l.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1ul">
+            <summary>
+            A 1-dim range with limits [Min, Max] of UInt64
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1ulArray">
+            <summary>
+            Array of Range1ul.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1f">
+            <summary>
+            A 1-dim range with limits [Min, Max] of Float32
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1fArray">
+            <summary>
+            Array of Range1f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1d">
+            <summary>
+            A 1-dim range with limits [Min, Max] of Float64
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Range1dArray">
+            <summary>
+            Array of Range1d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box2i">
+            <summary>
+            A 2-dim axis-aligned box with limits [Min, Max] of V2i.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box2iArray">
+            <summary>
+            Array of Box2i.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box2l">
+            <summary>
+            A 2-dim axis-aligned box with limits [Min, Max] of V2l.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box2lArray">
+            <summary>
+            Array of Box2l.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box2f">
+            <summary>
+            A 2-dim axis-aligned box with limits [Min, Max] of V2f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box2fArray">
+            <summary>
+            Array of Box2f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box2d">
+            <summary>
+            A 2-dim axis-aligned box with limits [Min, Max] of V2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box2dArray">
+            <summary>
+            Array of Box2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box3i">
+            <summary>
+            A 3-dim axis-aligned box with limits [Min, Max] of V3i.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box3iArray">
+            <summary>
+            Array of Box3i.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box3l">
+            <summary>
+            A 3-dim axis-aligned box with limits [Min, Max] of V3l.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box3lArray">
+            <summary>
+            Array of Box3l.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box3f">
+            <summary>
+            A 3-dim axis-aligned box with limits [Min, Max] of V3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box3fArray">
+            <summary>
+            Array of Box3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box3d">
+            <summary>
+            A 3-dim axis-aligned box with limits [Min, Max] of V3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Box3dArray">
+            <summary>
+            Array of Box3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Cell">
+            <summary>
+            A 2^Exponent sized cube positioned at (X,Y,Z) * 2^Exponent. Serialized to 28 bytes.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CellPadded32">
+            <summary>
+            A 2^Exponent sized cube positioned at (X,Y,Z) * 2^Exponent. Serialized to 32 bytes (with 4 bytes of padding).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CellPadded32Array">
+            <summary>
+            Array of CellPadded32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CellArray">
+            <summary>
+            fix 2020-08-28: changed type from Cell[] to CellPadded32[], because it was always serialized this way.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Cell2d">
+            <summary>
+            A 2^Exponent sized square positioned at (X,Y) * 2^Exponent. Serialized to 20 bytes.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Cell2dPadded24">
+            <summary>
+            A 2^Exponent sized square positioned at (X,Y) * 2^Exponent. Serialized to 24 bytes (with 4 bytes of padding).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Cell2dPadded24Array">
+            <summary>
+            Array of Cell2dPadded24.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Cell2dArray">
+            <summary>
+            fix 2020-08-28: changed type from Cell2d[] to Cell2dPadded24[], because it was always serialized this way.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C3b">
+            <summary>
+            A color with channels BGR of UInt8.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C3bArray">
+            <summary>
+            Array of C3b.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C3us">
+            <summary>
+            A color with channels RGB of UInt16.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C3usArray">
+            <summary>
+            Array of C3us.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C3ui">
+            <summary>
+            A color with channels RGB of UInt32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C3uiArray">
+            <summary>
+            Array of C3ui.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C3f">
+            <summary>
+            A color with channels RGB of Float32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C3fArray">
+            <summary>
+            Array of C3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C3d">
+            <summary>
+            A color with channels RGB of Float64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C3dArray">
+            <summary>
+            Array of C3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C4b">
+            <summary>
+            A color with channels BGRA of UInt8.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C4bArray">
+            <summary>
+            Array of C4b.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C4us">
+            <summary>
+            A color with channels BGRA of UInt16.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C4usArray">
+            <summary>
+            Array of C4us.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C4ui">
+            <summary>
+            A color with channels BGRA of UInt32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C4uiArray">
+            <summary>
+            Array of C4ui.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C4f">
+            <summary>
+            A color with channels BGRA of Float32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C4fArray">
+            <summary>
+            Array of C4f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C4d">
+            <summary>
+            A color with channels BGRA of Float64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.C4dArray">
+            <summary>
+            Array of C4d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CieLabf">
+            <summary>
+            A color in CIELAB color space with channels L,a,b. (Float32).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CieLabfArray">
+            <summary>
+            Array of CieLabf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CIeLuvf">
+            <summary>
+            A color in CIELUV color space with channels L,u,v (Float32).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CIeLuvfArray">
+            <summary>
+            Array of CIeLuvf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CieXYZf">
+            <summary>
+            A color in CIEXYZ color space with channels X,Y,Z (Float32).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CieXYZfArray">
+            <summary>
+            Array of CieXYZf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CieYxyf">
+            <summary>
+            A color in CIE Yxy color space with channels Y,x,y (Float32).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CieYxyfArray">
+            <summary>
+            Array of CieYxyf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CMYKf">
+            <summary>
+            A color in CMYK color space with channels C,M,Y,K (Float32).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.CMYKfArray">
+            <summary>
+            Array of CMYKf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.HSLf">
+            <summary>
+            A color in HSL color space (hue, saturation, value) with channels H,S,L (Float32).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.HSLfArray">
+            <summary>
+            Array of HSLf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.HSVf">
+            <summary>
+            A color in HSV color space (hue, saturation, lightness) with channels H,S,V (Float32).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.HSVfArray">
+            <summary>
+            Array of HSVf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Yuvf">
+            <summary>
+            A color in Yuv color space with channels Y,u,v (Float32).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.YuvfArray">
+            <summary>
+            Array of Yuvf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.PointRkdTreeFData">
+            <summary>
+            Data of an Aardvark.Geometry.PointRkdTreeF.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.PointRkdTreeDData">
+            <summary>
+            Data of an Aardvark.Geometry.PointRkdTreeD.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Capsule3d">
+            <summary>
+            A capsule in 3-space represented by two points and a radius.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Capsule3dArray">
+            <summary>
+            Array of Capsule3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Circle2d">
+            <summary>
+            A two dimensional circle represented by center and radius.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Circle2dArray">
+            <summary>
+            Array of Circle2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Circle3d">
+            <summary>
+            A circle in 3-space represented by its center, normal (normalized), and a radius.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Circle3dArray">
+            <summary>
+            Array of Circle3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.ObliqueCone3d">
+            <summary>
+            An oblique cone in 3-space represented by its origin (apex) and base circle.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.ObliqueCone3dArray">
+            <summary>
+            Array of ObliqueCone3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Cone3d">
+            <summary>
+            A cone in 3-space represented by its origin, axis of revolution (Direction), and the angle between axis and outer edge.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Cone3dArray">
+            <summary>
+            Array of Cone3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Cylinder3d">
+            <summary>
+            A cylinder in 3-space.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Cylinder3dArray">
+            <summary>
+            Array of Cylinder3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Line2d">
+            <summary>
+            A line in 2-space with begin P0 and end P1.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Line2dArray">
+            <summary>
+            Array of Line2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Line3d">
+            <summary>
+            A line in 3-space with begin P0 and end P1.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Line3dArray">
+            <summary>
+            Array of Line3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Triangle2d">
+            <summary>
+            A triangle in 2-space with points defined by three points P0, P1, P2.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Triangle2dArray">
+            <summary>
+            Array of Triangle2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Triangle3d">
+            <summary>
+            A triangle in 3-space with points defined by three points P0, P1, P2.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Triangle3dArray">
+            <summary>
+            Array of Triangle3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Quad2d">
+            <summary>
+            A quad in 2-space with points defined by four points P0, P1, P2, P3.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Quad2dArray">
+            <summary>
+            Array of Quad2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Quad3d">
+            <summary>
+            A quad in 3-space with points defined by four points P0, P1, P2, P3.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Quad3dArray">
+            <summary>
+            Array of Quad3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Ellipse2d">
+            <summary>
+            A 2D ellipse is defined by its center and two half-axes. Note that in principle any two conjugate half-diameters can be used as axes, however some algorithms require that the major and minor half axes are known. By convention in this case, axis0 is the major half axis.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Ellipse2dArray">
+            <summary>
+            Array of Ellipse2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Ellipse3d">
+            <summary>
+            A 3D ellipse is defined by its center, its plane normal, and two half-axes. Note that in principle any two conjugate half-diameters can be used as axes, however some algorithms require that the major and minor half axes are known. By convention in this case, axis0 is the major half axis.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Ellipse3dArray">
+            <summary>
+            Array of Ellipse3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Sphere3d">
+            <summary>
+            A three dimensional sphere represented by center and radius.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Sphere3dArray">
+            <summary>
+            Array of Sphere3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Plane2d">
+            <summary>
+            A line represented by a (possibly) normalized normal vector and the distance to the origin. Note that the plane does not enforce the normalized normal vector. Equation for points p on the plane: Normal dot p == Distance
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Plane2dArray">
+            <summary>
+            Array of Plane2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Plane3d">
+            <summary>
+            A plane represented by a (possibly) normalized normal vector and the distance to the origin. Note that the plane does not enforce the normalized normal vector. Equation for points p on the plane: Normal dot p == Distance
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Plane3dArray">
+            <summary>
+            Array of Plane3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Ray2d">
+            <summary>
+            A two-dimensional ray with an origin and a direction.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Ray2dArray">
+            <summary>
+            Array of Ray2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Ray3d">
+            <summary>
+            A three-dimensional ray with an origin and a direction.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Ray3dArray">
+            <summary>
+            Array of Ray3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Torus3d">
+            <summary>
+            A three-dimensional torus.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Torus3dArray">
+            <summary>
+            Array of Torus3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Polygon2d">
+            <summary>
+            A two-dimensional polygon.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Polygon2dArray">
+            <summary>
+            Array of Polygon2d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Polygon3d">
+            <summary>
+            A three-dimensional polygon.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Aardvark.Polygon3dArray">
+            <summary>
+            Array of Polygon3d.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.Durable.Generic">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Positions3f">
+            <summary>
+            Generic positions. V3f[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Positions3d">
+            <summary>
+            Generic positions. V3d[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Normals3f">
+            <summary>
+            Generic normals. V3f[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Normals3sb">
+            <summary>
+            Generic normals (X:int8, Y:int8, Z:int8), where [-128,+127] is mapped to [-1.0,+1.0].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.NormalsOct16">
+            <summary>
+            Octree. Per-point normals encoded as 16bits per normal according to format oct16 decribed in http://jcgt.org/published/0003/02/01/paper.pdf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.NormalsOct16P">
+            <summary>
+            Octree. Per-point normals encoded as 16bits per normal according to format oct16P decribed in http://jcgt.org/published/0003/02/01/paper.pdf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Colors3b">
+            <summary>
+            Generic colors. C3b[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Colors4bDeprecated20201117">
+            <summary>
+            Deprecated 2020-11-17. Wrong type. Use d60b86bf-724c-4d41-ac64-040374557d72 instead. Generic colors. C4b[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Colors4b">
+            <summary>
+            Generic colors. C4b[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.ColorsRGB565">
+            <summary>
+            Generic colors in RGB565 format, where bits 0 to 4 are the blue value, 5 to 10 are green, and 11-15 are red. UInt16[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Intensities1i">
+            <summary>
+            Generic intensities. Int32[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Intensities1f">
+            <summary>
+            Generic intensities. Float32[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Classifications1b">
+            <summary>
+            Generic classifications. UInt8[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Classifications1s">
+            <summary>
+            Generic classifications. UInt16[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Classifications1i">
+            <summary>
+            Generic classifications. Int32[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Velocities3f">
+            <summary>
+            Generic velocities (V3f[]).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Velocities3d">
+            <summary>
+            Generic velocities (V3d[]).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Densities1f">
+            <summary>
+            Generic densities (float32[]).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Generic.Densities1d">
+            <summary>
+            Generic densities (float64[]).
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.Durable.Octree">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Node">
+            <summary>
+            Octree. An octree node. DurableMap.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.MultiNodeIndex">
+            <summary>
+            Octree. An index for octree nodes stored in level order in a single blob. DurableMap.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.NodeId">
+            <summary>
+            Octree. Node's unique id. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.NodeIdString">
+            <summary>
+            Octree. Node's unique id. StringUTF8.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.SubnodesGuids">
+            <summary>
+            Octree. Subnode IDs as array of guids. Array length is 8 for inner nodes (where Guid.Empty means no subnode) and no array for leaf nodes. Guid[8]
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.SubnodesStrings">
+            <summary>
+            Octree. Subnode IDs as array of strings. Array length is 8 for inner nodes (where null means no subnode) and no array for leaf nodes. StringUTF8[8]
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.SubnodesMultiNodeRefs">
+            <summary>
+            Octree. Subnode IDs as array of multi-node references in format [nodeId]@[insideMultiNodeId] or [nodeId] if subnode is stand-alone. Array length is 8 for inner nodes (where null means no subnode) and no array for leaf nodes. StringUTF8[8]
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.BoundingBoxExactGlobal">
+            <summary>
+            Octree. Exact bounding box of this tree's positions. Global space. Box3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.BoundingBoxExactLocal">
+            <summary>
+            Octree. Exact bounding box of this node's positions. Local space. Box3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Cell">
+            <summary>
+            Octree. Cell's index. Global space. Cell.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.NodeCountTotal">
+            <summary>
+            Octree. Number of nodes in this tree (including inner nodes). Int64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.NodeCountLeafs">
+            <summary>
+            Octree. Number of leaf nodes in this tree. Int64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PointCountCell">
+            <summary>
+            Octree. Number of points in this cell. Int32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PointCountTreeLeafs">
+            <summary>
+            Octree. Total number of points in this tree's leaf nodes. Int64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PointCountTreeLeafsFloat64">
+            <summary>
+            Octree. Total number of points in this tree's leaf nodes. Float64. Backwards compatibility.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.AveragePointDistance">
+            <summary>
+            Octree. Average distance of each point to its nearest neighbour.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.AveragePointDistanceStdDev">
+            <summary>
+            Octree. Standard deviation of average distances of each point to its nearest neighbour.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.MinTreeDepth">
+            <summary>
+            Octree. Min depth of this tree. A leaf node has depth 0. Int32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.MaxTreeDepth">
+            <summary>
+            Octree. Max depth of this tree. A leaf node has depth 0. Int32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3b">
+            <summary>
+            Octree. Per-point positions in local cell space as uniform 8-bit subdivision, where 0 is cell.Min and 255 is cell.Max. Layout for n points is [x0,y0,z0,x1,y1,z1,...x(n-1),y(n-1), z(n-1)]. UInt8[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3bReference">
+            <summary>
+            Octree. Reference to Octree.PositionsLocal3b. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3us">
+            <summary>
+            Octree. Per-point positions in local cell space as uniform 16-bit subdivision, where 0 is cell.Min and UInt16.Max is cell.Max. Layout for n points is [x0,y0,z0,x1,y1,z1,...x(n-1),y(n-1), z(n-1)]. UInt16[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3usReference">
+            <summary>
+            Octree. Reference to Octree.PositionsLocal3us. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3ui">
+            <summary>
+            Octree. Per-point positions in local cell space as uniform 32-bit subdivision, where 0 is cell.Min and UInt32.Max is cell.Max. Layout for n points is [x0,y0,z0,x1,y1,z1,...x(n-1),y(n-1), z(n-1)]. UInt32[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3uiReference">
+            <summary>
+            Octree. Reference to Octree.PositionsLocal3ui. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3ul">
+            <summary>
+            Octree. Per-point positions in local cell space as uniform 64-bit subdivision, where 0 is cell.Min and UInt64.Max is cell.Max. Layout for n points is [x0,y0,z0,x1,y1,z1,...x(n-1),y(n-1), z(n-1)]. UInt64[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3ulReference">
+            <summary>
+            Octree. Reference to Octree.PositionsLocal3ul. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsGlobal3f">
+            <summary>
+            Octree. Per-point positions in global space. V3f[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsGlobal3fCentroid">
+            <summary>
+            Octree. Centroid of positions (global space). V3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsGlobal3fDistToCentroidAverage">
+            <summary>
+            Octree. Average point distance to centroid (global space). Float32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsGlobal3fDistToCentroidStdDev">
+            <summary>
+            Octree. Standard deviation of average point distance to centroid (global space). Float32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsGlobal3fReference">
+            <summary>
+            Octree. Reference to per-point positions in global space. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsGlobal3d">
+            <summary>
+            Octree. Per-point positions in global space. V3d[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsGlobal3dCentroid">
+            <summary>
+            Octree. Centroid of positions (global space). V3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsGlobal3dDistToCentroidAverage">
+            <summary>
+            Octree. Average point distance to centroid (global space). Float64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsGlobal3dDistToCentroidStdDev">
+            <summary>
+            Octree. Standard deviation of average point distance to centroid (global space). Float64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsGlobal3dReference">
+            <summary>
+            Octree. Reference to per-point positions in global space. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3f">
+            <summary>
+            Octree. Per-point positions in local cell space (as offsets from cell's center). V3f[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3fCentroid">
+            <summary>
+            Octree. Centroid of positions (local space). V3f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3fDistToCentroidAverage">
+            <summary>
+            Octree. Average point distance to centroid (local space). Float32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3fDistToCentroidStdDev">
+            <summary>
+            Octree. Standard deviation of average point distance to centroid (local space). Float32.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3fReference">
+            <summary>
+            Octree. Reference to per-point positions in local cell space (as offsets from cell's center). Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3d">
+            <summary>
+            Octree. Per-point positions in local cell space (as offsets from cell's center). V3d[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3dCentroid">
+            <summary>
+            Octree. Centroid of positions (local space). V3d.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3dDistToCentroidAverage">
+            <summary>
+            Octree. Average point distance to centroid (local space). Float64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3dDistToCentroidStdDev">
+            <summary>
+            Octree. Standard deviation of average point distance to centroid (local space). Float64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PositionsLocal3dReference">
+            <summary>
+            Octree. Reference to per-point positions in local cell space (as offsets from cell's center). Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Normals3f">
+            <summary>
+            Octree. Per-point normals (V3f[]).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Normals3fReference">
+            <summary>
+            Octree. Reference to per-point normals (Guid).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Normals3sb">
+            <summary>
+            Octree. Per-point normals (X:int8, Y:int8, Z:int8), where [-128,+127] is mapped to [-1.0,+1.0].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Normals3sbReference">
+            <summary>
+            Octree. Reference to per-point normals (X:int8, Y:int8, Z:int8), where [-128,+127] is mapped to [-1.0,+1.0].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.NormalsOct16">
+            <summary>
+            Octree. Per-point normals encoded as 16bits per normal according to format oct16 decribed in http://jcgt.org/published/0003/02/01/paper.pdf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.NormalsOct16Reference">
+            <summary>
+            Octree. Reference to per-point normals encoded as 16bits per normal according to format oct16 decribed in http://jcgt.org/published/0003/02/01/paper.pdf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.NormalsOct16P">
+            <summary>
+            Octree. Per-point normals encoded as 16bits per normal according to format oct16P decribed in http://jcgt.org/published/0003/02/01/paper.pdf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.NormalsOct16PReference">
+            <summary>
+            Octree. Reference to per-point normals encoded as 16bits per normal according to format oct16P decribed in http://jcgt.org/published/0003/02/01/paper.pdf.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Colors3b">
+            <summary>
+            Octree. Per-point colors. C3b[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Colors3bReference">
+            <summary>
+            Octree. Reference to per-point colors. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Colors4bDeprecated20201117">
+            <summary>
+            Deprecated 2020-11-17. Wrong type. Use 4f6144d1-c424-424c-9e02-915bf58087b2 instead. Octree. Per-point colors. C4b[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Colors4b">
+            <summary>
+            Octree. Per-point colors. C4b[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Colors4bReference">
+            <summary>
+            Octree. Reference to per-point colors. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.ColorsRGB565">
+            <summary>
+            Octree. Per-point colors in RGB565 format, where bits 0 to 4 are the blue value, 5 to 10 are green, and 11-15 are red. UInt16[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.ColorsRGB565Reference">
+            <summary>
+            Octree. Reference to per-point colors in RGB565 format, where bits 0 to 4 are the blue value, 5 to 10 are green, and 11-15 are red. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Intensities1i">
+            <summary>
+            Octree. Per-point intensities. Int32[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Intensities1iReference">
+            <summary>
+            Octree. Reference to per-point intensities. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Intensities1f">
+            <summary>
+            Octree. Per-point intensities. Float32[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Intensities1fReference">
+            <summary>
+            Octree. Reference to Octree.Intensities1f. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Intensities1fRange">
+            <summary>
+            Octree. Intensities range for Octree.Intensities[.Reference]. Range1f[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.IntensitiesWithOffset1f">
+            <summary>
+            Octree. Per-point intensities with offset stored as Octree.IntensitiesWithOffset1f.Offset. Float32[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.IntensitiesWithOffset1fReference">
+            <summary>
+            Octree. Reference to Octree.IntensitiesWithOffset1f. Guid.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.IntensitiesWithOffset1fOffset">
+            <summary>
+            Octree. The offset for Octree.IntensitiesWithOffset1f[.Reference]. Float64.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.IntensitiesWithOffset1fRange">
+            <summary>
+            Octree. Intensities range for Octree.IntensitiesWithOffset1f[.Reference]. Range1f.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Classifications1b">
+            <summary>
+            Octree. Per-point classifications. UInt8[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Classifications1bReference">
+            <summary>
+            Octree. Reference to per-point classifications (UInt8[]).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Classifications1s">
+            <summary>
+            Octree. Per-point classifications. UInt16[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Classifications1sReference">
+            <summary>
+            Octree. Reference to per-point classifications (UInt16[]).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Classifications1i">
+            <summary>
+            Octree. Per-point classifications. Int32[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Classifications1iReference">
+            <summary>
+            Octree. Reference to per-point classifications (Guid -> Int32[]).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Velocities3f">
+            <summary>
+            Octree. Per-point velocities (V3f[]).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Velocities3fReference">
+            <summary>
+            Octree. Reference to per-point velocities (Guid).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Velocities3d">
+            <summary>
+            Octree. Per-point velocities (V3d[]).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Velocities3dReference">
+            <summary>
+            Octree. Reference to per-point velocities (Guid).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Densities1f">
+            <summary>
+            Octree. Per-point densities (float32[]).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.Densities1fReference">
+            <summary>
+            Octree. Reference to per-point densities (Guid).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.KdTreeIndexArray">
+            <summary>
+            Octree. Kd-tree index array. Int32[], where pivot is stored at index n/2 recursively.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.KdTreeIndexArrayReference">
+            <summary>
+            Octree. Reference to kd-tree index array. Guid -> Int32[].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PointRkdTreeFData">
+            <summary>
+            Octree. Aardvark.Geometry.PointRkdTreeFData.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PointRkdTreeFDataReference">
+            <summary>
+            Octree. Reference to Aardvark.Geometry.PointRkdTreeFData.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PointRkdTreeDData">
+            <summary>
+            Octree. Aardvark.Geometry.PointRkdTreeDData.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Durable.Octree.PointRkdTreeDDataReference">
+            <summary>
+            Octree. Reference to Aardvark.Geometry.PointRkdTreeDData.
+            </summary>
+        </member>
+    </members>
+</doc>
