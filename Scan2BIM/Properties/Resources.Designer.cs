@@ -323,6 +323,16 @@ namespace Scan2BIM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icon_CreateTransformationMatrix {
+            get {
+                object obj = ResourceManager.GetObject("Icon_CreateTransformationMatrix", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_CRF1 {
             get {
                 object obj = ResourceManager.GetObject("Icon_CRF1", resourceCulture);
@@ -363,9 +373,29 @@ namespace Scan2BIM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icon_DecomposeTransformationMatrix {
+            get {
+                object obj = ResourceManager.GetObject("Icon_DecomposeTransformationMatrix", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_Deviation1 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Deviation1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_ExtractName {
+            get {
+                object obj = ResourceManager.GetObject("Icon_ExtractName", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -713,6 +743,16 @@ namespace Scan2BIM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_pointcloudparam {
+            get {
+                object obj = ResourceManager.GetObject("icon_pointcloudparam", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_Points1 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Points1", resourceCulture);
@@ -1006,6 +1046,16 @@ namespace Scan2BIM.Properties {
         internal static System.Drawing.Bitmap Icon_SplitStorey1 {
             get {
                 object obj = ResourceManager.GetObject("Icon_SplitStorey1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_SplitVectors {
+            get {
+                object obj = ResourceManager.GetObject("Icon_SplitVectors", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

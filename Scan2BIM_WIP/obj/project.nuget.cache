@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "bzzgIjQ/63WcGYVIwMUl5/z03TSiH4NhjM/s/L9sHCt4Vuar5X1hVtwG9FszLCLxkuGcFlLjLhtkjsuPmXEfpQ==",
+  "success": true,
+  "projectFilePath": "D:\\Scan-to-BIM repository\\Scan-to-BIM-Grasshopper\\Scan2BIM_WIP\\Scan2BIM_WIP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\u0094523\\.nuget\\packages\\grasshopper\\7.6.21127.19001\\grasshopper.7.6.21127.19001.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\rhinocommon\\7.6.21127.19001\\rhinocommon.7.6.21127.19001.nupkg.sha512"
+  ],
+  "logs": []
+}

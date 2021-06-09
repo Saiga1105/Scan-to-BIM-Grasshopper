@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ohfks2KBiG7Rj3aRlPJYH38RxbCRjY1Os91KNsEaQzFy9qMxD9yoYLNWXM0GPcweg/SFakBPCRXX1brGgenSvw==",
+  "success": true,
+  "projectFilePath": "D:\\Scan-to-BIM repository\\Scan-to-BIM-Grasshopper\\Scan2BIM2\\Scan2BIM2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\u0094523\\.nuget\\packages\\aardvark.base\\5.1.10\\aardvark.base.5.1.10.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\aardvark.base.telemetry\\5.1.10\\aardvark.base.telemetry.5.1.10.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\grasshopper\\7.4.21078.1001\\grasshopper.7.4.21078.1001.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\rhinocommon\\7.4.21078.1001\\rhinocommon.7.4.21078.1001.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\system.collections.immutable\\1.7.0\\system.collections.immutable.1.7.0.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\system.reflection.metadata\\1.8.0\\system.reflection.metadata.1.8.0.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.7.1\\system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\system.text.encodings.web\\4.7.1\\system.text.encodings.web.4.7.1.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\u0094523\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

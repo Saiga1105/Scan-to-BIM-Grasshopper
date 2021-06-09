@@ -4,10 +4,7 @@ using MathWorks.MATLAB.NET.Arrays;
 using MathWorks.MATLAB.NET.Utility;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
-using Segmentation;
 using System.Linq;
-using Volvox_Instr;
-using Volvox_Cloud;
 
 namespace Scan2BIM
 {

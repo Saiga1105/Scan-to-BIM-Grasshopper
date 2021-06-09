@@ -5,6 +5,8 @@ using Volvox_Cloud;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using MathWorks.MATLAB.NET.Arrays;
+using Scan2BIM_Matlab;
+
 
 namespace Scan2BIM
 {
@@ -14,7 +16,7 @@ namespace Scan2BIM
         /// Initializes a new instance of the MyComponent2 class.
         /// </summary>
         public PCD_normals()
-          : base("PCD_normals", "N",
+          : base("Compute normals", "N",
               "Computes normals for point cloud if there aren't any yet",
               "Saiga", "Utility")
         {
@@ -49,37 +51,39 @@ namespace Scan2BIM
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             ///define i/o parameters
-            PointCloud Rhino_Cloud = new PointCloud();
+            PointCloud rhinoCloud = new PointCloud();
             Double k = 6; 
 
             /// read inputs
-            if (!DA.GetData(0, ref Rhino_Cloud)) return;
+            if (!DA.GetData(0, ref rhinoCloud)) return;
             if (!DA.GetData("k", ref k)) return;
 
-
-            if (Rhino_Cloud.Count <= k)
+            ///exceptions
+            if (rhinoCloud.Count <= k)
             {
                 throw new Size_Exception(string.Format("Use point clouds with more than k points"));
             }
-
-            /// interal parameters 
-              List<Vector3d> normals = new List<Vector3d>();
-
-            if (!Rhino_Cloud.ContainsNormals)
+            if (k < 3)
             {
-                var X = Rhino_Cloud.Select(x => x.X).ToList();
-                var Y = Rhino_Cloud.Select(x => x.Y).ToList();
-                var Z = Rhino_Cloud.Select(x => x.Z).ToList();
+                throw new Size_Exception(string.Format("enter value k >=3"));
+            }
+            /// interal parameters 
+            List<Vector3d> normals = new List<Vector3d>();
+
+            if (!rhinoCloud.ContainsNormals)
+            {
+                var X = rhinoCloud.Select(x => x.X).ToList();
+                var Y = rhinoCloud.Select(x => x.Y).ToList();
+                var Z = rhinoCloud.Select(x => x.Z).ToList();
                 
                 ///2.
-                var Matlab_X = new MWNumericArray(Rhino_Cloud.Count, 1, X.ToArray());
-                var Matlab_Y = new MWNumericArray(Rhino_Cloud.Count, 1, Y.ToArray());
-                var Matlab_Z = new MWNumericArray(Rhino_Cloud.Count, 1, Z.ToArray());
+                var Matlab_X = new MWNumericArray(rhinoCloud.Count, 1, X.ToArray());
+                var Matlab_Y = new MWNumericArray(rhinoCloud.Count, 1, Y.ToArray());
+                var Matlab_Z = new MWNumericArray(rhinoCloud.Count, 1, Z.ToArray());
 
                 /// 3.
-                Segmentation.segment segment_mesh = new Segmentation.segment();
-
-                var mwca = (MWCellArray)segment_mesh.G_Normals(Matlab_X, Matlab_Y, Matlab_Z, k); 
+                Scan2BIM_Matlab.General general = new Scan2BIM_Matlab.General();
+                var mwca = (MWCellArray)general.S2B_ComputeNormals2(Matlab_X, Matlab_Y, Matlab_Z, k); 
 
                 /// 4.
                 MWNumericArray na0 = (MWNumericArray)mwca[1];
@@ -107,15 +111,15 @@ namespace Scan2BIM
 
             else
             {
-                normals= Rhino_Cloud.GetNormals().ToList();
+                normals= rhinoCloud.GetNormals().ToList();
             }
 
-            PointCloud Rhino_Cloud_out = new PointCloud();
-            Rhino_Cloud_out.AddRange(Rhino_Cloud.GetPoints(), normals);
-            GH_Cloud Rhino_Cloud_out2 = new GH_Cloud(Rhino_Cloud_out);
+            PointCloud rhinoCloud_out = new PointCloud();
+            rhinoCloud_out.AddRange(rhinoCloud.GetPoints(), normals);
+            GH_Cloud rhinoCloud_out2 = new GH_Cloud(rhinoCloud_out);
 
             /// 6.
-            DA.SetData(0, Rhino_Cloud_out2);
+            DA.SetData(0, rhinoCloud_out2);
         }
 
         /// <summary>

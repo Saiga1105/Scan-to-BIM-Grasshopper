@@ -4,10 +4,9 @@ using MathWorks.MATLAB.NET.Arrays;
 using MathWorks.MATLAB.NET.Utility;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
-using Segmentation;
 using System.Linq;
-using Volvox_Instr;
-using Volvox_Cloud;
+using Scan2BIM_Matlab;
+
 
 namespace Scan2BIM
 {
@@ -91,10 +90,11 @@ namespace Scan2BIM
             }
             var Matlab_xyz2 = new MWNumericArray(Rhino_Cloud2.Count, 3, xyz2.ToArray());
             /// 3.
-            Segmentation.segment segment_mesh = new Segmentation.segment();
+            Scan2BIM_Matlab.General general = new Scan2BIM_Matlab.General();
+
             //MWArray[] Result = new MWArray[2];
             MWArray cluster = new MWNumericArray();
-            cluster = segment_mesh.G_ICP(Matlab_xyz1, Matlab_xyz2, Metric, InlierRatio, MaxIterations);
+            cluster = general.S2B_ICP2(Matlab_xyz1, Matlab_xyz2, Metric, InlierRatio, MaxIterations);
 
             /// 4.
             MWNumericArray na = (MWNumericArray)cluster;

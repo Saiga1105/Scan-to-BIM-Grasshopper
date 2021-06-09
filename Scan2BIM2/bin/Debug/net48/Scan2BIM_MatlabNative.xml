@@ -1,0 +1,3040 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Scan2BIM_MatlabNative</name>
+    </assembly>
+    <members>
+        <member name="T:Scan2BIM_MatlabNative.General">
+            <summary>
+            The General class provides a CLS compliant, Object (native) interface to the MATLAB
+            functions contained in the files:
+            <newpara></newpara>
+            D:\Scan-to-BIM
+            repository\Scan-to-BIM-Matlab\Scan2BIM\0.General\S2B_Resolution_PCD.m
+            </summary>
+            <remarks>
+            @Version 4.0
+            </remarks>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.#cctor">
+            <summary internal= "true">
+            The static constructor instantiates and initializes the MATLAB Runtime instance.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.#ctor">
+            <summary>
+            Constructs a new instance of the General class.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.Finalize">
+            <summary internal= "true">
+            Class destructor called by the CLR garbage collector.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.Dispose">
+            <summary>
+            Frees the native resources associated with this object
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.Dispose(System.Boolean)">
+            <summary internal= "true">
+            Internal dispose function
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.S2B_Resolution_PCD">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the S2B_Resolution_PCD
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.S2B_Resolution_PCD(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the S2B_Resolution_PCD
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.S2B_Resolution_PCD(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the S2B_Resolution_PCD
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="samples">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.S2B_Resolution_PCD(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the S2B_Resolution_PCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.S2B_Resolution_PCD(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the S2B_Resolution_PCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.S2B_Resolution_PCD(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the S2B_Resolution_PCD MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="samples">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.S2B_Resolution_PCD(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the S2B_Resolution_PCD function in which the input and
+             output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns teh average
+             point spacing based on a number of samples
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.General.WaitForFiguresToDie">
+             <summary>
+             This method will cause a MATLAB figure window to behave as a modal dialog box.
+             The method will not return until all the figure windows associated with this
+             component have been closed.
+             </summary>
+             <remarks>
+             An application should only call this method when required to keep the
+             MATLAB figure window from disappearing.  Other techniques, such as calling
+             Console.ReadLine() from the application should be considered where
+             possible.</remarks>
+            
+        </member>
+        <member name="T:Scan2BIM_MatlabNative.Segmentation">
+            <summary>
+            The Segmentation class provides a CLS compliant, Object (native) interface to the
+            MATLAB functions contained in the files:
+            <newpara></newpara>
+            D:\Scan-to-BIM
+            repository\Scan-to-BIM-Matlab\Scan2BIM\1.Segmentation\S2B_RegionGrowing_1.m
+            <newpara></newpara>
+            D:\Scan-to-BIM
+            repository\Scan-to-BIM-Matlab\Scan2BIM\1.Segmentation\S2B_RegionGrowing_2.m
+            <newpara></newpara>
+            D:\Scan-to-BIM
+            repository\Scan-to-BIM-Matlab\Scan2BIM\1.Segmentation\S2B_Segment_Test.m
+            </summary>
+            <remarks>
+            @Version 4.0
+            </remarks>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.#cctor">
+            <summary internal= "true">
+            The static constructor instantiates and initializes the MATLAB Runtime instance.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.#ctor">
+            <summary>
+            Constructs a new instance of the Segmentation class.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.Finalize">
+            <summary internal= "true">
+            Class destructor called by the CLR garbage collector.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.Dispose">
+            <summary>
+            Frees the native resources associated with this object
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.Dispose(System.Boolean)">
+            <summary internal= "true">
+            Internal dispose function
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the S2B_RegionGrowing_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the S2B_RegionGrowing_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the S2B_RegionGrowing_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 3-input Objectinterface to the S2B_RegionGrowing_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 4-input Objectinterface to the S2B_RegionGrowing_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <param name="MaxDist">Input argument #4</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 5-input Objectinterface to the S2B_RegionGrowing_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <param name="MaxDist">Input argument #4</param>
+             <param name="Minsize">Input argument #5</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 6-input Objectinterface to the S2B_RegionGrowing_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <param name="MaxDist">Input argument #4</param>
+             <param name="Minsize">Input argument #5</param>
+             <param name="Offset">Input argument #6</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the S2B_RegionGrowing_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the S2B_RegionGrowing_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the S2B_RegionGrowing_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Int32,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 3-input Object interface to the S2B_RegionGrowing_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Int32,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 4-input Object interface to the S2B_RegionGrowing_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <param name="MaxDist">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 5-input Object interface to the S2B_RegionGrowing_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <param name="MaxDist">Input argument #4</param>
+             <param name="Minsize">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 6-input Object interface to the S2B_RegionGrowing_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="ThresValN">Input argument #2</param>
+             <param name="ThresValC">Input argument #3</param>
+             <param name="MaxDist">Input argument #4</param>
+             <param name="Minsize">Input argument #5</param>
+             <param name="Offset">Input argument #6</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_1(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the S2B_RegionGrowing_1 function in which the input and
+             output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties (planarity, color). The main goal is point cloud
+             segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the S2B_RegionGrowing_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the S2B_RegionGrowing_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the S2B_RegionGrowing_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 3-input Objectinterface to the S2B_RegionGrowing_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 4-input Objectinterface to the S2B_RegionGrowing_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 5-input Objectinterface to the S2B_RegionGrowing_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 6-input Objectinterface to the S2B_RegionGrowing_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 7-input Objectinterface to the S2B_RegionGrowing_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <param name="Minsize">Input argument #7</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 8-input Objectinterface to the S2B_RegionGrowing_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <param name="Minsize">Input argument #7</param>
+             <param name="Offset">Input argument #8</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 9-input Objectinterface to the S2B_RegionGrowing_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <param name="Minsize">Input argument #7</param>
+             <param name="Offset">Input argument #8</param>
+             <param name="Tilesize">Input argument #9</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the S2B_RegionGrowing_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the S2B_RegionGrowing_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the S2B_RegionGrowing_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Int32,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 3-input Object interface to the S2B_RegionGrowing_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Int32,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 4-input Object interface to the S2B_RegionGrowing_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 5-input Object interface to the S2B_RegionGrowing_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 6-input Object interface to the S2B_RegionGrowing_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 7-input Object interface to the S2B_RegionGrowing_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <param name="Minsize">Input argument #7</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 8-input Object interface to the S2B_RegionGrowing_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <param name="Minsize">Input argument #7</param>
+             <param name="Offset">Input argument #8</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 9-input Object interface to the S2B_RegionGrowing_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <param name="normals">Input argument #2</param>
+             <param name="colors">Input argument #3</param>
+             <param name="ThresValN">Input argument #4</param>
+             <param name="ThresValC">Input argument #5</param>
+             <param name="MaxDist">Input argument #6</param>
+             <param name="Minsize">Input argument #7</param>
+             <param name="Offset">Input argument #8</param>
+             <param name="Tilesize">Input argument #9</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_RegionGrowing_2(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the S2B_RegionGrowing_2 function in which the input and
+             output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             Explenation
+             this function takes as input any point cloud and returns point
+             groups of similar properties. The main goal is point cloud segmentation
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_Segment_Test">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the S2B_Segment_Test MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             F_MESH_SEGMENTATION1 Summary of this function goes here
+             Detailed explanation goes here
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_Segment_Test(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the S2B_Segment_Test MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             F_MESH_SEGMENTATION1 Summary of this function goes here
+             Detailed explanation goes here
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="points">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_Segment_Test(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the S2B_Segment_Test MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             F_MESH_SEGMENTATION1 Summary of this function goes here
+             Detailed explanation goes here
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_Segment_Test(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the S2B_Segment_Test MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             F_MESH_SEGMENTATION1 Summary of this function goes here
+             Detailed explanation goes here
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="points">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.S2B_Segment_Test(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the S2B_Segment_Test function in which the input and
+             output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             F_MESH_SEGMENTATION1 Summary of this function goes here
+             Detailed explanation goes here
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Segmentation.WaitForFiguresToDie">
+             <summary>
+             This method will cause a MATLAB figure window to behave as a modal dialog box.
+             The method will not return until all the figure windows associated with this
+             component have been closed.
+             </summary>
+             <remarks>
+             An application should only call this method when required to keep the
+             MATLAB figure window from disappearing.  Other techniques, such as calling
+             Console.ReadLine() from the application should be considered where
+             possible.</remarks>
+            
+        </member>
+        <member name="T:Scan2BIM_MatlabNative.Classification">
+            <summary>
+            The Classification class provides a CLS compliant, Object (native) interface to the
+            MATLAB functions contained in the files:
+            <newpara></newpara>
+            D:\Scan-to-BIM
+            repository\Scan-to-BIM-Matlab\Scan2BIM\2.Classification\S2B_Predict_1.m
+            </summary>
+            <remarks>
+            @Version 4.0
+            </remarks>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.#cctor">
+            <summary internal= "true">
+            The static constructor instantiates and initializes the MATLAB Runtime instance.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.#ctor">
+            <summary>
+            Constructs a new instance of the Classification class.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.Finalize">
+            <summary internal= "true">
+            Class destructor called by the CLR garbage collector.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.Dispose">
+            <summary>
+            Frees the native resources associated with this object
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.Dispose(System.Boolean)">
+            <summary internal= "true">
+            Internal dispose function
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 3-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 4-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 5-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 6-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 7-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 8-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 9-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 10-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 11-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 12-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <param name="ColAbove">Input argument #12</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 13-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <param name="ColAbove">Input argument #12</param>
+             <param name="ColBelow">Input argument #13</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 14-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <param name="ColAbove">Input argument #12</param>
+             <param name="ColBelow">Input argument #13</param>
+             <param name="ColFarAbove">Input argument #14</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 15-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <param name="ColAbove">Input argument #12</param>
+             <param name="ColBelow">Input argument #13</param>
+             <param name="ColFarAbove">Input argument #14</param>
+             <param name="Vbot">Input argument #15</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 16-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <param name="ColAbove">Input argument #12</param>
+             <param name="ColBelow">Input argument #13</param>
+             <param name="ColFarAbove">Input argument #14</param>
+             <param name="Vbot">Input argument #15</param>
+             <param name="Vtop">Input argument #16</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 17-input Objectinterface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <param name="ColAbove">Input argument #12</param>
+             <param name="ColBelow">Input argument #13</param>
+             <param name="ColFarAbove">Input argument #14</param>
+             <param name="Vbot">Input argument #15</param>
+             <param name="Vtop">Input argument #16</param>
+             <param name="Raytrace">Input argument #17</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 3-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 4-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 5-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 6-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 7-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 8-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 9-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 10-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 11-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 12-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <param name="ColAbove">Input argument #12</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 13-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <param name="ColAbove">Input argument #12</param>
+             <param name="ColBelow">Input argument #13</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 14-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <param name="ColAbove">Input argument #12</param>
+             <param name="ColBelow">Input argument #13</param>
+             <param name="ColFarAbove">Input argument #14</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 15-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <param name="ColAbove">Input argument #12</param>
+             <param name="ColBelow">Input argument #13</param>
+             <param name="ColFarAbove">Input argument #14</param>
+             <param name="Vbot">Input argument #15</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 16-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <param name="ColAbove">Input argument #12</param>
+             <param name="ColBelow">Input argument #13</param>
+             <param name="ColFarAbove">Input argument #14</param>
+             <param name="Vbot">Input argument #15</param>
+             <param name="Vtop">Input argument #16</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 17-input Object interface to the S2B_Predict_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Area">Input argument #1</param>
+             <param name="Normalsimilarity">Input argument #2</param>
+             <param name="NormalZ">Input argument #3</param>
+             <param name="DiagonalXY">Input argument #4</param>
+             <param name="Height">Input argument #5</param>
+             <param name="Coplanarity">Input argument #6</param>
+             <param name="Proximity">Input argument #7</param>
+             <param name="Connections">Input argument #8</param>
+             <param name="Wallinlier">Input argument #9</param>
+             <param name="DvBottom">Input argument #10</param>
+             <param name="DvTop">Input argument #11</param>
+             <param name="ColAbove">Input argument #12</param>
+             <param name="ColBelow">Input argument #13</param>
+             <param name="ColFarAbove">Input argument #14</param>
+             <param name="Vbot">Input argument #15</param>
+             <param name="Vtop">Input argument #16</param>
+             <param name="Raytrace">Input argument #17</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.S2B_Predict_1(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the S2B_Predict_1 function in which the input and
+             output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             #function TreeBagger classificationEnsemble ClassificationECOC
+             ClassificationBaggedEnsemble predict
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Classification.WaitForFiguresToDie">
+             <summary>
+             This method will cause a MATLAB figure window to behave as a modal dialog box.
+             The method will not return until all the figure windows associated with this
+             component have been closed.
+             </summary>
+             <remarks>
+             An application should only call this method when required to keep the
+             MATLAB figure window from disappearing.  Other techniques, such as calling
+             Console.ReadLine() from the application should be considered where
+             possible.</remarks>
+            
+        </member>
+        <member name="T:Scan2BIM_MatlabNative.Clustering">
+            <summary>
+            The Clustering class provides a CLS compliant, Object (native) interface to the
+            MATLAB functions contained in the files:
+            <newpara></newpara>
+            D:\Scan-to-BIM
+            repository\Scan-to-BIM-Matlab\Scan2BIM\3.Clustering\S2B_CRF_WallDecode_1.m
+            <newpara></newpara>
+            D:\Scan-to-BIM
+            repository\Scan-to-BIM-Matlab\Scan2BIM\3.Clustering\S2B_CRF_WallDecode_2.m
+            </summary>
+            <remarks>
+            @Version 4.0
+            </remarks>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.#cctor">
+            <summary internal= "true">
+            The static constructor instantiates and initializes the MATLAB Runtime instance.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.#ctor">
+            <summary>
+            Constructs a new instance of the Clustering class.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.Finalize">
+            <summary internal= "true">
+            Class destructor called by the CLR garbage collector.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.Dispose">
+            <summary>
+            Frees the native resources associated with this object
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.Dispose(System.Boolean)">
+            <summary internal= "true">
+            Internal dispose function
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the S2B_CRF_WallDecode_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the S2B_CRF_WallDecode_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the S2B_CRF_WallDecode_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 3-input Objectinterface to the S2B_CRF_WallDecode_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 4-input Objectinterface to the S2B_CRF_WallDecode_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 5-input Objectinterface to the S2B_CRF_WallDecode_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 6-input Objectinterface to the S2B_CRF_WallDecode_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <param name="si">Input argument #6</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 7-input Objectinterface to the S2B_CRF_WallDecode_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <param name="si">Input argument #6</param>
+             <param name="sj">Input argument #7</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 8-input Objectinterface to the S2B_CRF_WallDecode_1
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <param name="si">Input argument #6</param>
+             <param name="sj">Input argument #7</param>
+             <param name="w">Input argument #8</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the S2B_CRF_WallDecode_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the S2B_CRF_WallDecode_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the S2B_CRF_WallDecode_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Int32,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 3-input Object interface to the S2B_CRF_WallDecode_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Int32,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 4-input Object interface to the S2B_CRF_WallDecode_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 5-input Object interface to the S2B_CRF_WallDecode_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 6-input Object interface to the S2B_CRF_WallDecode_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <param name="si">Input argument #6</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 7-input Object interface to the S2B_CRF_WallDecode_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <param name="si">Input argument #6</param>
+             <param name="sj">Input argument #7</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 8-input Object interface to the S2B_CRF_WallDecode_1 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <param name="si">Input argument #6</param>
+             <param name="sj">Input argument #7</param>
+             <param name="w">Input argument #8</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_1(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the S2B_CRF_WallDecode_1 function in which the input
+             and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the S2B_CRF_WallDecode_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the S2B_CRF_WallDecode_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the S2B_CRF_WallDecode_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 3-input Objectinterface to the S2B_CRF_WallDecode_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 4-input Objectinterface to the S2B_CRF_WallDecode_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 5-input Objectinterface to the S2B_CRF_WallDecode_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 6-input Objectinterface to the S2B_CRF_WallDecode_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <param name="si">Input argument #6</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 7-input Objectinterface to the S2B_CRF_WallDecode_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <param name="si">Input argument #6</param>
+             <param name="sj">Input argument #7</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 8-input Objectinterface to the S2B_CRF_WallDecode_2
+             MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <param name="si">Input argument #6</param>
+             <param name="sj">Input argument #7</param>
+             <param name="w">Input argument #8</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the S2B_CRF_WallDecode_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the S2B_CRF_WallDecode_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the S2B_CRF_WallDecode_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Int32,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 3-input Object interface to the S2B_CRF_WallDecode_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Int32,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 4-input Object interface to the S2B_CRF_WallDecode_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 5-input Object interface to the S2B_CRF_WallDecode_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 6-input Object interface to the S2B_CRF_WallDecode_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <param name="si">Input argument #6</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 7-input Object interface to the S2B_CRF_WallDecode_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <param name="si">Input argument #6</param>
+             <param name="sj">Input argument #7</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 8-input Object interface to the S2B_CRF_WallDecode_2 MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nStates">Input argument #1</param>
+             <param name="fn1">Input argument #2</param>
+             <param name="fn2">Input argument #3</param>
+             <param name="fe1">Input argument #4</param>
+             <param name="fe2">Input argument #5</param>
+             <param name="si">Input argument #6</param>
+             <param name="sj">Input argument #7</param>
+             <param name="w">Input argument #8</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.S2B_CRF_WallDecode_2(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the S2B_CRF_WallDecode_2 function in which the input
+             and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             #function UGM_Decode_ICM UGM_makeEdgeStruct
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Clustering.WaitForFiguresToDie">
+             <summary>
+             This method will cause a MATLAB figure window to behave as a modal dialog box.
+             The method will not return until all the figure windows associated with this
+             component have been closed.
+             </summary>
+             <remarks>
+             An application should only call this method when required to keep the
+             MATLAB figure window from disappearing.  Other techniques, such as calling
+             Console.ReadLine() from the application should be considered where
+             possible.</remarks>
+            
+        </member>
+        <member name="T:Scan2BIM_MatlabNative.Reconstruction">
+            <summary>
+            The Reconstruction class provides a CLS compliant, Object (native) interface to the
+            MATLAB functions contained in the files:
+            <newpara></newpara>
+            D:\Scan-to-BIM
+            repository\Scan-to-BIM-Matlab\Scan2BIM\4.Reconstruction\S2B_WallFit.m
+            </summary>
+            <remarks>
+            @Version 4.0
+            </remarks>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.#cctor">
+            <summary internal= "true">
+            The static constructor instantiates and initializes the MATLAB Runtime instance.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.#ctor">
+            <summary>
+            Constructs a new instance of the Reconstruction class.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.Finalize">
+            <summary internal= "true">
+            Class destructor called by the CLR garbage collector.
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.Dispose">
+            <summary>
+            Frees the native resources associated with this object
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.Dispose(System.Boolean)">
+            <summary internal= "true">
+            Internal dispose function
+            </summary>
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="Cx">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 3-input Objectinterface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 4-input Objectinterface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <param name="Py">Input argument #4</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 5-input Objectinterface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <param name="Py">Input argument #4</param>
+             <param name="k">Input argument #5</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 6-input Objectinterface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <param name="Py">Input argument #4</param>
+             <param name="k">Input argument #5</param>
+             <param name="threshDist">Input argument #6</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 7-input Objectinterface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <param name="Py">Input argument #4</param>
+             <param name="k">Input argument #5</param>
+             <param name="threshDist">Input argument #6</param>
+             <param name="dw">Input argument #7</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 8-input Objectinterface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <param name="Py">Input argument #4</param>
+             <param name="k">Input argument #5</param>
+             <param name="threshDist">Input argument #6</param>
+             <param name="dw">Input argument #7</param>
+             <param name="omega">Input argument #8</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides a single output, 9-input Objectinterface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <param name="Py">Input argument #4</param>
+             <param name="k">Input argument #5</param>
+             <param name="threshDist">Input argument #6</param>
+             <param name="dw">Input argument #7</param>
+             <param name="omega">Input argument #8</param>
+             <param name="n">Input argument #9</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Cx">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Int32,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 3-input Object interface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Int32,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 4-input Object interface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <param name="Py">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 5-input Object interface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <param name="Py">Input argument #4</param>
+             <param name="k">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 6-input Object interface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <param name="Py">Input argument #4</param>
+             <param name="k">Input argument #5</param>
+             <param name="threshDist">Input argument #6</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 7-input Object interface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <param name="Py">Input argument #4</param>
+             <param name="k">Input argument #5</param>
+             <param name="threshDist">Input argument #6</param>
+             <param name="dw">Input argument #7</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 8-input Object interface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <param name="Py">Input argument #4</param>
+             <param name="k">Input argument #5</param>
+             <param name="threshDist">Input argument #6</param>
+             <param name="dw">Input argument #7</param>
+             <param name="omega">Input argument #8</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Int32,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+             <summary>
+             Provides the standard 9-input Object interface to the S2B_WallFit MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="Cx">Input argument #1</param>
+             <param name="Cy">Input argument #2</param>
+             <param name="Px">Input argument #3</param>
+             <param name="Py">Input argument #4</param>
+             <param name="k">Input argument #5</param>
+             <param name="threshDist">Input argument #6</param>
+             <param name="dw">Input argument #7</param>
+             <param name="omega">Input argument #8</param>
+             <param name="n">Input argument #9</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.S2B_WallFit(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the S2B_WallFit function in which the input and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             #function distance2curve,F_Linefit_TLS, F_Linefit_RANSAC2, F_Arcfit_TLS,
+             F_Arcfit_RANSAC, F_Polyfit_RANSAC2, F_Polyfit_RANSAC3
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:Scan2BIM_MatlabNative.Reconstruction.WaitForFiguresToDie">
+             <summary>
+             This method will cause a MATLAB figure window to behave as a modal dialog box.
+             The method will not return until all the figure windows associated with this
+             component have been closed.
+             </summary>
+             <remarks>
+             An application should only call this method when required to keep the
+             MATLAB figure window from disappearing.  Other techniques, such as calling
+             Console.ReadLine() from the application should be considered where
+             possible.</remarks>
+            
+        </member>
+    </members>
+</doc>

@@ -7,7 +7,6 @@ using Grasshopper.Kernel;
 using Grasshopper.Kernel.Data;
 using Grasshopper.Kernel.Types;
 using Rhino.Geometry;
-using Segmentation;
 using System.Linq;
 using Volvox_Instr;
 using Volvox_Cloud;
@@ -29,24 +28,13 @@ namespace Scan2BIM
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            /// input parameters
             pManager.AddVectorParameter("Vectors", "V", " Vector {X,Y,Z}", GH_ParamAccess.tree); pManager[0].Optional = false;
             pManager.AddBooleanParameter("Strict", "s", " 0:vectors can only be assigned to 1 axis, 1: Every vector within a 45°cone of an axis is considered ", GH_ParamAccess.item, false); pManager[1].Optional = true;
-
         }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            /// ouput indices vertices mesh conform segmentation
             pManager.AddIntegerParameter("X", "X", "Indices of vectors assigned to X-axis", GH_ParamAccess.tree);
-            //pManager.AddIntegerParameter("Y", "Y", "Indices of vectors assigned to X-axis ", GH_ParamAccess.list);
-            //pManager.AddIntegerParameter("Z", "Z", "Indices of vectors assigned to X-axis ", GH_ParamAccess.list);
-
-        }
-        public class Size_Exception : Exception
-        {
-            public Size_Exception(string message) : base(message) { }
-
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -54,7 +42,6 @@ namespace Scan2BIM
             ///input parameters
             GH_Structure<GH_Vector> Tree = new GH_Structure<GH_Vector>();
             bool s = false;
-
 
             /// initialise parameters
             List<int> X_i = new List<int>();
@@ -69,7 +56,6 @@ namespace Scan2BIM
             if (!DA.GetDataTree("Vectors", out Tree)) return;
             if (!DA.GetData("Strict", ref s)) return;
 
-
             /// 0. error catching 
             /// 1. decompose datatree
             /// 2. convert GH_GOO structure to rhinocommon Vector3D
@@ -77,25 +63,9 @@ namespace Scan2BIM
             /// 4. create new datatree
             /// 5. output data
 
-            // most occuring value in a list
-            //int test = 0; double t_h = 0.1;
-            //List<int> lijst = new List<int>();
-            //for (int k=0;k<W_i.Count;k++)
-            //{
-            //    test = X_i
-            //      .Where(v => Math.Abs(v - X_i[k]) <= t_h)
-            //      .Count();
-            //    lijst.Add(test);
-            //}
-            //frequency = lijst;
-
-            // efficient sum
-            //int test = 0; double t_h = 0.1;
             List<Point3d> P1 = new List<Point3d>();
             List<Point3d> P2 = new List<Point3d>();
             List<Point3d> result = new List<Point3d>();
-            //List<Double> x = new List<Double>();
-            
 
             /// 1. decompose datatree
             for (int i = 0; i < Tree.PathCount; i++)
@@ -166,9 +136,7 @@ namespace Scan2BIM
                 indices.AddRange(Z_i, p);
             }
 
-
-
-            /// 5.
+            /// Output
             DA.SetDataTree(0, indices);
 
         }

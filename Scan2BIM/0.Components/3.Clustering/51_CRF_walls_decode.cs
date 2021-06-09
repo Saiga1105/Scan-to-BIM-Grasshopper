@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using Grasshopper;
@@ -8,6 +7,8 @@ using System.Linq;
 using Grasshopper.Kernel.Data;
 using Grasshopper.Kernel.Types;
 using MathWorks.MATLAB.NET.Arrays;
+using Scan2BIM_Matlab;
+
 
 namespace Scan2BIM
 {
@@ -95,12 +96,13 @@ namespace Scan2BIM
                 var Matlab_w = new MWNumericArray(w.Count, 1, w.ToArray());
                 var Matlab_states = new MWNumericArray(Nstates.Count, 1, Nstates.ToArray());
 
-         
+
             /// 1.
-            Clustering.cluster cluster_mesh = new Clustering.cluster();
+            Scan2BIM_Matlab.Clustering clustering = new Clustering();
+
 
             MWArray cluster = new MWNumericArray();
-            cluster = cluster_mesh.G_CRF_wall_decoding(Matlab_states, Matlab_fn1, Matlab_fn2, Matlab_fe1, Matlab_fe2, Matlab_si, Matlab_sj, Matlab_w);
+            cluster = clustering.S2B_CRF_WallDecode_2(Matlab_states, Matlab_fn1, Matlab_fn2, Matlab_fe1, Matlab_fe2, Matlab_si, Matlab_sj, Matlab_w);
             
             ///2.
             MWNumericArray na = (MWNumericArray)cluster;

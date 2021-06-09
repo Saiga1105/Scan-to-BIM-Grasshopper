@@ -5,6 +5,8 @@ using MathWorks.MATLAB.NET.Utility;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using System.Linq;
+using Scan2BIM_Matlab;
+
 
 namespace Scan2BIM
 {
@@ -113,10 +115,10 @@ namespace Scan2BIM
             var Matlab_Py = new MWNumericArray(Rhino_P.Count, 1, Py.ToArray());
 
             /// 3.
-            Reconstruction.fittwall fitt_wall = new Reconstruction.fittwall();
+            Scan2BIM_Matlab.Reconstruction reconstruction = new Reconstruction();
 
             ///MWArray result = new MWNumericArray(4);
-            var result = fitt_wall.G_fitwall(4, Matlab_Cx, Matlab_Cy, Matlab_Px, Matlab_Py, k, t, dw, w, n);
+            var result = reconstruction.S2B_WallFit(4, Matlab_Cx, Matlab_Cy, Matlab_Px, Matlab_Py, k, t, dw, w, n);
 
             /// 4. 
             MWNumericArray out1 = (MWNumericArray)result[0];

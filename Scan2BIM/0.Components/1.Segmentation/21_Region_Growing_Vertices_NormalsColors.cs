@@ -4,7 +4,7 @@ using MathWorks.MATLAB.NET.Arrays;
 using MathWorks.MATLAB.NET.Utility;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
-using Segmentation;
+using Scan2BIM_Matlab;
 using System.Linq;
 using System.Drawing;
 
@@ -99,11 +99,11 @@ namespace Scan2BIM
             }
 
 
-                /// 3.
-                Segmentation.segment segment_mesh = new Segmentation.segment();
+            /// 3.
+            Scan2BIM_Matlab.Segmentation segmentation = new Scan2BIM_Matlab.Segmentation();
 
             MWArray cluster = new MWNumericArray();
-            cluster = segment_mesh.G_RegionGrowingNC2(Matlab_xyz, Matlab_n, Matlab_c, T_N, T_C,  D, M, O, T_s);
+            cluster = segmentation.S2B_RegionGrowing_2(Matlab_xyz, Matlab_n, Matlab_c, T_N, T_C,  D, M, O, T_s);
 
             /// 4.
             MWNumericArray na = (MWNumericArray)cluster;

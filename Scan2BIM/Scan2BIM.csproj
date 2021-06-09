@@ -75,17 +75,6 @@
     <Reference Include="Aardvark.Geometry.PointTree, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Aardvark.Geometry.PointTree.5.1.11\lib\netstandard2.0\Aardvark.Geometry.PointTree.dll</HintPath>
     </Reference>
-    <Reference Include="Classification, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Classification\Matlab library\Classification\for_testing\Classification.dll</HintPath>
-    </Reference>
-    <Reference Include="ClassificationNative, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Classification\Matlab library\Classification\for_testing\ClassificationNative.dll</HintPath>
-    </Reference>
-    <Reference Include="Clustering">
-      <HintPath>..\..\Clustering\Matlab Library\Clustering\for_testing\Clustering.dll</HintPath>
-    </Reference>
     <Reference Include="Crc32C.NET">
       <HintPath>..\..\Segmentation\Volvox\Crc32C.NET.dll</HintPath>
     </Reference>
@@ -102,7 +91,7 @@
       <HintPath>..\..\Segmentation\Volvox\E57LibWriter.dll</HintPath>
     </Reference>
     <Reference Include="Eto, Version=2.5.0.0, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
-      <HintPath>..\packages\RhinoCommon.7.5.21100.3001\lib\net48\Eto.dll</HintPath>
+      <HintPath>..\packages\RhinoCommon.7.6.21127.19001\lib\net48\Eto.dll</HintPath>
     </Reference>
     <Reference Include="FSharp.Core, Version=4.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\FSharp.Core.4.7.0\lib\net45\FSharp.Core.dll</HintPath>
@@ -113,49 +102,39 @@
     <Reference Include="FsPickler, Version=5.3.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FsPickler.5.3.2\lib\net45\FsPickler.dll</HintPath>
     </Reference>
-    <Reference Include="GH_IO, Version=7.5.21100.3000, Culture=neutral, PublicKeyToken=6a29997d2e6b4f97, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grasshopper.7.5.21100.3001\lib\net48\GH_IO.dll</HintPath>
+    <Reference Include="GH_IO, Version=7.6.21127.19000, Culture=neutral, PublicKeyToken=6a29997d2e6b4f97, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grasshopper.7.6.21127.19001\lib\net48\GH_IO.dll</HintPath>
     </Reference>
-    <Reference Include="GH_Util, Version=7.0.20238.17095, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Rhino WIP\Plug-ins\Grasshopper\GH_Util.dll</HintPath>
+    <Reference Include="Grasshopper, Version=7.6.21127.19000, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grasshopper.7.6.21127.19001\lib\net48\Grasshopper.dll</HintPath>
     </Reference>
-    <Reference Include="Grasshopper, Version=7.5.21100.3000, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grasshopper.7.5.21100.3001\lib\net48\Grasshopper.dll</HintPath>
+    <Reference Include="MathNet.Numerics, Version=4.12.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.4.12.0\lib\net461\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="MWArray, Version=2.15.1.0, Culture=neutral, PublicKeyToken=e1d84a0da19db86f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\MWArray.dll</HintPath>
+      <HintPath>C:\Program Files\MATLAB\R2018a\toolbox\dotnetbuilder\bin\win64\v4.0\MWArray.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json.Rhino, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b9a188c8922137c6, processorArchitecture=MSIL">
-      <HintPath>..\packages\RhinoCommon.7.5.21100.3001\lib\net48\Newtonsoft.Json.Rhino.dll</HintPath>
+      <HintPath>..\packages\RhinoCommon.7.6.21127.19001\lib\net48\Newtonsoft.Json.Rhino.dll</HintPath>
     </Reference>
-    <Reference Include="Reconstruction, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Reconstruction\bin\for_testing\Reconstruction.dll</HintPath>
+    <Reference Include="Rhino.UI, Version=7.6.21127.19000, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.7.6.21127.19001\lib\net48\Rhino.UI.dll</HintPath>
     </Reference>
-    <Reference Include="ReconstructionNative, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Reconstruction\bin\for_testing\ReconstructionNative.dll</HintPath>
+    <Reference Include="RhinoCommon, Version=7.6.21127.19000, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.7.6.21127.19001\lib\net48\RhinoCommon.dll</HintPath>
     </Reference>
-    <Reference Include="Rhino.UI, Version=7.5.21100.3000, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
-      <HintPath>..\packages\RhinoCommon.7.5.21100.3001\lib\net48\Rhino.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="RhinoCommon, Version=7.5.21100.3000, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
-      <HintPath>..\packages\RhinoCommon.7.5.21100.3001\lib\net48\RhinoCommon.dll</HintPath>
-    </Reference>
-    <Reference Include="Segmentation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\S2B-Segmentation\bin\for_testing\Segmentation.dll</HintPath>
+    <Reference Include="Scan2BIM_Matlab">
+      <HintPath>..\..\Scan-to-BIM-Matlab\Scan2BIM\bin\for_testing\Scan2BIM_Matlab.dll</HintPath>
     </Reference>
     <Reference Include="SixLabors.ImageSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
-      <HintPath>..\packages\SixLabors.ImageSharp.1.0.2\lib\net472\SixLabors.ImageSharp.dll</HintPath>
+      <HintPath>..\packages\SixLabors.ImageSharp.1.0.3\lib\net472\SixLabors.ImageSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -179,6 +158,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Text.Encodings.Web, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encodings.Web.4.7.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
@@ -209,37 +189,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="0.Components\0.Utility\31_PCD_normals.cs" />
-    <Compile Include="0.Components\0.Utility\48_Create_transformation_matrix.cs" />
-    <Compile Include="0.Components\0.Utility\46_Decompose_transformation_matrix.cs" />
-    <Compile Include="0.Components\0.Utility\47_Distribute_vectors.cs" />
-    <Compile Include="0.Components\0.Utility\45_ICP_pointclouds2.cs" />
+    <Compile Include="0.Components\0.Utility\ExtractName.cs" />
+    <Compile Include="0.Components\0.Utility\43_Mesh_Plane.cs" />
     <Compile Include="0.Components\0.Utility\44_ICP_pointclouds.cs" />
-    <Compile Include="0.Components\01_DemoComponent.cs" />
-    <Compile Include="0.Components\2.Classification\12_Validate_Prediction.cs" />
-    <Compile Include="0.Components\2.Classification\11_Write_features1.cs" />
-    <Compile Include="0.Components\1.Segmentation\21_Region_Growing_Vertices_NormalsColors.cs" />
+    <Compile Include="0.Components\0.Utility\45_ICP_pointclouds2.cs" />
+    <Compile Include="0.Components\0.Utility\ComputeNormals.cs" />
+    <Compile Include="0.Components\0.Utility\ComputeResolution.cs" />
+    <Compile Include="0.Components\0.Utility\CreateTransformationMatrix.cs" />
+    <Compile Include="0.Components\0.Utility\DecomposeTransformationMatrix.cs" />
+    <Compile Include="0.Components\0.Utility\MaterialNames.cs" />
+    <Compile Include="0.Components\0.Utility\RegisterPointClouds.cs" />
+    <Compile Include="0.Components\0.Utility\SplitVectors.cs" />
     <Compile Include="0.Components\1.Segmentation\20_Region_Growing_Vertices_Normals.cs" />
-    <Compile Include="0.Components\4.Reconstruction\40_walllinefit.cs" />
-    <Compile Include="0.Components\6.Topology\60_delete_branch_occurences.cs" />
-    <Compile Include="3.Other\0_Scan2BIMInfo.cs" />
+    <Compile Include="0.Components\1.Segmentation\21_Region_Growing_Vertices_NormalsColors.cs" />
     <Compile Include="0.Components\1.Segmentation\22_Region_Growing_Mesh_Normals.cs" />
     <Compile Include="0.Components\1.Segmentation\23_Region_Growing_Mesh_NormalsColors.cs" />
-    <Compile Include="0.Components\0.Utility\43_Mesh_Plane.cs" />
-    <Compile Include="0.Components\3.Clustering\50_Region_Growing_Walls.cs" />
     <Compile Include="0.Components\1.Segmentation\25_Restructure_Mesh.cs" />
     <Compile Include="0.Components\1.Segmentation\26_Region_Growing_PCD1.cs" />
     <Compile Include="0.Components\1.Segmentation\27_Restructure_PCD.cs" />
     <Compile Include="0.Components\1.Segmentation\30_Resutructure_and_Colorize_PCD.cs" />
-    <Compile Include="0.Components\0.Utility\31_Resolution_PCD.cs" />
     <Compile Include="0.Components\2.Classification\10_Predict_Bagged_Trees.cs" />
-    <Compile Include="0.Components\0.Utility\41_Name_Extraction.cs" />
-    <Compile Include="0.Components\0.Utility\42_Convert_MeshMaterials_to_Names.cs" />
+    <Compile Include="0.Components\2.Classification\11_Write_features1.cs" />
+    <Compile Include="0.Components\2.Classification\12_Validate_Prediction.cs" />
+    <Compile Include="0.Components\3.Clustering\50_Region_Growing_Walls.cs" />
     <Compile Include="0.Components\3.Clustering\51_CRF_walls_decode.cs" />
-    <Compile Include="0.Components\3.Clustering\52_Cluster_Nodefeature_Wallthickness - Copy.cs" />
-    <Compile Include="3.Other\convert.cs" />
-    <Compile Include="2.Types\GH_pointcloud.cs" />
-    <Compile Include="0.Components\Ext.cs" />
+    <Compile Include="0.Components\3.Clustering\53_Cluster_Nodefeature_Wallthickness2.cs" />
+    <Compile Include="0.Components\3.Clustering\52_Cluster_Nodefeature_Wallthickness.cs" />
+    <Compile Include="0.Components\4.Reconstruction\40_walllinefit.cs" />
+    <Compile Include="0.Components\6.Topology\60_delete_branch_occurences.cs" />
+    <Compile Include="2.Types\GH_Convert_Extensions.cs" />
+    <Compile Include="2.Types\GH_PointCloud.cs" />
+    <Compile Include="1.Parameters\GH_PointCloudParam.cs" />
+    <Compile Include="3.Algortihms\SpatialTools.cs" />
+    <Compile Include="Properties\0_Scan2BIMInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -248,7 +230,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="1.Parameters\param.pointcloud" />
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -618,6 +599,21 @@
   <ItemGroup>
     <None Include="Resources\Icon_Pillar1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_pointcloudparam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_ExtractName.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_SplitVectors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_DecomposeTransformationMatrix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_CreateTransformationMatrix.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -640,14 +636,14 @@ Erase "$(TargetPath)"</PostBuildEvent>
     <StartAction>Program</StartAction>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
-  <Import Project="..\packages\RhinoCommon.7.5.21100.3001\build\RhinoCommon.targets" Condition="Exists('..\packages\RhinoCommon.7.5.21100.3001\build\RhinoCommon.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\RhinoCommon.7.5.21100.3001\build\RhinoCommon.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\RhinoCommon.7.5.21100.3001\build\RhinoCommon.targets'))" />
-    <Error Condition="!Exists('..\packages\Grasshopper.7.5.21100.3001\build\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grasshopper.7.5.21100.3001\build\Grasshopper.targets'))" />
     <Error Condition="!Exists('..\packages\OpenCvSharp4.runtime.win.4.5.2.20210404\build\net\OpenCvSharp4.runtime.win.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCvSharp4.runtime.win.4.5.2.20210404\build\net\OpenCvSharp4.runtime.win.props'))" />
+    <Error Condition="!Exists('..\packages\RhinoCommon.7.6.21127.19001\build\RhinoCommon.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\RhinoCommon.7.6.21127.19001\build\RhinoCommon.targets'))" />
+    <Error Condition="!Exists('..\packages\Grasshopper.7.6.21127.19001\build\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grasshopper.7.6.21127.19001\build\Grasshopper.targets'))" />
   </Target>
-  <Import Project="..\packages\Grasshopper.7.5.21100.3001\build\Grasshopper.targets" Condition="Exists('..\packages\Grasshopper.7.5.21100.3001\build\Grasshopper.targets')" />
+  <Import Project="..\packages\RhinoCommon.7.6.21127.19001\build\RhinoCommon.targets" Condition="Exists('..\packages\RhinoCommon.7.6.21127.19001\build\RhinoCommon.targets')" />
+  <Import Project="..\packages\Grasshopper.7.6.21127.19001\build\Grasshopper.targets" Condition="Exists('..\packages\Grasshopper.7.6.21127.19001\build\Grasshopper.targets')" />
 </Project>

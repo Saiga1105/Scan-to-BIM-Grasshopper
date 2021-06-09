@@ -196,6 +196,9 @@
   <data name="Icon_Crack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Crack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Icon_CreateTransformationMatrix" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_CreateTransformationMatrix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Icon_CRF1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_CRF1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,8 +211,14 @@
   <data name="Icon_CSG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_CSG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Icon_DecomposeTransformationMatrix" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DecomposeTransformationMatrix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Icon_Deviation1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Deviation1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_ExtractName" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_ExtractName.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Icon_Features1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Features1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -313,6 +322,9 @@
   <data name="Icon_Pillar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Pillar3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_pointcloudparam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_pointcloudparam.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Icon_Points1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Points1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -402,6 +414,9 @@
   </data>
   <data name="Icon_SplitStorey1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_SplitStorey1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_SplitVectors" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_SplitVectors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Icon_Statistics" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Statistics.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

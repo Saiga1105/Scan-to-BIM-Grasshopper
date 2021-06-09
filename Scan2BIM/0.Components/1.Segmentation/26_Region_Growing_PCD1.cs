@@ -4,6 +4,8 @@ using MathWorks.MATLAB.NET.Arrays;
 using MathWorks.MATLAB.NET.Utility;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
+using Scan2BIM_Matlab;
+
 
 namespace Scan2BIM
 {
@@ -117,13 +119,13 @@ namespace Scan2BIM
 
             ///2.
             var Matlab_xyz = new MWNumericArray(Rhino_Cloud.Count, 3, xyz.ToArray());
-            
+
 
             /// 3.
-            Segmentation.segment segment_mesh = new Segmentation.segment();
+            Scan2BIM_Matlab.Segmentation segmentation = new Segmentation();
 
             MWArray cluster = new MWNumericArray();
-            cluster = segment_mesh.G_RegionGrowingNC2(Matlab_xyz, Matlab_n, Matlab_c, T_N, T_C, D, M, O, T_s);
+            cluster = segmentation.S2B_RegionGrowing_2(Matlab_xyz, Matlab_n, Matlab_c, T_N, T_C, D, M, O, T_s);
  
             /// 4.
             MWNumericArray na = (MWNumericArray)cluster;

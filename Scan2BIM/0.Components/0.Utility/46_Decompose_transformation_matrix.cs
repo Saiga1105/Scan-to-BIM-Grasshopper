@@ -4,7 +4,7 @@ using MathWorks.MATLAB.NET.Arrays;
 using MathWorks.MATLAB.NET.Utility;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
-using Segmentation;
+using Scan2BIM_Matlab;
 using System.Linq;
 using Volvox_Instr;
 using Volvox_Cloud;
@@ -70,9 +70,9 @@ namespace Scan2BIM
             /// 2.
             var param = new MWNumericArray(16, 1, tform.ToArray());
 
-            Segmentation.segment segment_mesh = new Segmentation.segment();
+            Scan2BIM_Matlab.General general = new General();
             MWArray rotXYZ = new MWNumericArray();
-            rotXYZ = segment_mesh.G_rotm2eul(param);
+            rotXYZ = general.S2B_rotm2eul(param);
 
             /// 4.
             MWNumericArray na = (MWNumericArray)rotXYZ;

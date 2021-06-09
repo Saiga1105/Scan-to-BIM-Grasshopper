@@ -5,6 +5,8 @@ using Volvox_Cloud;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using MathWorks.MATLAB.NET.Arrays;
+using Scan2BIM_Matlab;
+
 
 namespace Scan2BIM
 {
@@ -84,13 +86,13 @@ namespace Scan2BIM
             ///2.
             var Matlab_samples = new MWNumericArray(Samples);
             var Matlab_xyz = new MWNumericArray(Rhino_Cloud.Count, 3, xyz.ToArray());
-            
+
 
             /// 3.
-            Segmentation.segment segment_mesh = new Segmentation.segment();
+            Scan2BIM_Matlab.General general = new General();
 
             MWArray cluster = new MWNumericArray();
-            cluster = segment_mesh.G_Resolution_PCD(Matlab_xyz, Matlab_samples);
+            cluster = general.S2B_Resolution_PCD(Matlab_xyz, Matlab_samples);
 
             /// 4.
             MWNumericArray na = (MWNumericArray)cluster;

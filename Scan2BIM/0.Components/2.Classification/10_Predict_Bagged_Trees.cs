@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using MathWorks.MATLAB.NET.Arrays;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
-using Classification;
+using Scan2BIM_Matlab;
 
 namespace Scan2BIM
 {
@@ -120,10 +120,10 @@ namespace Scan2BIM
             var Vtop = new MWNumericArray(GHVtop.Count, 1, GHVtop.ToArray());
             var Raytrace = new MWNumericArray(GHRaytrace.Count, 1, GHRaytrace.ToArray());
 
-            Classification.Prediction predict = new Classification.Prediction();
+            Scan2BIM_Matlab.Classification classification = new Scan2BIM_Matlab.Classification();
 
             MWArray c = new MWNumericArray();
-            c = predict.G_predictfunction(Area, Normalsimilarity, NormalZ, DiagonalXY, Height, Coplanarity, Proximity, Connections, Wallinlier, DvBottom, DvTop, ColAbove, ColBelow, ColFarAbove, Vbot, Vtop, Raytrace);
+            c = classification.S2B_Predict_1(Area, Normalsimilarity, NormalZ, DiagonalXY, Height, Coplanarity, Proximity, Connections, Wallinlier, DvBottom, DvTop, ColAbove, ColBelow, ColFarAbove, Vbot, Vtop, Raytrace);
 
             //convert MatlabArray to C#Array to C#List
             MWNumericArray na = (MWNumericArray)c;

@@ -1,0 +1,138 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.8": {
+      "Grasshopper/7.6.21127.19001": {
+        "type": "package",
+        "dependencies": {
+          "RhinoCommon": "[7.6.21127.19001]"
+        },
+        "compile": {
+          "lib/net48/GH_IO.dll": {},
+          "lib/net48/Grasshopper.dll": {}
+        },
+        "runtime": {
+          "lib/net48/_._": {}
+        },
+        "build": {
+          "build/Grasshopper.targets": {}
+        }
+      },
+      "RhinoCommon/7.6.21127.19001": {
+        "type": "package",
+        "compile": {
+          "lib/net48/Eto.dll": {},
+          "lib/net48/Newtonsoft.Json.Rhino.dll": {},
+          "lib/net48/Rhino.UI.dll": {},
+          "lib/net48/RhinoCommon.dll": {}
+        },
+        "runtime": {
+          "lib/net48/_._": {}
+        },
+        "build": {
+          "build/RhinoCommon.targets": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Grasshopper/7.6.21127.19001": {
+      "sha512": "wF/Mm50FQttklDB1gD04DkJUdnu2IEfwI9W+LUbg/PVU9ZLu3sQtbnCVoZ2PNx62rWVLBOVrqe+eLQSfe65QLw==",
+      "type": "package",
+      "path": "grasshopper/7.6.21127.19001",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Grasshopper.targets",
+        "grasshopper.7.6.21127.19001.nupkg.sha512",
+        "grasshopper.nuspec",
+        "grasshopper.png",
+        "lib/net48/GH_IO.XML",
+        "lib/net48/GH_IO.dll",
+        "lib/net48/Grasshopper.dll",
+        "lib/net48/Grasshopper.xml"
+      ]
+    },
+    "RhinoCommon/7.6.21127.19001": {
+      "sha512": "2ZUTBOUC7OgE0hdxUoIa93gQZuOK8Sv7jx2tXNE8snCLhd53gT2ajQXg9Z8hBPwCgb2yQiYF3lmdhGUZ6Bp4ig==",
+      "type": "package",
+      "path": "rhinocommon/7.6.21127.19001",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Eto-LICENSE.txt",
+        "build/RhinoCommon.targets",
+        "lib/net48/Eto.dll",
+        "lib/net48/Eto.xml",
+        "lib/net48/Newtonsoft.Json.Rhino.dll",
+        "lib/net48/Rhino.UI.dll",
+        "lib/net48/RhinoCommon.XML",
+        "lib/net48/RhinoCommon.dll",
+        "rhinocommon.7.6.21127.19001.nupkg.sha512",
+        "rhinocommon.nuspec",
+        "rhinocommon.png"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.8": [
+      "Grasshopper >= 7.6.21127.19001"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\u0094523\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Scan-to-BIM repository\\Scan-to-BIM-Grasshopper\\Scan2BIM_WIP\\Scan2BIM_WIP.csproj",
+      "projectName": "Scan2BIM_WIP",
+      "projectPath": "D:\\Scan-to-BIM repository\\Scan-to-BIM-Grasshopper\\Scan2BIM_WIP\\Scan2BIM_WIP.csproj",
+      "packagesPath": "C:\\Users\\u0094523\\.nuget\\packages\\",
+      "outputPath": "D:\\Scan-to-BIM repository\\Scan-to-BIM-Grasshopper\\Scan2BIM_WIP\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\u0094523\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net48"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net48": {
+        "targetAlias": "net48",
+        "dependencies": {
+          "Grasshopper": {
+            "include": "Compile, Build",
+            "target": "Package",
+            "version": "[7.6.21127.19001, )"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
