@@ -181,6 +181,9 @@
   <data name="Icon_Classify9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Classify9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Icon_ConvexHull3D" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_ConvexHull3D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Icon_Crack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Crack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,6 +211,9 @@
   <data name="Icon_CRF3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_CRF3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Icon_CropPointCloud" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_CropPointCloud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Icon_CSG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_CSG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -217,6 +223,9 @@
   <data name="Icon_Deviation1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Deviation1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Icon_DistanceToPointCloud" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DistanceToPointCloud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Icon_ExtractName" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_ExtractName.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -225,6 +234,12 @@
   </data>
   <data name="Icon_Features2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Features2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_FitPlanarSurfaces" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_FitPlanarSurfaces.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_FitPlaneToMesh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_FitPlaneToMesh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Icon_Hull1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Hull1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -240,6 +255,12 @@
   </data>
   <data name="Icon_Hull5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Hull5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_ICP1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_ICP1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_ICP11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_ICP1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Icon_Intensity1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Intensity1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,10 +316,16 @@
   <data name="Icon_MatExtraction" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_MatExtraction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Icon_MatExtraction1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_MatExtraction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Icon_MeshSplit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_MeshSplit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Icon_NameExtraction" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_NameExtraction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_NameExtraction1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_NameExtraction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Icon_Normals" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -402,6 +429,12 @@
   </data>
   <data name="Icon_Sample5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Sample5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_SampleMesh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_SampleMesh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_SamplePointCloud" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_SamplePointCloud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Icon_Site1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Site1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

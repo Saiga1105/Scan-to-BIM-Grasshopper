@@ -75,6 +75,21 @@
     <Reference Include="Aardvark.Geometry.PointTree, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Aardvark.Geometry.PointTree.5.1.11\lib\netstandard2.0\Aardvark.Geometry.PointTree.dll</HintPath>
     </Reference>
+    <Reference Include="Accord, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.3.8.0\lib\net462\Accord.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.MachineLearning, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.MachineLearning.3.8.0\lib\net462\Accord.MachineLearning.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.8.0\lib\net462\Accord.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math.Core, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.8.0\lib\net462\Accord.Math.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Statistics, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Statistics.3.8.0\lib\net462\Accord.Statistics.dll</HintPath>
+    </Reference>
     <Reference Include="Crc32C.NET">
       <HintPath>..\..\Segmentation\Volvox\Crc32C.NET.dll</HintPath>
     </Reference>
@@ -108,8 +123,29 @@
     <Reference Include="Grasshopper, Version=7.6.21127.19000, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
       <HintPath>..\packages\Grasshopper.7.6.21127.19001\lib\net48\Grasshopper.dll</HintPath>
     </Reference>
+    <Reference Include="Loyc.Collections, Version=2.9.0.3, Culture=neutral, PublicKeyToken=b1460dff8a28f7a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Loyc.Collections.29.0.3\lib\net45\Loyc.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Loyc.Essentials, Version=2.9.0.3, Culture=neutral, PublicKeyToken=b1460dff8a28f7a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Loyc.Essentials.29.0.3\lib\net45\Loyc.Essentials.dll</HintPath>
+    </Reference>
+    <Reference Include="Loyc.Interfaces, Version=2.9.0.3, Culture=neutral, PublicKeyToken=b1460dff8a28f7a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Loyc.Interfaces.29.0.3\lib\net45\Loyc.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Loyc.Math, Version=2.9.0.3, Culture=neutral, PublicKeyToken=b1460dff8a28f7a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Loyc.Math.29.0.3\lib\net45\Loyc.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Loyc.Syntax, Version=2.9.0.3, Culture=neutral, PublicKeyToken=b1460dff8a28f7a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Loyc.Syntax.29.0.3\lib\net45\Loyc.Syntax.dll</HintPath>
+    </Reference>
+    <Reference Include="Loyc.Utilities, Version=2.9.0.3, Culture=neutral, PublicKeyToken=b1460dff8a28f7a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Loyc.Utilities.29.0.3\lib\net45\Loyc.Utilities.dll</HintPath>
+    </Reference>
     <Reference Include="MathNet.Numerics, Version=4.12.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.4.12.0\lib\net461\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="MIConvexHull, Version=1.1.19.1018, Culture=neutral, PublicKeyToken=2644b6f8be52c998, processorArchitecture=MSIL">
+      <HintPath>..\packages\MIConvexHull.1.1.19.1019\lib\netstandard2.0\MIConvexHull.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -189,16 +225,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="0.Components\0.Utility\ComputeDistance.cs" />
+    <Compile Include="0.Components\0.Utility\ConvexHull3D.cs" />
+    <Compile Include="0.Components\0.Utility\CropPointCloud.cs" />
     <Compile Include="0.Components\0.Utility\ExtractName.cs" />
-    <Compile Include="0.Components\0.Utility\43_Mesh_Plane.cs" />
-    <Compile Include="0.Components\0.Utility\44_ICP_pointclouds.cs" />
-    <Compile Include="0.Components\0.Utility\45_ICP_pointclouds2.cs" />
     <Compile Include="0.Components\0.Utility\ComputeNormals.cs" />
     <Compile Include="0.Components\0.Utility\ComputeResolution.cs" />
     <Compile Include="0.Components\0.Utility\CreateTransformationMatrix.cs" />
     <Compile Include="0.Components\0.Utility\DecomposeTransformationMatrix.cs" />
+    <Compile Include="0.Components\0.Utility\FitPlanarSurfaces.cs" />
     <Compile Include="0.Components\0.Utility\MaterialNames.cs" />
+    <Compile Include="0.Components\0.Utility\FitPlaneToMesh.cs" />
+    <Compile Include="0.Components\0.Utility\SampleMesh.cs" />
     <Compile Include="0.Components\0.Utility\RegisterPointClouds.cs" />
+    <Compile Include="0.Components\0.Utility\SamplePointCloud.cs" />
     <Compile Include="0.Components\0.Utility\SplitVectors.cs" />
     <Compile Include="0.Components\1.Segmentation\20_Region_Growing_Vertices_Normals.cs" />
     <Compile Include="0.Components\1.Segmentation\21_Region_Growing_Vertices_NormalsColors.cs" />
@@ -240,6 +280,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -614,6 +655,30 @@
   <ItemGroup>
     <None Include="Resources\Icon_CreateTransformationMatrix.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_ICP1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_FitPlaneToMesh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_SampleMesh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_ConvexHull3D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_SamplePointCloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_CropPointCloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_DistanceToPointCloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_FitPlanarSurfaces.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -643,7 +708,9 @@ Erase "$(TargetPath)"</PostBuildEvent>
     <Error Condition="!Exists('..\packages\OpenCvSharp4.runtime.win.4.5.2.20210404\build\net\OpenCvSharp4.runtime.win.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCvSharp4.runtime.win.4.5.2.20210404\build\net\OpenCvSharp4.runtime.win.props'))" />
     <Error Condition="!Exists('..\packages\RhinoCommon.7.6.21127.19001\build\RhinoCommon.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\RhinoCommon.7.6.21127.19001\build\RhinoCommon.targets'))" />
     <Error Condition="!Exists('..\packages\Grasshopper.7.6.21127.19001\build\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grasshopper.7.6.21127.19001\build\Grasshopper.targets'))" />
+    <Error Condition="!Exists('..\packages\Accord.3.8.0\build\Accord.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Accord.3.8.0\build\Accord.targets'))" />
   </Target>
   <Import Project="..\packages\RhinoCommon.7.6.21127.19001\build\RhinoCommon.targets" Condition="Exists('..\packages\RhinoCommon.7.6.21127.19001\build\RhinoCommon.targets')" />
   <Import Project="..\packages\Grasshopper.7.6.21127.19001\build\Grasshopper.targets" Condition="Exists('..\packages\Grasshopper.7.6.21127.19001\build\Grasshopper.targets')" />
+  <Import Project="..\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\packages\Accord.3.8.0\build\Accord.targets')" />
 </Project>

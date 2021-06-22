@@ -13,7 +13,7 @@ namespace Scan2BIM
         /// </summary>
         public CreateTransformationMatrix()
           : base("Create transformation matrix", "Transformation",
-              "Create [16,1] transformation matrix from translation vector {Tx,Ty,Tz} and Euler rotation vector {Rx,Ry,Rz} [radians]",
+              "Create [4x4] transformation matrix from translation vector {Tx,Ty,Tz} and Euler rotation vector {Rx,Ry,Rz} [radians]",
               "Saiga", "Utility")
         {
         }
@@ -23,8 +23,8 @@ namespace Scan2BIM
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddVectorParameter("R", "R", "rotation {Rx,Ry,Rz}  ", GH_ParamAccess.item); pManager[0].Optional = false;
-            pManager.AddVectorParameter("t", "T", "translation {X,Y,Z}", GH_ParamAccess.item); pManager[1].Optional = false;
+            pManager.AddVectorParameter("R", "rotation {Rx,Ry,Rz} in radians [0;2π] ", "rotation {Rx,Ry,Rz} in radians [0;2π]  ", GH_ParamAccess.item); pManager[0].Optional = false;
+            pManager.AddVectorParameter("t", "rotation {Rx,Ry,Rz} in radians [0;2π] ", "translation {X,Y,Z} in radians [0;2π]", GH_ParamAccess.item); pManager[1].Optional = false;
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace Scan2BIM
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddNumberParameter("tform", "T", " Rigid Transformation matrix [16,1] ", GH_ParamAccess.list);
+            pManager.AddTransformParameter("transform", "T", " Rigid Transformation matrix [4x4] ", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -53,9 +53,9 @@ namespace Scan2BIM
             if (!R.IsValid) throw new Exception("Invalid rotation {Rx,Ry,Rz} vector");
             if (!t.IsValid) throw new Exception("Invalid translation {tx,ty,tz} vector");
 
-            List<double> tform = SpatialTools.CreateTransformationMatrix(R, t);
+            Transform transform = SpatialTools.CreateTransformationMatrix(R, t);
 
-            DA.SetDataList(0, tform);
+            DA.SetData(0, transform);
         }
 
         /// <summary>
@@ -75,7 +75,8 @@ namespace Scan2BIM
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("FDC62C6D-7C03-412D-8FF8-B76439197730"); }
+            get { return new Guid("FDC62C6D-7C04-412D-8FF8-B76439197730"); }
+
         }
     }
 }

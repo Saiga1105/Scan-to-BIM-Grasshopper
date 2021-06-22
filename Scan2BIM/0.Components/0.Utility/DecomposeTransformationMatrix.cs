@@ -13,7 +13,7 @@ namespace Scan2BIM
         /// </summary>
         public DecomposeTransformationMatrix()
           : base("Decompose transformation matrix", "Decompose",
-              "Decompose [16,1] transformation matrix to translation vector {Tx,Ty,Tz} and Euler rotation vector {Rx,Ry,Rz} [radians]",
+              "Decompose [4x4] transformation matrix to translation vector {Tx,Ty,Tz} and Euler rotation vector {Rx,Ry,Rz} [radians]",
               "Saiga", "Utility")
         {
         }
@@ -23,7 +23,7 @@ namespace Scan2BIM
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddNumberParameter("tform", "T", " Rigid Transformation matrix [16,1] ", GH_ParamAccess.list); pManager[0].Optional = false;
+            pManager.AddTransformParameter("transform", "T", " Rigid Transformation matrix [4x4] ", GH_ParamAccess.item); pManager[0].Optional = false;
         }
 
         /// <summary>
@@ -31,8 +31,8 @@ namespace Scan2BIM
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddVectorParameter("R", "R", "rotation {Rx,Ry,Rz}  ", GH_ParamAccess.item);
-            pManager.AddVectorParameter("t", "t", "translation {X,Y,Z}", GH_ParamAccess.item);
+            pManager.AddVectorParameter("R", "R", "rotation {Rx,Ry,Rz} in radians [0;2π] ", GH_ParamAccess.item);
+            pManager.AddVectorParameter("t", "t", "translation {X,Y,Z} in radians [0;2π]", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -42,18 +42,23 @@ namespace Scan2BIM
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             // Define i/o parameters
-            List<double> tform = new List<double>();
+            //List<double> tform = new List<double>();
+            Transform transform = new Transform();
 
             // Read inputs
-            if (!DA.GetDataList("tform", tform)) return;
+            if (!DA.GetData(0, ref transform)) return;
 
             // Exceptions
-            if (tform.Count != 16) throw new Exception("Invalid Rigid Transformation matrix [16,1]");
-      
-            tform.DecomposeTransformationMatrix(out Vector3d R, out Vector3d t);
+            if (!transform.IsAffine) throw new Exception("This is not an affine Transformation matrix [4x4]");
+            if (transform.IsRigid(0.1) != TransformRigidType.Rigid ) throw new Exception("This is not an a rigid Transformation matrix [4x4]");
 
-            DA.SetData(0, R);
-            DA.SetData(1, t);
+            transform.DecomposeRigid(out Vector3d translation, out Transform rotation, 0.001);
+            rotation.GetEulerZYZ(out double alpha, out double beta, out double gamma);
+
+            //transform.DecomposeTransformationMatrix(out Vector3d R, out Vector3d t);
+
+            DA.SetData(0, new Vector3d(gamma, beta, alpha)); // X, Y ,Z
+            DA.SetData(1, translation);
         }
 
         /// <summary>
@@ -73,7 +78,7 @@ namespace Scan2BIM
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("FDC62C6D-7C03-412D-8FF8-B76439197730"); }
+            get { return new Guid("FDC62C6D-7C05-412D-8FF8-B76439197730"); }
         }
     }
 }

@@ -20,9 +20,40 @@ namespace Scan2BIM
         /// Fields of the GH_PointCloud class
         /// </summary>
         #region fields 
+        private int[] m_classifications; //test
+        private double[] m_distances; //test
 
         // there currently is only the PointCloud field
-
+        /// <summary>
+        /// Gets or sets the distance results of this GH_PointCloud.
+        /// </summary>
+        public Double[] Distances
+        {
+            get
+            {       
+                return m_distances;
+            }
+            set
+            {
+                if (value.Count() != m_distances.Count()) return; // test: i'm uncertain if the set works like this
+                m_distances = value;
+            }
+        }
+        /// <summary>
+        /// Gets or sets the classification results of this GH_PointCloud.
+        /// </summary>
+        public int[] Classification
+        {
+            get
+            {
+                return m_classifications;
+            }
+            set
+            {
+                if (value.Count() != m_classifications.Count()) return; // test: i'm uncertain if the set works like this
+                m_classifications = value;
+            }
+        }
         #endregion
 
         #region "Constructors"
@@ -32,7 +63,9 @@ namespace Scan2BIM
         public GH_PointCloud()
         {
             this.m_value = new PointCloud();
-            
+            this.m_classifications = new int[Value.Count]; //test
+            this.m_distances = new double[Value.Count]; //test
+
         }
 
         /// <summary>
@@ -41,6 +74,8 @@ namespace Scan2BIM
         public GH_PointCloud(PointCloud cloud)
         {
             this.m_value = cloud;
+            this.m_classifications = new int[cloud.Count]; //test
+            this.m_distances = new double[cloud.Count]; //test
         }
 
         /// <summary>
@@ -49,6 +84,8 @@ namespace Scan2BIM
         public GH_PointCloud(GH_PointCloud other)
         {
             m_value = (PointCloud) other.m_value.Duplicate();
+            m_classifications = other.m_classifications; //test
+            m_distances = other.m_distances; //test
         }
         #endregion
 
@@ -71,6 +108,71 @@ namespace Scan2BIM
             {
                 if (Value == null) { return false; }
                 return true;
+            }
+        }
+
+        /// <summary>
+        /// Return whether GH_PointCloud has classification results
+        /// </summary>
+        public bool ContainsClassification
+        {
+            get
+            {
+                if (this.m_classifications.Length ==0) { return false; } // this is a test
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// Return whether GH_PointCloud contains distances
+        /// </summary>
+        public bool ContainsDistances
+        {
+            get
+            {
+                if (this.m_distances.Length == 0) { return false; } //  test
+                return true;
+            }
+        }
+        /// <summary>
+        /// Clears any classification results on GH_PointCloud
+        /// </summary>
+        public void ClearClassification()
+        {
+            if (!ContainsClassification) return;
+            this.m_classifications = null;// new int[Value.Count]; //test
+        }
+
+        /// <summary>
+        /// Clears any distance results on GH_PointCloud
+        /// </summary>
+        public void ClearDistances()
+        {
+            if (!ContainsDistances) return;
+            this.m_distances = null; //test 
+        }
+               
+        /// <summary>
+        /// Add multiple distances to GH_PointCloud according to a set of indices
+        /// </summary>
+        public void SetDistances(IEnumerable<double> distances, IEnumerable<int> indices)
+        {
+            if (distances.Count() != indices.Count()) throw new Exception("indices and distances should be of equal length"); //Test
+            for (int i = 0; i < indices.Count(); i++)
+            {
+                this.m_distances[indices.ElementAt(i)] = distances.ElementAt(i);
+            }
+        }
+
+        /// <summary>
+        /// Add multiple classifications to GH_PointCloud according to a set of indices
+        /// </summary>
+        public void SetClassification(IEnumerable<int> classifications, IEnumerable<int> indices)
+        {
+            if (classifications.Count() != indices.Count()) throw new Exception("indices and classifications should be of equal length"); //Test
+            for (int i = 0; i < indices.Count(); i++)
+            {
+                this.m_distances[indices.ElementAt(i)] = classifications.ElementAt(i);
             }
         }
 
@@ -104,6 +206,11 @@ namespace Scan2BIM
             {
                 return this.m_value.Count > 0;
             }
+        }
+
+        public static explicit operator GH_PointCloud(GeometryBase v)
+        {
+            throw new NotImplementedException();
         }
 
         public override IGH_GeometricGoo DuplicateGeometry()
@@ -239,7 +346,7 @@ namespace Scan2BIM
         /// <summary>
         /// Compute normals of the point cloud
         /// </summary>
-        public void ComputeNormals(int k)
+        public void ComputeNormals(int k=6)
         {
             // check type
             if (!this.m_value.IsValid) { return; }
@@ -292,7 +399,7 @@ namespace Scan2BIM
         /// <summary>
         /// Allign this point cloud to a target point cloud. return the tform [16,1] and the rmse value
         /// </summary>
-        public void AllignToCloud(out List<double> tform, out Double rmse, GH_PointCloud target, Double metric =0, Double inlierRatio=0.6, Double maxIterations=20, Double downsamplingA=0.1, Double downsamplingB=0.5)
+        public void AllignToCloud(out Transform transform, out Double rmse, GH_PointCloud target, Double metric =0, Double inlierRatio=0.6, Double maxIterations=20, Double downsamplingA=0.1, Double downsamplingB=0.5)
         {
             // Exceptions
             if (this.Value.Count <= 1 || target.Value.Count <= 1) throw new Exception("Use point clouds with more than 1 point");
@@ -315,29 +422,13 @@ namespace Scan2BIM
 
             MWNumericArray na0 = (MWNumericArray)mwca[1];
             double[] dc0 = (double[])na0.ToVector(0);
-            tform = new List<double>(dc0);
+            var transformList = new List<double>(dc0);
+
+            transform = transformList.ToTransform();
 
             MWNumericArray na1 = (MWNumericArray)mwca[2];
             rmse = (double)na1;
             
-            Transform transform = new Transform();
-            transform.M00 = tform[0];
-            transform.M01 = tform[1];
-            transform.M02 = tform[2];
-            transform.M03 = tform[3];
-            transform.M10 = tform[4];
-            transform.M11 = tform[5];
-            transform.M12 = tform[6];
-            transform.M13 = tform[7];
-            transform.M20 = tform[8];
-            transform.M21 = tform[9];
-            transform.M22 = tform[10];
-            transform.M23 = tform[11];
-            transform.M30 = tform[12];
-            transform.M31 = tform[13];
-            transform.M32 = tform[14];
-            transform.M33 = tform[15];
-
             if(!this.Value.Transform(transform)) throw new Exception("transformation failed. check tform");
         }
 

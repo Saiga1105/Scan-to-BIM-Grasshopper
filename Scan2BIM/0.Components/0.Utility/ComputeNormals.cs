@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+
 using Grasshopper.Kernel;
-using Rhino;
-using Rhino.DocObjects;
 using Rhino.Geometry;
-using MathWorks.MATLAB.NET.Arrays;
-using Scan2BIM_Matlab;
+
 
 namespace Scan2BIM
 {
@@ -39,29 +36,24 @@ namespace Scan2BIM
         {
             pManager.AddParameter(new GH_PointCloudParam(), "Point Cloud", "PCDn", "Point Cloud data with normals", GH_ParamAccess.item);
         }
-        public class Size_Exception : Exception
-        {
-            public Size_Exception(string message) : base(message) { }
-
-        }
+       
         /// <summary>
         /// This is the method that actually does the work.
         /// </summary>
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            ///define i/o parameters
+            //define i/o parameters
             GH_PointCloud pc = null;
             Double k = 6;
 
-            /// read inputs
-            //if (!DA.GetData(0, ref pointCloud)) return;
+            // read inputs
             if (!DA.GetData(0, ref pc)) return;
             if (!DA.GetData("k", ref k)) return;
             
             // Exceptions
             if (pc.Value.Count <= k) throw new Exception("Use point clouds with more than k points");     
-            if (k < 3)throw new Size_Exception("enter value k >=3");
+            if (k < 3) throw new Exception("enter value k >=3");
        
             /// interal parameters 
             if (!pc.Value.ContainsNormals)

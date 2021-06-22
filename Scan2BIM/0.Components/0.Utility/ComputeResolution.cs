@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 
@@ -66,7 +66,7 @@ namespace Scan2BIM
             get
             {
                 //You can add image files to your project resources and access them like this:
-                return Properties.Resources.Icon_Sample1;
+                return Properties.Resources.Icon_Resolution;
 
             }
         }
@@ -77,6 +77,7 @@ namespace Scan2BIM
         public override Guid ComponentGuid
         {
             get { return new Guid("FDC62C6D-7C03-412D-8FF8-B76439197730"); }
+
         }
     }
 }

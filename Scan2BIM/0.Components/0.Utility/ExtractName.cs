@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Rhino.DocObjects;
-using Rhino;
-using Grasshopper.Kernel;
-using Rhino.Geometry;
-using Rhino.DocObjects.Tables;
-using Rhino.Input;
-using Rhino.Commands;
+
 using Grasshopper;
+using Grasshopper.Kernel;
 using Grasshopper.Kernel.Data;
+using Rhino.Geometry;
 
 namespace Scan2BIM
 {

@@ -88,7 +88,7 @@ namespace Scan2BIM
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("FDC62C6D-7C03-412D-8FF8-B76439197730"); }
+            get { return new Guid("FDC62C6D-7C07-412D-8FF8-B76439197730"); }
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 
-namespace Scan2BIM._0.Components._0.Utility
+namespace Scan2BIM
 {
     public class RegisterPointClouds : GH_Component
     {
@@ -28,8 +28,8 @@ namespace Scan2BIM._0.Components._0.Utility
             pManager.AddNumberParameter("Metric", "Metric", " Metric that is used to minimize the distance between the two point clouds. 0: pointToPoint (default), 1: pointToPlane ", GH_ParamAccess.item, 0); pManager[2].Optional = true;
             pManager.AddNumberParameter("InlierRatio", "Inlier", "Percentage of inliers [0;1] that fall within the given Euclidean distance threshold e.g. 0.6", GH_ParamAccess.item, 0.6); pManager[3].Optional = true;
             pManager.AddNumberParameter("MaxIterations", "Iter", "Max iterations for ICP e.g. 100", GH_ParamAccess.item, 100); pManager[4].Optional = true;
-            pManager.AddNumberParameter("Downsample A", "R0", "Percentage of points [0;1] to use for ICP e.g. 0.8", GH_ParamAccess.item, 0.1); pManager[5].Optional = true;
-            pManager.AddNumberParameter("Downsample B", "R1", "Percentage of points [0;1] to use for ICP e.g. 0.8", GH_ParamAccess.item, 0.5); pManager[6].Optional = true;
+            pManager.AddNumberParameter("Downsample A", "R0", "Percentage of points [0.01;0.99] to use for ICP e.g. 0.8", GH_ParamAccess.item, 0.1); pManager[5].Optional = true;
+            pManager.AddNumberParameter("Downsample B", "R1", "Percentage of points [0.01;0.99] to use for ICP e.g. 0.8", GH_ParamAccess.item, 0.5); pManager[6].Optional = true;
         }
 
         /// <summary>
@@ -37,8 +37,8 @@ namespace Scan2BIM._0.Components._0.Utility
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddNumberParameter("tform", "T", "[16,1] transformation matrix ", GH_ParamAccess.list);
-            pManager.AddNumberParameter("rmse", "RMSE", "RMSE value of the Euclidean distance between both point clouds", GH_ParamAccess.list);
+            pManager.AddTransformParameter("transform", "T", "[4x4] transformation matrix ", GH_ParamAccess.item);
+            pManager.AddNumberParameter("RMSE", "RMSE", "RMSE value [m] of the Euclidean distance between both point clouds", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -63,11 +63,17 @@ namespace Scan2BIM._0.Components._0.Utility
 
             // Exceptions
             if (pcA.Value.Count <= 1 || pcB.Value.Count <= 1)throw new Exception("Use point clouds with more than 1 point");            
-            if (downsamplingA == 0 || downsamplingB == 0)throw new Exception("Do not use 0 as downsampling");
+            if (downsamplingA < 0.01 || downsamplingA > 0.99)throw new Exception("Use downsampling between 0.01 and 0.99 for point cloud A");
+            if (downsamplingB < 0.01 || downsamplingB > 0.99) throw new Exception("Use downsampling between 0.01 and 0.99 for point cloud A");
 
-            SpatialTools.RegisterPointClouds(out List<Double> tform, out Double rmse, ref pcA, ref pcB, metric, inlierRatio, maxIterations, downsamplingA, downsamplingB);
+            if(metric==1 && !pcA.Value.ContainsNormals)
+            {
+                pcA.ComputeNormals();      
+            }
 
-            DA.SetDataList(0, tform);
+            SpatialTools.RegisterPointClouds(out Transform transform, out Double rmse, ref pcA, ref pcB, metric, inlierRatio, maxIterations, downsamplingA, downsamplingB);
+
+            DA.SetData(0, transform);
             DA.SetData(1, rmse);
         }
 
@@ -79,7 +85,7 @@ namespace Scan2BIM._0.Components._0.Utility
             get
             {
                 //You can add image files to your project resources and access them like this:
-                return Properties.Resources.Icon_Sample5;
+                return Properties.Resources.Icon_ICP1;
             }
         }
 
@@ -88,7 +94,7 @@ namespace Scan2BIM._0.Components._0.Utility
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("FDC62C6D-7C03-412D-8FF8-B76439197730"); }
+            get { return new Guid("FDC62C6D-7C08-412D-8FF8-B76439197730"); }
         }
     }
 }

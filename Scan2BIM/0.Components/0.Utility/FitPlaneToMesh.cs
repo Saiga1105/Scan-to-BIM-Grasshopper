@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 
-namespace Scan2BIM._0.Components._0.Utility
+namespace Scan2BIM
 {
     public class FitPlaneToMesh : GH_Component
     {
@@ -24,7 +24,8 @@ namespace Scan2BIM._0.Components._0.Utility
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddMeshParameter("Mesh", "M", "Mesh Geometry", GH_ParamAccess.item); pManager[0].Optional = false;
-            pManager.AddNumberParameter("downsampling", "R0", "Percentage of points [0;1] to use for the planefitting", GH_ParamAccess.item, 1.0); pManager[1].Optional = true;
+            pManager.AddNumberParameter("tolerance", "t", "tolerance [m] for the inliers of the plane", GH_ParamAccess.item, 0.05); pManager[1].Optional = true;
+            pManager.AddNumberParameter("resolution", "r", "resolution of the point sampling on the mesh", GH_ParamAccess.item, 0.05); pManager[2].Optional = true;
 
         }
 
@@ -33,9 +34,9 @@ namespace Scan2BIM._0.Components._0.Utility
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddSurfaceParameter("Surface", "s", "Best fit planar surface", GH_ParamAccess.item);
+            pManager.AddBrepParameter("Surface", "s", "Best fit planar surface", GH_ParamAccess.item);
+            pManager.AddPointParameter("Points", "p", "", GH_ParamAccess.list);
             pManager.AddNumberParameter("rmse", "rmse", "Root mean squared error of deviations from the used points to the planar surface", GH_ParamAccess.item); 
-
         }
 
         /// <summary>
@@ -46,19 +47,21 @@ namespace Scan2BIM._0.Components._0.Utility
         { 
             // Define i/o parameters
             Mesh mesh = new Mesh();
-            Double downsampling = 1.0;
+            Double tolerance = 0.05; Double resolution = 0.05;
 
             // Read inputs
             if (!DA.GetData(0, ref mesh)) return;
-            if (!DA.GetData(1, ref downsampling)) return;
+            if (!DA.GetData(1, ref tolerance)) return;
+            if (!DA.GetData(2, ref resolution)) return;
 
             // Exceptions
             if (!mesh.IsValid) throw new Exception("Provide a valid mesh");
 
-            mesh.FitPlanarSurface(out Surface surface, out Double rmse, downsampling);
+            mesh.FitPlanarSurface(out Brep brep, out List<Point3d> points3D, out Double rmse, tolerance, resolution );
 
-            DA.SetData(0, surface);
-            DA.SetData(1, rmse);
+            DA.SetData(0, brep);
+            DA.SetDataList(1, points3D);
+            DA.SetData(2, rmse);
         }
 
         /// <summary>
@@ -69,7 +72,7 @@ namespace Scan2BIM._0.Components._0.Utility
             get
             {
                 //You can add image files to your project resources and access them like this:
-                 return Properties.Resources.Icon_CRF1;
+                return Properties.Resources.Icon_FitPlaneToMesh;
             }
         }
 
@@ -78,7 +81,7 @@ namespace Scan2BIM._0.Components._0.Utility
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("FDC62C6D-7C03-412D-8FF8-B76439197730"); }
+            get { return new Guid("FDC62C6D-7C86-412D-8FF8-B76439197730"); }
         }
     }
 }

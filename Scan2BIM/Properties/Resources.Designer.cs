@@ -273,6 +273,16 @@ namespace Scan2BIM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icon_ConvexHull3D {
+            get {
+                object obj = ResourceManager.GetObject("Icon_ConvexHull3D", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_Crack1 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Crack1", resourceCulture);
@@ -363,6 +373,16 @@ namespace Scan2BIM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icon_CropPointCloud {
+            get {
+                object obj = ResourceManager.GetObject("Icon_CropPointCloud", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_CSG1 {
             get {
                 object obj = ResourceManager.GetObject("Icon_CSG1", resourceCulture);
@@ -393,6 +413,16 @@ namespace Scan2BIM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icon_DistanceToPointCloud {
+            get {
+                object obj = ResourceManager.GetObject("Icon_DistanceToPointCloud", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_ExtractName {
             get {
                 object obj = ResourceManager.GetObject("Icon_ExtractName", resourceCulture);
@@ -416,6 +446,26 @@ namespace Scan2BIM.Properties {
         internal static System.Drawing.Bitmap Icon_Features2 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Features2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_FitPlanarSurfaces {
+            get {
+                object obj = ResourceManager.GetObject("Icon_FitPlanarSurfaces", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_FitPlaneToMesh {
+            get {
+                object obj = ResourceManager.GetObject("Icon_FitPlaneToMesh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -466,6 +516,26 @@ namespace Scan2BIM.Properties {
         internal static System.Drawing.Bitmap Icon_Hull5 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Hull5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_ICP1 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_ICP1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_ICP11 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_ICP11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -653,6 +723,16 @@ namespace Scan2BIM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icon_MatExtraction1 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_MatExtraction1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_MeshSplit {
             get {
                 object obj = ResourceManager.GetObject("Icon_MeshSplit", resourceCulture);
@@ -666,6 +746,16 @@ namespace Scan2BIM.Properties {
         internal static System.Drawing.Bitmap Icon_NameExtraction {
             get {
                 object obj = ResourceManager.GetObject("Icon_NameExtraction", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_NameExtraction1 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_NameExtraction1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1006,6 +1096,26 @@ namespace Scan2BIM.Properties {
         internal static System.Drawing.Bitmap Icon_Sample5 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Sample5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_SampleMesh {
+            get {
+                object obj = ResourceManager.GetObject("Icon_SampleMesh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_SamplePointCloud {
+            get {
+                object obj = ResourceManager.GetObject("Icon_SamplePointCloud", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

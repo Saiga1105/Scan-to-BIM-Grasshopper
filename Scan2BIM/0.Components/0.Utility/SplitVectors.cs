@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.CompilerServices;
+
 using Rhino.Geometry;
-using Grasshopper;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Data;
 using Grasshopper.Kernel.Types;
@@ -57,7 +53,7 @@ namespace Scan2BIM
             // Exceptions
             if (vectorTree.GetType() != typeof(GH_Structure<GH_Vector>)) throw new Exception("Invalid vectorTree");
             if (vectorTree.IsEmpty) throw new Exception("Empty vectorTree");
-            if (vectorTree.PathCount <2) throw new Exception("This vectorTree is to small");
+            if (vectorTree.PathCount <1) throw new Exception("This vectorTree is to small");
 
             DA.SetDataTree(0, vectorTree.SplitVectors(s));
         }
@@ -79,7 +75,7 @@ namespace Scan2BIM
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("FDC62C6D-7C03-412D-8FF8-B76439197730"); }
+            get { return new Guid("FDC62C6D-7C09-412D-8FF8-B76439197730"); }
         }
     }
 }
