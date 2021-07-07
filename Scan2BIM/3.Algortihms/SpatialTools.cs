@@ -1,24 +1,37 @@
 ﻿using System;
+using System.Drawing;
+using System.Numerics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
-using Rhino.Geometry;
+
+using Rhino.Geometry; // https://developer.rhino3d.com/api/
 using Rhino.DocObjects.Custom;
-using Rhino.Display;
-using Grasshopper;
+using Rhino.Display; 
+
+using Grasshopper; // https://developer.rhino3d.com/api/
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Data;
 using Grasshopper.Kernel.Types;
+
 using MathWorks.MATLAB.NET.Arrays;
-using Scan2BIM_Matlab;
-using Loyc.Utilities;
+
+using Scan2BIM_Matlab; // https://github.com/Saiga1105/Scan-to-BIM-Matlab
+
+using Loyc.Utilities; //https://github.com/qwertie/LoycCore
 using Loyc.Math;
 using Loyc.Collections;
+
 using MIConvexHull; // https://github.com/DesignEngrLab/MIConvexHull
+
 using Accord.MachineLearning.Geometry; // http://accord-framework.net/docs/html/R_Project_Accord_NET.htm
 using Accord.Math;
+using Accord.Statistics.Analysis;
+
+//using g3;// https://github.com/gradientspace/geometry3Sharp
+//using gs;
 
 namespace Scan2BIM
 {
@@ -112,6 +125,176 @@ namespace Scan2BIM
 
             return indices;
 
+        }
+        /// <summary>
+        /// Compute principal components of a 3D set (point cloud)
+        /// </summary>
+        public static List<Vector3d> ToVector3d(this double[][] mydoubles)
+        {
+            List<Vector3d> vectors = new List<Vector3d>();
+            var length = mydoubles.GetLength(0);
+            for (int i= 0;i<mydoubles.GetLength(0);i++)
+            {
+                vectors.Add(new Vector3d(mydoubles[i][0], mydoubles[i][1], mydoubles[i][2])); // this is under the assumption that each row holds a eigenvector
+            }
+            return vectors;
+        }
+
+        /// <summary>
+        /// Convert IEnumerable<Accord.Math.Vector3>  to rhinocommon List<Vector3d>
+        /// </summary>
+        public static List<Vector3d> ToVector3d(this IEnumerable<Accord.Math.Vector3> vector3s)
+        {
+            List<Vector3d> vectors = new List<Vector3d>();
+            for (int i = 0; i < vector3s.Count(); i++)
+            {
+                vectors.Add(new Vector3d(vector3s.ElementAt(i).X, vector3s.ElementAt(i).Y, vector3s.ElementAt(i).Z)); 
+            }
+            return vectors;
+        }
+        /// <summary>
+        /// Convert rhinocommon IEnumerable<Vector3d> to List<Accord.Math.Vector3> 
+        /// </summary>
+        public static List<Accord.Math.Vector3> ToVector3(this IEnumerable<Vector3d> vector3ds)
+        {
+            List<Accord.Math.Vector3> vectors = new List<Accord.Math.Vector3>();
+            for (int i = 0; i < vector3ds.Count(); i++)
+            {
+                vectors.Add(new Accord.Math.Vector3((float)vector3ds.ElementAt(i).X, (float)vector3ds.ElementAt(i).Y, (float)vector3ds.ElementAt(i).Z));
+            }
+            return vectors;
+        }
+
+        /// <summary>
+        /// Compute principal components of a 3D set (point cloud)
+        /// </summary>
+        public static void ComputePrincipalComponents(this GH_PointCloud pc, out List<Vector3d> eigenvectors, out List<Double> eigenvalues)
+        {
+            var method = PrincipalComponentMethod.Center;
+            var pca = new PrincipalComponentAnalysis(method);
+            var data = pc.Value.GetPoints().ToArray().ToDouble().ToArray(); // this is unlickely to work
+            pca.Learn(data);
+
+            eigenvectors = pca.ComponentVectors.ToVector3d(); ; // direction of the principal components
+            eigenvalues = pca.Eigenvalues.ToList(); // magniture of the principal components
+        }
+
+        /// <summary>
+        /// Create 
+        /// </summary>
+        public static List<Vector3d>  CreateGaussianSphere(double tolerance)
+        {
+            List<Vector3d> spherevectors = new List<Vector3d>();
+
+            // !!! these vectors do not result in an even spead near the poles
+            // compute vectors based on spherical coordinates
+            //double r = 0.0; // distance to origin
+            //for (double phi = 0.0; phi < Math.PI; phi = phi + tolerance) // phi is the zenith angle (0 is up)
+            //{
+            //    for (double theta = 0.0; theta < 2 * Math.PI; theta = theta + tolerance)  // theta is the angle around Z-axis 
+            //    {
+            //        var x = r * Math.Sin(phi) * Math.Cos(theta);                    
+            //        var y = r * Math.Sin(phi) * Math.Sin(theta);
+            //        var z = r * Math.Cos(phi); 
+
+            //        spherevectors.Add(new Vector3d(x, y, z)); 
+            //    }
+            //}
+
+            var sphere = new Sphere(new Point3d(0.0, 0.0, 0.0), 1.0);
+            var nrfaces = (int) (4*Math.PI) / (Math.Sqrt(Math.Sin((tolerance)))); 
+            var subdivisions = (int) Math.Sqrt(Math.Sqrt(nrfaces / 6));
+            if (subdivisions < 0 || subdivisions > 8) subdivisions = 4;
+            var sphereMesh=Mesh.CreateQuadSphere(sphere, subdivisions);
+            spherevectors = sphereMesh.GetPoints().ToVector3d();
+            return spherevectors;
+        }
+
+        /// <summary>
+        /// Compute the best fit orientation of the Point Cloud based on PCA
+        /// </summary>
+        public static Transform ComputeOrientation (this GH_PointCloud pc)
+        {
+            pc.ComputePrincipalComponents(out List<Vector3d> eigenvectors, out List<double> eigenvalues);
+            var transform = new Transform();
+            transform.M00 = eigenvectors[0].X;
+            transform.M01 = eigenvectors[0].Y;
+            transform.M02 = eigenvectors[0].Z;
+            transform.M03 = 0;
+            transform.M10 = eigenvectors[1].X;
+            transform.M11 = eigenvectors[1].Y;
+            transform.M12 = eigenvectors[1].Z;
+            transform.M13 = 0;
+            transform.M20 = eigenvectors[2].X;
+            transform.M21 = eigenvectors[2].Y;
+            transform.M22 = eigenvectors[2].Z;
+            transform.M23 = 0;
+            transform.M30 = 0;
+            transform.M31 = 0;
+            transform.M32 = 0;
+            transform.M33 = 1;
+
+            return transform;
+        }
+
+        /// <summary>
+        /// Compute the best fit orientation of the Point Cloud based on PCA
+        /// </summary>
+        public static int[] FindClosestVector(this IEnumerable<Vector3d> vectors, IEnumerable<Vector3d> referenceVectors, double tolerance = 0.05)
+        {
+            int[] indices = new int[vectors.Count()];
+
+            for (int i=0;i<indices.Count();i++)
+            {
+                for (int j=0;j<referenceVectors.Count();j++)
+                {
+                    if (Vector3d.Multiply(vectors.ElementAt(i),referenceVectors.ElementAt(j)) > tolerance) // this code picks the first reference that is in rance, potentially missing the best fit vector
+                    {
+                        indices[i] = j; // potential weakness that none of the vectors is assigned
+                        break;
+                    }
+                }
+            }
+            return indices;
+        }
+
+        /// <summary>
+        /// Split a point cloud based on its normals [0;2Pi]
+        /// </summary>
+        public static void SegmentGaussianSphere(this GH_PointCloud pc, out List<GH_PointCloud> pc_outs, double distance=0.1,double tolerance = Math.PI / 36, bool computeZ = false)
+        {
+            pc_outs = null;
+            List<GH_PointCloud> pc_out = new List<GH_PointCloud>();
+            if (!pc.Value.ContainsNormals) { pc.ComputeNormals(); }
+            var normals = pc.Value.GetNormals();
+            // estimate up-direction
+            if (computeZ)
+            {
+                var tform = pc.ComputeOrientation();
+                pc.Transform(tform);
+            }
+
+            List<Vector3d> spherevectors = CreateGaussianSphere(tolerance); // isn't this code quite stupid?
+            var indexList = normals.FindClosestVector(spherevectors);
+            GH_PointCloud pc_temp = null;
+            
+            for (int i = 0; i < spherevectors.Count; i++)
+            {
+                var orientationIndices = pc.Value
+                   .Select((v, index) => index)
+                   .Where(index => index == 0)
+                   .ToList();
+                // perform a size check
+                if (orientationIndices.Count < 1) continue;
+
+                pc_temp= pc.GetSubsection(orientationIndices);
+                // compute connected components
+                //var componentIndices = pc_temp.ComputeConnectedComponents(distance); // are these the correct indices
+
+                // retrieve subsection
+                //pc_outs.Add(pc.GetSubsection(componentIndices));
+                pc_outs.Add(pc_temp);
+            }
         }
 
         /// <summary>
@@ -318,14 +501,52 @@ namespace Scan2BIM
         }
 
         /// <summary>
-        /// Get a random Barycentric coordinate on a mesh triangle [u,v,w]
+        /// Get a Barycentric coordinate grid on a mesh triangle [u,v,w]
         /// </summary>
-        public static Vector3d RandomBarycentricCoordinate()
+        public static List<Vector3f> BarycentricCoordinateGrid(this Mesh mesh, int index, double resolution) 
+        {
+            var a = mesh.Vertices[mesh.Faces[index].A];
+            var b = mesh.Vertices[mesh.Faces[index].B];
+            var c = mesh.Vertices[mesh.Faces[index].C];
+
+            var ab = a.DistanceTo(b);
+            var bc = b.DistanceTo(c);
+            var ca = c.DistanceTo(a);
+
+            var stepab = (float) (resolution /ab);
+            var stepbc = (float) (resolution /bc);
+            var stepca = (float) (resolution /ca);
+
+            var step = (float) (Math.Round((stepab + stepbc + stepca) / 3, 3)); // this average step can cause issues in very slender triangles
+
+            float t0;
+            float t1;
+            float t2;
+
+            List<Vector3f> vectors = new List<Vector3f>();
+            for (t2 = 0; t2 <= 1; t2 = t2 + step)
+            {
+                for (t0 = 1-t2; t0 >= 0; t0 = t0 - step)
+                {
+                    t1 = 1 - t0-t2;
+                    vectors.Add(new Vector3f(t0, t1, t2));                
+                }
+            }
+            return vectors;
+        }
+        /// <summary>
+        /// Get a random Barycentric coordinate on a mesh triangle vector3d(t0,t1,t2)
+        /// </summary>
+        public static Vector3d RandomBarycentricCoordinate() 
         {
             Random random = new Random();
-            var vector = new Vector3d(random.Next(100), random.Next(100), random.Next(100));
-            if (vector.Unitize()) return vector;
-            else return new Vector3d(1 / 3, 1 / 3, 1 / 3);
+            //var t0 = (double)random.NextDouble();
+            var t0 = random.Next(0, 100);
+            var t1 = random.Next(0, 100-t0);
+            //var t1 = 1-t0-(double)random.NextDouble();
+            var t2 = 1 - t0 - t1;
+
+            return new Vector3d(t0/100.0, t1 / 100.0, t2 / 100.0);
         }
 
         /// <summary>
@@ -348,14 +569,17 @@ namespace Scan2BIM
         {
             GH_PointCloud pc_out = new GH_PointCloud();
             var points = pc.Value.AsReadOnlyListOfPoints();
+            var indices = new List<int>();
 
             if (!brep.IsSolid) throw new Exception("Provide a closed Brep");
             if (!brep.IsManifold) throw new Exception("Provide a manifold Brep");
 
             for (int i = 0; i < pc.Value.Count; i++)
             {
-                if (brep.IsPointInside(points[i], 0.0, false)) pc_out.Value.Append(pc.Value[i]); // this is a veeeerrry slow implementation
+                if (brep.IsPointInside(points[i], 0.0, false)) indices.Add(i); // this is a veeeerrry slow implementation
             }
+            pc_out = pc.GetSubsection(indices); 
+
             return pc_out;
         }
 
@@ -385,15 +609,20 @@ namespace Scan2BIM
             if (!brep.IsManifold) throw new Exception("Provide a manifold Mesh");
             var points = pc.Value.AsReadOnlyListOfPoints();
             Point3d point = Point3d.Unset;
+            double[] distances = new double[pc.Value.Count];
 
             for (int i = 0; i < pc.Value.Count; i++)
             {
                 point = brep.ClosestPoint(points[i]);
                 if (point.IsValid)
                 {
-                    pc.Distances[i] = point.DistanceTo(points[i]); // this is a veeeerrry slow implementation
+                    distances[i] = point.DistanceTo(points[i]); // this is a veeeerrry slow implementation
                 }
+                else distances[i] = -1.0;
+
             }
+            pc.Distances.AddRange(distances);
+
         }
 
         /// <summary>
@@ -404,74 +633,125 @@ namespace Scan2BIM
             if (!mesh.IsValid) throw new Exception("Provide a valid Mesh");
             var pcPoints = pc.Value.AsReadOnlyListOfPoints();
             Point3d meshPoint;
+            double[] distances= new double[pc.Value.Count];
             
             for (int i = 0; i < pc.Value.Count; i++)
             {
                 meshPoint = mesh.ClosestPoint(pcPoints[i]);
                 if (meshPoint.IsValid)
                 {
-                    var temp= meshPoint.DistanceTo(pcPoints[i]); // this is not giving the proper results
-                    pc.Distances[i] = temp; // this is a veeeerrry slow implementation
+                    distances[i] = meshPoint.DistanceTo(pcPoints[i]);
                 }
+                else distances[i] = -1.0;
             }
+            pc.Distances.AddRange(distances);
         }
         /// <summary>
         /// Distance between point cloud points and a GH_PointCloud (distance overwrites the PointValue)
         /// </summary>
-        public static void DistanceTo(this GH_PointCloud pc, PointCloud pointCloud)
+        public static void DistanceTo(this GH_PointCloud pc, GH_PointCloud pointCloud)
         {
             if (!pointCloud.IsValid) throw new Exception("Provide a valid GH_PointCloud");
             var points = pc.Value.AsReadOnlyListOfPoints();
             Point3d point = Point3d.Unset;
             int index = 0;
+            double[] distances = new double[pc.Value.Count];
+
 
             for (int i = 0; i < pc.Value.Count; i++)
             {
-                index = pointCloud.ClosestPoint(points[i]); // this is a veeeerrry slow implementation
+                index = pointCloud.Value.ClosestPoint(points[i]); // this is a veeeerrry slow implementation
                 if (index != -1)
                 {
-                    pc.Distances[i] = pointCloud[index].Location.DistanceTo(points[i]); // this is a veeeerrry slow implementation
+                    distances[i] = pointCloud.Value[index].Location.DistanceTo(points[i]); // this is a veeeerrry slow implementation
                 }
+                else distances[i] = -1.0;
+
             }
+            pc.Distances.AddRange(distances);
+
         }
         /// <summary>
         /// Generate samples on a point cloud according to a specific resolution (e.g. a point every 0.05m)
         /// </summary>
-        public static GH_PointCloud GenerateSpatialCloud(this GH_PointCloud pc, double resolution = 0.05)
+        public static GH_PointCloud GenerateRandomCloud(this GH_PointCloud pc, double resolution = 0.05)
         {
             GH_PointCloud pc_out = new GH_PointCloud();
 
             var pcResolution = pc.ComputeResolution(0.01);
             double ratio = Math.Abs(resolution / pcResolution);
             if (ratio == 0 || ratio > 1) ratio = 0.5;
-
-            var nrSamples = (uint)(ratio * pc.Value.Count);
-
-            pc_out.Value = pc.Value.GetRandomSubsample(nrSamples);
-
+            var nrSamples = (int)(ratio * pc.Value.Count);
+    
+            if (nrSamples < 1) throw new Exception("not enough samples.try increasing the ratio");
+            else
+            {
+                var indices = pc.GenerateIndices(nrSamples);
+                var temp=pc.GetSubsection(indices);
+                if (temp != null) pc_out = new GH_PointCloud(temp);
+                else throw new Exception("Random sampling failed. enough points?");
+            }
             return pc_out;
+        }
+        /// <summary>
+        /// Generate an array of indices in range of point cloud 
+        /// </summary>
+        public static int[] GenerateIndices(this GH_PointCloud pc, int nrSamples)
+        {
+            Random random = new Random();
+            int[] array = new int[nrSamples];
+            for (int i = 0; i < nrSamples; i++)
+            {
+                array[i] = random.Next(0, pc.Value.Count);
+            }
+            return array;
         }
         /// <summary>
         /// Generate a nr of random samples on a mesh. The resolution is the nr of points/m²
         /// </summary>
-        public static GH_PointCloud GenerateSpatialCloud(this Mesh mesh, double resolution = 100)
+        public static GH_PointCloud GenerateRandomCloud(this Mesh mesh, double resolution = 0.05)
         {
             GH_PointCloud pc = new GH_PointCloud();
             //int nrSamples = (int)(AreaMassProperties.Compute(mesh).Area * resolution);
 
             int samplesPerTriangle = 0;
             Vector3d vector = new Vector3d();
-
             for (int i = 0; i < mesh.Faces.Count; i++)
             {
-                samplesPerTriangle = (int)(mesh.AreaOfTriangle(i) * resolution);
+                samplesPerTriangle = (int)(mesh.AreaOfTriangle(i) / (resolution*resolution)); // does this give correct result?
                 if (samplesPerTriangle < 2) pc.Value.Add(mesh.Faces.GetFaceCenter(i));
 
-                for (int j = 0; j < samplesPerTriangle; j++) // this is uncessery
+                else
                 {
-                    vector = RandomBarycentricCoordinate();
-                    pc.Value.Add(mesh.PointAt(i, vector[0], vector[1], vector[2], 0.0));
+                    for (int j = 0; j < samplesPerTriangle; j++) 
+                    {
+                        vector = RandomBarycentricCoordinate();
+                        pc.Value.Add(mesh.PointAt(i, vector[0], vector[1], vector[2], 0.0)); 
+                    }
+                }                
+            }
+            return pc;
+        }
+
+        /// <summary>
+        /// Generate a nr of random samples on a mesh. The resolution is the nr of points/m²
+        /// </summary>
+        public static GH_PointCloud GenerateSpatialCloud(this Mesh mesh, double resolution = 0.05)
+        {
+            GH_PointCloud pc = new GH_PointCloud();
+
+            for (int i = 0; i < mesh.Faces.Count; i++)
+            {               
+                if (mesh.AreaOfTriangle(i) < resolution) pc.Value.Add(mesh.Faces.GetFaceCenter(i));
+                else
+                {
+                    var vectors = mesh.BarycentricCoordinateGrid(i,resolution);
+                    foreach (Vector3d vector in vectors) 
+                    {                        
+                        pc.Value.Add(mesh.PointAt(i, vector[0], vector[1], vector[2], 0.0));
+                    }
                 }
+
             }
             return pc;
         }
@@ -490,25 +770,45 @@ namespace Scan2BIM
             {
                 samplesPerFace = (int)(AreaMassProperties.Compute(brep.Faces[i]).Area * resolution);
                 if (samplesPerFace < 2) pc.Value.Add(brep.Faces[i].PointAt(0.5, 0.5)); // this might nog be the right answer
-                for (int j = 0; j < samplesPerFace; j++) // this is uncessery
+                else
                 {
-                    vector = RandomUVCoordinate();
-                    pc.Value.Add(brep.Faces[i].PointAt(vector.X, vector.Y));
+                    for (int j = 0; j < samplesPerFace; j++)
+                    {
+                        vector = RandomUVCoordinate();
+                        pc.Value.Add(brep.Faces[i].PointAt(vector.X, vector.Y)); // this might nog be the right answer
+                    }
                 }
             }
             return pc;
         }
 
-        /// <summary>
-        /// IEnumerable<PointCloudItem> pointCloudItems to PointCloud
-        /// </summary>
-        public static PointCloud ToPointCloud(this IEnumerable<PointCloudItem> pointCloudItems)
+            /// <summary>
+            /// IEnumerable<PointCloudItem> pointCloudItems to PointCloud
+            /// </summary>
+            public static PointCloud ToPointCloud(this IEnumerable<PointCloudItem> pointCloudItems)
         {
             PointCloud pc = new PointCloud();
-            foreach (PointCloudItem pointCloudItem in pointCloudItems)
+            Point3d[] points = new Point3d[pointCloudItems.Count()];
+            Color[] colors = new Color[pointCloudItems.Count()];
+            Vector3d[] normals = new Vector3d[pointCloudItems.Count()]; // this is so memory intensive!
+            Double[] pointvalues = new double[pointCloudItems.Count()];
+
+            points = pointCloudItems.Select(point => point.Location).ToArray();
+            if(pc.ContainsNormals) normals= pointCloudItems.Select(point => point.Normal).ToArray();
+            if(pc.ContainsColors) colors = pointCloudItems.Select(point => point.Color).ToArray();
+            if(pc.ContainsPointValues) pointvalues = pointCloudItems.Select(point => point.PointValue).ToArray();
+
+
+            for (int i = 0; i < pointCloudItems.Count(); i++)
             {
-                pc.Append(pointCloudItem); // addrange is muuuuuch faster!
+                pc.Add(points[i], normals[i], colors[i], pointvalues[i]);
             }
+
+            //foreach (PointCloudItem pointCloudItem in pointCloudItems)
+            //{
+                
+            //    pc.Append(pointCloudItem); // addrange is muuuuuch faster!
+            //}
             return pc;
         }
 
@@ -535,11 +835,11 @@ namespace Scan2BIM
         /// </summary>
         public static List<PointCloudItem> GetPointCloudItems(this GH_PointCloud pc, IEnumerable<int> indices)
         {
-            List<PointCloudItem> pointCloudItems = new List<PointCloudItem>();
+            List<PointCloudItem> pointCloudItems = new List<PointCloudItem>();            
 
             for (int i = 0; i < indices.Count(); i++)
             {
-                pointCloudItems.Add(pc.Value[i]);
+                pointCloudItems.Add(pc.Value[indices.ElementAt(i)]);                
             }
             return pointCloudItems;
         }
@@ -547,12 +847,21 @@ namespace Scan2BIM
         /// <summary>
         /// Get a subcloud of GH_PointCloud
         /// </summary>
-        public static GH_PointCloud GetSubsection(this GH_PointCloud pc, IEnumerable<int> indices)
+        public static GH_PointCloud GetSubsection(this GH_PointCloud pc, IEnumerable<int> indices) // this is slooooooooooooooooooooooow 9s for 10k points
         {
             GH_PointCloud pc_out = new GH_PointCloud();
-            for (int i = 0; i < indices.Count(); i++)
+            List<PointCloudItem> pointCloudItems = pc.GetPointCloudItems(indices);
+            pc_out.Value = pointCloudItems.ToPointCloud();
+            
+            if (pc.ContainsDistances)
             {
-                pc_out.Value.Append(pc.Value[indices.ElementAt(i)]);
+                var distances = pc.Distances.Get(indices.ToArray()); // check this please
+                pc_out.Distances.AddRange(distances);
+            }
+            if (pc.ContainsClassification)
+            {
+                var classifications = pc.Classification.Get(indices.ToArray()); // check this please
+                pc_out.Classification.AddRange(classifications);
             }
             return pc_out;
         }
@@ -644,6 +953,18 @@ namespace Scan2BIM
             return vertices;
         }
 
+        /// <summary>
+        /// Convert IEnumerable<Point3d> to List<Vector3d>
+        /// </summary>
+        public static List<Vector3d> ToVector3d(this IEnumerable<Point3d> points3D)
+        {
+            var vectors = new List<Vector3d>(points3D.Count());
+            for (int i = 0; i < points3D.Count(); i++) // this is rather inneficient because you do calculations of the plane twice
+            {
+                vectors[i] = new Vector3d(points3D.ElementAt(i).X, points3D.ElementAt(i).Y, points3D.ElementAt(i).Z); 
+            }
+            return vectors;
+        }
 
         /// <summary>
         /// Convert IEnumerable<Point3d> to Accord.Math.Point3[] 
@@ -759,7 +1080,7 @@ namespace Scan2BIM
         /// <summary>
         /// Compute the best fit (least squares) planar surface through a mesh
         /// </summary>
-        public static void FitPlanarSurface(this GH_PointCloud pc, out Boolean success, out Brep brep, out int[] inliers, out double rmse, double tolerance = 0.05)
+        public static void FitPlanarSurface(this GH_PointCloud pc, out Boolean success, out Brep brep, out int[] inliers, out double rmse, double tolerance = 0.05) // this yields invalid breps
         {
 
             //List<Point3d> points3D = new List<Point3d>();    // replace this with only the indices
@@ -819,10 +1140,10 @@ namespace Scan2BIM
             int i = 0;
             Boolean success = true;
 
-            while (nrPlanes < i && success)
+            while (i < nrPlanes && success) 
             {
                 i++;
-                pc.FitPlanarSurface(out success, out Brep brep, out int[] inliers, out double rmse, tolerance);
+                pc.FitPlanarSurface(out success, out Brep brep, out int[] inliers, out double rmse, tolerance); // this yields an invalid brep
                 if (success)
                 {
                     pc.Value.RemoveRange(inliers);

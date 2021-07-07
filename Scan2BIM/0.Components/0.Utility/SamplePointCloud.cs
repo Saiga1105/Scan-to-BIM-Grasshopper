@@ -51,9 +51,9 @@ namespace Scan2BIM
 
             // Exceptions
             if (!pc.IsValid) throw new Exception("Invalid Point Cloud");
-            if (resolution <= 0.002) throw new Exception("Invalid Point Cloud");
+            if (resolution <= 0.002) throw new Exception("This resolution is to small ");
             
-            pc = pc.GenerateSpatialCloud(resolution);
+            pc = pc.GenerateRandomCloud(resolution); // there is a problem here
 
             /// Output
             DA.SetData(0, pc);

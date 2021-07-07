@@ -793,6 +793,16 @@ namespace Scan2BIM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icon_PCA {
+            get {
+                object obj = ResourceManager.GetObject("Icon_PCA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_PCD1 {
             get {
                 object obj = ResourceManager.GetObject("Icon_PCD1", resourceCulture);
@@ -1146,6 +1156,16 @@ namespace Scan2BIM.Properties {
         internal static System.Drawing.Bitmap Icon_Site3 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Site3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_SplitByNormals {
+            get {
+                object obj = ResourceManager.GetObject("Icon_SplitByNormals", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

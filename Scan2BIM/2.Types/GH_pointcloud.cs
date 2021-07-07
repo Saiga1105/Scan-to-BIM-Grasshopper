@@ -20,14 +20,14 @@ namespace Scan2BIM
         /// Fields of the GH_PointCloud class
         /// </summary>
         #region fields 
-        private int[] m_classifications; //test
-        private double[] m_distances; //test
+        private List<int> m_classifications; //test
+        private List<double> m_distances; //test
 
         // there currently is only the PointCloud field
         /// <summary>
         /// Gets or sets the distance results of this GH_PointCloud.
         /// </summary>
-        public Double[] Distances
+        public List<double> Distances
         {
             get
             {       
@@ -42,7 +42,7 @@ namespace Scan2BIM
         /// <summary>
         /// Gets or sets the classification results of this GH_PointCloud.
         /// </summary>
-        public int[] Classification
+        public List<int> Classification
         {
             get
             {
@@ -63,8 +63,8 @@ namespace Scan2BIM
         public GH_PointCloud()
         {
             this.m_value = new PointCloud();
-            this.m_classifications = new int[Value.Count]; //test
-            this.m_distances = new double[Value.Count]; //test
+            this.m_classifications = new List<int>(); //test
+            this.m_distances = new List<double>(); //test
 
         }
 
@@ -74,8 +74,8 @@ namespace Scan2BIM
         public GH_PointCloud(PointCloud cloud)
         {
             this.m_value = cloud;
-            this.m_classifications = new int[cloud.Count]; //test
-            this.m_distances = new double[cloud.Count]; //test
+            this.m_classifications = new List<int>(cloud.Count); //test
+            this.m_distances = new List<double>(cloud.Count); //test
         }
 
         /// <summary>
@@ -118,9 +118,10 @@ namespace Scan2BIM
         {
             get
             {
-                if (this.m_classifications.Length ==0) { return false; } // this is a test
+                if (!this.m_classifications.Any()) { return false; } // this is a test
                 return true;
             }
+ 
         }
 
         /// <summary>
@@ -130,7 +131,7 @@ namespace Scan2BIM
         {
             get
             {
-                if (this.m_distances.Length == 0) { return false; } //  test
+                if (!this.m_distances.Any()) { return false; } //  test
                 return true;
             }
         }
@@ -140,7 +141,7 @@ namespace Scan2BIM
         public void ClearClassification()
         {
             if (!ContainsClassification) return;
-            this.m_classifications = null;// new int[Value.Count]; //test
+            this.m_classifications = new List<int>();// new int[Value.Count]; //test
         }
 
         /// <summary>
@@ -149,7 +150,7 @@ namespace Scan2BIM
         public void ClearDistances()
         {
             if (!ContainsDistances) return;
-            this.m_distances = null; //test 
+            this.m_distances = new List<double>(); //test 
         }
                
         /// <summary>
@@ -259,32 +260,61 @@ namespace Scan2BIM
                 return true;
             }
 
-            var asOtherPC = (GH_GeometricGoo<PointCloud>)source;
-            if (asOtherPC != null)
+            if (source.GetType() == typeof(GH_Mesh))
             {
-                this.m_value = asOtherPC.Value;
+                var mesh = (GH_Mesh)source;
+                this.Value = mesh.Value.GenerateSpatialCloud().Value;
                 return true;
             }
-
+            if (source.GetType() == typeof(Mesh))
+            {
+                var mesh = (Mesh)source;
+                this.Value = mesh.GenerateSpatialCloud().Value;
+                return true;
+            }
+            if (source.GetType() == typeof(GH_Brep))
+            {
+                var brep = (GH_Brep)source;
+                this.Value = brep.Value.GenerateSpatialCloud().Value;
+                return true;
+            }
+            if (source.GetType() == typeof(Brep))
+            {
+                var brep = new GH_Brep((Brep)source);
+                this.Value = brep.Value.GenerateSpatialCloud().Value;
+                return true;
+            }
             if (source.GetType() == typeof(IEnumerable<Point3d>))
             {
                 this.m_value = new PointCloud((IEnumerable<Point3d>)source);
                 return true;
             }
-
+            try
+            {
+                var asOtherPC = (GH_GeometricGoo<PointCloud>)source; // cast als het iets anders is dat wel can casten naar een GH_GeometricGoo<PointCloud>
+                if (asOtherPC != null)
+                {
+                    this.m_value = asOtherPC.Value;
+                    return true;
+                }
+            }
+            catch
+            {
+                throw new Exception("cast didn't succeed from another Point Cloud to GH_PointCloud");
+            }
             return base.CastFrom(source);
         }
 
         public override bool CastTo<Q>(out Q target)
         {
-
-            if (typeof(Q) == typeof(PointCloud))
+            //target = default; // this is new
+            if (typeof(Q) == typeof(PointCloud)) // this should be made obsolute by IsAssignableFrom(typeof(PointCloud))
             {
                 target = (Q)(object)this.m_value;
                 return true;
             }
 
-            if (typeof(Q) == typeof(GH_PointCloud))
+            if (typeof(Q) == typeof(GH_PointCloud)) // this should be made obsolute by IsAssignableFrom(typeof(PointCloud))
             {
                 target = (Q)(object)this;
                 return true;
@@ -296,10 +326,20 @@ namespace Scan2BIM
                 return true;
             }
 
-            //return base.CastTo<Q>(out target);
+            if (typeof(Q).IsAssignableFrom(typeof(PointCloud))) // this is the new code
+            {
+                target = (Q)(object)this.Value;
+                return true;
+            }
             target = default;
             return false;
+            
+            /// default code
+            //return base.CastTo<Q>(out target);
+            //target = default;
+            //return false;
         }
+        
         #endregion
 
         #region Transformations
@@ -382,7 +422,7 @@ namespace Scan2BIM
             if (!this.m_value.IsValid) { return 0.0; }
 
             // convert % to actual samplenr
-            double nrSamples = percentage * this.m_value.Count;
+            var nrSamples = (int) (percentage * this.m_value.Count);
 
             /// interal parameters 
             MWNumericArray mWNumericArray = new MWNumericArray();

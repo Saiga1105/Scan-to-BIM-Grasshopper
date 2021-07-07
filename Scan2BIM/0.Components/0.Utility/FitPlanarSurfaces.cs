@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 
 using Grasshopper.Kernel;
+using Grasshopper.Kernel.Types;
+
 using Rhino.Geometry;
 
 namespace Scan2BIM
@@ -23,8 +25,8 @@ namespace Scan2BIM
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGeometryParameter("Geometry", "Geometry", "Input Point Cloud or Mesh", GH_ParamAccess.item); pManager[0].Optional = false;
-            pManager.AddIntegerParameter("nrPlanes", "n", "(optional) number of planar surfaces to fit to the point cloud", GH_ParamAccess.item,1); pManager[1].Optional = true;
+            pManager.AddParameter(new GH_PointCloudParam(), "Geometry", "Geometry", "Input Point Cloud or Mesh", GH_ParamAccess.item); pManager[0].Optional = false;
+            pManager.AddNumberParameter("nrPlanes", "n", "(optional) number of planar surfaces to fit to the point cloud", GH_ParamAccess.item,1.0); pManager[1].Optional = true;
             pManager.AddNumberParameter("Tolerance", "t", "(optional) tolerance for point inliers to the point cloud", GH_ParamAccess.item, 0.05); pManager[2].Optional = true;
 
         }
@@ -46,45 +48,24 @@ namespace Scan2BIM
         {
             //define i/o parameters
             GH_PointCloud pc = null;
-            Brep brep = null;
-            Mesh mesh = null;
-            Object geometry = null;
-            int nrPlanes = 1;
+            double nrPlanes = 1.0;
             double tolerance = 0.05;
             List<Brep> breps = null;
             List<double> rmse = new List<double>();
 
             // read inputs
-            if (!DA.GetData(0, ref geometry)) return;
+            if (!DA.GetData(0, ref pc)) return;
             if (!DA.GetData(1, ref nrPlanes)) return;
-            if (!DA.GetData(1, ref tolerance)) return;
-                        
-            //compute distances
-            if (geometry.GetType() == typeof(GH_PointCloud))
+            if (!DA.GetData(2, ref tolerance)) return;
+
+            // include some more error catching here
+            try
             {
-                pc = (GH_PointCloud)geometry;
-                if (!pc.Value.ContainsNormals) pc.ComputeNormals();
-                pc.FitPlanarSurfaces(out breps, out rmse, nrPlanes, tolerance);
+                pc.FitPlanarSurfaces(out breps, out rmse, (int)nrPlanes, tolerance);        
             }
-            if (geometry.GetType() == typeof(PointCloud))
+            catch
             {
-                pc.Value = (PointCloud)geometry;
-                if (!pc.Value.ContainsNormals) pc.ComputeNormals();
-                pc.FitPlanarSurfaces(out breps, out rmse, nrPlanes, tolerance);
-            }
-            if (geometry.GetType() == typeof(Brep))
-            {
-                brep = (Brep)geometry;
-                pc=brep.GenerateSpatialCloud();
-                if (!pc.Value.ContainsNormals) pc.ComputeNormals();
-                pc.FitPlanarSurfaces(out breps, out rmse, nrPlanes, tolerance);
-            }
-            if (geometry.GetType() == typeof(Mesh))
-            {
-                mesh = (Mesh)geometry;
-                pc=mesh.GenerateSpatialCloud();
-                if (!pc.Value.ContainsNormals) pc.ComputeNormals();
-                pc.FitPlanarSurfaces(out breps, out rmse, nrPlanes, tolerance);
+                throw new Exception("Something went wrong with the planefitting.");
             }
 
             /// Output

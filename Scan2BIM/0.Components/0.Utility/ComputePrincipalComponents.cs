@@ -6,14 +6,14 @@ using Rhino.Geometry;
 
 namespace Scan2BIM
 {
-    public class SampleMesh : GH_Component
+    public class ComputePrincipalComponents : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the MyComponent1 class.
+        /// Initializes a new instance of the PrincipalComponentAnalysis class.
         /// </summary>
-        public SampleMesh()
-          : base("Sample Mesh", "Sample Mesh",
-              "Sample 3D points on a mesh given a resolution (e.g. 0.05m between points) ",
+        public ComputePrincipalComponents()
+          : base("Principal Components", "PCA",
+              "Compute the principal components of a set of 3D coordinates",
               "Saiga", "Utility")
         {
         }
@@ -23,8 +23,7 @@ namespace Scan2BIM
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddMeshParameter("Mesh", "M", "Mesh Geometry", GH_ParamAccess.item); pManager[0].Optional = false;
-            pManager.AddNumberParameter("resolution", "r", "resolution of the point sampling on the mesh (e.g. 0.05m between points)", GH_ParamAccess.item, 0.05); pManager[1].Optional = true;
+            pManager.AddParameter(new GH_PointCloudParam(), "Geometry", "Geometry", "Input Point Cloud or Mesh", GH_ParamAccess.item); pManager[0].Optional = false;
         }
 
         /// <summary>
@@ -32,7 +31,8 @@ namespace Scan2BIM
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddParameter(new GH_PointCloudParam(), "Point Cloud", "PCD", "Point Cloud data", GH_ParamAccess.item); 
+            pManager.AddVectorParameter("Eigenvectors", "v", "Eigenvectors of the 3D set {X,Y,Z}", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Eigenvalues", "λ", "Loading components of the eigenvectors", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -43,21 +43,22 @@ namespace Scan2BIM
         {
             //define i/o parameters
             GH_PointCloud pc = null;
-            Mesh mesh = new Mesh();
-            double resolution=0.05;
+            List<Vector3d> eigenvectors = null;
+            List<double> eigenvalues = null;
 
             // read inputs
-            if (!DA.GetData(0, ref mesh)) return;
-            if (!DA.GetData(1, ref resolution)) return;
+            if (!DA.GetData(0, ref pc)) return;
 
-            // Exceptions
-            if (!mesh.IsValid) throw new Exception("Invalid mesh");
-            var area = Math.Sqrt(AreaMassProperties.Compute(mesh).Area);
-            if (area < resolution) pc = mesh.GetVertexCloud(); /// this is incorrect
-            else pc = mesh.GenerateSpatialCloud(resolution);
+            // some error catching here
+            if (pc.Value.Count < 3 ) throw new Exception("Pick a larger set");
+            if (!pc.IsValid) throw new Exception("Invalid Point Cloud");
 
+            // method
+            pc.ComputePrincipalComponents(out eigenvectors, out eigenvalues);
+            
             /// Output
-            DA.SetData(0, pc);
+            DA.SetDataList(0, eigenvectors);
+            DA.SetDataList(1, eigenvalues);
         }
 
         /// <summary>
@@ -68,7 +69,7 @@ namespace Scan2BIM
             get
             {
                 //You can add image files to your project resources and access them like this:
-                return Properties.Resources.Icon_SampleMesh;
+                 return Properties.Resources.Icon_PCA;                
             }
         }
 
@@ -77,7 +78,7 @@ namespace Scan2BIM
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("4c54f01b-8d30-4efd-950b-0e4f2592fc56"); }
+            get { return new Guid("39aa7b32-4c7a-424a-a2b9-9f713788a538"); }
         }
     }
 }
