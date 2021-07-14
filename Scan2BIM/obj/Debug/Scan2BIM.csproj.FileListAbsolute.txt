@@ -273,7 +273,6 @@ D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Accord.Math.xml
 D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Accord.Math.Core.xml
 D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\Accord.Statistics.xml
 D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\geometry3Sharp.dll
-D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\4.Python\scan2bim.py
 D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\IronPython.dll
 D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\IronPython.Modules.dll
 D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\IronPython.SQLite.dll

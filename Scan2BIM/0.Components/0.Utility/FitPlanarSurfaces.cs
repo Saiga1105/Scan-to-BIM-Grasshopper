@@ -59,6 +59,8 @@ namespace Scan2BIM
             if (!DA.GetData(2, ref tolerance)) return;
 
             // include some more error catching here
+            if (tolerance < 0 ) throw new Exception("Choose a value >0");
+            if (!pc.IsValid || pc.Value.Count <2) throw new Exception("Invalid Point Cloud");
             try
             {
                 pc.FitPlanarSurfaces(out breps, out rmse, (int)nrPlanes, tolerance);        

@@ -426,6 +426,7 @@ namespace Scan2BIM
             MWNumericArray mWNumericArrayA = new MWNumericArray();
             MWNumericArray mWNumericArrayB = new MWNumericArray();
 
+            // this conversion for some reason failed
             if (!sampleA.AsReadOnlyListOfPoints().ToArray().ToMWNumericArray(ref mWNumericArrayA)) throw new Exception("ToMWNumericArray conversion error. Matlab runtime ok?");
             if (!sampleB.AsReadOnlyListOfPoints().ToArray().ToMWNumericArray(ref mWNumericArrayB)) throw new Exception("ToMWNumericArray conversion error. Matlab runtime ok?");
 

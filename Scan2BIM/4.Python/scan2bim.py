@@ -6,13 +6,16 @@ equirectangular pano format this is the orientation of the center of the pano.
 The coordinate system is right-handed with z as the vertical direction.
 """
 
-import matplotlib.pyplot as plt
-import numpy as np
-import cv2
-import open3d as o3d
-import json
-import os
-import pye57
+import matplotlib.pyplot as plt 
+# conda install -c conda-forge matplotlib
+import numpy as np 
+import torch
+import cv2 
+import open3d as o3d 
+import json  
+import os 
+# import pye57
+
 
 def sample_function(arg1):
     """Explenation
@@ -163,15 +166,24 @@ def e57_to_dmap(pcd,
     # load e57
     return 1
 
-def MyFunction(result,
-                ):
+def My1stFunction():
     """ This is the first attempt of calling a python function from C#
 
     Args:
 
     """
     # here goes the code
-    result = 5
+    result = 3
+    return result
+
+def My2ndFunction(arg1):
+    """ This is the first attempt of calling a python function from C#
+
+    Args:
+
+    """
+    # here goes the code
+    result = 3
     return result
 
 def MyTupleFunction(input1,

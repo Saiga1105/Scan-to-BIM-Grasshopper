@@ -6,4 +6,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartProgram>C:\Program Files\Rhino WIP\System\Rhino.exe</StartProgram>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <StartProgram>C:\Program Files\Rhino WIP\System\Rhino.exe</StartProgram>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
 </Project>

@@ -6,10 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks; // I don't really understand what the threading does?
 
-using IronPython.Hosting; // iron python is only 2.7. won't we need python 3.8 to acess complex code? https://ironpython.net/
-using Microsoft.Scripting.Hosting; // latest version is IronPython3.4 (not in nuggetpackage)
+using Rhino.Geometry; // https://developer.rhino3d.com/api/
+using Rhino.DocObjects.Custom;
+using Rhino.Display;
 
-using Python.Runtime; // this should be compatible with python 3.8
+using Grasshopper; // https://developer.rhino3d.com/api/
+using Grasshopper.Kernel;
+using Grasshopper.Kernel.Data;
+using Grasshopper.Kernel.Types;
+
+using Python.Runtime; // this should be compatible with python 3.7 http://pythonnet.github.io/
 
 
 
@@ -18,47 +24,98 @@ namespace Scan2BIM
     public static class SpatialTools_Python // why does have to be a static class?
     {
         /// <summary>
-        /// Run an Ironpython script without arguments. rCodeFilePath = full path + name + extension
-        /// </summary>        
-        public static void MyFirstIronPythonScript(string rCodeFilePath)
+        /// Initialize python env 
+        /// </summary>
+        public static void PythonInitialize() // maybe pass env?
         {
-            // so this runs an entire file instead of a function?
-            ScriptEngine engine = IronPython.Hosting.Python.CreateEngine();
-            engine.ExecuteFile(rCodeFilePath); // where is this local path?
+            string pathToVirtualEnv = @"C:\Users\u0094523\.conda\envs\py37";
+            string pathToMyCode = @"K:\Projects\2025-02 Project BAEKELAND MEETHET\6.Code\Repositories\Scan2BIM\Scan2BIM-python\src\3DReconstruction";//\scan2bim.py
+
+            Environment.SetEnvironmentVariable("PATH", pathToVirtualEnv, EnvironmentVariableTarget.Process);
+            Environment.SetEnvironmentVariable("PYTHONHOME", pathToVirtualEnv, EnvironmentVariableTarget.Process);
+            Environment.SetEnvironmentVariable("PYTHONPATH", $"{pathToVirtualEnv}\\Lib\\site-packages;{pathToVirtualEnv}\\Lib", EnvironmentVariableTarget.Process);
+            
+            // path was succesfully added
+            Environment.SetEnvironmentVariable("PYTHONPATH", pathToMyCode, EnvironmentVariableTarget.Process);
+           
+            PythonEngine.PythonHome = pathToVirtualEnv; // this was fixed by Py3.7 env
+            PythonEngine.PythonPath = PythonEngine.PythonPath + ";" + Environment.GetEnvironmentVariable("PYTHONPATH", EnvironmentVariableTarget.Process);
         }
 
         /// <summary>
-        /// Run an Ironpython script with arguments. rCodeFilePath = full path + name + extension
+        /// Initialize python env 
         /// </summary>
-        public static void MyFirstIronPythonScript(string rCodeFilePath, List<string> argList) // can we pass something else than strings?
+        public static void PythonInitialize2() // maybe pass env?
         {
-            // step0: create the python engine
-            ScriptEngine engine = IronPython.Hosting.Python.CreateEngine();
+            // Setup path to python environment. Be carefull for the bitstance of the environment (currently x64)
+            string pathToPython = @"C:\Users\u0094523\.conda\envs\py37";
+            string path = pathToPython + ";" +
+                          Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Machine);
+            Environment.SetEnvironmentVariable("PATH", path, EnvironmentVariableTarget.Process);
+            Environment.SetEnvironmentVariable("PYTHONHOME", pathToPython, EnvironmentVariableTarget.Process);
 
-            // step1: provide a script 
-            //var rCodeFilePath = @"K:\Projects\2025-02 Project BAEKELAND MEETHET\6.Code\Repositories\Scan2BIM\Scan2BIM-python\src\3DReconstruction\scan2bim.py"; // is there a way to make this more dynamic?
-            var source = engine.CreateScriptSourceFromFile(rCodeFilePath);
-
-            // step2: provide agruments
-            //var argList = new List<string>();
-            //argList.Add(""); // this contains the name of the script
-            //argList.Add(""); // first data. Can we pass something else than strings?
-            engine.GetSysModule().SetVariable("argList", argList);
-
-            // step2: redirect the outputs
-            var eIO = engine.Runtime.IO; // do we only have todo this once?
-            var errors = new MemoryStream();
-            eIO.SetErrorOutput(errors, Encoding.Default);
-            var results = new MemoryStream();
-            eIO.SetOutput(results, Encoding.Default);
-
-            // step3: execute the script
-            var scope = engine.CreateScope(); // this is optional. what does it do? its for debugging
-            source.Execute(scope);
-            string str(byte[] x) => Encoding.Default.GetString(x); // this is acually a new function that we define to convert the outputs from python
-            var errorsC = str(errors.ToArray());
-            var resultsC = str(results.ToArray());
+            // Setup all paths to modules
+            var lib = new[]
+            {
+                // this first path doesn't work
+                @"K:\Projects\2025-02 Project BAEKELAND MEETHET\6.Code\Repositories\Scan2BIM\Scan2BIM-python\src\3DReconstruction\scan2bim",
+                Path.Combine(pathToPython, "Lib"), // custom modules should be here
+                Path.Combine(pathToPython, "DLLs")
+            };
+            string paths = string.Join(";", lib);
+            Environment.SetEnvironmentVariable("PYTHONPATH", paths, EnvironmentVariableTarget.Process);
         }
+
+        /// <summary>
+        /// Initialize python env 
+        /// </summary>
+        public static void PythonInitialize3() // maybe pass env?
+        {
+            // Setup path to python environment. Be carefull for the bitstance of the environment (currently x64)
+            string pathToPython = @"C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64";
+            string path = pathToPython + ";" +
+                          Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Machine);
+            Environment.SetEnvironmentVariable("PATH", path, EnvironmentVariableTarget.Process);
+            Environment.SetEnvironmentVariable("PYTHONHOME", pathToPython, EnvironmentVariableTarget.Process);
+
+            // Setup all paths to modules
+            var lib = new[]
+            {
+                @"K:\Projects\2025-02 Project BAEKELAND MEETHET\6.Code\Repositories\Scan2BIM\Scan2BIM-python\src\3DReconstruction\",
+                @"K:\Projects\2025-02 Project BAEKELAND MEETHET\6.Code\Repositories\Scan2BIM\Scan2BIM-python\src\3DReconstruction\scan2bim",
+                @"D:\Scan - to - BIM repository\Scan - to - BIM - Grasshopper\Scan2BIM\4.Python",
+                @"D:\Scan - to - BIM repository\Scan - to - BIM - Grasshopper\Scan2BIM\4.Python\scan2bim",
+                @"C:\Program Files(x86)\Microsoft Visual Studio\Shared\Python37_64\Scripts", // this is just a test
+                Path.Combine(pathToPython, "Lib"),
+                Path.Combine(pathToPython, "DLLs")
+            };
+
+            string paths = string.Join(";", lib);
+            Environment.SetEnvironmentVariable("PYTHONPATH", paths, EnvironmentVariableTarget.Process);
+        }
+
+        /// <summary>
+        /// Convert C# classes to Python objects
+        /// </summary>
+        public static void ToPyObject(this GH_PointCloud pc)     
+        {
+            using (Py.GIL()) // you have to contain all your statements in this Py.GIL to manage threads
+            {
+                // create a Python scope (what is a scope?)
+                using (PyScope scope = Py.CreateScope())
+                {
+                    //// convert the Person object to a PyObject
+                    //PyObject pyPerson = Point3d.ToPython();
+
+                    //// create a Python variable "person"
+                    //scope.Set("person", pyPerson);
+
+                    //// the person object may now be used in Python
+                    //string code = "fullName = person.FirstName + ' ' + person.LastName";
+                    //scope.Exec(code);
+                }
+            }
+        }             
 
         /// <summary>
         /// Run a python 3.8 script with arguments. rCodeFilePath = full path + name + extension. args separated by spaces
@@ -70,7 +127,7 @@ namespace Scan2BIM
             string result = string.Empty;
             try
             {
-                var info = new ProcessStartInfo(@"C:\Users\u0094523\.conda\envs\scan2bim2\python.exe"); // this is python 3.8.8
+                var info = new ProcessStartInfo(@"C:\Users\u0094523\.conda\envs\py37\python.exe"); // this is python 3.8.8
                 info.Arguments = rCodeFilePath + " " + args;
                 info.RedirectStandardInput = false;
                 info.RedirectStandardOutput = true;
@@ -93,21 +150,64 @@ namespace Scan2BIM
         }
 
         /// <summary>
-        /// Run an Ironpython function with arguments. Unclear if this is possible!
+        /// Run an Python function without arguments. 
         /// </summary>
-        public static void MyFirstPythonFunction(this GH_PointCloud pc, out Boolean result)
+        public static void MyFirstPythonFunction(this GH_PointCloud pc, out Boolean results)
         {
-            //IDictionary<string, object> options = new Dictionary<string, object>();
-            //options["Arguments"] = new[] { "C:\\Program Files (x86)\\IronPython 2.7\\Lib", "bar" }; // On windows we need double \\ for folders
 
-            //var ipy = Python.CreateRuntime(options);
-            //var script = @"K:\Projects\2025-02 Project BAEKELAND MEETHET\6.Code\Repositories\Scan2BIM\Scan2BIM-python\src\3DReconstruction\scan2bim.py";
+            //PythonInitialize();
+            //PythonInitialize2();
+            PythonInitialize3();
 
-            //dynamic Python_File = ipy.UseFile(script);
+            using (Py.GIL()) // Global Interpreter Lock: you have to contain all your statements in this Py.GIL to manage threads
+            {
+                // this is unneccesary but good practice to test whether all modules can be accessed
+                dynamic np = Py.Import("numpy");   
+                dynamic o3d = Py.Import("open3d");
+                dynamic cv2 = Py.Import("cv2"); // pip install opencv-contrib-python
+                dynamic plt = Py.Import("matplotlib");  
+                dynamic torch = Py.Import("torch"); 
 
-            //Python_File.MethodCall("MyFunction"); // can i access the results?
+                // can we test going inside repo's?
+                // test with tensorflow?
+                // keep searching for that path
+                // can we put environment on the server?
+                // can we put a build event on scan2bim that it copies to Lib?
 
-            result = false;
+                //dynamic nn = Py.Import("torch.nn");  
+                //dynamic F = Py.Import("torch.nn.functional");  
+                //dynamic optim = Py.Import("torch.optim"); 
+
+                // it works if script is in Lib!!!!!!
+                dynamic s2b = Py.Import("scan2bim");  
+
+                var result = s2b.My1stFunction();
+
+                // we still have to convert the result to a python object
+
+                if (result != null) results = true;
+                else throw new Exception("something 1st pythonish broke");
+            }
+        }
+
+        /// <summary>
+        /// Run an Python function with arguments. 
+        /// </summary>
+        public static void MySecondPythonFunction(this GH_PointCloud pc, out Boolean results)
+        {
+            PythonInitialize();
+
+            using (Py.GIL()) // Global Interpreter Lock: you have to contain all your statements in this Py.GIL to manage threads
+            {
+                // shouldn't we use PyOBject rather than dynamic?
+                dynamic np = Py.Import("numpy");
+                dynamic s2b = PythonEngine.ImportModule(@"K:\\Projects\\2025-02 Project BAEKELAND MEETHET\\6.Code\\Repositories\\Scan2BIM\\Scan2BIM-python\\src\\3DReconstruction\\scan2bim.py");
+
+                var result = s2b.My2ndFunction(5.0);
+
+                if (result != null) results = true;
+                else throw new Exception("something 2nd pythonish broke");
+            }
         }
 
     }
