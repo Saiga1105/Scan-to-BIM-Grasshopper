@@ -49,7 +49,10 @@ namespace Scan2BIM
             if (!DA.GetData(0, ref pc)) return;
 
             // method
-            pc.MyFirstPythonFunction(out bool results);
+            pc.MyFirstPythonFunction(out bool result);
+            pc.MySecondPythonFunction(out bool results);
+            //pc.MyThirdPythonFunction(out bool results);
+
 
             /// Output
             DA.SetData(0, pc);
