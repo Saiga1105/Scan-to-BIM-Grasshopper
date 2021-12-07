@@ -1,0 +1,8 @@
+OBJ,fog:asObj_v3.0-obj,.obj,1,MTL,utf-8,string,0,
+MTL,fog:asObj_v3.0-mtl,.mtl,2,None,utf-8,string,0,
+PLY,fog:asPly_v1.0,.ply,0,None,base64,base64Binary,1,
+STEP,fog:asStep_ap214,.step,0,None,utf-8,string,0,
+STEP,fog:asStep_ap214,.stp,0,None,utf-8,string,0,
+COLLADA,fog:asCollada_v1.4.1,.dae,0,None,utf-8,string,0,
+Rhino 6,fog:asRhino_v6,.3dm,0,None,base64,base64Binary,1,
+E57,fog:asE57_v1.0,.e57,0,None,base64,base64Binary,1,

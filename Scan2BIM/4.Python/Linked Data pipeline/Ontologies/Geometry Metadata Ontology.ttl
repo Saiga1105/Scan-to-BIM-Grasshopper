@@ -1,0 +1,588 @@
+@prefix : <https://w3id.org/gom#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/gom> .
+
+<https://w3id.org/gom> rdf:type owl:Ontology ;
+                        <http://purl.org/dc/terms/creator> <https://www.researchgate.net/profile/Anna_Wagner13> ,
+                                                           <https://www.researchgate.net/profile/Mathias_Bonduel> ,
+                                                           <https://www.researchgate.net/profile/Pieter_Pauwels> ;
+                        <http://purl.org/dc/terms/description> """The Geometry Metadata Ontology contains terminology to Coordinate Systems (CS), length units and other metadata (file size, software of origin, etc.). GOM is designed to be at least compatible with OMG (Ontology for Managing Geometry) and FOG (File Ontology for Geometry formats), and their related graph patterns.
+
+In addition, GOM provides terminology for some experimental data structures to manage (marked as vs:term_status = unstable):
+* transformed geometry (e.g. a prototype door geometry that is reused for all doors of this type). This is closely related to the transformation of Coordinate Systems"""@en ;
+                        <http://purl.org/dc/terms/issued> "2019-10-15"^^xsd:date ;
+                        <http://purl.org/dc/terms/modified> "2020-05-18"^^xsd:date ;
+                        <http://purl.org/dc/terms/title> "GOM: Geometry Metadata Ontology"@en ;
+                        <http://purl.org/vocab/vann/example> "https://raw.githubusercontent.com/mathib/fog-ontology/master/examples/sample_abox_snk_contractor.ttl" ,
+                                                             "https://raw.githubusercontent.com/mathib/fog-ontology/master/examples/sample_abox_snk_inspector.ttl" ,
+                                                             "https://raw.githubusercontent.com/mathib/gom-ontology/master/examples/gom-demo.json" ;
+                        <http://purl.org/vocab/vann/preferredNamespacePrefix> "gom" ;
+                        <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/gom#" ;
+                        rdfs:comment """- Version 0.0.2: adjusted wrong domain, range and label on gom:hasCoordinateSystem; general typos; BREP and NURBS geometry
+- Version 0.0.1: initial version"""@en ;
+                        owl:versionInfo "0.0.2" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/example
+<http://purl.org/vocab/vann/example> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/domainIncludes
+<http://schema.org/domainIncludes> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/rangeIncludes
+<http://schema.org/rangeIncludes> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2003/06/sw-vocab-status/ns#term_status
+<http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/gom#columnMajorArray
+:columnMajorArray rdf:type rdfs:Datatype ;
+                  rdfs:comment "a JSON column major array representing a square matrix. An example in Turtle of a literal representing a 2 X 2 matrix M: \"[m11,m21,m12,m22]\"^^gom:columnMajorArray"@en ;
+                  rdfs:isDefinedBy : ;
+                  rdfs:label "a column major array"@en .
+
+
+###  https://w3id.org/gom#rowMajorArray
+:rowMajorArray rdf:type rdfs:Datatype ;
+               rdfs:comment "a JSON row major array representing a square matrix. An example in Turtle of a literal representing a 2 X 2 matrix M: \"[m11,m12,m21,m22]\"^^gom:rowMajorArray"@en ;
+               rdfs:isDefinedBy : ;
+               rdfs:label "a row major array"@en .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://creativecommons.org/ns#license
+<http://creativecommons.org/ns#license> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/gom#createdIn
+:createdIn rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:range :GeometryModellingApplication ;
+           <http://schema.org/domainIncludes> <https://w3id.org/omg#Geometry> ,
+                                              <https://w3id.org/omg#GeometryState> ;
+           rdfs:comment "property to link to the geometry modelling application the geometry description was created in"@en ;
+           rdfs:isDefinedBy : ;
+           rdfs:label "created in"@en .
+
+
+###  https://w3id.org/gom#fromCartesianCoordinateSystem
+:fromCartesianCoordinateSystem rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf :fromCoordinateSystem ;
+                               rdf:type owl:FunctionalProperty ;
+                               rdfs:domain :AffineCoordinateSystemTransformation ;
+                               rdfs:range :CartesianCoordinateSystem ;
+                               rdfs:comment "links to an instance of gom:CartesianCoordinateSystem where the transformation results in"@en ;
+                               rdfs:isDefinedBy : ;
+                               rdfs:label "from Cartesian Coordinate System"@en .
+
+
+###  https://w3id.org/gom#fromCoordinateSystem
+:fromCoordinateSystem rdf:type owl:ObjectProperty ,
+                               owl:FunctionalProperty ;
+                      rdfs:domain :CoordinateSystemTransformation ;
+                      rdfs:range :CoordinateSystem ;
+                      rdfs:comment "links to an instance of gom:CoordinateSystem where the transformation results in"@en ;
+                      rdfs:isDefinedBy : ;
+                      rdfs:label "from Coordinate System"@en .
+
+
+###  https://w3id.org/gom#hasCoordinateSystem
+:hasCoordinateSystem rdf:type owl:ObjectProperty ,
+                              owl:FunctionalProperty ;
+                     rdfs:range :CoordinateSystem ;
+                     <http://schema.org/domainIncludes> "omg:Geometry" ,
+                                                        "omg:GeometryState" ;
+                     rdfs:comment "Geometry description is defined in exactly one Coordinate System. This property links a omg:Geometry of omg:GeometryState instance to a gom:CoordinateSystem instance."@en ;
+                     rdfs:isDefinedBy : ;
+                     rdfs:label "has coordinate system"@en .
+
+
+###  https://w3id.org/gom#hasLengthUnit
+:hasLengthUnit rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :CartesianCoordinateSystem ;
+               rdfs:range :LengthUnit ;
+               rdfs:comment "Each Cartesian Coordinate System has exactly one length unit. If such a Coordinate System does not link to a length unit, it is assumed to be in metre."@en ;
+               rdfs:isDefinedBy : ;
+               rdfs:label "has length unit"@en .
+
+
+###  https://w3id.org/gom#hasSimplifiedGeometry
+:hasSimplifiedGeometry rdf:type owl:ObjectProperty ,
+                                owl:FunctionalProperty ;
+                       rdfs:domain :RepresentedAccuracyAnalysis ;
+                       <http://schema.org/rangeIncludes> <https://w3id.org/omg#Geometry> ,
+                                                         <https://w3id.org/omg#GeometryState> ;
+                       rdfs:comment "The simplified geometry of a gom:RepresentedAccuracyAnalysis that is compared with a survey geometry."@en ;
+                       rdfs:isDefinedBy : ;
+                       rdfs:label "has simplified geometry"@en .
+
+
+###  https://w3id.org/gom#hasSurveyGeometry
+:hasSurveyGeometry rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain :RepresentedAccuracyAnalysis ;
+                   <http://schema.org/rangeIncludes> <https://w3id.org/omg#Geometry> ,
+                                                     <https://w3id.org/omg#GeometryState> ;
+                   rdfs:comment "The survey geometry where a gom:RepresentedAccuracyAnalysis starts from."@en ;
+                   rdfs:isDefinedBy : ;
+                   rdfs:label "has survey geometry"@en .
+
+
+###  https://w3id.org/gom#toCartesianCoordinateSystem
+:toCartesianCoordinateSystem rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf :toCoordinateSystem ;
+                             rdf:type owl:FunctionalProperty ;
+                             rdfs:domain :AffineCoordinateSystemTransformation ;
+                             rdfs:range :CartesianCoordinateSystem ;
+                             rdfs:comment "links to an instance of gom:CartesianCoordinateSystem where the transformation is applied to"@en ;
+                             rdfs:isDefinedBy : ;
+                             rdfs:label "to Cartesian Coordinate System"@en .
+
+
+###  https://w3id.org/gom#toCoordinateSystem
+:toCoordinateSystem rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain :CoordinateSystemTransformation ;
+                    rdfs:range :CoordinateSystem ;
+                    rdfs:comment "links an instance of gom:CoordinateSystemTransformation to an instance of gom:CoordinateSystem where the transformation is applied to"@en ;
+                    rdfs:isDefinedBy : ;
+                    rdfs:label "to Coordinate System"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/gom#hasAnalysisFile
+:hasAnalysisFile rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain :RepresentedAccuracyAnalysis ;
+                 rdfs:comment "Links to an RDF literal containing an embedded analysis file or a reference to such a file."@en ;
+                 rdfs:isDefinedBy : ;
+                 rdfs:label "has analysis file"@en .
+
+
+###  https://w3id.org/gom#hasEdges
+:hasEdges rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:range xsd:nonNegativeInteger ;
+          <http://schema.org/domainIncludes> <https://w3id.org/omg#Geometry> ,
+                                             <https://w3id.org/omg#GeometryState> ;
+          rdfs:comment "the number of edges of a mesh geometry description"@en ;
+          rdfs:isDefinedBy : ;
+          rdfs:label "has edges"@en .
+
+
+###  https://w3id.org/gom#hasFaces
+:hasFaces rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:range xsd:nonNegativeInteger ;
+          <http://schema.org/domainIncludes> <https://w3id.org/omg#Geometry> ,
+                                             <https://w3id.org/omg#GeometryState> ;
+          rdfs:comment "the number of faces of a mesh geometry description"@en ;
+          rdfs:isDefinedBy : ;
+          rdfs:label "has faces"@en .
+
+
+###  https://w3id.org/gom#hasFileSize
+:hasFileSize rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:range xsd:nonNegativeInteger ;
+             <http://schema.org/domainIncludes> <https://w3id.org/omg#Geometry> ,
+                                                <https://w3id.org/omg#GeometryState> ;
+             rdfs:comment "the file size of the geometry description in bytes. If the geometry description includes material and/or texture files, the size of these files is included."@en ;
+             rdfs:isDefinedBy : ;
+             rdfs:label "has file size"@en .
+
+
+###  https://w3id.org/gom#hasSurfaceArea
+:hasSurfaceArea rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:range xsd:decimal ;
+                <http://schema.org/domainIncludes> <https://w3id.org/omg#Geometry> ,
+                                                   <https://w3id.org/omg#GeometryState> ;
+                rdfs:comment "the area of a volumetric (closed) geometry description. The units of this value are in m2"@en ;
+                rdfs:isDefinedBy : ;
+                rdfs:label "has surface area"@en .
+
+
+###  https://w3id.org/gom#hasTransformationMatrix
+:hasTransformationMatrix rdf:type owl:DatatypeProperty ,
+                                  owl:FunctionalProperty ;
+                         rdfs:domain :AffineCoordinateSystemTransformation ;
+                         <http://schema.org/rangeIncludes> :columnMajorArray ,
+                                                           :rowMajorArray ;
+                         rdfs:comment "has a single 4 X 4 transformation matrix. This datatype property links a gom:AffineCoordinateSystemTransformation to exactly one 4 X 4 transformation matrix M. Currently, two approaches can be used to define this matrix in one literal, i.e. using a JSON row major array (gom:rowMajorArray) or a column major array (gom:columnMajorArray)."@en ;
+                         rdfs:isDefinedBy : ;
+                         rdfs:label "has a transformation matrix"@en .
+
+
+###  https://w3id.org/gom#hasVertices
+:hasVertices rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:range xsd:nonNegativeInteger ;
+             <http://schema.org/domainIncludes> <https://w3id.org/omg#Geometry> ,
+                                                <https://w3id.org/omg#GeometryState> ;
+             rdfs:comment "the number of vertices of a mesh or point cloud geometry description"@en ;
+             rdfs:isDefinedBy : ;
+             rdfs:label "has vertices"@en .
+
+
+###  https://w3id.org/gom#hasVolume
+:hasVolume rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:range xsd:decimal ;
+           <http://schema.org/domainIncludes> <https://w3id.org/omg#Geometry> ,
+                                              <https://w3id.org/omg#GeometryState> ;
+           rdfs:comment "the volume of a volumetric (closed) geometry description. The units of this value are in m3"@en ;
+           rdfs:isDefinedBy : ;
+           rdfs:label "has volume"@en .
+
+
+###  https://w3id.org/gom#locallyTransformedByMatrix
+:locallyTransformedByMatrix rdf:type owl:DatatypeProperty ,
+                                     owl:FunctionalProperty ;
+                            <http://schema.org/domainIncludes> <https://w3id.org/omg#Geometry> ,
+                                                               <https://w3id.org/omg#GeometryState> ;
+                            rdfs:comment "Property to link a omg:Geometry, that transforms (omg:transformsGeometry) another omg:Geometry (prototype geometry), to an RDF literal containing the 4x4 transformation matrix. {@en}x" ;
+                            rdfs:isDefinedBy : ;
+                            rdfs:label "locally transformed by"@en ;
+                            <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+
+
+###  https://w3id.org/gom#maxOcclusionDistance
+:maxOcclusionDistance rdf:type owl:DatatypeProperty ,
+                               owl:FunctionalProperty ;
+                      rdfs:domain :RepresentedAccuracyAnalysis ;
+                      rdfs:range xsd:decimal ;
+                      rdfs:comment "The maximum calculated deviation distance to classify a point on the surface of the simplified geometry as being occluded. It is a setting of the represented accuracy analysis."@en ;
+                      rdfs:isDefinedBy : ;
+                      rdfs:label "max occlusion distance (mm)"@en .
+
+
+###  https://w3id.org/gom#total95PercentUpperLimit
+:total95PercentUpperLimit rdf:type owl:DatatypeProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain :RepresentedAccuracyAnalysis ;
+                          rdfs:range xsd:decimal ;
+                          rdfs:comment "The total deviation limit in mm where 95% of the surface area complies with."@en ;
+                          rdfs:isDefinedBy : ;
+                          rdfs:label "total 95% deviation limit"@en .
+
+
+###  https://w3id.org/gom#totalLOA10
+:totalLOA10 rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :RepresentedAccuracyAnalysis ;
+            rdfs:range xsd:decimal ;
+            rdfs:comment "The percentage of total relevant surface area of the simplified geometry that is occluded in LOA10 (deviation > 50 mm)"@en ;
+            rdfs:isDefinedBy : ;
+            rdfs:label "% of total surface area in LOA10"@en .
+
+
+###  https://w3id.org/gom#totalLOA20
+:totalLOA20 rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :RepresentedAccuracyAnalysis ;
+            rdfs:range xsd:decimal ;
+            rdfs:comment "The percentage of total relevant surface area of the simplified geometry that is occluded in LOA20 (50 mm > deviation > 15 mm)"@en ;
+            rdfs:isDefinedBy : ;
+            rdfs:label "% of total surface area in LOA20"@en .
+
+
+###  https://w3id.org/gom#totalLOA30
+:totalLOA30 rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :RepresentedAccuracyAnalysis ;
+            rdfs:range xsd:decimal ;
+            rdfs:comment "The percentage of total relevant surface area of the simplified geometry that is occluded in LOA30 (15 mm > deviation > 5 mm)"@en ;
+            rdfs:isDefinedBy : ;
+            rdfs:label "% of total surface area in LOA30"@en .
+
+
+###  https://w3id.org/gom#totalLOA40
+:totalLOA40 rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :RepresentedAccuracyAnalysis ;
+            rdfs:range xsd:decimal ;
+            rdfs:comment "The percentage of total relevant surface area of the simplified geometry that is occluded in LOA40 (5 mm > deviation > 1 mm)"@en ;
+            rdfs:isDefinedBy : ;
+            rdfs:label "% of total surface area in LOA40"@en .
+
+
+###  https://w3id.org/gom#totalLOA50
+:totalLOA50 rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :RepresentedAccuracyAnalysis ;
+            rdfs:range xsd:decimal ;
+            rdfs:comment "The percentage of total relevant surface area of the simplified geometry that is occluded in LOA50 (1 mm > deviation > 0 mm)"@en ;
+            rdfs:isDefinedBy : ;
+            rdfs:label "% of total surface area in LOA50"@en .
+
+
+###  https://w3id.org/gom#totalOccluded
+:totalOccluded rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :RepresentedAccuracyAnalysis ;
+               rdfs:range xsd:decimal ;
+               rdfs:comment "The percentage of total relevant surface area of the simplified geometry that is occluded during the data acquisition phase"@en ;
+               rdfs:isDefinedBy : ;
+               rdfs:label "% occluded surface area"@en .
+
+
+###  https://w3id.org/gom#totalRelevant
+:totalRelevant rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :RepresentedAccuracyAnalysis ;
+               rdfs:range xsd:decimal ;
+               rdfs:comment "The percentage of total relevant surface area of the simplified geometry for an accuracy analysis, i.e. the parts of a building element that are measured during the data acquisition phase"@en ;
+               rdfs:isDefinedBy : ;
+               rdfs:label "% of total relevant surface area"@en .
+
+
+###  https://w3id.org/gom#usedLocalModelMethod
+:usedLocalModelMethod rdf:type owl:DatatypeProperty ,
+                               owl:FunctionalProperty ;
+                      rdfs:domain :RepresentedAccuracyAnalysis ;
+                      rdfs:range xsd:boolean ;
+                      rdfs:comment "A boolean datatype property to express if the represented accuracy analysis method used a local model or not."@en ;
+                      rdfs:isDefinedBy : ;
+                      rdfs:label "used local model method"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/dc/terms/Agent
+<http://purl.org/dc/terms/Agent> rdf:type owl:Class .
+
+
+###  http://purl.org/vocommons/voaf#Vocabulary
+<http://purl.org/vocommons/voaf#Vocabulary> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class .
+
+
+###  https://w3id.org/gom#AffineCoordinateSystemTransformation
+:AffineCoordinateSystemTransformation rdf:type owl:Class ;
+                                      rdfs:subClassOf :CoordinateSystemTransformation ;
+                                      rdfs:comment "An affine transformation between 3D Cartesian Coordinate Systems. An instance of this class links to exactly two gom:CartesianCoordinateSystem instances using resp. gom:fromCartesianCoordinateSystem and gom:toCartesianCoordinateSystem. Each instance of gom:AffineCoordinateSystemTransformation also links to one or multiple literals containing matrices defining the transformation. In the simplest example, there is only one such linked literal containing an entire 4 X 4 transformation matrix, linked with the gom:hasTransformationMatrix datatype property."@en ;
+                                      rdfs:isDefinedBy : ;
+                                      rdfs:label "Affine Coordinate System Transformation"@en .
+
+
+###  https://w3id.org/gom#BoundingVolume
+:BoundingVolume rdf:type owl:Class ;
+                rdfs:subClassOf <https://w3id.org/omg#Geometry> ;
+                rdfs:comment "A closed 3D geometry representing a  bounding volume (e.g. a bounding box or another more exotic geometry). It is normally grouped into a omg:GeometryContext together with the geometry it wants to define a subpart of."@en ;
+                rdfs:isDefinedBy : ;
+                rdfs:label "Bounding Volume"@en .
+
+
+###  https://w3id.org/gom#BrepGeometry
+:BrepGeometry rdf:type owl:Class ;
+              rdfs:subClassOf <https://w3id.org/omg#Geometry> ;
+              rdfs:comment "A 3D BREP (boundary representation) geometry"@en ;
+              rdfs:isDefinedBy : ;
+              rdfs:label "BREP geometry"@en .
+
+
+###  https://w3id.org/gom#CartesianCoordinateSystem
+:CartesianCoordinateSystem rdf:type owl:Class ;
+                           rdfs:subClassOf :CoordinateSystem ;
+                           rdfs:comment "A 3D Cartesian Coordinate System. One or multiple omg:Geometry or omg:GeometryState nodes can link to an instance of this class using gom:hasCoordinateSystem. If no named Coordinate System is linked explicitly to a geometry description, an unnamed Cartesian Coordinate System is assumed. A custom Cartesian Coordinate System can be registered in RDF to a world Cartesian Coordinate System by linking a gom:AffineCoordinateSystemTransformation instance to two instances of gom:CartesianCoordinateSystem"@en ;
+                           rdfs:isDefinedBy : ;
+                           rdfs:label "Coordinate System"@en .
+
+
+###  https://w3id.org/gom#CoordinateSystem
+:CoordinateSystem rdf:type owl:Class ;
+                  rdfs:comment "A 3D Coordinate System. One or multiple omg:Geometry or omg:GeometryState nodes can link to an instance of this class using gom:hasCoordinateSystem. If no named Coordinate System is linked explicitly to a geometry description, an unnamed Cartesian Coordinate System is assumed. A custom Coordinate System can be registered in RDF by linking a gom:CoordinateSystemTransformation instance to this Coordinate System (gom:fromCoordinateSystem) and a second instance of gom:CoordinateSystem (gom:toCoordinateSystem)"@en ;
+                  rdfs:isDefinedBy : ;
+                  rdfs:label "Coordinate System"@en .
+
+
+###  https://w3id.org/gom#CoordinateSystemTransformation
+:CoordinateSystemTransformation rdf:type owl:Class ;
+                                rdfs:comment "A transformation between 3D Coordinate Systems. An instance of this class links to exactly two gom:CoordinateSystem instances using resp. gom:fromCoordinateSystem and gom:toCoordinateSystem. Each instance of gom:CoordinateSystemTransformation also links to one or multiple literals containing matrices or individual parameters defining the transformation."@en ;
+                                rdfs:isDefinedBy : ;
+                                rdfs:label "Coordinate System Transformation"@en .
+
+
+###  https://w3id.org/gom#GeometryModellingApplication
+:GeometryModellingApplication rdf:type owl:Class ;
+                              rdfs:comment "A geometry modelling application, used to create geometry descriptions"@en ;
+                              rdfs:isDefinedBy : ;
+                              rdfs:label "geometry modelling application"@en .
+
+
+###  https://w3id.org/gom#LengthUnit
+:LengthUnit rdf:type owl:Class ;
+            rdfs:comment "A length unit for a Cartesian Coordinate System. Each such Coordinate System has exactly one length unit (e.g. metre, kilometre, etc.). The instance of this class can be defined in QUDT or other ontologies for units."@en ;
+            rdfs:isDefinedBy : ;
+            rdfs:label "Length unit"@en .
+
+
+###  https://w3id.org/gom#MeshGeometry
+:MeshGeometry rdf:type owl:Class ;
+              rdfs:subClassOf <https://w3id.org/omg#Geometry> ;
+              rdfs:comment "A 3D mesh geometry consisting of planar faces connected via their edges"@en ;
+              rdfs:isDefinedBy : ;
+              rdfs:label "Mesh geometry"@en .
+
+
+###  https://w3id.org/gom#NurbsSurfaceGeometry
+:NurbsSurfaceGeometry rdf:type owl:Class ;
+                      rdfs:subClassOf <https://w3id.org/omg#Geometry> ;
+                      rdfs:comment "A 3D NURBS (non-uniform rational B-spline) surface geometry"@en ;
+                      rdfs:isDefinedBy : ;
+                      rdfs:label "NURBS surface geometry"@en .
+
+
+###  https://w3id.org/gom#PlanGeometry
+:PlanGeometry rdf:type owl:Class ;
+              rdfs:subClassOf <https://w3id.org/omg#Geometry> ;
+              rdfs:comment "A 2D plan geometry including floorplans, ceilingplans, elevations, sections and 2D orthographic drawings"@en ;
+              rdfs:isDefinedBy : ;
+              rdfs:label "2D plan geometry"@en .
+
+
+###  https://w3id.org/gom#PointCloudGeometry
+:PointCloudGeometry rdf:type owl:Class ;
+                    rdfs:subClassOf <https://w3id.org/omg#Geometry> ;
+                    rdfs:comment "A point cloud geometry consisting of a series of 3D points, with optional color and other scalar values"@en ;
+                    rdfs:isDefinedBy : ;
+                    rdfs:label "point cloud geometry"@en .
+
+
+###  https://w3id.org/gom#RepresentedAccuracyAnalysis
+:RepresentedAccuracyAnalysis rdf:type owl:Class ;
+                             rdfs:comment "A 3D accuracy analysis executed to determine the represented LOA (Level Of Accuracy) as defined by the related USIBD specification. It is connected with exactly one source geometry resulting from a survey and one simplified 3D geometry."@en ;
+                             rdfs:isDefinedBy : ;
+                             rdfs:label "represented accuracy analysis"@en .
+
+
+###  https://w3id.org/omg#Geometry
+<https://w3id.org/omg#Geometry> rdf:type owl:Class .
+
+
+###  https://w3id.org/omg#GeometryState
+<https://w3id.org/omg#GeometryState> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:NamedIndividual ,
+                                            <http://purl.org/dc/terms/Agent> .
+
+
+###  https://creativecommons.org/licenses/by/4.0/
+<https://creativecommons.org/licenses/by/4.0/> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/gom
+<https://w3id.org/gom> rdf:type owl:NamedIndividual ,
+                                <http://purl.org/vocommons/voaf#Vocabulary> ;
+                       <http://creativecommons.org/ns#license> <https://creativecommons.org/licenses/by/4.0/> .
+
+
+###  https://w3id.org/gom#Meshlab_v2016
+:Meshlab_v2016 rdf:type owl:NamedIndividual ,
+                        :GeometryModellingApplication ;
+               rdfs:isDefinedBy : ;
+               rdfs:label "Meshlab v2016 application"@en .
+
+
+###  https://w3id.org/gom#Rhinoceros_v6
+:Rhinoceros_v6 rdf:type owl:NamedIndividual ,
+                        :GeometryModellingApplication ;
+               rdfs:isDefinedBy : ;
+               rdfs:label "Rhinoceros v6 CAD application"@en .
+:Blender_v2_82 rdf:type owl:NamedIndividual ,
+                        :GeometryModellingApplication ;
+              rdfs:isDefinedBy : ;
+              rdfs:label "Blender v2.82 CAD application"@en ;
+.
+:AutoCAD_v2018 rdf:type owl:NamedIndividual,
+                        :GeometryModellingApplication ;
+              rdfs:isDefinedBy : ;
+              rdfs:label "AutoCAD v2018 CAD application"@en ;
+.
+
+
+###  https://www.researchgate.net/profile/Anna_Wagner13
+<https://www.researchgate.net/profile/Anna_Wagner13> rdf:type owl:NamedIndividual ,
+                                                              <http://xmlns.com/foaf/0.1/Person> ;
+                                                     <http://xmlns.com/foaf/0.1/name> "Anna Wagner" .
+
+
+###  https://www.researchgate.net/profile/Mathias_Bonduel
+<https://www.researchgate.net/profile/Mathias_Bonduel> rdf:type owl:NamedIndividual ,
+                                                                <http://xmlns.com/foaf/0.1/Person> ;
+                                                       <http://xmlns.com/foaf/0.1/name> "Mathias Bonduel" .
+
+
+###  https://www.researchgate.net/profile/Pieter_Pauwels
+<https://www.researchgate.net/profile/Pieter_Pauwels> rdf:type owl:NamedIndividual ,
+                                                               <http://xmlns.com/foaf/0.1/Person> ;
+                                                      <http://xmlns.com/foaf/0.1/name> "Pieter Pauwels" .
+
+
+###  Generated by the OWL API (version 5.1.9) https://github.com/owlcs/owlapi/

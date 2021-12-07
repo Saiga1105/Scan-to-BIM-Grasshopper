@@ -1,0 +1,9 @@
+Main application
+Python 3.8.1
+
+Plug-ins:
+Rhino: Python 2.7 & Ironpython
+Blender: Python 3.7.4
+
+
+Needed packages for using the code are listed in the code. 

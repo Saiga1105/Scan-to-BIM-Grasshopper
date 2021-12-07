@@ -1,0 +1,4 @@
+http://www.opengis.net/def/crs/EPSG/0/6190, Belgian Lambert 72 + Ostend Heigth, Large and medium scale topographic mapping and engineering survey.,http://qudt.org/vocab/unit/M,
+http://www.opengis.net/def/crs/EPSG/0/8370, Belgian Lambert 2008 + Ostend Height,Large and medium scale topographic mapping and engineering survey.,http://qudt.org/vocab/unit/M,
+http://www.opengis.net/def/crs/EPSG/0/4936, ETRS 89, Used by the GPS satellite navigation system.,http://qudt.org/vocab/unit/M,
+http://www.opengis.net/def/crs/EPSG/0/4979, WGS 84, Geographic Information.,http://qudt.org/vocab/unit/M,
