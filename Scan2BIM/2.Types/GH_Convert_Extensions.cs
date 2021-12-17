@@ -148,6 +148,19 @@ namespace Scan2BIM
             return true;
         }
 
+        /// <summary>
+        /// Convert IEnumerable<Aardvark.Base.V3d> to List<Point3d> 
+        /// </summary>
+        public static List<Point3d> ToPoint3D(this IEnumerable<Aardvark.Base.V3d> verticesV3D)
+        {
+            var points3D = new List<Point3d>();
+            foreach (Aardvark.Base.V3d vertex in verticesV3D)
+            {
+                points3D.Add(new Point3d(vertex.X, vertex.Y, vertex.Z));
+            }
+            return points3D;
+        }
+
         public static bool ToVector3d(this MWNumericArray data, ref Vector3d[] target) // this is correct
         {
             // check type

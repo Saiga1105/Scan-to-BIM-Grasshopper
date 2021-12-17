@@ -318,6 +318,11 @@
             Enumerate inlined (self-contained, no external data is referenced) octree nodes.
             </summary>
         </member>
+        <member name="M:Aardvark.Geometry.Points.InlineExtensions.EnumerateOctreeInlined(Aardvark.Geometry.Points.PointSet,Aardvark.Geometry.Points.InlineConfig)">
+            <summary>
+            Enumerate inlined (self-contained, no external data is referenced) octree nodes.
+            </summary>
+        </member>
         <member name="M:Aardvark.Geometry.Points.InlineExtensions.EnumerateOctreeInlined(Aardvark.Geometry.Points.IPointCloudNode,Aardvark.Geometry.Points.InlineConfig)">
             <summary>
             Enumerate inlined (self-contained, no external data is referenced) octree nodes.

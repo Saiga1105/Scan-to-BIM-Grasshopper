@@ -56,43 +56,46 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aardvark.Base, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aardvark.Base.5.1.9\lib\netstandard2.0\Aardvark.Base.dll</HintPath>
+      <HintPath>..\packages\Aardvark.Base.5.1.21\lib\netstandard2.0\Aardvark.Base.dll</HintPath>
     </Reference>
     <Reference Include="Aardvark.Base.FSharp, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aardvark.Base.FSharp.5.1.9\lib\netstandard2.0\Aardvark.Base.FSharp.dll</HintPath>
+      <HintPath>..\packages\Aardvark.Base.FSharp.5.1.21\lib\netstandard2.0\Aardvark.Base.FSharp.dll</HintPath>
     </Reference>
     <Reference Include="Aardvark.Base.IO, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aardvark.Base.IO.5.1.9\lib\netstandard2.0\Aardvark.Base.IO.dll</HintPath>
+      <HintPath>..\packages\Aardvark.Base.IO.5.1.21\lib\netstandard2.0\Aardvark.Base.IO.dll</HintPath>
     </Reference>
     <Reference Include="Aardvark.Base.Telemetry, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aardvark.Base.Telemetry.5.1.9\lib\netstandard2.0\Aardvark.Base.Telemetry.dll</HintPath>
+      <HintPath>..\packages\Aardvark.Base.Telemetry.5.1.21\lib\netstandard2.0\Aardvark.Base.Telemetry.dll</HintPath>
     </Reference>
     <Reference Include="Aardvark.Base.Tensors, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aardvark.Base.Tensors.5.1.9\lib\netstandard2.0\Aardvark.Base.Tensors.dll</HintPath>
+      <HintPath>..\packages\Aardvark.Base.Tensors.5.1.21\lib\netstandard2.0\Aardvark.Base.Tensors.dll</HintPath>
     </Reference>
     <Reference Include="Aardvark.Base.Tensors.CSharp, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aardvark.Base.Tensors.5.1.9\lib\netstandard2.0\Aardvark.Base.Tensors.CSharp.dll</HintPath>
+      <HintPath>..\packages\Aardvark.Base.Tensors.5.1.21\lib\netstandard2.0\Aardvark.Base.Tensors.CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Aardvark.Base.TypeProviders, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Aardvark.Base.TypeProviders.4.5.15\lib\net45\Aardvark.Base.TypeProviders.dll</HintPath>
     </Reference>
     <Reference Include="Aardvark.Data.Durable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aardvark.Data.Durable.0.2.19\lib\netstandard2.0\Aardvark.Data.Durable.dll</HintPath>
+      <HintPath>..\packages\Aardvark.Data.Durable.0.2.21\lib\netstandard2.0\Aardvark.Data.Durable.dll</HintPath>
     </Reference>
     <Reference Include="Aardvark.Data.Durable.Codec, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aardvark.Data.Durable.Codec.0.2.19\lib\net472\Aardvark.Data.Durable.Codec.dll</HintPath>
+      <HintPath>..\packages\Aardvark.Data.Durable.Codec.0.2.21\lib\net472\Aardvark.Data.Durable.Codec.dll</HintPath>
+    </Reference>
+    <Reference Include="Aardvark.Data.E57, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aardvark.Data.E57.5.1.22\lib\netstandard2.0\Aardvark.Data.E57.dll</HintPath>
     </Reference>
     <Reference Include="Aardvark.Data.Points.Base, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aardvark.Data.Points.Base.5.1.11\lib\netstandard2.0\Aardvark.Data.Points.Base.dll</HintPath>
+      <HintPath>..\packages\Aardvark.Data.Points.Base.5.1.22\lib\netstandard2.0\Aardvark.Data.Points.Base.dll</HintPath>
     </Reference>
     <Reference Include="Aardvark.Geometry.Normals, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aardvark.Geometry.Normals.5.1.11\lib\netstandard2.0\Aardvark.Geometry.Normals.dll</HintPath>
+      <HintPath>..\packages\Aardvark.Geometry.Normals.5.1.22\lib\netstandard2.0\Aardvark.Geometry.Normals.dll</HintPath>
     </Reference>
     <Reference Include="Aardvark.Geometry.PointSet, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aardvark.Geometry.PointSet.5.1.11\lib\netstandard2.0\Aardvark.Geometry.PointSet.dll</HintPath>
+      <HintPath>..\packages\Aardvark.Geometry.PointSet.5.1.22\lib\netstandard2.0\Aardvark.Geometry.PointSet.dll</HintPath>
     </Reference>
     <Reference Include="Aardvark.Geometry.PointTree, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aardvark.Geometry.PointTree.5.1.11\lib\netstandard2.0\Aardvark.Geometry.PointTree.dll</HintPath>
+      <HintPath>..\packages\Aardvark.Geometry.PointTree.5.1.22\lib\netstandard2.0\Aardvark.Geometry.PointTree.dll</HintPath>
     </Reference>
     <Reference Include="Accord, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
       <HintPath>..\packages\Accord.3.8.0\lib\net462\Accord.dll</HintPath>
@@ -181,8 +184,8 @@
     <Reference Include="MIConvexHull, Version=1.1.19.1018, Culture=neutral, PublicKeyToken=2644b6f8be52c998, processorArchitecture=MSIL">
       <HintPath>..\packages\MIConvexHull.1.1.19.1019\lib\netstandard2.0\MIConvexHull.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Dynamic, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
@@ -262,7 +265,7 @@
       <HintPath>..\packages\Uncodium.Eigensystems.1.1.2\lib\netstandard2.0\Uncodium.Eigensystems.dll</HintPath>
     </Reference>
     <Reference Include="Uncodium.SimpleStore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Uncodium.SimpleStore.3.0.0\lib\netstandard2.0\Uncodium.SimpleStore.dll</HintPath>
+      <HintPath>..\packages\Uncodium.SimpleStore.3.0.8\lib\netstandard2.0\Uncodium.SimpleStore.dll</HintPath>
     </Reference>
     <Reference Include="Volvox_Cloud">
       <HintPath>..\..\Segmentation\Volvox\Volvox_Cloud.dll</HintPath>
@@ -281,11 +284,14 @@
     <Compile Include="0.Components\0.Utility\CreateTransformationMatrix.cs" />
     <Compile Include="0.Components\0.Utility\DecomposeTransformationMatrix.cs" />
     <Compile Include="0.Components\0.Utility\FitPlanarSurfaces.cs" />
+    <Compile Include="0.Components\0.Utility\ExportPointCloud.cs" />
+    <Compile Include="0.Components\0.Utility\ExportMesh.cs" />
     <Compile Include="0.Components\0.Utility\MaterialNames.cs" />
     <Compile Include="0.Components\0.Utility\FitPlaneToMesh.cs" />
     <Compile Include="0.Components\0.Utility\ComputePrincipalComponents.cs" />
     <Compile Include="0.Components\0.Utility\SampleMesh.cs" />
     <Compile Include="0.Components\0.Utility\RegisterPointClouds.cs" />
+    <Compile Include="0.Components\0.Utility\ImportPointCloud.cs" />
     <Compile Include="0.Components\0.Utility\SamplePointCloud.cs" />
     <Compile Include="0.Components\0.Utility\SplitVectors.cs" />
     <Compile Include="0.Components\1.Segmentation\SplitPointCloudVectors.cs" />
@@ -301,6 +307,8 @@
     <Compile Include="2.Types\GH_Convert_Extensions.cs" />
     <Compile Include="2.Types\GH_PointCloud.cs" />
     <Compile Include="1.Parameters\GH_PointCloudParam.cs" />
+    <Compile Include="2.Types\PyConverter.cs" />
+    <Compile Include="2.Types\PyConverters.cs" />
     <Compile Include="3.Algortihms\SpatialTools.cs" />
     <Compile Include="3.Algortihms\SpatialTools_CloudCompare.cs" />
     <Compile Include="3.Algortihms\SpatialTools_IronPython.cs" />
@@ -729,6 +737,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icon_SplitByNormals.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="4.Python\Linked Data\scan2bim.py" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

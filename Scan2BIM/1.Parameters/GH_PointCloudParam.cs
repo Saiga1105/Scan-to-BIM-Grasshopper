@@ -28,7 +28,7 @@ namespace Scan2BIM
         {
             get
             {
-                return new Guid("{FB119943-1DFC-4D12-B94C-192C8FC93CA6}");
+                return new Guid("{FB119943-1DFC-4D12-B94C-192C8FC93CB6}");
             }
         }
 

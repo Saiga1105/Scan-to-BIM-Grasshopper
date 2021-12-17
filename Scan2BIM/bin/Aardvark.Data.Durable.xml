@@ -1120,7 +1120,7 @@
         </member>
         <member name="F:Aardvark.Data.Durable.Aardvark.C4us">
             <summary>
-            A color with channels BGRA of UInt16.
+            A color with channels RGBA of UInt16.
             </summary>
         </member>
         <member name="F:Aardvark.Data.Durable.Aardvark.C4usArray">
@@ -1130,7 +1130,7 @@
         </member>
         <member name="F:Aardvark.Data.Durable.Aardvark.C4ui">
             <summary>
-            A color with channels BGRA of UInt32.
+            A color with channels RGBA of UInt32.
             </summary>
         </member>
         <member name="F:Aardvark.Data.Durable.Aardvark.C4uiArray">
@@ -1140,7 +1140,7 @@
         </member>
         <member name="F:Aardvark.Data.Durable.Aardvark.C4f">
             <summary>
-            A color with channels BGRA of Float32.
+            A color with channels RGBA of Float32.
             </summary>
         </member>
         <member name="F:Aardvark.Data.Durable.Aardvark.C4fArray">
@@ -1150,7 +1150,7 @@
         </member>
         <member name="F:Aardvark.Data.Durable.Aardvark.C4d">
             <summary>
-            A color with channels BGRA of Float64.
+            A color with channels RGBA of Float64.
             </summary>
         </member>
         <member name="F:Aardvark.Data.Durable.Aardvark.C4dArray">

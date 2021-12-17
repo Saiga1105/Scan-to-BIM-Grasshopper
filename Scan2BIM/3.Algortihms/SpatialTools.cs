@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Drawing;
 using System.Numerics;
 using System.Collections.Generic;
@@ -6,10 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
+
 
 using Rhino.Geometry; // https://developer.rhino3d.com/api/
 using Rhino.DocObjects.Custom;
-using Rhino.Display; 
+using Rhino.Display;
+using Rhino.FileIO;
 
 using Grasshopper; // https://developer.rhino3d.com/api/
 using Grasshopper.Kernel;
@@ -29,6 +33,16 @@ using MIConvexHull; // https://github.com/DesignEngrLab/MIConvexHull
 using Accord.MachineLearning.Geometry; // http://accord-framework.net/docs/html/R_Project_Accord_NET.htm
 using Accord.Math;
 using Accord.Statistics.Analysis;
+
+using Aardvark.Data.E57; //https://github.com/aardvark-platform/
+using Aardvark.Data.Points;
+using Aardvark.Data.Points.Import;
+using Aardvark.Geometry.Points;
+using Uncodium.SimpleStore;
+
+using E57LibCommon; //http://www.libe57.org/#:~:text=The%20E57%20file%20format%20is,in%20the%20ASTM%20E2807%20standard.
+using E57LibReader;
+using E57LibWriter;
 
 //using g3;// https://github.com/gradientspace/geometry3Sharp
 //using gs;
@@ -152,6 +166,21 @@ namespace Scan2BIM
             }
             return vectors;
         }
+
+        /// <summary>
+        /// Convert IEnumerable<Aardvark.Base.V3f>  to rhinocommon List<Vector3d>
+        /// </summary>
+        public static List<Vector3d> ToVector3d(this IEnumerable<Aardvark.Base.V3f> vector3s)
+        {
+            List<Vector3d> vectors = new List<Vector3d>();
+
+            foreach(Aardvark.Base.V3f v3F in vector3s)
+            {
+                vectors.Add(new Vector3d(v3F.X, v3F.Y, v3F.Z));
+            }
+            return vectors;
+        }
+
         /// <summary>
         /// Convert rhinocommon IEnumerable<Vector3d> to List<Accord.Math.Vector3> 
         /// </summary>
@@ -164,6 +193,8 @@ namespace Scan2BIM
             }
             return vectors;
         }
+
+        
 
         /// <summary>
         /// Compute principal components of a 3D set (point cloud)
@@ -502,6 +533,114 @@ namespace Scan2BIM
         }
 
         /// <summary>
+        /// Read an e.57 Point Cloud using Aardvark library
+        /// </summary>
+        public static List<GH_PointCloud> ReadPointCloud(this string filename, string temp_storage, double percent)
+        {
+            List<GH_PointCloud> pc = new List<GH_PointCloud>();
+            var info = E57.E57Info(filename, ParseConfig.Default);
+            if (info.PointCount < 1) throw new Exception("This point cloud doesn't seem to contain any points.");
+            try
+            {
+                // this out of core storage should be more investigated
+                //var store = new SimpleDiskStore(temp_storage).ToPointCloudStore(); // we get an unknown folder exception => there are no .bin files there
+                //var cloud = Aardvark.Geometry.Points.PointCloud.Import(filename, ImportConfig.Default.WithStorage(store));
+                //pc = cloud.ToGH_PointCloud();
+                var chunks = E57.Chunks(filename, ParseConfig.Default);
+                pc = chunks.ToGH_PointCloud();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Couldn't load point cloud. Check file integrity or writing permissions of temporaty file storage."); ;
+            }
+            return pc;
+        }
+
+        /// <summary>
+        /// Check valid filename
+        /// </summary>
+        public static bool IsValidFileName(this string expression, bool platformIndependent)
+        {
+            string sPattern = @"^(?!^(PRN|AUX|CLOCK\$|NUL|CON|COM\d|LPT\d|\..*)(\..+)?$)[^\x00-\x1f\\?*:\"";|/]+$";
+            if (platformIndependent)
+            {
+                sPattern = @"^(([a-zA-Z]:|\\)\\)?(((\.)|(\.\.)|([^\\/:\*\?""\|<>\. ](([^\\/:\*\?""\|<>\. ])|([^\\/:\*\?""\|<>]*[^\\/:\*\?""\|<>\. ]))?))\\)*[^\\/:\*\?""\|<>\. ](([^\\/:\*\?""\|<>\. ])|([^\\/:\*\?""\|<>]*[^\\/:\*\?""\|<>\. ]))?$";
+            }
+            return (Regex.IsMatch(expression, sPattern, RegexOptions.CultureInvariant));
+        }
+
+        /// <summary>
+        /// Export a list of GH_PointCloud objects to an e57 file with optional scannames
+        /// </summary>
+        public static Boolean ExportPointCloud(this IEnumerable<GH_PointCloud> gH_PointClouds , string filename, IEnumerable<string> settings)
+        {
+            Boolean success = false;
+            try
+            {
+                List<System.Guid> guids = new List<Guid>();
+
+                // Deselect all guids
+                Rhino.RhinoDoc.ActiveDoc.Objects.Select(guids);
+
+                // bake geometries to rhino
+                foreach (GH_PointCloud gH_PointCloud in gH_PointClouds)
+                {
+                    var guid = Rhino.RhinoDoc.ActiveDoc.Objects.Add(gH_PointCloud.Value);
+                    guids.Add(guid);
+                }
+                
+                // Select guids
+                Rhino.RhinoDoc.ActiveDoc.Objects.Select(guids);
+
+                // create string command to export geometries from rhino to .obj
+                string writeOptions = string.Concat(settings);
+                //string cmd = "_-Export " + "\"" + filename + "\"" + " _ENTER" + " _ENTER";
+                string cmd = "_-Export " + "\"" + filename + "\"" + writeOptions + " _ENTER" + " _ENTER";
+                // _-Export \"D:\\Data\\2018-06 Werfopvolging Academiestraat Gent\\week 22\\MONITORING DATA\\blabla.ply\"
+                // "_-Export \"D:\\Data\\2018-06 Werfopvolging Academiestraat Gent\\week 22\\MONITORING DATA\\blabla.ply\" _ENTER _ENTER"
+                //"_-Export \"D:\\Data\\2018-06 Werfopvolging Academiestraat Gent\\week 22\\MONITORING DATA\\blabla.obj\" _ENTER _ENTER"
+                // Run script
+                success = Rhino.RhinoApp.RunScript(cmd, false);
+
+                // Delete geometries from Rhino
+                Rhino.RhinoDoc.ActiveDoc.Objects.Delete(guids, true);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Exporter crashed"); ;
+            }
+            return success;
+        }
+
+        /// <summary>
+        /// Check writing permissions of local store directory
+        /// </summary>
+        public static bool IsDirectoryWritable(this string dirPath, bool throwIfFails = false)
+        {
+            try
+            {
+                using (FileStream fs = File.Create(
+                    Path.Combine(
+                        dirPath,
+                        Path.GetRandomFileName()
+                    ),
+                    1,
+                    FileOptions.DeleteOnClose)
+                )
+                { }
+                return true;
+            }
+            catch
+            {
+                if (throwIfFails)
+                    throw;
+                else
+                    return false;
+            }
+        }
+
+        /// <summary>
         /// Get a Barycentric coordinate grid on a mesh triangle [u,v,w]
         /// </summary>
         public static List<Vector3f> BarycentricCoordinateGrid(this Mesh mesh, int index, double resolution) 
@@ -756,6 +895,47 @@ namespace Scan2BIM
             }
             return pc;
         }
+
+        /// <summary>
+        /// Export a set of meshes to an .obj file. Settings are optional
+        /// </summary>
+        public static Boolean ExportMesh(this IEnumerable<Mesh> meshes, string filename, List<string> settings)
+        {
+            Boolean success = false;
+            try
+            {
+                List<System.Guid> guids = new List<Guid>();
+                // Deselect all guids
+                Rhino.RhinoDoc.ActiveDoc.Objects.Select(guids);
+
+                // bake geometries to rhino
+                foreach (Mesh mesh in meshes)
+                {
+                    var guid = Rhino.RhinoDoc.ActiveDoc.Objects.Add(mesh);
+                    guids.Add(guid);
+
+                }
+
+                // Select guids
+                Rhino.RhinoDoc.ActiveDoc.Objects.Select(guids);
+
+                // create string command to export geometries from rhino to .obj
+                string writeOptions = string.Concat(settings);
+                string cmd = "_-Export " + "\"" + filename + "\"" + writeOptions + " _ENTER" + " _ENTER";
+
+                // Run script
+                success=Rhino.RhinoApp.RunScript(cmd, false);
+
+                // Delete geometries from Rhino
+                Rhino.RhinoDoc.ActiveDoc.Objects.Delete(guids, true);                
+            }
+            catch (Exception)
+            {
+                throw new Exception("Exporter crashed"); ;
+            }
+            return success;
+        }
+
         /// <summary>
         /// Generate a nr of random samples on a Brep. The resolution is the nr of points/m²
         /// </summary>
@@ -786,9 +966,9 @@ namespace Scan2BIM
             /// <summary>
             /// IEnumerable<PointCloudItem> pointCloudItems to PointCloud
             /// </summary>
-            public static PointCloud ToPointCloud(this IEnumerable<PointCloudItem> pointCloudItems)
+            public static Rhino.Geometry.PointCloud ToPointCloud(this IEnumerable<PointCloudItem> pointCloudItems)
         {
-            PointCloud pc = new PointCloud();
+            var pc = new Rhino.Geometry.PointCloud();
             Point3d[] points = new Point3d[pointCloudItems.Count()];
             Color[] colors = new Color[pointCloudItems.Count()];
             Vector3d[] normals = new Vector3d[pointCloudItems.Count()]; // this is so memory intensive!
@@ -928,6 +1108,7 @@ namespace Scan2BIM
             return mesh;
         }
 
+
         /// <summary>
         /// Convert List<Point2d> to  List<DefaultVertex2D>
         /// </summary>
@@ -939,6 +1120,85 @@ namespace Scan2BIM
                 vertices.Add(new DefaultVertex2D(point.X, point.Y));
             }
             return vertices;
+        }
+
+        /// <summary>
+        /// Convert Aardvark.Geometry.Points.PointSet to List<GH_PointCloud>
+        /// </summary>
+        public static List<GH_PointCloud> ToGH_PointCloud(this Aardvark.Geometry.Points.PointSet pointCloud_Aardvark)
+        {
+            var gh_pointCloud = new GH_PointCloud();
+            List<GH_PointCloud> GH_pointClouds = new List<GH_PointCloud>();
+            var chunks = pointCloud_Aardvark.QueryAllPoints();
+            foreach (Chunk chunk in chunks)
+            {
+                var pointCloud = new Rhino.Geometry.PointCloud();
+                var points = chunk.Positions.ToPoint3d();
+                List<Vector3d> normals=new List<Vector3d>();
+                List<Color> colors = new List<Color>(); // is this the correct grasshooper color?
+
+                if (chunk.HasNormals)
+                {
+                    normals = chunk.Normals.ToVector3d();
+                }
+                if (chunk.HasColors)
+                {
+                    colors = chunk.Colors.ToColor();
+                }
+                if (chunk.HasNormals && chunk.HasColors)
+                {
+                    pointCloud.AddRange(points, normals, colors);
+                }
+                else if (chunk.HasNormals && !chunk.HasColors)
+                {
+                    pointCloud.AddRange(points, normals);
+                }
+                else if (!chunk.HasNormals && chunk.HasColors)
+                {
+                    pointCloud.AddRange(points, colors);
+                }
+                GH_pointClouds.Add(new GH_PointCloud(pointCloud));
+            }
+            return GH_pointClouds;
+        }
+
+        /// <summary>
+        /// Convert Aardvark.Geometry.Points.Chunks to List<GH_PointCloud>
+        /// </summary>
+        public static List<GH_PointCloud> ToGH_PointCloud(this IEnumerable<Aardvark.Data.Points.Chunk> chunks)
+        {
+            var gh_pointCloud = new GH_PointCloud();
+            List<GH_PointCloud> GH_pointClouds = new List<GH_PointCloud>();
+            foreach (Chunk chunk in chunks)
+            {
+                var pointCloud = new Rhino.Geometry.PointCloud();
+                var points = chunk.Positions.ToPoint3d();
+                List<Vector3d> normals = new List<Vector3d>();
+                List<Color> colors = new List<Color>(); // is this the correct grasshooper color?
+
+                if (chunk.HasNormals)
+                {
+                    normals = chunk.Normals.ToVector3d();
+                }
+                if (chunk.HasColors)
+                {
+                    colors = chunk.Colors.ToColor();
+                }
+                if (chunk.HasNormals && chunk.HasColors)
+                {
+                    pointCloud.AddRange(points, normals, colors);
+                }
+                else if (chunk.HasNormals && !chunk.HasColors)
+                {
+                    pointCloud.AddRange(points, normals);
+                }
+                else if (!chunk.HasNormals && chunk.HasColors)
+                {
+                    pointCloud.AddRange(points, colors);
+                }
+                GH_pointClouds.Add(new GH_PointCloud(pointCloud));
+            }
+            return GH_pointClouds;
         }
 
         /// <summary>
@@ -1012,6 +1272,33 @@ namespace Scan2BIM
                 points3D.Add(new Point3d(vertex.Position[0], vertex.Position[1], vertex.Position[2]));
             }
             return points3D;
+        }
+
+        /// <summary>
+        /// Convert IEnumerable<Aardvark.Base.V3d> to List<Point3d> https://github.com/aardvark-platform
+        /// </summary>
+        public static List<Point3d> ToPoint3d(this IEnumerable<Aardvark.Base.V3d> verticesV3D)
+        {
+            var points3D = new List<Point3d>();
+            foreach (Aardvark.Base.V3d vertex in verticesV3D)
+            {
+                points3D.Add(new Point3d(vertex.X, vertex.Y, vertex.Z));
+            }
+            return points3D;
+        }
+
+        /// <summary>
+        /// Convert IEnumerable<Aardvark.Base.C4b> to List<System.Drawing.Color> https://github.com/aardvark-platform
+        /// </summary>
+        public static List<System.Drawing.Color> ToColor(this IEnumerable<Aardvark.Base.C4b> colorsC4B)
+        {
+            var colors = new List<System.Drawing.Color>();
+
+            foreach (Aardvark.Base.C4b c4B in colorsC4B)
+            {
+                colors.Add(System.Drawing.Color.FromArgb(c4B.A, c4B.R, c4B.G, c4B.B));
+            }
+            return colors;
         }
 
         /// <summary>

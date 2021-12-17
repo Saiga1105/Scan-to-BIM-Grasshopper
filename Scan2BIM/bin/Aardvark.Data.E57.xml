@@ -1,0 +1,1227 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aardvark.Data.E57</name>
+    </assembly>
+    <members>
+        <member name="T:Aardvark.Data.E57.ASTM_E57">
+            <summary>
+            E57 (ASTM E2807-11)
+            Standard Specification for 3D Imaging Data Exchange, Version 1.0.
+            https://www.astm.org/Standards/E2807.htm
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57PhysicalOffset">
+            <summary>
+            Physical E57 file offset.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57LogicalOffset">
+            <summary>
+            Logical E57 file offset.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57FileHeader">
+            <summary>
+            E57 File Header (7. File Header Section).
+            TABLE 1 Format of the E57 File Header Section.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57Integer">
+            <summary>
+            TABLE 2 Attributes for an Integer Type E57 Element.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Integer.Minimum">
+            <summary>
+            Optional. Default –2^63.
+            The smallest value that can be encoded. Shall be in the interval [-2^63, 2^63-1].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Integer.Maximum">
+            <summary>
+            Optional. Default 2^63-1.
+            The largest value that can be encoded. Shall be in the interval [minimum, 2^63-1].
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57ScaledInteger">
+            <summary>
+            TABLE 3 Attributes for a ScaledInteger Type E57 Element.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57ScaledInteger.Minimum">
+            <summary>
+            Optional. Default –2^63.
+            The smallest rawValue that can be encoded. Shall be in the interval [-2^63, 2^63-1].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57ScaledInteger.Maximum">
+            <summary>
+            Optional. Default 2^63-1.
+            The largest rawValue that can be encoded. Shall be in the interval [minimum, 2^63-1].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57ScaledInteger.Scale">
+            <summary>
+            Optional. Default 1.0.
+            The scale value for the ScaledInteger. Shall be non-zero.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57ScaledInteger.Offset">
+            <summary>
+            Optional. Default 0.0.
+            The offset value for the ScaledInteger.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57ScaledInteger.RawValue">
+            <summary>
+            Stored integer value.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57ScaledInteger.Value">
+            <summary>
+            Value = RawValue * Scale + Offset.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57Float">
+            <summary>
+            TABLE 4 Attributes for a Float Type E57 Element.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Float.IsDoublePrecision">
+            <summary>
+            True for 64 bit floating point values (IEEE 754-1985), false for 32 bit (IEEE 754-1985).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Float.Minimum">
+            <summary>
+            Optional. Default double.MinValue.
+            The smallest value that can be encoded.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Float.Maximum">
+            <summary>
+            Optional. Default double.MaxValue.
+            The largest value that can be encoded.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57String">
+            <summary>
+            TABLE 4 Attributes for a Float Type E57 Element.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57Blob">
+            <summary>
+            TABLE 6 Attributes of a Blob Type E57 Element.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Blob.FileOffset">
+            <summary>
+            Required.
+            The physical file offset of the start of the associated binary Blob section in the E57 file. Shall be in the interval [0, 2^63).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Blob.Length">
+            <summary>
+            Required.
+            The logical length of the associated binary Blob section, in bytes. Shall be in the interval (0, 2^63).
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57Structure">
+            <summary>
+            TABLE 7 Attributes for a Structure Type E57 Element.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57Vector">
+            <summary>
+            TABLE 8 Attributes for a Vector Type E57 Element.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Vector.AllowHeterogenousChildren">
+            <summary>
+            Optional.
+            Indicates whether the child elements may have different structure. Set to 1 to enable, set to 0 to disable.Shall be either 0 or 1.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Vector.Children">
+            <summary>
+            Vector elements.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57CompressedVector">
+            <summary>
+            TABLE 9 Attributes for a CompressedVector Type E57 Element.
+            TABLE 10 Child Elements for a CompressedVector Type E57 Element.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CompressedVector.FileOffset">
+            <summary>
+            Required.
+            The physical file offset of the start of the CompressedVector binary section in the E57 file(an integer). Shall be in the interval(0, 2^63).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CompressedVector.RecordCount">
+            <summary>
+            Required.
+            The number of records in the compressed binary block (an integer). Shall be in the interval[0, 2^63).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CompressedVector.Prototype">
+            <summary>
+            Required. Structure, Integer, Float, ScaledInteger, String, or Vector.
+            Specifies the fields of the CompressedVector records and their range limits.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CompressedVector.Codecs">
+            <summary>
+            Optional. Vector of Codec Structures.
+            A heterogeneous Vector specifying the compression method to be used for fields within the CompressedVector.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57Codec">
+            <summary>
+            TABLE 11 Child Elements for the Codec Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Codec.Inputs">
+            <summary>
+            Required.
+            A Vector listing the relative path names of elements in the prototype that this codec will compress.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Codec.BitPackCodec">
+            <summary>
+            Optional.
+            Specifies that the bitPackCodec will be used for compressing the data.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57Root">
+            <summary>
+            E57 Root (8.4 XML Data Hierarchy).
+            TABLE 12 Child Elements for the E57Root Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Root.XmlRoot">
+            <summary>
+            Raw XML.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Root.FormatName">
+            <summary>
+            Required.
+            Shall contain the string “ASTM E57 3D Imaging Data File”.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Root.Guid">
+            <summary>
+            Required.
+            A globally unique identification (GUID) String for the current version of the file (see 8.4.22).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Root.VersionMajor">
+            <summary>
+            Required.
+            The major version number of the file format. Shall be 1.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Root.VersionMinor">
+            <summary>
+            Required.
+            The minor version number of the file format. Shall be 0.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Root.E57LibraryVersion">
+            <summary>
+            Optional.
+            The version identifier for the E57 file format library that wrote the file.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Root.CreationDateTime">
+            <summary>
+            Optional.
+            Date and time that the file was created.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Root.Data3D">
+            <summary>
+            Optional.
+            A heterogeneous Vector of Data3D Structures for storing 3D imaging data.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Root.Images2D">
+            <summary>
+            Optional.
+            A heterogeneous Vector of Image2D Structures for storing 2D images from a camera or similar device.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Root.CoordinateMetadata">
+            <summary>
+            Optional.
+            Information describing the Coordinate Reference System to be used for the file.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57Data3D">
+            <summary>
+            E57 Data3D (8.4.3. Data3D).
+            TABLE 13 Child Elements for the Data3D Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.Guid">
+            <summary>
+            Required.
+            A globally unique identifier for the current version of the Data3D object (see 8.4.22).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.Points">
+            <summary>
+            Required.
+            A compressed vector of PointRecord Structures referring to the binary data that actually stores the point data.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.Pose">
+            <summary>
+            Optional.
+            A rigid body transform that transforms data stored in the local coordinate system of the points to the file-level coordinate system.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.OriginalGuids">
+            <summary>
+            Optional.
+            A Vector of globally unique identifiers identifying the data set(or sets) from which the points in this Data3D originated.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.PointGroupingSchemes">
+            <summary>
+            Optional.
+            The defined schemes that group points in different ways.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.Name">
+            <summary>
+            Optional.
+            A user-defined name for the Data3D.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.Description">
+            <summary>
+            Optional.
+            A user-defined description of the Data3D.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.CartesianBounds">
+            <summary>
+            Optional.
+            The bounding region (in Cartesian coordinates) of all the points in this Data3D(in the local coordinate system of the points).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.SphericalBounds">
+            <summary>
+            Optional.
+            The bounding region (in spherical coordinates) of all the points in this Data3D(in the local coordinate system of the points).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.IndexBounds">
+            <summary>
+            Optional.
+            The bounds of the row, column, and return number of all the points in this Data3D.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.IntensityLimits">
+            <summary>
+            Optional.
+            The limits for the value of signal intensity that the sensor is capable of producing.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.ColorLimits">
+            <summary>
+            Optional.
+            The limits for the value of red, green, and blue color that the sensor is capable of producing.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.AcquisitonStart">
+            <summary>
+            Optional.
+            The start date and time that the data was acquired.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.AcquisitonEnd">
+            <summary>
+            Optional.
+            The end date and time that the data was acquired.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.SensorVendor">
+            <summary>
+            Optional.
+            The name of the manufacturer for the sensor used to collect the points in this Data3D.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.SensorModel">
+            <summary>
+            Optional.
+            The model name or number for the sensor.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.SensorSerialNumber">
+            <summary>
+            Optional.
+            The serial number for the sensor.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.SensorHardwareVersion">
+            <summary>
+            Optional.
+            The version identifier for the sensor hardware at the time of data collection.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.SensorSoftwareVersion">
+            <summary>
+            Optional.
+            The version identifier for the software used for the data collection.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.SensorFirmwareVersion">
+            <summary>
+            Optional.
+            The version identifier for the firmware installed in the sensor at the time of data collection.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.Temperature">
+            <summary>
+            Optional.
+            The ambient temperature, measured at the sensor, at the time of data collection (in degrees Celsius).
+            Shall be greater or equal to −273.15° (absolute zero).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.RelativeHumidity">
+            <summary>
+            Optional.
+            The percentage relative humidity, measured at the sensor, at the time of data collection.
+            Shall be in the interval [0,100].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Data3D.AtmosphericPressure">
+            <summary>
+            Optional.
+            The atmospheric pressure, measured at the sensor, at the time of data collection (in Pascals).
+            Shall be positive.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57PointRecord">
+            <summary>
+            TABLE 14 Child Elements for the PointRecord Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57PointRecord.GroupingByLine">
+            <summary>
+            Optional.
+            Grouping information by row or column index.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57PointGroupingSchemes">
+            <summary>
+            TABLE 15 Child Elements for the PointGroupingSchemes Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57PointGroupingSchemes.GroupingByLine">
+            <summary>
+            Optional.
+            Grouping information by row or column index.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.GroupingByLine">
+            <summary>
+            TABLE 16 Child Elements for the GroupingByLine Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.GroupingByLine.IdElementName">
+            <summary>
+            Required.
+            The name of the PointRecord element that identifies which group the point is in.
+            The value of this string shall be “rowIndex” or “columnIndex” (see 8.4.4.2).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.GroupingByLine.Groups">
+            <summary>
+            Required.
+            A compressedVector of LineGroupRecord Structures.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57LineGroupRecord">
+            <summary>
+            TABLE 17 Child Elements for the LineGroupRecord Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57LineGroupRecord.IdElementValue">
+            <summary>
+            Required.
+            The value of the identifying element of all members in this group. Shall be in the interval[0, 2^63).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57LineGroupRecord.StartPointIndex">
+            <summary>
+            Optional.
+            The record number of the first point in the continuous interval. Shall be in the interval[0, 2^63).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57LineGroupRecord.PointCount">
+            <summary>
+            Optional.
+            The number of PointRecords in the group. Shall be in the interval [1, 2^63).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57LineGroupRecord.CartesianBounds">
+            <summary>
+            Optional.
+            The bounding box (in Cartesian coordinates) of all points in the group (in the local coordinate system of the points).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57LineGroupRecord.SphericalBounds">
+            <summary>
+            Optional.
+            The bounding region (in spherical coordinates) of all the points in the group (in the local coordinate system of the points).
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57RigidBodyTransform">
+            <summary>
+            TABLE 18 Child Elements for the RigidBodyTransform Structure.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57RigidBodyTransform.Rotation">
+            <summary>
+            Required.
+            A unit quaternion representing the rotation, R, of the transform.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57RigidBodyTransform.Translation">
+            <summary>
+            Required.
+            The translation, t, of the transform.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57RigidBodyTransform.RigidBodyTransform">
+            <summary>
+            A 3D point is transformed from the source coordinate system to the
+            destination coordinate system by first applying the rotation and
+            then the translation: p' = Rp + t
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57Image2D">
+            <summary>
+            E57 Image2D (8.4.11. Image2D)
+            TABLE 21 Child Elements for the Image2D Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.Guid">
+            <summary>
+            Required.
+            A globally unique identifier for the current version of the Image2D object (see 8.4.22).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.VisualReferenceRepresentation">
+            <summary>
+            Optional.
+            Representation for an image that does not define any camera projection model.The image is to be used for visual reference only.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.PinholeRepresentation">
+            <summary>
+            Optional.
+            Representation for an image using the pinhole camera projection model.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.SphericalRepresentation">
+            <summary>
+            Optional.
+            Representation for an image using the spherical camera projection model.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.CylindricalRepresentation">
+            <summary>
+            Optional.
+            Representation for an image using the cylindrical camera projection model.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.Pose">
+            <summary>
+            Optional.
+            A rigid body transform that transforms data stored in the local coordinate system of the image to the file-level coordinate system.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.AssociatedData3DGuid">
+            <summary>
+            Optional.
+            The globally unique identifier for the Data3D object that was being acquired when the picture was taken(see8.4.22).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.Name">
+            <summary>
+            Optional.
+            A user-defined name for the Image2D.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.Description">
+            <summary>
+            Optional.
+            A user-defined description of the Image2D.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.AcquisitionDateTime">
+            <summary>
+            Optional.
+            The date and time that the image was acquired.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.SensorVendor">
+            <summary>
+            Optional.
+            The name of the manufacturer for the sensor used to collect the image in this Image2D.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.SensorModel">
+            <summary>
+            Optional.
+            The model name or number for the sensor.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57Image2D.SensorSerialNumber">
+            <summary>
+            Optional.
+            The serial number for the sensor.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57VisualReferenceRepresentation">
+            <summary>
+            TABLE 22 Child Elements for the VisualReferenceRepresentation Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57VisualReferenceRepresentation.JpegImage">
+            <summary>
+            Optional.
+            JPEG format image data.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57VisualReferenceRepresentation.PngImage">
+            <summary>
+            Optional.
+            PNG format image data.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57VisualReferenceRepresentation.ImageMask">
+            <summary>
+            Optional.
+            PNG format image mask.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57VisualReferenceRepresentation.ImageWidth">
+            <summary>
+            Required.
+            The image width (in pixels). Shall be positive.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57VisualReferenceRepresentation.ImageHeight">
+            <summary>
+            Required.
+            The image height (in pixels). Shall be positive.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57VisualReferenceRepresentation.ImageSize">
+            <summary>
+            (ImageWidth, ImageHeight).
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation">
+            <summary>
+            TABLE 23 Child Elements for the PinholeRepresentation Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.JpegImage">
+            <summary>
+            Optional.
+            JPEG format image data.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.PngImage">
+            <summary>
+            Optional.
+            PNG format image data.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.ImageMask">
+            <summary>
+            Optional.
+            PNG format image mask.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.ImageWidth">
+            <summary>
+            Required.
+            The image width (in pixels). Shall be positive.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.ImageHeight">
+            <summary>
+            Required.
+            The image height (in pixels). Shall be positive.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.ImageSize">
+            <summary>
+            (ImageWidth, ImageHeight).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.FocalLength">
+            <summary>
+            Required.
+            The camera’s focal length (in meters). Shall be positive.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.PixelWidth">
+            <summary>
+            Required.
+            The width of the pixels in the camera (in meters). Shall be positive.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.PixelHeight">
+            <summary>
+            Required.
+            The height of the pixels in the camera (in meters). Shall be positive.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.PixelSize">
+            <summary>
+            (PixelWidth, PixelHeight).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.PrincipalPointX">
+            <summary>
+            Required.
+            The X coordinate in the image of the principal point, (in pixels). The principal point is the
+            intersection of the z axis of the camera coordinate frame with the image plane.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.PrincipalPointY">
+            <summary>
+            Required.
+            The Y coordinate in the image of the principal point(in pixels).
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57PinholeRepresentation.PrincipalPoint">
+            <summary>
+            (PrincipalPointX, PrincipalPointY).
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57SphericalRepresentation">
+            <summary>
+            TABLE 24 Child Elements for the SphericalRepresentation Structure. 
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57SphericalRepresentation.JpegImage">
+            <summary>
+            Optional.
+            JPEG format image data.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57SphericalRepresentation.PngImage">
+            <summary>
+            Optional.
+            PNG format image data.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57SphericalRepresentation.ImageMask">
+            <summary>
+            Optional.
+            PNG format image mask.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57SphericalRepresentation.ImageWidth">
+            <summary>
+            Required.
+            The image width (in pixels). Shall be positive.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57SphericalRepresentation.ImageHeight">
+            <summary>
+            Required.
+            The image height (in pixels). Shall be positive.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57SphericalRepresentation.ImageSize">
+            <summary>
+            (ImageWidth, ImageHeight).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57SphericalRepresentation.PixelWidth">
+            <summary>
+            Required.
+            The width of the pixels in the camera (in meters). Shall be positive.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57SphericalRepresentation.PixelHeight">
+            <summary>
+            Required.
+            The height of the pixels in the camera (in meters). Shall be positive.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57SphericalRepresentation.PixelSize">
+            <summary>
+            (PixelWidth, PixelHeight).
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57CylindricalRepresentation">
+            <summary>
+            TABLE 25 Child Elements for the CylindricalRepresentation Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CylindricalRepresentation.JpegImage">
+            <summary>
+            Optional.
+            JPEG format image data.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CylindricalRepresentation.PngImage">
+            <summary>
+            Optional.
+            PNG format image data.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57CylindricalRepresentation.ImageMask">
+            <summary>
+            Optional.
+            PNG format image mask.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CylindricalRepresentation.ImageWidth">
+            <summary>
+            Required.
+            The image width (in pixels). Shall be positive.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CylindricalRepresentation.ImageHeight">
+            <summary>
+            Required.
+            The image height (in pixels). Shall be positive.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57CylindricalRepresentation.ImageSize">
+            <summary>
+            (ImageWidth, ImageHeight).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CylindricalRepresentation.Radius">
+            <summary>
+            Required.
+            The closest distance from the cylindrical image surface to the center of projection(that is, the radius of the cylinder) (in meters).
+            Shall be non-negative.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CylindricalRepresentation.PrincipalPointY">
+            <summary>
+            Required.
+            TheYcoordinate in the image of the principal point (in pixels). This is the intersection of the z=0 plane with the image.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CylindricalRepresentation.PixelWidth">
+            <summary>
+            Required.
+            The width of the pixels in the camera (in meters). Shall be positive.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CylindricalRepresentation.PixelHeight">
+            <summary>
+            Required.
+            The height of the pixels in the camera (in meters). Shall be positive.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57CylindricalRepresentation.PixelSize">
+            <summary>
+            (PixelWidth, PixelHeight).
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57CartesianBounds">
+            <summary>
+            TABLE 26 Child Elements for the CartesianBounds Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CartesianBounds.Bounds">
+            <summary>
+            Required.
+            The extent of the bounding region (in meters).
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57SphericalBounds">
+            <summary>
+            TABLE 27 Child Elements for the SphericalBounds Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57SphericalBounds.Range">
+            <summary>
+            Required.
+            The extent of the bounding region in the r direction (in meters). Shall be non-negative.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57SphericalBounds.Elevation">
+            <summary>
+            Required.
+            The extent of the bounding region in the φ direction (in radians). Shall be in the interval[-π/2, π/2].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57SphericalBounds.Azimuth">
+            <summary>
+            Required.
+            The azimuth angle defining the extent of the bounding region in the θ direction (in radians). Shall be in the interval(-π, π].
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57IndexBounds">
+            <summary>
+            TABLE 28 Child Elements for the IndexBounds Structure. 
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57IndexBounds.Row">
+            <summary>
+            Required.
+            The rowIndex range of any point represented by this IndexBounds object.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57IndexBounds.Column">
+            <summary>
+            Required.
+            The columnIndex range of any point represented by this IndexBounds object.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57IndexBounds.Return">
+            <summary>
+            Required.
+            The returnIndex range of any point represented by this IndexBounds object.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57IntensityLimits">
+            <summary>
+            TABLE 29 Child Elements for IntensityLimits Structure. 
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57IntensityLimits.Intensity">
+            <summary>
+            Required.
+            The producible intensity range. Unit is unspecified.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57ColorLimits">
+            <summary>
+            TABLE 30 Child Elements for the ColorLimits Structure. 
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57ColorLimits.Red">
+            <summary>
+            Required.
+            The producible red color range. Unit is unspecified.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57ColorLimits.Green">
+            <summary>
+            Required.
+            The producible green color range. Unit is unspecified.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57ColorLimits.Blue">
+            <summary>
+            Required.
+            The producible blue color range. Unit is unspecified.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57DateTime">
+            <summary>
+            TABLE 31 Child Elements for DateTime Structure.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57DateTime.DateTimeValue">
+            <summary>
+            Required.
+            The time, in seconds, since GPS start epoch. This time specification may include fractions of a second.
+            The GPS start epoch occured at 0 h UTC (12:00 midnight) on January 6, 1980.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57DateTime.IsAtomicClockReferenced">
+            <summary>
+            Required.
+            This element shall be present, and its value set to 1 if, and only if, the time stored in the dateTimeValue element is obtained from an atomic clock time source.
+            Shall be either 0 or 1.
+            </summary>
+        </member>
+        <member name="P:Aardvark.Data.E57.ASTM_E57.E57DateTime.DateTime">
+            <summary>
+            The time.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57CompressedVectorHeader">
+            <summary>
+            E57 CompressedVector Header (9.3. CompressedVector Binary Section).
+            TABLE 35 Fields for the CompressedVector Header.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CompressedVectorHeader.SectionId">
+            <summary>
+            E57_COMPRESSED_VECTOR_SECTION (value = 1).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CompressedVectorHeader.Reserved">
+            <summary>
+            Reserved bytes for future versions of the standard. Shall all be 0.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CompressedVectorHeader.SectionLength">
+            <summary>
+            The logical length of the CompressedVector binary section (in bytes).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CompressedVectorHeader.DataStartOffset">
+            <summary>
+            The file offset of the first data packet in this binary section (in bytes).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57CompressedVectorHeader.IndexStartOffset">
+            <summary>
+            The file offset to the root level index packet in this binary section (in bytes).
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57IndexPacketHeader">
+            <summary>
+            E57 Index Packet Header (9.4. Index Packe).
+            TABLE 36 Format of an Index Packet Header.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57IndexPacketHeader.PacketType">
+            <summary>
+            E57_INDEX_PACKET (value = 0).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57IndexPacketHeader.Reserved1">
+            <summary>
+            Reserved for future versions of the standard. Shall all be 0.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57IndexPacketHeader.PacketLengthMinus1">
+            <summary>
+            One less than the logical length of the packet (in bytes). Shall be in the interval (0, 2^16).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57IndexPacketHeader.EntryCount">
+            <summary>
+            The number ofu sed address entries in this packet. Shall be in the interval [1, 2048].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57IndexPacketHeader.IndexLevel">
+            <summary>
+            The level of this index packet in the tree if index packets.
+            The bottom (leaf) level is zero. Shall be in the interval [0, 5].
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57IndexPacketHeader.Reserved2">
+            <summary>
+            Reserved bytes for future versions of the standard. Shall all be zero.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57IndexPacketAddressEntry">
+            <summary>
+            E57 Index Packet Address Entry (9.4. Index Packet).
+            TABLE 37 Format of Index Packet Address Entries.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57IndexPacketAddressEntry.ChunkRecordIndex">
+            <summary>
+            The index of the first record stored in this chunk (for leaf nodes),
+            or the index of the first record stored in any chunks within the sub-tree(for non-leaf nodes).
+            Shall be in the interval[0, 2^63).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57IndexPacketAddressEntry.PacketOffset">
+            <summary>
+            The file offset to a data packet (for leaf nodes) or to a lower level index packet(for non-leaf nodes).
+            Shall be in the interval(0, 2^63).
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.E57.ASTM_E57.E57DataPacketHeader">
+            <summary>
+            E57 Data Packet Header (9.5. Data Packet).
+            TABLE 38 Format of a Data Packet Header.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57DataPacketHeader.PacketType">
+            <summary>
+            E57_DATA_PACKET (value = 1).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57DataPacketHeader.PacketFlags">
+            <summary>
+            Packet flag field (described in 9.5.7).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57DataPacketHeader.PacketLengthMinus1">
+            <summary>
+            One less than the logical length of the packet (in bytes).
+            To maintain alignment, the packet may be padded with up to three zero-valued bytes after the last used field.
+            The length includes any zero padding that is present. Shall be in the interval (0,2^16).
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.E57.ASTM_E57.E57DataPacketHeader.ByteStreamCount">
+            <summary>
+            The number of bytestreams in this packet. Shall be in the interval [0, 32763].
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.E57.ASTM_E57.VerifyChecksums(System.IO.Stream,System.Int64)">
+            <summary>
+            Verifies file checksums (CRC).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.E57.ASTM_E57.ReadLogicalBytes(System.IO.Stream,Aardvark.Data.E57.ASTM_E57.E57PhysicalOffset,System.Int32)">
+            <summary>
+            Read given number of logical bytes (excluding 32-bit CRC at the end of each 1024 byte page) from stream,
+            starting at raw stream position 'start'.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.E57.ASTM_E57.ReadLogicalBytes(System.IO.Stream,Aardvark.Data.E57.ASTM_E57.E57LogicalOffset,System.Int32)">
+            <summary>
+            Read given number of logical bytes (excluding 32-bit CRC at the end of each 1024 byte page) from stream,
+            starting at logical stream position 'start'.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.E57.ASTM_E57.ReadLogicalUnsignedShorts(System.IO.Stream,Aardvark.Data.E57.ASTM_E57.E57PhysicalOffset,System.Int32)">
+            <summary>
+            Read given number of logical unsigned shorts (excluding 32-bit CRC at the end of each 1024 byte page) from stream,
+            starting at raw stream position 'startPhysical'.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.E57.ASTM_E57.ReadLogicalUnsignedShorts(System.IO.Stream,Aardvark.Data.E57.ASTM_E57.E57LogicalOffset,System.Int32)">
+            <summary>
+            Read given number of logical unsigned shorts (excluding 32-bit CRC at the end of each 1024 byte page) from stream,
+            starting at raw stream position 'startPhysical'.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Data.Points.Import.E57">
+            <summary>
+            Importer for E57 format.
+            </summary>
+        </member>
+        <member name="F:Aardvark.Data.Points.Import.E57.E57Format">
+            <summary>
+            E57 file format.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.Import.E57.Chunks(System.String,Aardvark.Data.Points.ParseConfig)">
+            <summary>
+            Parses .e57 file.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.Import.E57.Chunks(System.IO.Stream,System.Int64,Aardvark.Data.Points.ParseConfig)">
+            <summary>
+            Parses .e57 stream.
+            </summary>
+        </member>
+        <member name="M:Aardvark.Data.Points.Import.E57.E57Info(System.String,Aardvark.Data.Points.ParseConfig)">
+            <summary>
+            Gets general info for .e57 file.
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.BitPacker">
+            <summary></summary>
+        </member>
+        <member name="P:Aardvark.Base.BitPacker.BitsPerValue">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPacker.#ctor(System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPacker.UnpackUInts(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="T:Aardvark.Base.BitPack">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.UnpackIntegers(System.Byte[],System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.OptimizedUnpackInt2(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.OptimizedUnpackInt4(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.OptimizedUnpackInt8(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.OptimizedUnpackInt12(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.OptimizedUnpackInt16(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.OptimizedUnpackInt20(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.OptimizedUnpackInt24(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.OptimizedUnpackInt32(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.OptimizedUnpackUInt32(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.OptimizedUnpackInt64(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.OptimizedUnpackUInt64(System.Byte[])">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.BitCountInBytes(System.Int32)">
+            <summary>
+            Computes number of bytes required to store n bits.
+            Last byte may not be fully used (if n is not a multiple of 8).
+            </summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.GetBits(System.UInt64,System.Int32,System.Int32)">
+            <summary>
+            Gets 'count' bits from 'x', starting at 'start', where count must be in range [1..8].
+            </summary>
+        </member>
+        <member name="T:Aardvark.Base.BitPack.BitBuffer">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Base.BitPack.BitBuffer.Buffer">
+            <summary></summary>
+        </member>
+        <member name="F:Aardvark.Base.BitPack.BitBuffer.LengthInBits">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.BitBuffer.#ctor(System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.BitBuffer.#ctor(System.Byte[],System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.BitBuffer.PushBits(System.Byte,System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.BitBuffer.PushBits(System.UInt64,System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.BitBuffer.GetByte(System.Int32,System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.BitBuffer.GetUInt(System.Int32,System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.BitBuffer.GetULong(System.Int32,System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.BitBuffer.ReadUInts(System.Int32,System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.Pack(System.UInt32[],System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Aardvark.Base.BitPack.Unpack(System.Byte[],System.Int32,System.Int32,System.Action{System.UInt64,System.Int32})">
+            <summary></summary>
+        </member>
+    </members>
+</doc>

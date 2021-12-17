@@ -24,6 +24,7 @@ def load_project(path):
     
 def mergeclass_subclouds(class_config):
     for Class in class_config:
+        # print(Class)
         classpcd = o3d.geometry.PointCloud()
         if len(Class[3]) > 1:
             id = 0
@@ -34,6 +35,7 @@ def mergeclass_subclouds(class_config):
             Class[3] = classpcd
         else:
             Class[3] = Class[3][0]
+        # print(Class[3])
 ##Import the IFC geometry to Open3d geometry
 
 
@@ -55,6 +57,7 @@ def IFCtoO3d(ifc_folder_path, IfcClasses= ["IfcWall"], voxel_size = 0.01):
     settings = geom.settings()
     settings.set(settings.USE_WORLD_COORDS, True)
     meshinfo = []
+
     for ifc_file_path in os.listdir(ifc_folder_path):
         if ifc_file_path.endswith(".ifc"):
             ifc_file = ifcopenshell.open(os.path.join(ifc_folder_path,ifc_file_path))
@@ -91,6 +94,124 @@ def IFCtoO3d(ifc_folder_path, IfcClasses= ["IfcWall"], voxel_size = 0.01):
     
     return downsampled_pointcloud
 
+def IFCtoO3d_Slabs_floors(ifc_folder_path, voxel_size = 0.01):
+    settings = geom.settings()
+    settings.set(settings.USE_WORLD_COORDS, True)
+    meshinfo = []
+
+    for ifc_file_path in os.listdir(ifc_folder_path):
+        if ifc_file_path.endswith(".ifc"):
+            ifc_file = ifcopenshell.open(os.path.join(ifc_folder_path,ifc_file_path))
+            for ifc_entity in ifc_file.by_type("IfcSlab"):
+                # print(ifc_entity)
+                try: 
+                    shape = geom.create_shape(settings, ifc_entity)
+                    ios_vertices = shape.geometry.verts
+                    ios_faces = shape.geometry.faces
+
+                    grouped_verts = [[ios_vertices[i], ios_vertices[i + 1], ios_vertices[i + 2]] for i in range(0, len(ios_vertices), 3)]
+                    grouped_faces = [[ios_faces[i], ios_faces[i + 1], ios_faces[i + 2]] for i in range(0, len(ios_faces), 3)]
+
+                    meshinfo.append([grouped_verts, grouped_faces])
+                except:
+                    print("FAILED: shape creation")
+            meshes = []
+            for geometry in meshinfo:
+                vertices = o3d.utility.Vector3dVector(np.asarray(geometry[0]))
+                triangles = o3d.utility.Vector3iVector(np.asarray(geometry[1]))
+
+                mesh = o3d.geometry.TriangleMesh(vertices,triangles)
+
+                meshes.append(mesh)
+            pcd_floor = o3d.geometry.PointCloud()
+            pcd_ceiling = o3d.geometry.PointCloud()
+
+            for submesh in meshes:
+                floor_indeces = []
+                ceiling_indeces = []
+                mesh_points = round(submesh.get_surface_area() * 1000)
+                submeshpcd = submesh.sample_points_uniformly(number_of_points = mesh_points, use_triangle_normal=True)
+                
+                i = 0
+                length = len(submeshpcd.points)
+                while i < length:
+                    rmsxy = np.sqrt(np.square(submeshpcd.normals[i][0]) + np.square(submeshpcd.normals[i][1]))
+                    z = submeshpcd.normals[i][2]
+                    if rmsxy <= np.abs(z):
+                        if z > 0:
+                            floor_indeces.append(i)
+                        if z < 0:
+                            ceiling_indeces.append(i)
+                    i= i+1
+                subcloudfloor = submeshpcd.select_by_index(floor_indeces)
+                subcloudceiling = submeshpcd.select_by_index(ceiling_indeces)
+                pcd_floor.__iadd__(subcloudfloor)
+                pcd_ceiling.__iadd__(subcloudceiling)
+    
+    downsampled_Floor_pointcloud = pcd_floor.voxel_down_sample(voxel_size)
+    downsampled_Ceiling_pointcloud = pcd_ceiling.voxel_down_sample(voxel_size)
+
+    return (downsampled_Floor_pointcloud,downsampled_Ceiling_pointcloud)
+
+def IFCtoO3d_Slabs_roofs(ifc_folder_path, voxel_size = 0.01):
+    settings = geom.settings()
+    settings.set(settings.USE_WORLD_COORDS, True)
+    meshinfo = []
+
+    for ifc_file_path in os.listdir(ifc_folder_path):
+        if ifc_file_path.endswith(".ifc"):
+            ifc_file = ifcopenshell.open(os.path.join(ifc_folder_path,ifc_file_path))
+            for ifc_entity in ifc_file.by_type("IfcRoof"):
+                # print(ifc_entity)
+                try: 
+                    shape = geom.create_shape(settings, ifc_entity)
+                    ios_vertices = shape.geometry.verts
+                    ios_faces = shape.geometry.faces
+
+                    grouped_verts = [[ios_vertices[i], ios_vertices[i + 1], ios_vertices[i + 2]] for i in range(0, len(ios_vertices), 3)]
+                    grouped_faces = [[ios_faces[i], ios_faces[i + 1], ios_faces[i + 2]] for i in range(0, len(ios_faces), 3)]
+
+                    meshinfo.append([grouped_verts, grouped_faces])
+                except:
+                    print("FAILED: shape creation")
+            meshes = []
+            for geometry in meshinfo:
+                vertices = o3d.utility.Vector3dVector(np.asarray(geometry[0]))
+                triangles = o3d.utility.Vector3iVector(np.asarray(geometry[1]))
+
+                mesh = o3d.geometry.TriangleMesh(vertices,triangles)
+
+                meshes.append(mesh)
+            pcd_roof = o3d.geometry.PointCloud()
+            pcd_ceiling = o3d.geometry.PointCloud()
+
+            for submesh in meshes:
+                roof_indeces = []
+                ceiling_indeces = []
+                mesh_points = round(submesh.get_surface_area() * 1000)
+                submeshpcd = submesh.sample_points_uniformly(number_of_points = mesh_points, use_triangle_normal=True)
+                
+                i = 0
+                length = len(submeshpcd.points)
+                while i < length:
+                    rmsxy = np.sqrt(np.square(submeshpcd.normals[i][0]) + np.square(submeshpcd.normals[i][1]))
+                    z = submeshpcd.normals[i][2]
+                    if rmsxy <= np.abs(z):
+                        if z > 0:
+                            roof_indeces.append(i)
+                        if z < 0:
+                            ceiling_indeces.append(i)
+                    i= i+1
+                subcloudroof = submeshpcd.select_by_index(roof_indeces)
+                subcloudceiling = submeshpcd.select_by_index(ceiling_indeces)
+                pcd_roof.__iadd__(subcloudroof)
+                pcd_ceiling.__iadd__(subcloudceiling)
+    
+    downsampled_Roof_pointcloud = pcd_roof.voxel_down_sample(voxel_size)
+    downsampled_Ceiling_pointcloud = pcd_ceiling.voxel_down_sample(voxel_size)
+
+    return (downsampled_Roof_pointcloud,downsampled_Ceiling_pointcloud)
+
 def generate_refpcd(class_config):
 
     meshpcd = o3d.geometry.PointCloud()
@@ -108,7 +229,7 @@ def generate_refpcd(class_config):
 
 #computations
 
-def generate_trainingdata(ref, pcd_folder_path, voxel_size = 0.01, c2c_treshold = 0.03, search_radius = 0.05):
+def generate_trainingdata(ref, pcd_folder_path, voxel_size = 0.01, c2c_treshold = 0.05, search_radius = 0.05):
     Inlier_clouds = []
     Inlier_labels = []
     Clutter_clouds = []
@@ -116,14 +237,17 @@ def generate_trainingdata(ref, pcd_folder_path, voxel_size = 0.01, c2c_treshold 
     for pcd_file_path in os.listdir(pcd_folder_path):
         if pcd_file_path.endswith(".pcd"):
             pcd = o3d.io.read_point_cloud(os.path.join(pcd_folder_path,pcd_file_path))
-            
+            print(pcd)            
             refpcd = ref[0]
             ref_kdtree = o3d.geometry.KDTreeFlann(refpcd)
             labels = ref[1]
 
             pcd = pcd.voxel_down_sample(voxel_size)
+            if not pcd.has_normals():
+                pcd.estimate_normals()
+            print(pcd)
             c2c = pcd.compute_point_cloud_distance(refpcd)
-    
+
             Inlier_1_indeces = []
             Outlier_indeces = []
 
@@ -142,7 +266,7 @@ def generate_trainingdata(ref, pcd_folder_path, voxel_size = 0.01, c2c_treshold 
                 Not_found = True
                 i1=0
                 while Not_found and i1 < len(idx) and len(idx) > 0:
-                    if np.abs(np.dot(np.asarray(pcd.normals[index]), np.asarray(refpcd.normals)[idx[i1],:])) > 0.9 and np.abs(d[i1]) < c2c_treshold/5 or np.abs(np.dot(np.asarray(pcd.normals[index]), np.asarray(refpcd.normals)[idx[i1],:])) > 0.7 and np.abs(d[i1]) < c2c_treshold/10:
+                    if np.abs(np.dot(np.asarray(pcd.normals[index]), np.asarray(refpcd.normals[idx[i1]]))) > 0.9 and np.abs(d[i1]) < c2c_treshold/5 or np.abs(np.dot(np.asarray(pcd.normals[index]), np.asarray(refpcd.normals)[idx[i1],:])) > 0.7 and np.abs(d[i1]) < c2c_treshold/10:
                         Not_found = False
                         Inlier_2_indeces.append(index)
                         Final_inlier_labels.append(labels[idx[i1]])
@@ -243,14 +367,15 @@ def Save_trainingsdata(pointclouds, directory, name = "Trainingset"):
     
     
     for pointcloud in pointclouds:
-        filename = pointcloud[0] + ".pcd"
-        filelocation = annotations_directory + "\\" + filename
-        o3d.io.write_point_cloud(filelocation, pointcloud[1])
-        filename = pointcloud[0] + ".xyzrgb"
-        filelocation = annotations_directory + "\\" + filename
-        o3d.io.write_point_cloud(filelocation, pointcloud[1])
-    
-        filename = pointcloud[0] + ".txt"
-        filelocation1 = annotations_directory + "\\" + filename
-        os.rename(filelocation,filelocation1)
-
+        # print(pointcloud[0] + str(len(np.asarray(pointcloud[1].points))))
+        if not len(np.asarray(pointcloud[1].points)) == 0 :
+            filename = pointcloud[0] + ".pcd"
+            filelocation = annotations_directory + "\\" + filename
+            o3d.io.write_point_cloud(filelocation, pointcloud[1])
+            filename = pointcloud[0] + ".xyzrgb"
+            filelocation = annotations_directory + "\\" + filename
+            o3d.io.write_point_cloud(filelocation, pointcloud[1])
+        
+            filename = pointcloud[0] + ".txt"
+            filelocation1 = annotations_directory + "\\" + filename
+            os.rename(filelocation,filelocation1)

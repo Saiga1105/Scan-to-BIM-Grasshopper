@@ -16,7 +16,12 @@
         </member>
         <member name="M:Uncodium.SimpleStore.Extensions.Add(Uncodium.SimpleStore.ISimpleStore,System.String,System.String)">
             <summary>
-            Store with flags.
+            Store UTF8-encoded value.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.AddAsync(Uncodium.SimpleStore.ISimpleStoreAsync,System.String,System.String)">
+            <summary>
+            Store UTF8-encoded value.
             </summary>
         </member>
         <member name="M:Uncodium.SimpleStore.Extensions.FailRandomly(Uncodium.SimpleStore.ISimpleStore,System.Double)">
@@ -126,6 +131,88 @@
             </summary>
         </member>
         <member name="P:Uncodium.SimpleStore.ISimpleStore.Stats">
+            <summary>
+            Various runtime counts and other statistics.
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.ISimpleStoreAsync">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.AddAsync(System.String,System.Byte[],System.Action{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Add data from buffer.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.AddStreamAsync(System.String,System.IO.Stream,System.Action{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Add data from stream.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.ContainsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            True if key exists in store.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.GetSizeAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get size of value in bytes,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.GetAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get value as buffer,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.GetSliceAsync(System.String,System.Int64,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get value slice as buffer,
+            or null if key does not exist.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.GetStreamAsync(System.String,System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            Get value as read stream,
+            or null if key does not exist.
+            This is not thread-safe with respect to overwriting or removing existing values.
+            </summary>
+            <param name="key">Retrieve data for this key.</param>
+            <param name="offset">Optional. Start stream at given position.</param>
+            <param name="ct"></param>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.ListAsync(System.Threading.CancellationToken)">
+            <summary>
+            Enumerate all entries as (key, size) tuples.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.RemoveAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Remove entry.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.FlushAsync(System.Threading.CancellationToken)">
+            <summary>
+            Commit any pending changes to backing storage.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.GetUsedBytesAsync(System.Action{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Total bytes used for data.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.GetReservedBytesAsync(System.Action{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Total bytes reserved for data.
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.ISimpleStoreAsync.Version">
+            <summary>
+            Current version.
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.ISimpleStoreAsync.Stats">
             <summary>
             Various runtime counts and other statistics.
             </summary>

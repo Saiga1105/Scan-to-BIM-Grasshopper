@@ -1,6 +1,7 @@
 import sys
 import glob
 import PIL
+import os
 import PIL.Image as PILimage
 from PIL import ImageDraw, ImageFont, ImageEnhance
 from PIL.ExifTags import TAGS, GPSTAGS
@@ -13,7 +14,7 @@ from rdflib.namespace import CSVW, DC, DCAT, DCTERMS, DOAP, FOAF, ODRL2, ORG, OW
                            PROF, PROV, RDF, RDFS, SDO, SH, SKOS, SOSA, SSN, TIME, \
                            VOID, XMLNS, XSD
 
-import ReadExifDatatest1
+import ReadExifDataImages
 ############################################         
 
 class Worker(object):
@@ -238,8 +239,8 @@ class Worker(object):
 if __name__ == '__main__':
     try:
         #enter a folder as 1st argument
-        # folder_path=Path(sys.argv[1])
-        folder_path=Path('K:\\Projects\\2021-03 Project FWO SB Heinder\\7.Data\\2021-09 Testcase code\\Raw Data\\100_0001\\photos\\')
+        folder_path=Path(sys.argv[1])
+        # folder_path=Path('K:\\Projects\\2021-03 Project FWO SB Heinder\\7.Data\\2021-09 Testcase code\\Raw Data\\100_0001\\photos\\')
 
         #enter an output name as second argument (default is imageGraph)
         # output_path=sys.argv[2]
@@ -251,6 +252,7 @@ if __name__ == '__main__':
         #retrieve all jpg files from the folder
         file_to_open = folder_path / '*.jpg'
         jpgFilenamesList = glob.glob(str(file_to_open)) #this works
+        destinationfile = os.path.join(folder_path, "imageGraph.ttl")
 
         #initialize graph
         g = Graph()
@@ -276,7 +278,7 @@ if __name__ == '__main__':
 
         #Export graph
         #Format support can be extended with plugins, but “xml”, “n3”, “turtle”, “nt”, “pretty-xml”, “trix”, “trig” and “nquads” are built in.
-        g.serialize(destination="imageGraph.ttl", format='ttl')
+        g.serialize(destination=destinationfile, format='ttl')
 
     except Exception as e:
         print(e)
