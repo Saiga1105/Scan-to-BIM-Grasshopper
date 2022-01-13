@@ -7,7 +7,9 @@ from PIL.ExifTags import TAGS, GPSTAGS
 from pathlib import Path
 
 import rdflib
-from rdflib import Graph
+from rdflib import Graph, plugin
+from rdflib.serializer import Serializer #pip install rdflib-jsonld https://pypi.org/project/rdflib-jsonld/
+
 from rdflib import URIRef, BNode, Literal
 from rdflib.namespace import CSVW, DC, DCAT, DCTERMS, DOAP, FOAF, ODRL2, ORG, OWL, \
                            PROF, PROV, RDF, RDFS, SDO, SH, SKOS, SOSA, SSN, TIME, \

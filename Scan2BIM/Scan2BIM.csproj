@@ -112,6 +112,9 @@
     <Reference Include="Accord.Statistics, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
       <HintPath>..\packages\Accord.Statistics.3.8.0\lib\net462\Accord.Statistics.dll</HintPath>
     </Reference>
+    <Reference Include="AngleSharp, Version=0.16.1.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.16.1\lib\net472\AngleSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Crc32C.NET">
       <HintPath>..\..\Segmentation\Volvox\Crc32C.NET.dll</HintPath>
     </Reference>
@@ -147,6 +150,9 @@
     </Reference>
     <Reference Include="Grasshopper, Version=7.6.21127.19000, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
       <HintPath>..\packages\Grasshopper.7.6.21127.19001\lib\net48\Grasshopper.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.39.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.39\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="IronPython, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
       <HintPath>..\packages\IronPython.2.7.11\lib\net45\IronPython.dll</HintPath>
@@ -210,6 +216,9 @@
     <Reference Include="Python.Runtime, Version=2.5.2.0, Culture=neutral, processorArchitecture=AMD64">
       <HintPath>..\packages\pythonnet_netstandard_py37_win.2.5.2\lib\netstandard2.0\Python.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="RDFSharp, Version=2.26.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RDFSharp.2.26.0\lib\netstandard2.0\RDFSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Rhino.UI, Version=7.6.21127.19000, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
       <HintPath>..\packages\RhinoCommon.7.6.21127.19001\lib\net48\Rhino.UI.dll</HintPath>
     </Reference>
@@ -231,6 +240,7 @@
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -241,10 +251,13 @@
     <Reference Include="System.Reflection.Metadata, Version=1.4.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Reflection.Metadata.1.8.0\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
     <Reference Include="System.Text.Encodings.Web, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encodings.Web.4.7.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
@@ -284,14 +297,14 @@
     <Compile Include="0.Components\0.Utility\CreateTransformationMatrix.cs" />
     <Compile Include="0.Components\0.Utility\DecomposeTransformationMatrix.cs" />
     <Compile Include="0.Components\0.Utility\FitPlanarSurfaces.cs" />
-    <Compile Include="0.Components\0.Utility\ExportPointCloud.cs" />
-    <Compile Include="0.Components\0.Utility\ExportMesh.cs" />
+    <Compile Include="0.Components\5.Linked Data\ExportPointCloud.cs" />
+    <Compile Include="0.Components\5.Linked Data\ExportMesh.cs" />
     <Compile Include="0.Components\0.Utility\MaterialNames.cs" />
     <Compile Include="0.Components\0.Utility\FitPlaneToMesh.cs" />
     <Compile Include="0.Components\0.Utility\ComputePrincipalComponents.cs" />
     <Compile Include="0.Components\0.Utility\SampleMesh.cs" />
     <Compile Include="0.Components\0.Utility\RegisterPointClouds.cs" />
-    <Compile Include="0.Components\0.Utility\ImportPointCloud.cs" />
+    <Compile Include="0.Components\5.Linked Data\ImportPointCloud.cs" />
     <Compile Include="0.Components\0.Utility\SamplePointCloud.cs" />
     <Compile Include="0.Components\0.Utility\SplitVectors.cs" />
     <Compile Include="0.Components\1.Segmentation\SplitPointCloudVectors.cs" />
@@ -303,12 +316,15 @@
     <Compile Include="0.Components\3.Clustering\53_Cluster_Nodefeature_Wallthickness2.cs" />
     <Compile Include="0.Components\3.Clustering\52_Cluster_Nodefeature_Wallthickness.cs" />
     <Compile Include="0.Components\4.Reconstruction\40_walllinefit.cs" />
+    <Compile Include="0.Components\5.Linked Data\ImportRDF.cs" />
+    <Compile Include="0.Components\5.Linked Data\ExportRDF.cs" />
     <Compile Include="0.Components\6.Topology\60_delete_branch_occurences.cs" />
     <Compile Include="2.Types\GH_Convert_Extensions.cs" />
     <Compile Include="2.Types\GH_PointCloud.cs" />
     <Compile Include="1.Parameters\GH_PointCloudParam.cs" />
     <Compile Include="2.Types\PyConverter.cs" />
     <Compile Include="2.Types\PyConverters.cs" />
+    <Compile Include="3.Algortihms\LinkedDataTools.cs" />
     <Compile Include="3.Algortihms\SpatialTools.cs" />
     <Compile Include="3.Algortihms\SpatialTools_CloudCompare.cs" />
     <Compile Include="3.Algortihms\SpatialTools_IronPython.cs" />
@@ -326,9 +342,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="0.Components\5.Linked Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

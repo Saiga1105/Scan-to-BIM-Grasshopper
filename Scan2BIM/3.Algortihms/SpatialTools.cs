@@ -44,6 +44,8 @@ using E57LibCommon; //http://www.libe57.org/#:~:text=The%20E57%20file%20format%2
 using E57LibReader;
 using E57LibWriter;
 
+using RDFSharp; // https://github.com/mdesalvo/RDFSharp
+
 //using g3;// https://github.com/gradientspace/geometry3Sharp
 //using gs;
 
@@ -153,7 +155,7 @@ namespace Scan2BIM
             }
             return vectors;
         }
-
+       
         /// <summary>
         /// Convert IEnumerable<Accord.Math.Vector3>  to rhinocommon List<Vector3d>
         /// </summary>

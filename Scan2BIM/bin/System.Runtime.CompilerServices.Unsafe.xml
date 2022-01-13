@@ -157,6 +157,13 @@
       <returns>
         <see langword="true" /> if <paramref name="left" /> is less than <paramref name="right" />; otherwise, <see langword="false" />.</returns>
     </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.IsNullRef``1(``0@)">
+      <param name="source" />
+      <typeparam name="T" />
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.NullRef``1">
+      <typeparam name="T" />
+    </member>
     <member name="M:System.Runtime.CompilerServices.Unsafe.Read``1(System.Void*)">
       <summary>Reads a value of type <typeparamref name="T" /> from the given location.</summary>
       <param name="source">The location to read from.</param>
@@ -179,6 +186,11 @@
       <summary>Returns the size of an object of the given type parameter.</summary>
       <typeparam name="T">The type of object whose size is retrieved.</typeparam>
       <returns>The size of an object of type <typeparamref name="T" />.</returns>
+    </member>
+    <member name="M:System.Runtime.CompilerServices.Unsafe.SkipInit``1(``0@)">
+      <summary>Bypasses definite assignment rules for a given value.</summary>
+      <param name="value">The uninitialized object.</param>
+      <typeparam name="T">The type of the uninitialized object.</typeparam>
     </member>
     <member name="M:System.Runtime.CompilerServices.Unsafe.Subtract``1(``0@,System.Int32)">
       <summary>Subtracts an element offset from the given reference.</summary>
@@ -212,15 +224,17 @@
       <summary>Returns a <see langword="mutable ref" /> to a boxed value.</summary>
       <param name="box">The value to unbox.</param>
       <typeparam name="T">The type to be unboxed.</typeparam>
-      <returns>A <see langword="mutable ref" /> to the boxed value <paramref name="box" />.</returns>
       <exception cref="T:System.NullReferenceException">
         <paramref name="box" /> is <see langword="null" />, and <typeparamref name="T" /> is a non-nullable value type.</exception>
       <exception cref="T:System.InvalidCastException">
         <paramref name="box" /> is not a boxed value type.
+         
 -or-
+
 <paramref name="box" /> is not a boxed <typeparamref name="T" />.</exception>
       <exception cref="T:System.TypeLoadException">
         <typeparamref name="T" /> cannot be found.</exception>
+      <returns>A <see langword="mutable ref" /> to the boxed value <paramref name="box" />.</returns>
     </member>
     <member name="M:System.Runtime.CompilerServices.Unsafe.Write``1(System.Void*,``0)">
       <summary>Writes a value of type <typeparamref name="T" /> to the given location.</summary>

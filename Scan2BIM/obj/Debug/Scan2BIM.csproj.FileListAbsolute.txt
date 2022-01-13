@@ -287,3 +287,13 @@ D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.cs
 D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.csproj.CopyComplete
 D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.dll
 D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.pdb
+D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\AngleSharp.dll
+D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\HtmlAgilityPack.dll
+D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\RDFSharp.dll
+D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\System.Text.Encoding.CodePages.dll
+D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\AngleSharp.xml
+D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\HtmlAgilityPack.pdb
+D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\HtmlAgilityPack.xml
+D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\RDFSharp.xml
+D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\bin\System.Text.Encoding.CodePages.xml
+D:\Scan-to-BIM repository\Scan-to-BIM-Grasshopper\Scan2BIM\obj\Debug\Scan2BIM.csproj.AssemblyReference.cache

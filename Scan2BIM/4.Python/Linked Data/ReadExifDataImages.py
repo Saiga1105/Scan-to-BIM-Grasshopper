@@ -8,6 +8,8 @@ from PIL.ExifTags import TAGS, GPSTAGS
 from pathlib import Path
 
 import rdflib
+from rdflib import Graph, plugin
+from rdflib.serializer import Serializer #pip install rdflib-jsonld https://pypi.org/project/rdflib-jsonld/
 from rdflib import Graph
 from rdflib import URIRef, BNode, Literal
 from rdflib.namespace import CSVW, DC, DCAT, DCTERMS, DOAP, FOAF, ODRL2, ORG, OWL, \
@@ -185,6 +187,18 @@ class Worker(object):
         # bind additional ontologies that aren't in rdflib
         exif = rdflib.Namespace('http://www.w3.org/2003/12/exif/ns')
         g.bind('exif', exif)
+        geo=rdflib.Namespace('http://www.opengis.net/ont/geosparql#') #coordinate system information
+        g.bind('geo', geo)
+        gom=rdflib.Namespace('https://w3id.org/gom#') # geometry representations => this is from mathias
+        g.bind('gom', gom)
+        omg=rdflib.Namespace('https://w3id.org/omg#') # geometry relations
+        g.bind('omg', omg)
+        fog=rdflib.Namespace('https://w3id.org/fog#')
+        g.bind('fog', fog)
+        ## wkt? 
+        # opgc?
+        # 31370=PROJCS["Belge 1972 / Belgian Lambert 72",GEOGCS["Belge 1972",DATUM["Reseau_National_Belge_1972",SPHEROID["International 1924",6378388,297,AUTHORITY["EPSG","7022"]],TOWGS84[-106.869,52.2978,-103.724,0.3366,-0.457,1.8422,-1.2747],AUTHORITY["EPSG","6313"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4313"]],PROJECTION["Lambert_Conformal_Conic_2SP"],PARAMETER["standard_parallel_1",51.16666723333333],PARAMETER["standard_parallel_2",49.8333339],PARAMETER["latitude_of_origin",90],PARAMETER["central_meridian",4.367486666666666],PARAMETER["false_easting",150000.013],PARAMETER["false_northing",5400088.438],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["X",EAST],AXIS["Y",NORTH],AUTHORITY["EPSG","31370"]]
+
 
         # add entry per imagename
         temp = imagename.split('\\')
@@ -220,6 +234,8 @@ class Worker(object):
             g.add((imageRDF,exif.gpsLongitudeRef, Literal(self.get_if_exist(gps_info, "GPSLongitudeRef"))))
             g.add((imageRDF,exif.gpsAltitude, Literal(self.get_if_exist(gps_info, "GPSAltitude"))))
             g.add((imageRDF,exif.gpsAltitudeRef, Literal(self.get_if_exist(gps_info, "GPSAltitudeRef"))))
+            g.add((imageRDF,geo.lat, Literal(self.get_if_exist(gps_info, "GPSLatitude"))))
+            g.add((imageRDF,geo.long, Literal(self.get_if_exist(gps_info, "GPSLongitude"))))
         # 'exif:gpsVersionID'
         # 'exif:gpsLatitudeRef'
         # 'exif:gpsLatitude'
@@ -231,6 +247,7 @@ class Worker(object):
         # 'exif:resolutionUnit'
         # 'exif:exif_IFD_Pointer' #everything about camera
         # 'exif:IFD'
+
         return g
 
 
@@ -239,20 +256,21 @@ class Worker(object):
 if __name__ == '__main__':
     try:
         #enter a folder as 1st argument
-        folder_path=Path(sys.argv[1])
-        # folder_path=Path('K:\\Projects\\2021-03 Project FWO SB Heinder\\7.Data\\2021-09 Testcase code\\Raw Data\\100_0001\\photos\\')
+        #folder_path=Path(sys.argv[1])
+        folder_path=Path('D:\\Data\\2018-06 Werfopvolging Academiestraat Gent\\week 22\\RGB_test\\')
 
         #enter an output name as second argument (default is imageGraph)
         # output_path=sys.argv[2]
 
         #example
-        # python ReadExifDatatest1 K:\Projects\2021-03 Project FWO SB Heinder\7.Data\2021-09 Testcase code\Raw Data\100_0001\photos ImageGraph
+        #python ReadExifDataImages 'D:\Data\2018-06 Werfopvolging Academiestraat Gent\week 22\IMG_RGB'
 
         # 
         #retrieve all jpg files from the folder
         file_to_open = folder_path / '*.jpg'
         jpgFilenamesList = glob.glob(str(file_to_open)) #this works
         destinationfile = os.path.join(folder_path, "imageGraph.ttl")
+        destinationfile2 = os.path.join(folder_path, "imageGraph2.jsonld")
 
         #initialize graph
         g = Graph()
@@ -278,7 +296,16 @@ if __name__ == '__main__':
 
         #Export graph
         #Format support can be extended with plugins, but “xml”, “n3”, “turtle”, “nt”, “pretty-xml”, “trix”, “trig” and “nquads” are built in.
-        g.serialize(destination=destinationfile, format='ttl')
+        #g.serialize(destination=destinationfile, format='ttl')
+
+        context = {"rdf": 'http://www.w3.org/1999/02/22-rdf-syntax-ns', 
+                    "rdfs": 'http://www.w3.org/2000/01/rdf-schema',
+                    "foaf": 'http://xmlns.com/foaf/0.1',
+                    "owl" : 'http://www.w3.org/2002/07/owl',
+                    "xsd" : 'http://www.w3.org/2001/XMLSchema',
+                    "exif" : "http://www.w3.org/2003/12/exif/ns"} 
+
+        g.serialize(destination=destinationfile2, context=context, format='json-ld', indent=3) 
 
     except Exception as e:
         print(e)
