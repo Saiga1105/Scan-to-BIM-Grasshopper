@@ -247,6 +247,7 @@ class Worker(object):
         # 'exif:resolutionUnit'
         # 'exif:exif_IFD_Pointer' #everything about camera
         # 'exif:IFD'
+        # http://www.opengis.net/def/crs/OGC/1.3/CRS84
 
         return g
 

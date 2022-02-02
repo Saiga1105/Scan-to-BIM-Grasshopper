@@ -34,7 +34,7 @@ namespace Scan2BIM
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddIntegerParameter("X", "X", "Indices of vectors assigned to X-axis", GH_ParamAccess.tree);
+            pManager.AddIntegerParameter("V", "V", "Sublists of indices of vectors assigned to X,Y and Z-axis respectively", GH_ParamAccess.tree);
         }
 
         /// <summary>
