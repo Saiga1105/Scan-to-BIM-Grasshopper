@@ -45,25 +45,31 @@ SUPPORTED_POINT_FIELDS = {
     "guid": "string",
     "session_name": "string",
     "timestamp": "string",
+    "sensor": "string",
     "Pose": "Pose(Translation(tx,ty,tz),Quaternion(qw,qx,qy,qz)",
     "GlobalPose": "GlobalPose(SphericalTranslation(lat,long,alt),Quaternion(qw,qx,qy,qz)",
-    "CartesianBounds": "CartesianBounds(x_min,x_max,y_min,y_max,z_min,z_max)",
-    "point_count": "int",
     "accuracy": "float",
+    "xResolution": "float",
+    "yResolution": "float",
+    "resolutionUnit": "float",
+    "image_width": "float",
+    "image_height": "float",
+    "focal_length": "float",
+    "principal_point_u": "float",
+    "principal_point_v": "float",
+    "distortion_coeficients": "float",
     "cartesian_transform": "Pose(Translation(tx,ty,tz),Quaternion(qw,qx,qy,qz)",
     "geospatial_transform": "GlobalPose(SphericalTranslation(lat,long,alt),Quaternion(qw,qx,qy,qz)",
     "coordinate_system": "string (Lambert72, Lambert2008, geospatial-wgs84, local)",
     "session_path": "string",
-    "e57_xml_path": "string",
-    "e57_path": "string",
-    "pcd_path": "string",
+    "xml_path": "string",
+    "xmp_path": "string",
+    "img_path": "string",
     "rdf_graph_path": "string",
     "images2d_path": "string",
-    "features3d_path": "string",
     "rdf_graph": "Graph (RDFLIB)",
-    "e57_xml_node": " E57 NODE (PYE57)",
-    "e57_index": "int (PYE57)",
-    "images2D": "ImageNode[] (IMAGENODE)",
+    "img": " # PIL image",
+    "features2d_path": "string",
 }
 
 class ImageNode:
@@ -75,7 +81,8 @@ class ImageNode:
         self.guid = None # (string) PointCloudNode guid
         self.session_name = None  # (string) session subject name
         self.timestamp = None  # (string) e.g. 2020-04-11 12:00:01
-
+        self.sensor = None # (string) P30, BLK, Hololens2, CANON (zie exif), etc.
+        
         #Geometry
         self.Pose = None # (structure) Translation(tx,ty,tz), Quaternion(qw,qx,qy,qz)
         self.GlobalPose=None # (structure) SphericalTranslation(lat,long,alt), Quaternion(qw,qx,qy,qz)
@@ -108,8 +115,8 @@ class ImageNode:
 
         #data
         self.img= None # PIL image
-        self.o3d_images = [] # (o3d.geometry.RGBDImage) # Open3D list of images
         self.features2d= None #o3d.registration.Feature() # http://www.open3d.org/docs/0.9.0/python_api/open3d.registration.Feature.html
+        self.o3d_image=None # Open3D image (might be OpenCV)
 
     def add_to_rdf_graph(self):
         g=Graph()
@@ -388,3 +395,114 @@ def get_if_exist(data, key):
     if key in data:
         return data[key]
     return None
+
+def literal_to_pose(literal: Literal):
+    temp=str(literal)
+    if 'None' not in temp:
+        temp=temp.strip('[]')        
+        res = list(map(float, temp.split(', ')))
+        pose=Pose
+        pose.Translation=Translation(tx=res[0],ty=res[1],tz=res[2])
+        pose.Quaternion=Quaternion(qw=res[3],qx=res[4],qy=res[5],qz=res[6])
+        return pose
+    else:
+        return None  
+
+def literal_to_global_pose(literal: Literal):
+    temp=str(literal)
+    if 'None' not in temp:
+        temp=temp.strip('[]')        
+        res = list(map(float, temp.split(', ')))
+        global_pose=GlobalPose
+        global_pose.SphericalTranslation=SphericalTranslation(lat=res[0],long=res[1],alt=res[2])
+        global_pose.Quaternion=Quaternion(qw=res[3],qx=res[4],qy=res[5],qz=res[6])
+        return global_pose 
+    else:
+        return None  
+
+def literal_to_array(literal: Literal):
+    temp=str(literal)
+    if 'None' not in temp:
+        temp=temp.strip('[]')
+        return list(map(float, temp.split(', ')))            
+    else:
+        return None  
+
+def literal_to_float(literal: Literal):
+    string=str(literal)
+    if 'None' in string:
+        return None
+    else:
+        return float(string)
+
+def literal_to_string(literal: Literal):
+    string=str(literal)
+    if 'None' in string:
+        return None
+    else:
+        return string
+
+def literal_to_int(literal: Literal):
+    string=str(literal)
+    if 'None' in string:
+        return None
+    else:
+        return int(string)
+
+def create_imagenode_from_rdf(session_graph : Graph, s : URIRef):
+    # create new node
+    imgnode=ImageNode    
+    # bind additional ontologies that aren't in rdflib
+    exif = rdflib.Namespace('http://www.w3.org/2003/12/exif/ns')
+    session_graph.bind('exif', exif)
+    geo=rdflib.Namespace('http://www.opengis.net/ont/geosparql#') #coordinate system information
+    session_graph.bind('geo', geo)
+    gom=rdflib.Namespace('https://w3id.org/gom#') # geometry representations => this is from mathias
+    session_graph.bind('gom', gom)
+    omg=rdflib.Namespace('https://w3id.org/omg#') # geometry relations
+    session_graph.bind('omg', omg)
+    fog=rdflib.Namespace('https://w3id.org/fog#')
+    session_graph.bind('fog', fog)
+    v4d=rdflib.Namespace('https://w3id.org/v4d/core#')
+    session_graph.bind('v4d3D', v4d)
+    v4d3D=rdflib.Namespace('https://w3id.org/v4d/3D#')
+    session_graph.bind('v4d3D', v4d3D)
+    openlabel=rdflib.Namespace('https://www.asam.net/index.php?eID=dumpFile&t=f&f=3876&token=413e8c85031ae64cc35cf42d0768627514868b2f')
+    session_graph.bind('openlabel', openlabel)
+    e57=rdflib.Namespace('http://libe57.org/')
+    session_graph.bind('e57', e57)
+    xcr=rdflib.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
+    session_graph.bind('xcr', xcr)
+
+    #instance attributes
+    imgnode.name = str(s).replace('http://','') # (string) ImageNode name 
+    imgnode.guid = literal_to_string(session_graph.value(subject=s,predicate=RDFS.label))  # (string) guid
+    imgnode.session_name = ld.get_filename(literal_to_string(session_graph.value(subject=s,predicate=v4d.session_path)))   # (string) session subject name
+    imgnode.timestamp = literal_to_string(session_graph.value(subject=s,predicate=openlabel.timestamp))  # (string) e.g. 2020-04-11 12:00:01
+
+    #Geometry                 
+    imgnode.Pose = literal_to_pose(session_graph.value(subject=s,predicate=openlabel.pose))  # (structure) Translation(tx,ty,tz), Quaternion(qw,qx,qy,qz)
+    imgnode.GlobalPose=literal_to_global_pose(session_graph.value(subject=s,predicate=openlabel.global_pose)) # (structure) lat,long,alt, Quaternion(qw,qx,qy,qz)
+    imgnode.accuracy = literal_to_float(session_graph.value(subject=s,predicate=v4d.accuracy)) # (Float) metric data accuracy e.g. 0.05m
+    imgnode.distortion_coeficients=literal_to_array(session_graph.value(subject=s,predicate=xcr.DistortionCoeficients))
+    imgnode.image_width = literal_to_float(session_graph.value(subject=s,predicate=exif.imageWidth)) # (Float) 
+    imgnode.image_height = literal_to_float(session_graph.value(subject=s,predicate=exif.imageLength)) # (Float) 
+    imgnode.xResolution = literal_to_float(session_graph.value(subject=s,predicate=exif.xResolution)) # (Float) 
+    imgnode.yResolution = literal_to_float(session_graph.value(subject=s,predicate=exif.yResolution)) # (Float) 
+    imgnode.resolutionUnit = literal_to_float(session_graph.value(subject=s,predicate=exif.resolutionUnit)) # (Float) 
+    imgnode.focal_length = literal_to_float(session_graph.value(subject=s,predicate=xcr.FocalLength35mm)) # (Float) 
+    imgnode.principal_point_u = literal_to_float(session_graph.value(subject=s,predicate=xcr.PrincipalPointU)) # (Float) 
+    imgnode.principal_point_v = literal_to_float(session_graph.value(subject=s,predicate=xcr.PrincipalPointV)) # (Float) 
+
+    #Coordinate system information
+    imgnode.cartesian_transform=literal_to_pose(session_graph.value(subject=s,predicate=openlabel.cartesian_transform)) # (offset)a 3D to 3D transform offering a change of origin, scale and rotation. Represented as a matrix and a quaternion.
+    imgnode.geospatial_transform=literal_to_global_pose(session_graph.value(subject=s,predicate=openlabel.geospatial_transform)) # (offset) a transform from a 3D Cartesian coordinate system into an ellipsoidal GNSS style coordinate system. E.g. from map-UTM to WGS84 latitude, longitude, altitude.
+    imgnode.coordinate_system = literal_to_string(session_graph.value(subject=s,predicate=gom.hasCoordinateSystem))# (string) coordinate system i.e. Lambert72, Lambert2008, geospatial-wgs84, local
+
+    #paths
+    imgnode.session_path = literal_to_string(session_graph.value(subject=s,predicate=v4d.session_path)) # (string)
+    imgnode.xml_path = literal_to_string(session_graph.value(subject=s,predicate=v4d.xml_path)) # (string)
+    imgnode.xmp_path = literal_to_string(session_graph.value(subject=s,predicate=v4d.xmp_path)) # (string)
+    imgnode.img_path = literal_to_string(session_graph.value(subject=s,predicate=v4d.img_path)) # (string)
+    imgnode.features2d_path= literal_to_string(session_graph.value(subject=s,predicate=v4d.features2d_path)) # (string)
+    return imgnode  

@@ -64,6 +64,7 @@ class PointCloudNode:
         self.guid = None # (string) PointCloudNode guid
         self.session_name = None  # (string) session subject name
         self.timestamp = None  # (string) e.g. 2020-04-11 12:00:01
+        self.sensor = None # (string) P30, BLK, Hololens2, CANON (zie exif), etc.
 
         #Geometry
         self.Pose = None # (structure) Translation(tx,ty,tz), Quaternion(qw,qx,qy,qz)
@@ -175,8 +176,7 @@ class PointCloudNode:
             
     def get_cuboid(self):
         if self.Pose is not None:
-            euler=s2b.euler_from_quaternion(self.Pose.Quaternion.qw,self.Pose.Quaternion.qx,self.Pose.Quaternion.qy,self.Pose.Quaternion.qz)
-            
+            euler=s2b.euler_from_quaternion(self.Pose.Quaternion.qw,self.Pose.Quaternion.qx,self.Pose.Quaternion.qy,self.Pose.Quaternion.qz)           
             return [self.Pose.Translation.tx,self.Pose.Translation.ty,self.Pose.Translation.tz,
                     euler[0],euler[1],euler[2],
                     self.CartesianBounds.xMaximum-self.CartesianBounds.xMinimum,self.CartesianBounds.yMaximum-self.CartesianBounds.yMinimum,self.CartesianBounds.zMaximum-self.CartesianBounds.zMinimum]
@@ -520,6 +520,26 @@ def literal_to_cartesian_bounds(literal: Literal):
     else:
         return None  
 
+def literal_to_float(literal: Literal):
+    string=str(literal)
+    if 'None' in string:
+        return None
+    else:
+        return float(string)
+
+def literal_to_string(literal: Literal):
+    string=str(literal)
+    if 'None' in string:
+        return None
+    else:
+        return string
+
+def literal_to_int(literal: Literal):
+    string=str(literal)
+    if 'None' in string:
+        return None
+    else:
+        return int(string)
 
 def create_pointcloudnode_from_rdf(session_graph : Graph, s : URIRef):
     # create new node
@@ -546,17 +566,16 @@ def create_pointcloudnode_from_rdf(session_graph : Graph, s : URIRef):
 
     #instance attributes
     pcdnode.name = str(s).replace('http://','') # (string) PointCloudNode name => these are instance attributes
-    pcdnode.guid = str(session_graph.value(subject=s,predicate=RDFS.label))  # (string) PointCloudNode guid
-    temp_name=str(session_graph.value(subject=s,predicate=v4d.session_path)).split("\ ")
-    pcdnode.session_name = temp_name[-1]   # (string) session subject name
-    pcdnode.timestamp = str(session_graph.value(subject=s,predicate=openlabel.timestamp))  # (string) e.g. 2020-04-11 12:00:01
+    pcdnode.guid = literal_to_string(session_graph.value(subject=s,predicate=RDFS.label))  # (string) PointCloudNode guid
+    pcdnode.session_name = ld.get_filename(literal_to_string(session_graph.value(subject=s,predicate=v4d.session_path)))   # (string) session subject name
+    pcdnode.timestamp = literal_to_string(session_graph.value(subject=s,predicate=openlabel.timestamp))  # (string) e.g. 2020-04-11 12:00:01
 
     #Geometry                 
     pcdnode.Pose = literal_to_pose(session_graph.value(subject=s,predicate=openlabel.pose))  # (structure) Translation(tx,ty,tz), Quaternion(qw,qx,qy,qz)
     pcdnode.GlobalPose=literal_to_global_pose(session_graph.value(subject=s,predicate=openlabel.global_pose)) # (structure) lat,long,alt, Quaternion(qw,qx,qy,qz)
     pcdnode.CartesianBounds=literal_to_cartesian_bounds(session_graph.value(subject=s,predicate=e57.cartesianBounds)) 
-    pcdnode.point_count = int(session_graph.value(subject=s,predicate=e57.recordCount)) # (int) number of points
-    pcdnode.accuracy = float(session_graph.value(subject=s,predicate=v4d.accuracy)) # (Float) metric data accuracy e.g. 0.05m
+    pcdnode.point_count = literal_to_int(session_graph.value(subject=s,predicate=e57.recordCount)) # (int) number of points
+    pcdnode.accuracy = literal_to_float(session_graph.value(subject=s,predicate=v4d.accuracy)) # (Float) metric data accuracy e.g. 0.05m
     
     #Coordinate system information
     pcdnode.cartesian_transform=literal_to_pose(session_graph.value(subject=s,predicate=openlabel.cartesian_transform)) # (offset)a 3D to 3D transform offering a change of origin, scale and rotation. Represented as a matrix and a quaternion.
@@ -564,11 +583,10 @@ def create_pointcloudnode_from_rdf(session_graph : Graph, s : URIRef):
     pcdnode.coordinate_system = str(session_graph.value(subject=s,predicate=gom.hasCoordinateSystem))# (string) coordinate system i.e. Lambert72, Lambert2008, geospatial-wgs84, local
 
     #paths
-    pcdnode.session_path = str(session_graph.value(subject=s,predicate=v4d.session_path)) # (string)
-    pcdnode.e57_xml_path = str(session_graph.value(subject=s,predicate=v4d.e57_xml_path)) # (string)
-    pcdnode.e57_path = str(session_graph.value(subject=s,predicate=v4d.e57_path)) # (string)
-    pcdnode.pcd_path = str(session_graph.value(subject=s,predicate=v4d.pcd_path)) # (string)
-    pcdnode.rdf_graph_path = str(session_graph.value(subject=s,predicate=gom.hasCoordinateSystem)) # (string)
-    pcdnode.images2d_path = str(session_graph.value(subject=s,predicate=v4d.images2d_path)) # (string)
-    pcdnode.features3d_path= str(session_graph.value(subject=s,predicate=v4d.features3d_path)) # (string)
+    pcdnode.session_path = literal_to_string(session_graph.value(subject=s,predicate=v4d.session_path)) # (string)
+    pcdnode.e57_xml_path = literal_to_string(session_graph.value(subject=s,predicate=v4d.e57_xml_path)) # (string)
+    pcdnode.e57_path = literal_to_string(session_graph.value(subject=s,predicate=v4d.e57_path)) # (string)
+    pcdnode.pcd_path = literal_to_string(session_graph.value(subject=s,predicate=v4d.pcd_path)) # (string)
+    pcdnode.images2d_path = literal_to_string(session_graph.value(subject=s,predicate=v4d.images2d_path)) # (string)
+    pcdnode.features3d_path= literal_to_string(session_graph.value(subject=s,predicate=v4d.features3d_path)) # (string)
     return pcdnode  
