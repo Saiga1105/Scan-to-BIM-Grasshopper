@@ -123,25 +123,25 @@ class PointCloudNode:
         cartesianBoundsnode=e57_xml_node.find('{http://www.astm.org/COMMIT/E57/2010-e57-v1.0}cartesianBounds') 
         if cartesianBoundsnode is not None:
             self.CartesianBounds=CartesianBounds()
-            self.CartesianBounds.xMinimum=float(cartesianBoundsnode[0].text)
-            self.CartesianBounds.xMaximum=float(cartesianBoundsnode[1].text)
-            self.CartesianBounds.yMinimum=float(cartesianBoundsnode[2].text)
-            self.CartesianBounds.yMaximum=float(cartesianBoundsnode[3].text)
-            self.CartesianBounds.zMinimum=float(cartesianBoundsnode[4].text)
-            self.CartesianBounds.zMaximum=float(cartesianBoundsnode[5].text)
+            self.CartesianBounds.xMinimum=xml_to_float(cartesianBoundsnode[0].text)
+            self.CartesianBounds.xMaximum=xml_to_float(cartesianBoundsnode[1].text)
+            self.CartesianBounds.yMinimum=xml_to_float(cartesianBoundsnode[2].text)
+            self.CartesianBounds.yMaximum=xml_to_float(cartesianBoundsnode[3].text)
+            self.CartesianBounds.zMinimum=xml_to_float(cartesianBoundsnode[4].text)
+            self.CartesianBounds.zMaximum=xml_to_float(cartesianBoundsnode[5].text)
         if posenode is not None:
             self.Pose=Pose()    
             rotationnode=posenode.find('{http://www.astm.org/COMMIT/E57/2010-e57-v1.0}rotation')
             if rotationnode is not None:  
-                self.Pose.Quaternion.qw=float(rotationnode[0].text)
-                self.Pose.Quaternion.qx=float(rotationnode[1].text)
-                self.Pose.Quaternion.qy=float(rotationnode[2].text)
-                self.Pose.Quaternion.qz=float(rotationnode[3].text)
+                self.Pose.Quaternion.qw=xml_to_float(rotationnode[0].text)
+                self.Pose.Quaternion.qx=xml_to_float(rotationnode[1].text)
+                self.Pose.Quaternion.qy=xml_to_float(rotationnode[2].text)
+                self.Pose.Quaternion.qz=xml_to_float(rotationnode[3].text)
             translationnode=posenode.find('{http://www.astm.org/COMMIT/E57/2010-e57-v1.0}translation')
-            if translationnode is not None:
-                self.Pose.Translation.tx=float(translationnode[0].text)
-                self.Pose.Translation.ty=float(translationnode[1].text)
-                self.Pose.Translation.tz=float(translationnode[2].text)
+            if translationnode is not None: 
+                self.Pose.Translation.tx=xml_to_float(translationnode[0].text)
+                self.Pose.Translation.ty=xml_to_float(translationnode[1].text)
+                self.Pose.Translation.tz=xml_to_float(translationnode[2].text)
         elif cartesianBoundsnode is not None:
             self.Pose=Pose() 
             self.set_pose_from_cartesianbounds()
@@ -192,14 +192,15 @@ class PointCloudNode:
     def get_pose(self):
         if self.Pose is not None:
             return [self.Pose.Translation.tx,self.Pose.Translation.ty,self.Pose.Translation.tz,
-                self.Pose.Quaternion.qw,self.Pose.Quaternion.qx,self.Pose.Quaternion.qy,self.Pose.Quaternion.qz]
+                    self.Pose.Quaternion.qw,self.Pose.Quaternion.qx,self.Pose.Quaternion.qy,self.Pose.Quaternion.qz]
         else:
             return None
             
     def get_global_pose(self):
-        if self.GlobalPose.SphericalTranslation.lat is not None:
-            return [self.GlobalPose.SphericalTranslation.lat,self.GlobalPose.SphericalTranslation.long,self.GlobalPose.SphericalTranslation.alt,
-                    self.GlobalPose.Quaternion.qw,self.GlobalPose.Quaternion.qx,self.GlobalPose.Quaternion.qy,self.GlobalPose.Quaternion.qz]
+        if self.GlobalPose is not None:
+            if self.GlobalPose.SphericalTranslation.lat is not None:
+                return [self.GlobalPose.SphericalTranslation.lat,self.GlobalPose.SphericalTranslation.long,self.GlobalPose.SphericalTranslation.alt,
+                        self.GlobalPose.Quaternion.qw,self.GlobalPose.Quaternion.qx,self.GlobalPose.Quaternion.qy,self.GlobalPose.Quaternion.qz]
         else:
             return None
 
@@ -540,6 +541,12 @@ def literal_to_int(literal: Literal):
         return None
     else:
         return int(string)
+
+def xml_to_float(xml):
+    if xml is None:
+        return None
+    else:
+        return float(xml)
 
 def create_pointcloudnode_from_rdf(session_graph : Graph, s : URIRef):
     # create new node
